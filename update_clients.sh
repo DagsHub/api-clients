@@ -9,6 +9,7 @@ java -jar swagger-codegen-cli.jar generate \
 -l python \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o Python
 
@@ -18,6 +19,7 @@ java -jar swagger-codegen-cli.jar generate \
 -l r \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o R
 
@@ -27,6 +29,7 @@ java -jar swagger-codegen-cli.jar generate \
 -l java \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o java
 
@@ -36,6 +39,7 @@ java -jar swagger-codegen-cli.jar generate \
 -l csharp \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o C#
 
@@ -45,6 +49,7 @@ java -jar swagger-codegen-cli.jar generate \
 -l go \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o Go
 
@@ -54,5 +59,6 @@ java -jar swagger-codegen-cli.jar generate \
 -l javascript \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
+-DpackageName=dagshub-api \
 -c config.json \
 -o javascript
