@@ -1,64 +1,26 @@
 # Download current stable 3.x.x branch (OpenAPI version 3)
 if [ ! -f swagger-codegen-cli.jar ]; then wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.35/swagger-codegen-cli-3.0.35.jar -O swagger-codegen-cli.jar; fi
 
-rm -rf Python R java C# Go javascript
+spec_url=https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml
+git_user="DagsHub"
+git_repo="api-clients"
+package_name=dagshub-api
+config_file=config.json
 
-# Python client
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l python \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o Python
+# language name, understandable by swagger-codegen
+languages=(python r java csharp go javascript swift5 scala kotlin-client typescript-axios)
 
-# R client
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l r \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o R
+# output folder name, must be in the same order as the language list above 👆
+output_names=(Python R Java C# Go JavaScript Swift Scala Kotlin TypeScript)
 
-# Java client
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l java \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o java
-
-# C# client
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l csharp \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o C#
-
-# Go client
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l go \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o Go
-
-# JavaScript codegen
-java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
--l javascript \
---git-user-id "DagsHub" \
---git-repo-id "api-clients" \
--DpackageName=dagshub-api \
--c config.json \
--o javascript
+for i in "${!languages[@]}"; do
+	rm -rf ${output_names[i]}
+	java -jar swagger-codegen-cli.jar generate \
+	-i $spec_url \
+	-l ${languages[i]} \
+	--git-user-id $git_user \
+	--git-repo-id $git_repo \
+	-DpackageName=$package_name \
+	-c $config_file \
+	-o ${output_names[i]}
+done
