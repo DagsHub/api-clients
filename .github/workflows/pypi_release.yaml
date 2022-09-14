@@ -23,7 +23,7 @@ jobs:
       run: echo ::set-output name=TAG_NAME::$(echo $GITHUB_REF | cut -d / -f 3)
     - name: Build a binary wheel
       run: >-
-        python setup.py sdist bdist_wheel
+        cd Python && python setup.py sdist bdist_wheel
     - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
