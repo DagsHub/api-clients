@@ -5,7 +5,7 @@ rm -rf Python R java C# Go javascript
 
 # Python client
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l python \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
@@ -15,7 +15,7 @@ java -jar swagger-codegen-cli.jar generate \
 
 # R client
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l r \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
@@ -25,7 +25,7 @@ java -jar swagger-codegen-cli.jar generate \
 
 # Java client
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l java \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
@@ -35,7 +35,7 @@ java -jar swagger-codegen-cli.jar generate \
 
 # C# client
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l csharp \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
@@ -45,7 +45,7 @@ java -jar swagger-codegen-cli.jar generate \
 
 # Go client
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l go \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
@@ -55,7 +55,7 @@ java -jar swagger-codegen-cli.jar generate \
 
 # JavaScript codegen
 java -jar swagger-codegen-cli.jar generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/theme/openapi/spec.yaml \
 -l javascript \
 --git-user-id "DagsHub" \
 --git-repo-id "api-clients" \
