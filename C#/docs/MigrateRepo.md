@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MigrateRepo
+# dagshub-api.Model.MigrateRepo
 ## Properties
 
 Name | Type | Description | Notes

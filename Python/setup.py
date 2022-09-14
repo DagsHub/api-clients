@@ -3,7 +3,7 @@
 """
     DagsHub API
 
-    This API is used to interact with DagsHub.   # noqa: E501
+    The api docs are made with SwaggerUI using the OpenAPI 3 specification.   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
@@ -12,7 +12,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "swagger-client"
+NAME = "dagshub-api"
 VERSION = "1.0.0"
 # To install the library, run the following
 #
@@ -34,6 +34,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    This API is used to interact with DagsHub.   # noqa: E501
+    The api docs are made with SwaggerUI using the OpenAPI 3 specification.   # noqa: E501
     """
 )

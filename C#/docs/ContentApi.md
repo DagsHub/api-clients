@@ -1,13 +1,11 @@
-# IO.Swagger.dagshub_api.ContentApi
+# dagshub-api.dagshub_api.ContentApi
 
-All URIs are relative to *http://localhost:3000/api/v1/*
+All URIs are relative to *http://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetArchive**](ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
-[**GetContent**](ContentApi.md#getcontent) | **GET** /repos/{owner}/{repo}/content/{branch}/{treePath} | Get data from a folder in repository
 [**GetRaw**](ContentApi.md#getraw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
-[**UploadContent**](ContentApi.md#uploadcontent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{treePath} | Upload data to a repository
 
 <a name="getarchive"></a>
 # **GetArchive**
@@ -21,9 +19,9 @@ This method returns archive by given format.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -82,80 +80,6 @@ void (empty response body)
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="getcontent"></a>
-# **GetContent**
-> Files GetContent (string owner, string repo, string branch, string treePath, bool? includeSize = null)
-
-Get data from a folder in repository
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class GetContentExample
-    {
-        public void main()
-        {
-            // Configure HTTP basic authorization: basicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
-            // Configure API key authorization: tokenAuth
-            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
-
-            var apiInstance = new ContentApi();
-            var owner = owner_example;  // string | owner of the repository
-            var repo = repo_example;  // string | name of the repository
-            var branch = branch_example;  // string | branch of the repository
-            var treePath = treePath_example;  // string | path of a folter in the repository
-            var includeSize = true;  // bool? |  (optional)  (default to false)
-
-            try
-            {
-                // Get data from a folder in repository
-                Files result = apiInstance.GetContent(owner, repo, branch, treePath, includeSize);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ContentApi.GetContent: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **string**| owner of the repository | 
- **repo** | **string**| name of the repository | 
- **branch** | **string**| branch of the repository | 
- **treePath** | **string**| path of a folter in the repository | 
- **includeSize** | **bool?**|  | [optional] [default to false]
-
-### Return type
-
-[**Files**](Files.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="getraw"></a>
 # **GetRaw**
 > void GetRaw (string username, string repo, string _ref, string path)
@@ -168,9 +92,9 @@ This method returns the raw content of a file.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -227,93 +151,5 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="uploadcontent"></a>
-# **UploadContent**
-> Object UploadContent (string owner, string repo, string branch, string treePath, string commitSummary = null, string commitMessage = null, string commitChoice = null, string lastCommit = null, string newBranchName = null, string versioning = null, List<Object> files = null)
-
-Upload data to a repository
-
-last_commit - If the tip of the branch differs on the server at the moment of processing the request, the request is denied.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class UploadContentExample
-    {
-        public void main()
-        {
-            // Configure HTTP basic authorization: basicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
-            // Configure API key authorization: tokenAuth
-            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
-
-            var apiInstance = new ContentApi();
-            var owner = owner_example;  // string | owner of the repository
-            var repo = repo_example;  // string | name of the repository
-            var branch = branch_example;  // string | branch of the repository
-            var treePath = treePath_example;  // string | path of a folter in the repository
-            var commitSummary = commitSummary_example;  // string |  (optional) 
-            var commitMessage = commitMessage_example;  // string |  (optional) 
-            var commitChoice = commitChoice_example;  // string |  (optional) 
-            var lastCommit = lastCommit_example;  // string |  (optional) 
-            var newBranchName = newBranchName_example;  // string |  (optional) 
-            var versioning = versioning_example;  // string |  (optional) 
-            var files = new List<Object>(); // List<Object> |  (optional) 
-
-            try
-            {
-                // Upload data to a repository
-                Object result = apiInstance.UploadContent(owner, repo, branch, treePath, commitSummary, commitMessage, commitChoice, lastCommit, newBranchName, versioning, files);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ContentApi.UploadContent: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **string**| owner of the repository | 
- **repo** | **string**| name of the repository | 
- **branch** | **string**| branch of the repository | 
- **treePath** | **string**| path of a folter in the repository | 
- **commitSummary** | **string**|  | [optional] 
- **commitMessage** | **string**|  | [optional] 
- **commitChoice** | **string**|  | [optional] 
- **lastCommit** | **string**|  | [optional] 
- **newBranchName** | **string**|  | [optional] 
- **versioning** | **string**|  | [optional] 
- **files** | [**List&lt;Object&gt;**](Object.md)|  | [optional] 
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

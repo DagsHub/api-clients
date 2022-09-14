@@ -1,4 +1,4 @@
-# IO.Swagger.Model.CollaboratorsCollaboratorBody
+# dagshub-api.Model.CollaboratorsCollaboratorBody
 ## Properties
 
 Name | Type | Description | Notes

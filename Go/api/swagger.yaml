@@ -2,140 +2,14 @@ openapi: 3.0.3
 info:
   title: DagsHub API
   description: |
-    This API is used to interact with DagsHub.
-  termsOfService: http://swagger.io/terms/
+    The api docs are made with SwaggerUI using the OpenAPI 3 specification.
   version: 1.0.0
 servers:
-- url: http://localhost:3000/api/v1/
-  description: Development server
 - url: http://dagshub.com/api/v1/
-  description: Production server
-- url: http://data-preview.dagops.dagshub.com/api/v1
-  description: Staging server
-- url: http://test.dagshub.com/api/v1
-  description: Test server
 security:
 - basicAuth: []
 - tokenAuth: []
 paths:
-  /repos/{owner}/{repo}/content/{branch}/{treePath}:
-    get:
-      tags:
-      - Content
-      summary: Get data from a folder in repository
-      description: ""
-      operationId: getContent
-      parameters:
-      - name: owner
-        in: path
-        description: owner of the repository
-        required: true
-        schema:
-          type: string
-        example: DAGsHub-Official
-      - name: repo
-        in: path
-        description: name of the repository
-        required: true
-        schema:
-          type: string
-        example: dagshub-docs
-      - name: branch
-        in: path
-        description: branch of the repository
-        required: true
-        schema:
-          type: string
-      - name: treePath
-        in: path
-        description: path of a folter in the repository
-        required: true
-        schema:
-          type: string
-      - name: include_size
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: boolean
-          default: false
-      responses:
-        "200":
-          description: Successfully retrived the data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Files'
-              example:
-              - path: images/000.png
-                type: file
-                size: 0
-                hash: 79fb7f8632d7e15b3b46a7411d08bcdd
-                versioning: dvc
-              - path: images/013.png
-                type: file
-                size: 0
-                hash: e1f7d72695c122ef88fddf57d6ccd306
-                versioning: dvc
-              - path: images/026.png
-                type: file
-                size: 0
-                hash: e7c01e50c1ef8f960ae65c9c2af8f5d9
-                versioning: dvc
-              - path: images/027.png
-                type: file
-                size: 0
-                hash: 2688c683b2fc2e05800628cee75fa6eb
-                versioning: dvc
-        "404":
-          description: Non existing path
-    put:
-      tags:
-      - Content
-      summary: Upload data to a repository
-      description: "last_commit - If the tip of the branch differs on the server at\
-        \ the moment of processing the request, the request is denied."
-      operationId: uploadContent
-      parameters:
-      - name: owner
-        in: path
-        description: owner of the repository
-        required: true
-        schema:
-          type: string
-        example: DAGsHub-Official
-      - name: repo
-        in: path
-        description: name of the repository
-        required: true
-        schema:
-          type: string
-        example: dagshub-docs
-      - name: branch
-        in: path
-        description: branch of the repository
-        required: true
-        schema:
-          type: string
-      - name: treePath
-        in: path
-        description: path of a folter in the repository
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PutFile'
-      responses:
-        "200":
-          description: Successfully uploaded content
-          content:
-            application/json:
-              schema:
-                x-content-type: application/json
   /repos/{owner}/{repo}/issues:
     get:
       tags:
@@ -1076,47 +950,6 @@ paths:
                 created_at: 2015-08-29T11:31:22+08:00
 components:
   schemas:
-    Files:
-      type: array
-      items:
-        $ref: '#/components/schemas/File'
-      x-schema-name: Files
-    PutFile:
-      required:
-      - commit_message
-      type: object
-      properties:
-        commit_summary:
-          type: string
-          example: '...'
-        commit_message:
-          type: string
-          example: '...'
-        commit_choice:
-          type: string
-          example: direct
-          enum:
-          - direct
-          - commit-to-new-branch
-        last_commit:
-          type: string
-          description: if omitted only new files will be accepted
-          example: 79fb7f8632d7e15b3b46a7411d08bcdd
-        new_branch_name:
-          type: string
-          example: new-branch
-        versioning:
-          type: string
-          example: dvc
-          enum:
-          - dvc
-          - git
-        files:
-          type: array
-          items:
-            type: object
-            example:
-              file1: new content
     Issues:
       type: array
       items:
@@ -1353,34 +1186,6 @@ components:
       default:
       - push
       x-schema-name: WebhookEvents
-    File:
-      type: object
-      properties:
-        path:
-          type: string
-          example: images/000.png
-        type:
-          type: string
-          example: file
-        size:
-          type: integer
-          format: int64
-          example: 421
-        hash:
-          type: string
-          example: 79fb7f8632d7e15b3b46a7411d08bcdd
-        versioning:
-          type: string
-          example: dvc
-        download_url:
-          type: string
-      example:
-        path: images/000.png
-        versioning: dvc
-        size: 421
-        download_url: download_url
-        type: file
-        hash: 79fb7f8632d7e15b3b46a7411d08bcdd
     Title:
       type: string
       description: The title of the issue
@@ -1531,20 +1336,6 @@ components:
       schema:
         type: string
       example: dagshub-docs
-    Branch:
-      name: branch
-      in: path
-      description: branch of the repository
-      required: true
-      schema:
-        type: string
-    TreePath:
-      name: treePath
-      in: path
-      description: path of a folter in the repository
-      required: true
-      schema:
-        type: string
     Index:
       name: index
       in: path
@@ -1576,6 +1367,13 @@ components:
       schema:
         type: string
         example: master
+    Branch:
+      name: branch
+      in: path
+      description: branch of the repository
+      required: true
+      schema:
+        type: string
     Collaborator:
       name: collaborator
       in: path
@@ -1595,7 +1393,7 @@ components:
     basicAuth:
       type: http
       description: |
-        Use your DagsHub username and password.
+        Use your DagsHub username and password/access token.
       scheme: basic
     tokenAuth:
       type: apiKey

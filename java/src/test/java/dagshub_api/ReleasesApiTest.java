@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  * 

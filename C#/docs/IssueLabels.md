@@ -1,4 +1,4 @@
-# IO.Swagger.Model.IssueLabels
+# dagshub-api.Model.IssueLabels
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.RepoHooksBody
+# dagshub-api.Model.RepoHooksBody
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -32,9 +32,9 @@ export class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost:3000/api/v1/
+         * @default http://dagshub.com/api/v1/
          */
-        this.basePath = 'http://localhost:3000/api/v1/'.replace(/\/+$/, '');
+        this.basePath = 'http://dagshub.com/api/v1/'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.

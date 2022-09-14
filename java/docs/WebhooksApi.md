@@ -1,6 +1,6 @@
 # WebhooksApi
 
-All URIs are relative to *http://localhost:3000/api/v1/*
+All URIs are relative to *http://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

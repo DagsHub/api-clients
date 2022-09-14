@@ -1,4 +1,4 @@
-# IO.Swagger.Model.PostIssue
+# dagshub-api.Model.PostIssue
 ## Properties
 
 Name | Type | Description | Notes

@@ -3,7 +3,7 @@
 """
     DagsHub API
 
-    This API is used to interact with DagsHub.   # noqa: E501
+    The api docs are made with SwaggerUI using the OpenAPI 3 specification.   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.dagshub_api.content_api import ContentApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dagshub-api
+from dagshub-api.dagshub_api.content_api import ContentApi  # noqa: E501
+from dagshub-api.rest import ApiException
 
 
 class TestContentApi(unittest.TestCase):
@@ -35,24 +35,10 @@ class TestContentApi(unittest.TestCase):
         """
         pass
 
-    def test_get_content(self):
-        """Test case for get_content
-
-        Get data from a folder in repository  # noqa: E501
-        """
-        pass
-
     def test_get_raw(self):
         """Test case for get_raw
 
         Download raw content  # noqa: E501
-        """
-        pass
-
-    def test_upload_content(self):
-        """Test case for upload_content
-
-        Upload data to a repository  # noqa: E501
         """
         pass
 

@@ -1,6 +1,6 @@
-# IO.Swagger.dagshub_api.CommitsApi
+# dagshub-api.dagshub_api.CommitsApi
 
-All URIs are relative to *http://localhost:3000/api/v1/*
+All URIs are relative to *http://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,9 +17,9 @@ Get a single commit
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -86,9 +86,9 @@ Get the SHA-1 of a commit reference
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {

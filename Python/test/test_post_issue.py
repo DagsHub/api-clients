@@ -3,7 +3,7 @@
 """
     DagsHub API
 
-    This API is used to interact with DagsHub.   # noqa: E501
+    The api docs are made with SwaggerUI using the OpenAPI 3 specification.   # noqa: E501
 
     OpenAPI spec version: 1.0.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.post_issue import PostIssue  # noqa: E501
-from swagger_client.rest import ApiException
+import dagshub-api
+from dagshub-api.models.post_issue import PostIssue  # noqa: E501
+from dagshub-api.rest import ApiException
 
 
 class TestPostIssue(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestPostIssue(unittest.TestCase):
     def testPostIssue(self):
         """Test PostIssue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.post_issue.PostIssue()  # noqa: E501
+        # model = dagshub-api.models.post_issue.PostIssue()  # noqa: E501
         pass
 
 

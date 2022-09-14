@@ -1,4 +1,4 @@
-# IO.Swagger.Model.Labels
+# dagshub-api.Model.Labels
 ## Properties
 
 Name | Type | Description | Notes

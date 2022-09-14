@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -12,7 +12,6 @@
 
 package dagshub_api;
 
-import io.swagger.client.model.Files;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -50,25 +49,6 @@ public class ContentApiTest {
         // TODO: test validations
     }
     /**
-     * Get data from a folder in repository
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void getContentTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        String branch = null;
-        String treePath = null;
-        Boolean includeSize = null;
-        Files response = api.getContent(owner, repo, branch, treePath, includeSize);
-
-        // TODO: test validations
-    }
-    /**
      * Download raw content
      *
      * This method returns the raw content of a file.
@@ -83,31 +63,6 @@ public class ContentApiTest {
         String ref = null;
         String path = null;
         api.getRaw(username, repo, ref, path);
-
-        // TODO: test validations
-    }
-    /**
-     * Upload data to a repository
-     *
-     * last_commit - If the tip of the branch differs on the server at the moment of processing the request, the request is denied.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void uploadContentTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        String branch = null;
-        String treePath = null;
-        String commitSummary = null;
-        String commitMessage = null;
-        String commitChoice = null;
-        String lastCommit = null;
-        String newBranchName = null;
-        String versioning = null;
-        List<Object> files = null;
-        Object response = api.uploadContent(owner, repo, branch, treePath, commitSummary, commitMessage, commitChoice, lastCommit, newBranchName, versioning, files);
 
         // TODO: test validations
     }

@@ -1,4 +1,4 @@
-# IO.Swagger.Model.IssueAssignee
+# dagshub-api.Model.IssueAssignee
 ## Properties
 
 Name | Type | Description | Notes

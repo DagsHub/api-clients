@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -13,7 +13,6 @@
  *
  */
 import {ApiClient} from "../ApiClient";
-import {Files} from '../model/Files';
 
 /**
 * Content service.
@@ -96,69 +95,6 @@ export class ContentApi {
       );
     }
     /**
-     * Callback function to receive the result of the getContent operation.
-     * @callback moduledagshub_api/ContentApi~getContentCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Files{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get data from a folder in repository
-     * @param {String} owner owner of the repository
-     * @param {String} repo name of the repository
-     * @param {String} branch branch of the repository
-     * @param {String} treePath path of a folter in the repository
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includeSize  (default to <.>)
-     * @param {module:dagshub_api/ContentApi~getContentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    getContent(owner, repo, branch, treePath, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'owner' is set
-      if (owner === undefined || owner === null) {
-        throw new Error("Missing the required parameter 'owner' when calling getContent");
-      }
-      // verify the required parameter 'repo' is set
-      if (repo === undefined || repo === null) {
-        throw new Error("Missing the required parameter 'repo' when calling getContent");
-      }
-      // verify the required parameter 'branch' is set
-      if (branch === undefined || branch === null) {
-        throw new Error("Missing the required parameter 'branch' when calling getContent");
-      }
-      // verify the required parameter 'treePath' is set
-      if (treePath === undefined || treePath === null) {
-        throw new Error("Missing the required parameter 'treePath' when calling getContent");
-      }
-
-      let pathParams = {
-        'owner': owner,'repo': repo,'branch': branch,'treePath': treePath
-      };
-      let queryParams = {
-        'include_size': opts['includeSize']
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        
-      };
-
-      let authNames = ['basicAuth', 'tokenAuth'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Files;
-
-      return this.apiClient.callApi(
-        '/repos/{owner}/{repo}/content/{branch}/{treePath}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
      * Callback function to receive the result of the getRaw operation.
      * @callback moduledagshub_api/ContentApi~getRawCallback
      * @param {String} error Error message, if any.
@@ -215,76 +151,6 @@ export class ContentApi {
 
       return this.apiClient.callApi(
         '/repos/{username}/{repo}/raw/{ref}/{path}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-    /**
-     * Callback function to receive the result of the uploadContent operation.
-     * @callback moduledagshub_api/ContentApi~uploadContentCallback
-     * @param {String} error Error message, if any.
-     * @param {Object{ data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Upload data to a repository
-     * last_commit - If the tip of the branch differs on the server at the moment of processing the request, the request is denied.
-     * @param {String} owner owner of the repository
-     * @param {String} repo name of the repository
-     * @param {String} branch branch of the repository
-     * @param {String} treePath path of a folter in the repository
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.commitSummary 
-     * @param {String} opts.commitMessage 
-     * @param {module:model/String} opts.commitChoice 
-     * @param {String} opts.lastCommit 
-     * @param {String} opts.newBranchName 
-     * @param {module:model/String} opts.versioning 
-     * @param {Array.<Object>} opts.files 
-     * @param {module:dagshub_api/ContentApi~uploadContentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link <&vendorExtensions.x-jsdoc-type>}
-     */
-    uploadContent(owner, repo, branch, treePath, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'owner' is set
-      if (owner === undefined || owner === null) {
-        throw new Error("Missing the required parameter 'owner' when calling uploadContent");
-      }
-      // verify the required parameter 'repo' is set
-      if (repo === undefined || repo === null) {
-        throw new Error("Missing the required parameter 'repo' when calling uploadContent");
-      }
-      // verify the required parameter 'branch' is set
-      if (branch === undefined || branch === null) {
-        throw new Error("Missing the required parameter 'branch' when calling uploadContent");
-      }
-      // verify the required parameter 'treePath' is set
-      if (treePath === undefined || treePath === null) {
-        throw new Error("Missing the required parameter 'treePath' when calling uploadContent");
-      }
-
-      let pathParams = {
-        'owner': owner,'repo': repo,'branch': branch,'treePath': treePath
-      };
-      let queryParams = {
-        
-      };
-      let headerParams = {
-        
-      };
-      let formParams = {
-        'commit_summary': opts['commitSummary'],'commit_message': opts['commitMessage'],'commit_choice': opts['commitChoice'],'last_commit': opts['lastCommit'],'new_branch_name': opts['newBranchName'],'versioning': opts['versioning'],'files': this.apiClient.buildCollectionParam(opts['files'], 'multi')
-      };
-
-      let authNames = ['basicAuth', 'tokenAuth'];
-      let contentTypes = ['multipart/form-data'];
-      let accepts = ['application/json'];
-      let returnType = Object;
-
-      return this.apiClient.callApi(
-        '/repos/{owner}/{repo}/content/{branch}/{treePath}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

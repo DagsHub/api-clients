@@ -1,4 +1,4 @@
-# IO.Swagger.Model.IssueMilestone
+# dagshub-api.Model.IssueMilestone
 ## Properties
 
 Name | Type | Description | Notes

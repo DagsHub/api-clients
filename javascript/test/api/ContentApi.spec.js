@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -52,27 +52,6 @@
           done();
         });
       });
-      describe('getContent', function() {
-        it('should call getContent successfully', function(done) {
-          // TODO: uncomment, update parameter values for getContent call and complete the assertions
-          /*
-          var opts = {};
-
-          instance.getContent(owner, repo, branch, treePath, opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(DagsHubApi.Files);
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
       describe('getRaw', function() {
         it('should call getRaw successfully', function(done) {
           // TODO: uncomment, update parameter values for getRaw call
@@ -83,28 +62,6 @@
               done(error);
               return;
             }
-
-            done();
-          });
-          */
-          // TODO: uncomment and complete method invocation above, then delete this line and the next:
-          done();
-        });
-      });
-      describe('uploadContent', function() {
-        it('should call uploadContent successfully', function(done) {
-          // TODO: uncomment, update parameter values for uploadContent call and complete the assertions
-          /*
-          var opts = {};
-
-          instance.uploadContent(owner, repo, branch, treePath, opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
-            // TODO: update response assertions
-            expect(data).to.be.a(Object);
-            // expect(data).to.be(null);
 
             done();
           });

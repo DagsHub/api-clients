@@ -1,4 +1,4 @@
-# IO.Swagger.Model.CreateRepo
+# dagshub-api.Model.CreateRepo
 ## Properties
 
 Name | Type | Description | Notes

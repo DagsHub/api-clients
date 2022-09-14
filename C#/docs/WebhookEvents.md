@@ -1,4 +1,4 @@
-# IO.Swagger.Model.WebhookEvents
+# dagshub-api.Model.WebhookEvents
 ## Properties
 
 Name | Type | Description | Notes

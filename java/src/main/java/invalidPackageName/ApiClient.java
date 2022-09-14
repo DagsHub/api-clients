@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -53,7 +53,7 @@ import invalidPackageName.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "http://localhost:3000/api/v1/";
+    private String basePath = "http://dagshub.com/api/v1/";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -108,7 +108,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://localhost:3000/api/v1/
+     * @param basePath Base path of the URL (e.g http://dagshub.com/api/v1/
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

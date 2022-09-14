@@ -1,6 +1,6 @@
-# IO.Swagger.dagshub_api.WebhooksApi
+# dagshub-api.dagshub_api.WebhooksApi
 
-All URIs are relative to *http://localhost:3000/api/v1/*
+All URIs are relative to *http://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,9 +19,9 @@ Create a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -88,9 +88,9 @@ Delete a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -157,9 +157,9 @@ Edit a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -228,9 +228,9 @@ List hooks
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {

@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  * 
@@ -17,7 +17,7 @@ import invalidPackageName.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-11T12:30:38.402+03:00[Asia/Jerusalem]")public class OAuth implements Authentication {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-14T15:20:00.723+03:00[Asia/Jerusalem]")public class OAuth implements Authentication {
   private String accessToken;
 
   public String getAccessToken() {

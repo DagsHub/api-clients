@@ -1,6 +1,6 @@
-# IO.Swagger.dagshub_api.IssuesApi
+# dagshub-api.dagshub_api.IssuesApi
 
-All URIs are relative to *http://localhost:3000/api/v1/*
+All URIs are relative to *http://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,9 +21,9 @@ Any user with read access to a repository can create an issue.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -91,9 +91,9 @@ Edit an issue
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -163,9 +163,9 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {
@@ -235,9 +235,9 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.dagshub_api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using dagshub-api.dagshub_api;
+using dagshub-api.Client;
+using dagshub-api.Model;
 
 namespace Example
 {

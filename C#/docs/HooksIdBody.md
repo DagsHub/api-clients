@@ -1,4 +1,4 @@
-# IO.Swagger.Model.HooksIdBody
+# dagshub-api.Model.HooksIdBody
 ## Properties
 
 Name | Type | Description | Notes

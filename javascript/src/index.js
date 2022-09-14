@@ -1,6 +1,6 @@
 /*
  * DagsHub API
- * This API is used to interact with DagsHub. 
+ * The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
  *
  * OpenAPI spec version: 1.0.0
  *
@@ -18,8 +18,6 @@ import {Body} from './model/Body';
 import {Closed} from './model/Closed';
 import {CollaboratorsCollaboratorBody} from './model/CollaboratorsCollaboratorBody';
 import {CreateRepo} from './model/CreateRepo';
-import {File} from './model/File';
-import {Files} from './model/Files';
 import {HooksIdBody} from './model/HooksIdBody';
 import {Issue} from './model/Issue';
 import {IssueAssignee} from './model/IssueAssignee';
@@ -31,7 +29,6 @@ import {MigrateRepo} from './model/MigrateRepo';
 import {Milestone} from './model/Milestone';
 import {PatchIssue} from './model/PatchIssue';
 import {PostIssue} from './model/PostIssue';
-import {PutFile} from './model/PutFile';
 import {RepoHooksBody} from './model/RepoHooksBody';
 import {State} from './model/State';
 import {Title} from './model/Title';
@@ -48,7 +45,7 @@ import {RepositoryApi} from './dagshub_api/RepositoryApi';
 import {WebhooksApi} from './dagshub_api/WebhooksApi';
 
 /**
-* This_API_is_used_to_interact_with_DagsHub_.<br>
+* The_api_docs_are_made_with_SwaggerUI_using_the_OpenAPI_3_specification_.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -116,18 +113,6 @@ export {
     CreateRepo,
 
     /**
-     * The File model constructor.
-     * @property {module:model/File}
-     */
-    File,
-
-    /**
-     * The Files model constructor.
-     * @property {module:model/Files}
-     */
-    Files,
-
-    /**
      * The HooksIdBody model constructor.
      * @property {module:model/HooksIdBody}
      */
@@ -192,12 +177,6 @@ export {
      * @property {module:model/PostIssue}
      */
     PostIssue,
-
-    /**
-     * The PutFile model constructor.
-     * @property {module:model/PutFile}
-     */
-    PutFile,
 
     /**
      * The RepoHooksBody model constructor.

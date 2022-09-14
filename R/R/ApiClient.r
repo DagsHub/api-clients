@@ -1,6 +1,6 @@
 # DagsHub API
 #
-# This API is used to interact with DagsHub. 
+# The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 #
 # OpenAPI spec version: 1.0.0
 # 
@@ -22,7 +22,7 @@
 ApiClient  <- R6::R6Class(
   'ApiClient',
   public = list(
-    basePath = "http://localhost:3000/api/v1/",
+    basePath = "http://dagshub.com/api/v1/",
     configuration = NULL,
     userAgent = NULL,
     defaultHeaders = NULL,
