@@ -191,40 +191,33 @@ paths:
               schema:
                 example:
                   data:
-                  - id: 1717
+                  - id: 1213
                     owner:
-                      id: 0
-                      username: ""
-                      full_name: ""
-                      email: ""
-                      avatar_url: ""
-                    full_name: unknwon/Issue-966
+                      id: 6
+                      login: DAGsHub-Official
+                      full_name: DagsHub Official
+                      avatar_url: https://dagshub.com/avatars/6
+                      username: DAGsHub-Official
+                    name: dagshub-docs
+                    full_name: DAGsHub-Official/dagshub-docs
+                    description: Official repo for DagsHub documentation.
                     private: false
                     fork: false
-                    html_url: ""
-                    clone_url: ""
-                    ssh_url: ""
-                    permissions:
-                      admin: false
-                      push: false
-                      pull: false
-                  - id: 154
-                    owner:
-                      id: 0
-                      username: ""
-                      full_name: ""
-                      email: ""
-                      avatar_url: ""
-                    full_name: unknwon/issue935
-                    private: false
-                    fork: false
-                    html_url: ""
-                    clone_url: ""
-                    ssh_url: ""
-                    permissions:
-                      admin: false
-                      push: false
-                      pull: false
+                    parent: null
+                    empty: false
+                    mirror: false
+                    size: 458313728
+                    html_url: https://dagshub.com/DAGsHub-Official/dagshub-docs
+                    ssh_url: ssh://git@dagshub.com:2200/DAGsHub-Official/dagshub-docs.git
+                    clone_url: https://dagshub.com/DAGsHub-Official/dagshub-docs.git
+                    website: https://dagshub.com/docs
+                    stars_count: 4
+                    forks_count: 11
+                    watchers_count: 1
+                    open_issues_count: 2
+                    default_branch: main
+                    created_at: 2021-02-23T11:53:45Z
+                    updated_at: 2022-09-14T09:55:35Z
                   ok: true
                 x-content-type: application/json
   /user/repos:
@@ -244,36 +237,33 @@ paths:
             application/json:
               schema:
                 example:
-                - id: 2
+                - id: 2942
                   owner:
-                    id: 1
-                    username: unknwon
-                    full_name: ""
-                    email: fake@local
-                    avatar_url: /avatars/1
-                  full_name: unknwon/macaron
+                    id: 23
+                    login: DagsHub
+                    full_name: DagsHub
+                    avatar_url: https://dagshub.com/avatars/23
+                    username: DagsHub
+                  name: audio-datasets
+                  full_name: DagsHub/audio-datasets
+                  description: Open-source audio datasets hosted on DagsHub
                   private: false
                   fork: false
-                  html_url: http://localhost:3000/unknwon/macaron
-                  clone_url: http://localhost:3000/unknwon/macaron.git
-                  ssh_url: jiahuachen@localhost:unknwon/macaron.git
-                  permissions:
-                    admin: true
-                    push: true
-                    pull: true
-                - id: 8
-                  owner:
-                    id: 2
-                    username: org1
-                    full_name: org1
-                    email: org1@org.com
-                    avatar_url: /avatars/2
-                  full_name: org1/gogs
-                  private: false
-                  fork: false
-                  html_url: http://localhost:3000/org1/gogs
-                  clone_url: http://localhost:3000/org1/gogs.git
-                  ssh_url: jiahuachen@localhost:org1/gogs.git
+                  parent: null
+                  empty: false
+                  mirror: true
+                  size: 10121216
+                  html_url: https://dagshub.com/DagsHub/audio-datasets
+                  ssh_url: ssh://git@dagshub.com:2200/DagsHub/audio-datasets.git
+                  clone_url: https://github.com/DAGsHub/audio-datasets.git
+                  website: ""
+                  stars_count: 2
+                  forks_count: 2
+                  watchers_count: 7
+                  open_issues_count: 11
+                  default_branch: main
+                  created_at: 2021-10-05T16:02:42Z
+                  updated_at: 2022-08-22T09:54:12Z
                   permissions:
                     admin: true
                     push: true
@@ -661,40 +651,38 @@ paths:
           content:
             application/json:
               example:
-                url: https://try.gogs.io/api/v1/repos/unknwon/demo/commits/dc20792485ffd49b0bca49f90a8d44a16241b84a
-                sha: dc20792485ffd49b0bca49f90a8d44a16241b84a
-                html_url: https://try.gogs.io/unknwon/demo/commits/dc20792485ffd49b0bca49f90a8d44a16241b84a
                 commit:
-                  url: https://try.gogs.io/api/v1/repos/unknwon/demo/commits/dc20792485ffd49b0bca49f90a8d44a16241b84a
+                  id: 106201d5de4b7f0cce296b4578747ba43504d152
+                  message: |-
+                    Merge pull request #65 from drecali/main
+
+                    fix broken Discord invite link and clarify project sharing instructions
+                  url: ""
                   author:
-                    name: unknwon
-                    email: u@gogs.io
-                    date: 2018-12-10T23:51:52-05:00
+                    name: Dean P
+                    email: deanp07@gmail.com
+                    username: ""
                   committer:
-                    name: unknwon
-                    email: u@gogs.io
-                    date: 2018-12-10T23:51:52-05:00
-                  message: Update 'README.md'
-                  tree:
-                    url: https://try.gogs.io/api/v1/repos/unknwon/demo/tree/dc20792485ffd49b0bca49f90a8d44a16241b84a
-                    sha: dc20792485ffd49b0bca49f90a8d44a16241b84a
-                author:
-                  id: 1
-                  username: unknwon
-                  login: unknwon
-                  full_name: ""
-                  email: u@gogs.io
-                  avatar_url: https://secure.gravatar.com/avatar/d8b2871cdac01b57bbda23716cc03b96
-                committer:
-                  id: 1
-                  username: unknwon
-                  login: unknwon
-                  full_name: ""
-                  email: u@gogs.io
-                  avatar_url: https://secure.gravatar.com/avatar/d8b2871cdac01b57bbda23716cc03b96
-                parents:
-                - url: https://try.gogs.io/api/v1/unknwon/demo/commits/9227a50146b3fd815fe864af99b984c77d06326a
-                  sha: 9227a50146b3fd815fe864af99b984c77d06326a
+                    name: GitHub
+                    email: noreply@github.com
+                    username: ""
+                  added: null
+                  removed: null
+                  modified: null
+                  timestamp: 2022-08-22T09:53:53Z
+                files:
+                - filename: CONTRIBUTING.md
+                  sha: Not Implemented
+                  blob_url: Not Implemented
+                  additions: 1
+                  deletions: 1
+                  changes: 2
+                  status: changed
+                stats:
+                  additions: 1
+                  deletions: 1
+                  total: 2
+                experiment: null
   /repos/{owner}/{repo}/commits/{ref}:
     get:
       tags:
@@ -801,32 +789,33 @@ paths:
           content:
             application/json:
               example:
-              - id: 14
-                type: gogs
-                events:
-                - create
-                - push
-                active: true
+              - id: 9
+                type: dagshub
                 config:
                   content_type: json
-                  url: http://127.0.0.1:3000/unknwon/repo1/settings/hooks/14
-                updated_at: 2015-08-29T18:25:52+08:00
-                created_at: 2015-08-27T20:17:36+08:00
-              - id: 15
-                type: slack
+                  url: <webhook-url>
                 events:
                 - create
+                - delete
                 - push
+                - pull_request
+                - release
                 active: true
+                updated_at: 2022-09-14T10:01:11Z
+                created_at: 2021-03-21T11:39:30Z
+              - id: 11
+                type: discord
                 config:
-                  channel: '#gogs'
-                  color: good
                   content_type: json
-                  icon_url: https://try.gogs.io/img/favicon.png
-                  url: https://hooks.slack.com/services/T03FHQZLC/B09QNJ2CU/n3nFHS3ISw
-                  username: Gogs
-                updated_at: 2015-08-29T18:25:55+08:00
-                created_at: 2015-08-28T23:28:09+08:00
+                  url: https://discord.com/api/webhooks/awesome-webhook
+                events:
+                - fork
+                - issues
+                - pull_request
+                - issue_comment
+                active: true
+                updated_at: 2022-09-14T10:01:12Z
+                created_at: 2021-03-22T11:28:45Z
     post:
       tags:
       - Webhooks
@@ -859,16 +848,16 @@ paths:
             application/json:
               example:
                 id: 20
-                type: gogs
+                type: discord
                 config:
                   content_type: json
-                  url: http://gogs.io
+                  url: <webhook-url>
                 events:
                 - create
                 - push
                 active: true
-                updated_at: 2015-08-29T11:31:22.453572732+08:00
-                created_at: 2015-08-29T11:31:22.453569275+08:00
+                updated_at: 2022-08-29T11:31:22.453572732+08:00
+                created_at: 2022-08-29T11:31:22.453569275+08:00
   /repos/{owner}/{repo}/hooks/{id}:
     delete:
       tags:
@@ -939,15 +928,15 @@ paths:
             application/json:
               example:
                 id: 20
-                type: gogs
+                type: dagshub
                 config:
                   content_type: json
-                  url: http://gogs.io/hook
+                  url: <webhook-url>
                 events:
                 - push
                 active: true
-                updated_at: 2015-08-29T11:45:30.577057789+08:00
-                created_at: 2015-08-29T11:31:22+08:00
+                updated_at: 2022-08-29T11:45:30.577057789+08:00
+                created_at: 2022-08-29T11:31:22+08:00
 components:
   schemas:
     Issues:
