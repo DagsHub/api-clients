@@ -126,40 +126,34 @@ open class RepositoryAPI {
        - type: apiKey token (QUERY)
        - name: tokenAuth
      - examples: [{contentType=application/json, example=[ {
-  "id" : 2,
+  "id" : 2942,
   "owner" : {
-    "id" : 1,
-    "username" : "unknwon",
-    "full_name" : "",
-    "email" : "fake@local",
-    "avatar_url" : "/avatars/1"
+    "id" : 23,
+    "login" : "DagsHub",
+    "full_name" : "DagsHub",
+    "avatar_url" : "https://dagshub.com/avatars/23",
+    "username" : "DagsHub"
   },
-  "full_name" : "unknwon/macaron",
+  "name" : "audio-datasets",
+  "full_name" : "DagsHub/audio-datasets",
+  "description" : "Open-source audio datasets hosted on DagsHub",
   "private" : false,
   "fork" : false,
-  "html_url" : "http://localhost:3000/unknwon/macaron",
-  "clone_url" : "http://localhost:3000/unknwon/macaron.git",
-  "ssh_url" : "jiahuachen@localhost:unknwon/macaron.git",
-  "permissions" : {
-    "admin" : true,
-    "push" : true,
-    "pull" : true
-  }
-}, {
-  "id" : 8,
-  "owner" : {
-    "id" : 2,
-    "username" : "org1",
-    "full_name" : "org1",
-    "email" : "org1@org.com",
-    "avatar_url" : "/avatars/2"
-  },
-  "full_name" : "org1/gogs",
-  "private" : false,
-  "fork" : false,
-  "html_url" : "http://localhost:3000/org1/gogs",
-  "clone_url" : "http://localhost:3000/org1/gogs.git",
-  "ssh_url" : "jiahuachen@localhost:org1/gogs.git",
+  "parent" : null,
+  "empty" : false,
+  "mirror" : true,
+  "size" : 10121216,
+  "html_url" : "https://dagshub.com/DagsHub/audio-datasets",
+  "ssh_url" : "ssh://git@dagshub.com:2200/DagsHub/audio-datasets.git",
+  "clone_url" : "https://github.com/DAGsHub/audio-datasets.git",
+  "website" : "",
+  "stars_count" : 2,
+  "forks_count" : 2,
+  "watchers_count" : 7,
+  "open_issues_count" : 11,
+  "default_branch" : "main",
+  "created_at" : "2021-10-05T16:02:42Z",
+  "updated_at" : "2022-08-22T09:54:12Z",
   "permissions" : {
     "admin" : true,
     "push" : true,
@@ -345,45 +339,34 @@ open class RepositoryAPI {
        - name: tokenAuth
      - examples: [{contentType=application/json, example={
   "data" : [ {
-    "id" : 1717,
+    "id" : 1213,
     "owner" : {
-      "id" : 0,
-      "username" : "",
-      "full_name" : "",
-      "email" : "",
-      "avatar_url" : ""
+      "id" : 6,
+      "login" : "DAGsHub-Official",
+      "full_name" : "DagsHub Official",
+      "avatar_url" : "https://dagshub.com/avatars/6",
+      "username" : "DAGsHub-Official"
     },
-    "full_name" : "unknwon/Issue-966",
+    "name" : "dagshub-docs",
+    "full_name" : "DAGsHub-Official/dagshub-docs",
+    "description" : "Official repo for DagsHub documentation.",
     "private" : false,
     "fork" : false,
-    "html_url" : "",
-    "clone_url" : "",
-    "ssh_url" : "",
-    "permissions" : {
-      "admin" : false,
-      "push" : false,
-      "pull" : false
-    }
-  }, {
-    "id" : 154,
-    "owner" : {
-      "id" : 0,
-      "username" : "",
-      "full_name" : "",
-      "email" : "",
-      "avatar_url" : ""
-    },
-    "full_name" : "unknwon/issue935",
-    "private" : false,
-    "fork" : false,
-    "html_url" : "",
-    "clone_url" : "",
-    "ssh_url" : "",
-    "permissions" : {
-      "admin" : false,
-      "push" : false,
-      "pull" : false
-    }
+    "parent" : null,
+    "empty" : false,
+    "mirror" : false,
+    "size" : 458313728,
+    "html_url" : "https://dagshub.com/DAGsHub-Official/dagshub-docs",
+    "ssh_url" : "ssh://git@dagshub.com:2200/DAGsHub-Official/dagshub-docs.git",
+    "clone_url" : "https://dagshub.com/DAGsHub-Official/dagshub-docs.git",
+    "website" : "https://dagshub.com/docs",
+    "stars_count" : 4,
+    "forks_count" : 11,
+    "watchers_count" : 1,
+    "open_issues_count" : 2,
+    "default_branch" : "main",
+    "created_at" : "2021-02-23T11:53:45Z",
+    "updated_at" : "2022-09-14T09:55:35Z"
   } ],
   "ok" : true
 }}]
