@@ -19,7 +19,7 @@ brew install swagger-codegen
 ### Run the following snippet from this directory:
 ```sh
 swagger-codegen generate \
--i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/openapi-spec-and-swagger-ui/theme/openapi/spec.yaml \
+-i https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/docs/assets/openapi/spec.yaml \
 -l python \
 -o python-client
 ```
