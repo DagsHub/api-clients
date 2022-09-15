@@ -1,3 +1,4 @@
+#!/bin/bash
 # Download current stable 3.x.x branch (OpenAPI version 3)
 if [ ! -f swagger-codegen-cli.jar ]; then wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.35/swagger-codegen-cli-3.0.35.jar -O swagger-codegen-cli.jar; fi
 
