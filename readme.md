@@ -15,7 +15,7 @@ On a mac, it's even easier with `brew`:
 brew install swagger-codegen
 ```
 
-# Regenerate the code
+# Generate the code
 ### Run the following snippet from this directory:
 ```sh
 swagger-codegen generate \
