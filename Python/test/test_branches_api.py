@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.dagshub_api.branches_api import BranchesApi  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.dagshub_api.branches_api import BranchesApi  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestBranchesApi(unittest.TestCase):

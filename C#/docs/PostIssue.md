@@ -1,4 +1,4 @@
-# dagshub-api.Model.PostIssue
+# dagshub_api.Model.PostIssue
 ## Properties
 
 Name | Type | Description | Notes

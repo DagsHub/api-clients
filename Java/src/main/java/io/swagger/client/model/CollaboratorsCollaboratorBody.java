@@ -25,7 +25,7 @@ import java.io.IOException;
  * CollaboratorsCollaboratorBody
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T14:10:11.850684Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-18T13:53:53.873314Z[GMT]")
 public class CollaboratorsCollaboratorBody {
   @SerializedName("permission")
   private String permission = "write";

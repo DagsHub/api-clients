@@ -1,4 +1,4 @@
-# dagshub-api.Model.State
+# dagshub_api.Model.State
 ## Properties
 
 Name | Type | Description | Notes

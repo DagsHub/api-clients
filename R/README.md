@@ -1,4 +1,4 @@
-# R API client for dagshub-api
+# R API client for dagshub_api
 
 The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 

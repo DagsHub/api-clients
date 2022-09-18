@@ -1,4 +1,4 @@
-# dagshub-api.dagshub_api.IssuesApi
+# dagshub_api.dagshub_api.IssuesApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -21,9 +21,9 @@ Any user with read access to a repository can create an issue.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -91,9 +91,9 @@ Edit an issue
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -163,9 +163,9 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -235,9 +235,9 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {

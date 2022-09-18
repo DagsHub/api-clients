@@ -1,4 +1,4 @@
-# dagshub-api.dagshub_api.ContentApi
+# dagshub_api.dagshub_api.ContentApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -19,9 +19,9 @@ This method returns archive by given format.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -92,9 +92,9 @@ This method returns the raw content of a file.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {

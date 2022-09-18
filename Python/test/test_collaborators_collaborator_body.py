@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.collaborators_collaborator_body import CollaboratorsCollaboratorBody  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.collaborators_collaborator_body import CollaboratorsCollaboratorBody  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestCollaboratorsCollaboratorBody(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestCollaboratorsCollaboratorBody(unittest.TestCase):
     def testCollaboratorsCollaboratorBody(self):
         """Test CollaboratorsCollaboratorBody"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.collaborators_collaborator_body.CollaboratorsCollaboratorBody()  # noqa: E501
+        # model = dagshub_api.models.collaborators_collaborator_body.CollaboratorsCollaboratorBody()  # noqa: E501
         pass
 
 

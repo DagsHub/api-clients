@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.issue_milestone import IssueMilestone  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.issue_milestone import IssueMilestone  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestIssueMilestone(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestIssueMilestone(unittest.TestCase):
     def testIssueMilestone(self):
         """Test IssueMilestone"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.issue_milestone.IssueMilestone()  # noqa: E501
+        # model = dagshub_api.models.issue_milestone.IssueMilestone()  # noqa: E501
         pass
 
 

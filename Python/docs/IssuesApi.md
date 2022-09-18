@@ -1,4 +1,4 @@
-# dagshub-api.IssuesApi
+# dagshub_api.IssuesApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -20,24 +20,24 @@ Any user with read access to a repository can create an issue.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.IssuesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.IssuesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
-body = dagshub-api.PostIssue() # PostIssue |  (optional)
+body = dagshub_api.PostIssue() # PostIssue |  (optional)
 
 try:
     # Create an issue
@@ -79,24 +79,24 @@ Edit an issue
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.IssuesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.IssuesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
-body = dagshub-api.PatchIssue() # PatchIssue |  (optional)
+body = dagshub_api.PatchIssue() # PatchIssue |  (optional)
 
 try:
     # Edit an issue
@@ -140,21 +140,21 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.IssuesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.IssuesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 index = 56 # int | the index of an issue or a pull request
@@ -201,21 +201,21 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.IssuesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.IssuesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 

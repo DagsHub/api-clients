@@ -1,4 +1,4 @@
-# dagshub-api.Model.RepoHooksBody
+# dagshub_api.Model.RepoHooksBody
 ## Properties
 
 Name | Type | Description | Notes

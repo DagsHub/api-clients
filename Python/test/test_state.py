@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.state import State  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.state import State  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestState(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestState(unittest.TestCase):
     def testState(self):
         """Test State"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.state.State()  # noqa: E501
+        # model = dagshub_api.models.state.State()  # noqa: E501
         pass
 
 

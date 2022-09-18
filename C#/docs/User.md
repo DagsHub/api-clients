@@ -1,4 +1,4 @@
-# dagshub-api.Model.User
+# dagshub_api.Model.User
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# dagshub-api.Model.IssueMilestone
+# dagshub_api.Model.IssueMilestone
 ## Properties
 
 Name | Type | Description | Notes

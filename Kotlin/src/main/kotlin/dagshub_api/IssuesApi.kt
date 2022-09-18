@@ -16,7 +16,7 @@ import io.swagger.client.models.Issues
 import io.swagger.client.models.PatchIssue
 import io.swagger.client.models.PostIssue
 
-import dagshub-api.infrastructure.*
+import dagshub_api.infrastructure.*
 
 class IssuesApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
 

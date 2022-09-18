@@ -17,13 +17,13 @@ Python 2.7 and 3.4+
 If the python package is hosted on Github, you can install directly from Github
 
 ```sh
-pip install dagshub-api
+pip install git+https://github.com/DagsHub/api-clients.git
 ```
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/DagsHub/api-clients.git`)
 
 Then import the package:
 ```python
-import dagshub-api 
+import dagshub_api 
 ```
 
 ### Setuptools
@@ -37,7 +37,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import dagshub-api
+import dagshub_api
 ```
 
 ## Getting Started
@@ -47,21 +47,21 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.BranchesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.BranchesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 branch = 'branch_example' # str | branch of the repository
@@ -72,17 +72,17 @@ try:
 except ApiException as e:
     print("Exception when calling BranchesApi->get_branch: %s\n" % e)
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.BranchesApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.BranchesApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 

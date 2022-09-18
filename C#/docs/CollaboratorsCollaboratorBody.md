@@ -1,4 +1,4 @@
-# dagshub-api.Model.CollaboratorsCollaboratorBody
+# dagshub_api.Model.CollaboratorsCollaboratorBody
 ## Properties
 
 Name | Type | Description | Notes

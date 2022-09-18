@@ -14,7 +14,7 @@ package dagshub_api
 import io.swagger.client.models.CreateRepo
 import io.swagger.client.models.MigrateRepo
 
-import dagshub-api.infrastructure.*
+import dagshub_api.infrastructure.*
 
 class RepositoryApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
 

@@ -1,4 +1,4 @@
-# dagshub-api - the C# library for the DagsHub API
+# dagshub_api - the C# library for the DagsHub API
 
 The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 
@@ -36,9 +36,9 @@ Run the following command to generate the DLL
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 ```
 <a name="packaging"></a>
 ## Packaging
@@ -48,7 +48,7 @@ A `.nuspec` is included with the project. You can follow the Nuget quickstart to
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```
-nuget pack -Build -OutputDirectory out dagshub-api.csproj
+nuget pack -Build -OutputDirectory out dagshub_api.csproj
 ```
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
@@ -59,9 +59,9 @@ Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-p
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {

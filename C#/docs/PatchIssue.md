@@ -1,4 +1,4 @@
-# dagshub-api.Model.PatchIssue
+# dagshub_api.Model.PatchIssue
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# dagshub-api.Model.MigrateRepo
+# dagshub_api.Model.MigrateRepo
 ## Properties
 
 Name | Type | Description | Notes

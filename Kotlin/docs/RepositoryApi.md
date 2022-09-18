@@ -23,7 +23,7 @@ Create a new repository in this organization. The authenticated user must be an 
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -71,7 +71,7 @@ Create a new repository for the authenticated user.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -117,7 +117,7 @@ List repositories that are accessible to the authenticated user.  This includes 
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -160,7 +160,7 @@ List repositories that are accessible to the authenticated user.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -206,7 +206,7 @@ List public repositories for the specified user.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -252,7 +252,7 @@ Migrate a repository from other Git hosting sources for the authenticated user. 
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
@@ -296,7 +296,7 @@ Search repositories
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()

@@ -1,4 +1,4 @@
-# dagshub-api.dagshub_api.RepositoryApi
+# dagshub_api.dagshub_api.RepositoryApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -24,9 +24,9 @@ Create a new repository in this organization. The authenticated user must be an 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -93,9 +93,9 @@ Create a new repository for the authenticated user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -160,9 +160,9 @@ List repositories that are accessible to the authenticated user.  This includes 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -224,9 +224,9 @@ List repositories that are accessible to the authenticated user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -291,9 +291,9 @@ List public repositories for the specified user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -358,9 +358,9 @@ Migrate a repository from other Git hosting sources for the authenticated user. 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {
@@ -423,9 +423,9 @@ Search repositories
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub-api.dagshub_api;
-using dagshub-api.Client;
-using dagshub-api.Model;
+using dagshub_api.dagshub_api;
+using dagshub_api.Client;
+using dagshub_api.Model;
 
 namespace Example
 {

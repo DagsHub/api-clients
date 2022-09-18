@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.patch_issue import PatchIssue  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.patch_issue import PatchIssue  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestPatchIssue(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestPatchIssue(unittest.TestCase):
     def testPatchIssue(self):
         """Test PatchIssue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.patch_issue.PatchIssue()  # noqa: E501
+        # model = dagshub_api.models.patch_issue.PatchIssue()  # noqa: E501
         pass
 
 

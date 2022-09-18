@@ -1,4 +1,4 @@
-# dagshub-api.Model.WebhookConfig
+# dagshub_api.Model.WebhookConfig
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# dagshub-api.CommitsApi
+# dagshub_api.CommitsApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -16,21 +16,21 @@ Get a single commit
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.CommitsApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.CommitsApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 sha = 'sha_example' # str | a SHA1 of a commit
@@ -74,21 +74,21 @@ Get the SHA-1 of a commit reference
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.CommitsApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.CommitsApi(dagshub_api.ApiClient(configuration))
 owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 ref = 'ref_example' # str | The name of the commit/branch/tag
