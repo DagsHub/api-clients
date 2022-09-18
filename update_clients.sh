@@ -5,7 +5,7 @@ if [ ! -f swagger-codegen-cli.jar ]; then wget https://repo1.maven.org/maven2/io
 spec_url=https://dagshub.com/DAGsHub-Official/dagshub-docs/raw/main/docs/assets/openapi/spec.yaml
 git_user="DagsHub"
 git_repo="api-clients"
-package_name=dagshub-api
+package_name=dagshub_api
 config_file=config.json
 
 # language name, understandable by swagger-codegen
