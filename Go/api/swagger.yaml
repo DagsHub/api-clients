@@ -3,7 +3,7 @@ info:
   title: DagsHub API
   description: |
     The api docs are made with SwaggerUI using the OpenAPI 3 specification.
-  version: 1.0.0
+  version: 0.1.0
 servers:
 - url: http://dagshub.com/api/v1/
 security:

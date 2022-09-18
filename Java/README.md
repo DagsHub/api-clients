@@ -1,8 +1,8 @@
 # swagger-java-client
 
 DagsHub API
-- API version: 1.0.0
-  - Build date: 2022-09-18T13:53:53.873314Z[GMT]
+- API version: 0.1.0
+  - Build date: 2022-09-18T14:58:29.810868Z[GMT]
 
 The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 

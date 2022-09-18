@@ -1,6 +1,6 @@
 {
   "name": "dags_hub_api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "The_api_docs_are_made_with_SwaggerUI_using_the_OpenAPI_3_specification_",
   "license": "Unlicense",
   "main": "src/index.js",
