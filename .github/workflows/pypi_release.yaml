@@ -28,4 +28,4 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1.5
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
-        packages_dir: Python/
+        packages_dir: Python
