@@ -1,4 +1,4 @@
-# dagshub-api.Model.Labels
+# dagshub_api.Model.Labels
 ## Properties
 
 Name | Type | Description | Notes

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.assignee import Assignee  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.assignee import Assignee  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestAssignee(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAssignee(unittest.TestCase):
     def testAssignee(self):
         """Test Assignee"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.assignee.Assignee()  # noqa: E501
+        # model = dagshub_api.models.assignee.Assignee()  # noqa: E501
         pass
 
 

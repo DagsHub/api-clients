@@ -1,4 +1,4 @@
-# dagshub-api.RepositoryApi
+# dagshub_api.RepositoryApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -23,23 +23,23 @@ Create a new repository in this organization. The authenticated user must be an 
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
 orgname = 'orgname_example' # str | A DagsHub organization name
-body = dagshub-api.CreateRepo() # CreateRepo |  (optional)
+body = dagshub_api.CreateRepo() # CreateRepo |  (optional)
 
 try:
     # Create in organization
@@ -81,22 +81,22 @@ Create a new repository for the authenticated user.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
-body = dagshub-api.CreateRepo() # CreateRepo |  (optional)
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
+body = dagshub_api.CreateRepo() # CreateRepo |  (optional)
 
 try:
     # Create
@@ -137,21 +137,21 @@ List repositories that are accessible to the authenticated user.  This includes 
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
 
 try:
     # List your repositories
@@ -190,21 +190,21 @@ List repositories that are accessible to the authenticated user.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
 orgname = 'orgname_example' # str | A DagsHub organization name
 
 try:
@@ -246,21 +246,21 @@ List public repositories for the specified user.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
 username = 'username_example' # str | A DagsHub username
 
 try:
@@ -302,22 +302,22 @@ Migrate a repository from other Git hosting sources for the authenticated user. 
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
-body = dagshub-api.MigrateRepo() # MigrateRepo |  (optional)
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
+body = dagshub_api.MigrateRepo() # MigrateRepo |  (optional)
 
 try:
     # Migrate repository
@@ -356,21 +356,21 @@ Search repositories
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.RepositoryApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
 q = 'q_example' # str | 
 uid = 0 # int | User ID to specify search whose repositories. Default is 0 and search all repositories (optional) (default to 0)
 limit = 10 # int | Maximum number of repositories in search results. (optional) (default to 10)

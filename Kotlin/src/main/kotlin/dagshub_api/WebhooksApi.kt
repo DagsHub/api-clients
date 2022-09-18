@@ -14,7 +14,7 @@ package dagshub_api
 import io.swagger.client.models.HooksIdBody
 import io.swagger.client.models.RepoHooksBody
 
-import dagshub-api.infrastructure.*
+import dagshub_api.infrastructure.*
 
 class WebhooksApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
 

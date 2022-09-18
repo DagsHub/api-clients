@@ -17,7 +17,7 @@ Add user as a collaborator
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
@@ -67,7 +67,7 @@ Get collaborators
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
@@ -113,7 +113,7 @@ Delete collaborator
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()

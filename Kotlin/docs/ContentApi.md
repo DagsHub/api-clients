@@ -18,7 +18,7 @@ This method returns archive by given format.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = ContentApi()
@@ -70,7 +70,7 @@ This method returns the raw content of a file.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = ContentApi()

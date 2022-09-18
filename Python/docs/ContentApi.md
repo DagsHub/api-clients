@@ -1,4 +1,4 @@
-# dagshub-api.ContentApi
+# dagshub_api.ContentApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -18,21 +18,21 @@ This method returns archive by given format.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.ContentApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.ContentApi(dagshub_api.ApiClient(configuration))
 username = 'username_example' # str | A DagsHub username
 repo = 'repo_example' # str | name of the repository
 ref = 'ref_example' # str | The name of the commit/branch/tag
@@ -80,21 +80,21 @@ This method returns the raw content of a file.
 ```python
 from __future__ import print_function
 import time
-import dagshub-api
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.rest import ApiException
 from pprint import pprint
 # Configure HTTP basic authorization: basicAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 # Configure API key authorization: tokenAuth
-configuration = dagshub-api.Configuration()
+configuration = dagshub_api.Configuration()
 configuration.api_key['token'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['token'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = dagshub-api.ContentApi(dagshub-api.ApiClient(configuration))
+api_instance = dagshub_api.ContentApi(dagshub_api.ApiClient(configuration))
 username = 'username_example' # str | A DagsHub username
 repo = 'repo_example' # str | name of the repository
 ref = 'ref_example' # str | The name of the commit/branch/tag

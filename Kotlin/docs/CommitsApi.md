@@ -16,7 +16,7 @@ Get a single commit
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = CommitsApi()
@@ -64,7 +64,7 @@ Get the SHA-1 of a commit reference
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = CommitsApi()

@@ -1,4 +1,4 @@
-# dagshub-api.Model.Issues
+# dagshub_api.Model.Issues
 ## Properties
 
 Name | Type | Description | Notes

@@ -20,7 +20,7 @@ Any user with read access to a repository can create an issue.
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = IssuesApi()
@@ -69,7 +69,7 @@ Edit an issue
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = IssuesApi()
@@ -120,7 +120,7 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = IssuesApi()
@@ -171,7 +171,7 @@ This endpoint may also return pull requests in the response. If an issue is a pu
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = IssuesApi()

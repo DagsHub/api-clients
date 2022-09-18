@@ -1,4 +1,4 @@
-# dagshub-api.Model.IssueAssignee
+# dagshub_api.Model.IssueAssignee
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# dagshub-api - Kotlin client library for DagsHub API
+# dagshub_api - Kotlin client library for DagsHub API
 
 ## Requires
 

@@ -15,7 +15,7 @@ List Releases
 ### Example
 ```kotlin
 // Import classes:
-//import dagshub-api.infrastructure.*
+//import dagshub_api.infrastructure.*
 //import io.swagger.client.models.*;
 
 val apiInstance = ReleasesApi()

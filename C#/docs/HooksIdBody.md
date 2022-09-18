@@ -1,4 +1,4 @@
-# dagshub-api.Model.HooksIdBody
+# dagshub_api.Model.HooksIdBody
 ## Properties
 
 Name | Type | Description | Notes

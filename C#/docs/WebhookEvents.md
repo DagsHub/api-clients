@@ -1,4 +1,4 @@
-# dagshub-api.Model.WebhookEvents
+# dagshub_api.Model.WebhookEvents
 ## Properties
 
 Name | Type | Description | Notes

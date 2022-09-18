@@ -1,4 +1,4 @@
-# dagshub-api.Model.CreateRepo
+# dagshub_api.Model.CreateRepo
 ## Properties
 
 Name | Type | Description | Notes

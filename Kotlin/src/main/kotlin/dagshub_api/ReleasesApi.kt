@@ -12,7 +12,7 @@
 package dagshub_api
 
 
-import dagshub-api.infrastructure.*
+import dagshub_api.infrastructure.*
 
 class ReleasesApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
 

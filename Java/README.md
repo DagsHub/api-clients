@@ -2,7 +2,7 @@
 
 DagsHub API
 - API version: 1.0.0
-  - Build date: 2022-09-15T14:10:11.850684Z[GMT]
+  - Build date: 2022-09-18T13:53:53.873314Z[GMT]
 
 The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 

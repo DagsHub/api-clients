@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.closed import Closed  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.closed import Closed  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestClosed(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestClosed(unittest.TestCase):
     def testClosed(self):
         """Test Closed"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.closed.Closed()  # noqa: E501
+        # model = dagshub_api.models.closed.Closed()  # noqa: E501
         pass
 
 

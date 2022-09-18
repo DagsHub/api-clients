@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.webhook_events import WebhookEvents  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.webhook_events import WebhookEvents  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestWebhookEvents(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestWebhookEvents(unittest.TestCase):
     def testWebhookEvents(self):
         """Test WebhookEvents"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.webhook_events.WebhookEvents()  # noqa: E501
+        # model = dagshub_api.models.webhook_events.WebhookEvents()  # noqa: E501
         pass
 
 

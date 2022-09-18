@@ -4,6 +4,6 @@
 language: csharp
 mono:
   - latest
-solution: dagshub-api.sln
+solution: dagshub_api.sln
 script:
   - /bin/sh ./mono_nunit_test.sh

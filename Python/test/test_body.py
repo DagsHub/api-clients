@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import dagshub-api
-from dagshub-api.models.body import Body  # noqa: E501
-from dagshub-api.rest import ApiException
+import dagshub_api
+from dagshub_api.models.body import Body  # noqa: E501
+from dagshub_api.rest import ApiException
 
 
 class TestBody(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestBody(unittest.TestCase):
     def testBody(self):
         """Test Body"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = dagshub-api.models.body.Body()  # noqa: E501
+        # model = dagshub_api.models.body.Body()  # noqa: E501
         pass
 
 

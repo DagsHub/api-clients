@@ -26,7 +26,7 @@ import java.io.IOException;
  * PatchIssue
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T14:10:11.850684Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-18T13:53:53.873314Z[GMT]")
 public class PatchIssue {
   @SerializedName("title")
   private String title = null;
