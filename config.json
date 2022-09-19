@@ -1,3 +1,4 @@
 {
-	"apiPackage" : "dagshub_api"
+	"packageVersion" : "1.0.1",
+	"packageName" : "dagshub_api"
   }

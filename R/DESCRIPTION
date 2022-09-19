@@ -1,6 +1,6 @@
 Package: dagshub_api
 Title: R Package Client for DagsHub API
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Swagger Codegen community", email = "apiteam@swagger.io", role = c("aut", "cre"))
 Description: The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 Depends: R (>= 3.3.3)

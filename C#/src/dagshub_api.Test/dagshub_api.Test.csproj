@@ -4,7 +4,7 @@ DagsHub API
 
 The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
 
-OpenAPI spec version: 0.1.0
+OpenAPI spec version: 1.0.1
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -81,7 +81,7 @@ OpenAPI spec version: 0.1.0
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\dagshub_api\dagshub_api.csproj">
-          <Project>{CEFA6C7F-89EA-4690-A522-1FD1D93E1EAD}</Project>
+          <Project>{35304BB4-1160-46A2-931F-FBE9AE65C0B6}</Project>
           <Name>dagshub_api</Name>
       </ProjectReference>
   </ItemGroup>

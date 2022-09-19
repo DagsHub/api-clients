@@ -1,4 +1,4 @@
-# dagshub_api.dagshub_api.CollaboratorsApi
+# dagshub_api.Api.CollaboratorsApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -18,7 +18,7 @@ Add user as a collaborator
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -89,7 +89,7 @@ Get collaborators
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -156,7 +156,7 @@ Delete collaborator
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 

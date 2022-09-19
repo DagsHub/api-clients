@@ -1,4 +1,4 @@
-# dagshub_api.dagshub_api.WebhooksApi
+# dagshub_api.Api.WebhooksApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -19,7 +19,7 @@ Create a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -88,7 +88,7 @@ Delete a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -157,7 +157,7 @@ Edit a hook
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -228,7 +228,7 @@ List hooks
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 

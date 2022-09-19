@@ -1,4 +1,4 @@
-# dagshub_api.dagshub_api.RepositoryApi
+# dagshub_api.Api.RepositoryApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -24,7 +24,7 @@ Create a new repository in this organization. The authenticated user must be an 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -93,7 +93,7 @@ Create a new repository for the authenticated user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -160,7 +160,7 @@ List repositories that are accessible to the authenticated user.  This includes 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -224,7 +224,7 @@ List repositories that are accessible to the authenticated user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -291,7 +291,7 @@ List public repositories for the specified user.
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -358,7 +358,7 @@ Migrate a repository from other Git hosting sources for the authenticated user. 
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -423,7 +423,7 @@ Search repositories
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 

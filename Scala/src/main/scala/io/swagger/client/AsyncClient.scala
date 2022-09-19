@@ -1,6 +1,6 @@
 package io.swagger.client
 
-import dagshub_api._
+import io.swagger.client.api._
 
 import com.wordnik.swagger.client._
 

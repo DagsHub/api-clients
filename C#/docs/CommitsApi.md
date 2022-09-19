@@ -1,4 +1,4 @@
-# dagshub_api.dagshub_api.CommitsApi
+# dagshub_api.Api.CommitsApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -17,7 +17,7 @@ Get a single commit
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
@@ -86,7 +86,7 @@ Get the SHA-1 of a commit reference
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 

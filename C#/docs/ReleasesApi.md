@@ -1,4 +1,4 @@
-# dagshub_api.dagshub_api.ReleasesApi
+# dagshub_api.Api.ReleasesApi
 
 All URIs are relative to *http://dagshub.com/api/v1/*
 
@@ -16,7 +16,7 @@ List Releases
 ```csharp
 using System;
 using System.Diagnostics;
-using dagshub_api.dagshub_api;
+using dagshub_api.Api;
 using dagshub_api.Client;
 using dagshub_api.Model;
 
