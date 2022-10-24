@@ -98,7 +98,7 @@ api.getBranch(owner, repo, branch, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -118,11 +118,14 @@ Class | Method | HTTP request | Description
 *DagsHubApi.ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listReleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *DagsHubApi.RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 *DagsHubApi.RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createRepo) | **POST** /user/repos | Create
+*DagsHubApi.RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
 *DagsHubApi.RepositoryApi* | [**listMyRepos**](docs/RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 *DagsHubApi.RepositoryApi* | [**listOrgRepos**](docs/RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *DagsHubApi.RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *DagsHubApi.RepositoryApi* | [**migrateRepo**](docs/RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *DagsHubApi.RepositoryApi* | [**search**](docs/RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*DagsHubApi.UserApi* | [**getAuthenticatedUser**](docs/UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
+*DagsHubApi.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *DagsHubApi.WebhooksApi* | [**createHook**](docs/WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
 *DagsHubApi.WebhooksApi* | [**deleteHook**](docs/WebhooksApi.md#deleteHook) | **DELETE** /repos/{owner}/{repo}/hooks/{id} | Delete a hook
 *DagsHubApi.WebhooksApi* | [**editHook**](docs/WebhooksApi.md#editHook) | **PATCH** /repos/{owner}/{repo}/hooks/{id} | Edit a hook

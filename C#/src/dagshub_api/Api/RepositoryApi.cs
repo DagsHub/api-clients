@@ -68,6 +68,29 @@ namespace dagshub_api.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateRepoWithHttpInfo (CreateRepo body = null);
         /// <summary>
+        /// Get repository information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns></returns>
+        void GetRepo (string username, string repo);
+
+        /// <summary>
+        /// Get repository information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetRepoWithHttpInfo (string username, string repo);
+        /// <summary>
         /// List your repositories
         /// </summary>
         /// <remarks>
@@ -222,6 +245,29 @@ namespace dagshub_api.Api
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateRepoAsyncWithHttpInfo (CreateRepo body = null);
+        /// <summary>
+        /// Get repository information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetRepoAsync (string username, string repo);
+
+        /// <summary>
+        /// Get repository information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string username, string repo);
         /// <summary>
         /// List your repositories
         /// </summary>
@@ -764,6 +810,167 @@ namespace dagshub_api.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateRepo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Get repository information 
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns></returns>
+        public void GetRepo (string username, string repo)
+        {
+             GetRepoWithHttpInfo(username, repo);
+        }
+
+        /// <summary>
+        /// Get repository information 
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> GetRepoWithHttpInfo (string username, string repo)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling RepositoryApi->GetRepo");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling RepositoryApi->GetRepo");
+
+            var localVarPath = "/repos/{username}/{repo}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRepo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Get repository information 
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetRepoAsync (string username, string repo)
+        {
+             await GetRepoAsyncWithHttpInfo(username, repo);
+
+        }
+
+        /// <summary>
+        /// Get repository information 
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string username, string repo)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling RepositoryApi->GetRepo");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling RepositoryApi->GetRepo");
+
+            var localVarPath = "/repos/{username}/{repo}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRepo", localVarResponse);
                 if (exception != null) throw exception;
             }
 

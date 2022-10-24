@@ -100,6 +100,57 @@ open class RepositoryAPI {
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
     /**
+     Get repository information
+
+     - parameter username: (path) A DagsHub username 
+     - parameter repo: (path) name of the repository 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getRepo(username: String, repo: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getRepoWithRequestBuilder(username: username, repo: repo).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     Get repository information
+     - GET /repos/{username}/{repo}
+     - 
+
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey token (QUERY)
+       - name: tokenAuth
+     - parameter username: (path) A DagsHub username 
+     - parameter repo: (path) name of the repository 
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func getRepoWithRequestBuilder(username: String, repo: String) -> RequestBuilder<Void> {
+        var path = "/repos/{username}/{repo}"
+        let usernamePreEscape = "\(username)"
+        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+        let repoPreEscape = "\(repo)"
+        let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
      List your repositories
 
      - parameter completion: completion handler to receive the data and the error objects

@@ -31,7 +31,7 @@ This runs all tests and packages the library.
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -51,11 +51,14 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listreleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createorgrepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createrepo) | **POST** /user/repos | Create
+*RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getrepo) | **GET** /repos/{username}/{repo} | Get repository information
 *RepositoryApi* | [**listMyRepos**](docs/RepositoryApi.md#listmyrepos) | **GET** /user/repos | List your repositories
 *RepositoryApi* | [**listOrgRepos**](docs/RepositoryApi.md#listorgrepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listuserrepos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrateRepo**](docs/RepositoryApi.md#migraterepo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](docs/RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*UserApi* | [**getAuthenticatedUser**](docs/UserApi.md#getauthenticateduser) | **GET** /user | Get authenticated user information
+*UserApi* | [**getUser**](docs/UserApi.md#getuser) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**createHook**](docs/WebhooksApi.md#createhook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
 *WebhooksApi* | [**deleteHook**](docs/WebhooksApi.md#deletehook) | **DELETE** /repos/{owner}/{repo}/hooks/{id} | Delete a hook
 *WebhooksApi* | [**editHook**](docs/WebhooksApi.md#edithook) | **PATCH** /repos/{owner}/{repo}/hooks/{id} | Edit a hook

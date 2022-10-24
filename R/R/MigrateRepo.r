@@ -11,10 +11,10 @@
 #' @field clone_addr 
 #' @field auth_username 
 #' @field auth_password 
-#' @field uid 
+#' @field user_id 
 #' @field repo_name 
 #' @field mirror 
-#' @field private 
+#' @field visibility 
 #' @field description 
 #'
 #' @importFrom R6 R6Class
@@ -26,12 +26,12 @@ MigrateRepo <- R6::R6Class(
     `clone_addr` = NULL,
     `auth_username` = NULL,
     `auth_password` = NULL,
-    `uid` = NULL,
+    `user_id` = NULL,
     `repo_name` = NULL,
     `mirror` = NULL,
-    `private` = NULL,
+    `visibility` = NULL,
     `description` = NULL,
-    initialize = function(`clone_addr`, `auth_username`, `auth_password`, `uid`, `repo_name`, `mirror`, `private`, `description`){
+    initialize = function(`clone_addr`, `auth_username`, `auth_password`, `user_id`, `repo_name`, `mirror`, `visibility`, `description`){
       if (!missing(`clone_addr`)) {
         stopifnot(is.character(`clone_addr`), length(`clone_addr`) == 1)
         self$`clone_addr` <- `clone_addr`
@@ -44,9 +44,9 @@ MigrateRepo <- R6::R6Class(
         stopifnot(is.character(`auth_password`), length(`auth_password`) == 1)
         self$`auth_password` <- `auth_password`
       }
-      if (!missing(`uid`)) {
-        stopifnot(is.numeric(`uid`), length(`uid`) == 1)
-        self$`uid` <- `uid`
+      if (!missing(`user_id`)) {
+        stopifnot(is.numeric(`user_id`), length(`user_id`) == 1)
+        self$`user_id` <- `user_id`
       }
       if (!missing(`repo_name`)) {
         stopifnot(is.character(`repo_name`), length(`repo_name`) == 1)
@@ -55,8 +55,9 @@ MigrateRepo <- R6::R6Class(
       if (!missing(`mirror`)) {
         self$`mirror` <- `mirror`
       }
-      if (!missing(`private`)) {
-        self$`private` <- `private`
+      if (!missing(`visibility`)) {
+        stopifnot(is.character(`visibility`), length(`visibility`) == 1)
+        self$`visibility` <- `visibility`
       }
       if (!missing(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -74,8 +75,8 @@ MigrateRepo <- R6::R6Class(
       if (!is.null(self$`auth_password`)) {
         MigrateRepoObject[['auth_password']] <- self$`auth_password`
       }
-      if (!is.null(self$`uid`)) {
-        MigrateRepoObject[['uid']] <- self$`uid`
+      if (!is.null(self$`user_id`)) {
+        MigrateRepoObject[['user_id']] <- self$`user_id`
       }
       if (!is.null(self$`repo_name`)) {
         MigrateRepoObject[['repo_name']] <- self$`repo_name`
@@ -83,8 +84,8 @@ MigrateRepo <- R6::R6Class(
       if (!is.null(self$`mirror`)) {
         MigrateRepoObject[['mirror']] <- self$`mirror`
       }
-      if (!is.null(self$`private`)) {
-        MigrateRepoObject[['private']] <- self$`private`
+      if (!is.null(self$`visibility`)) {
+        MigrateRepoObject[['visibility']] <- self$`visibility`
       }
       if (!is.null(self$`description`)) {
         MigrateRepoObject[['description']] <- self$`description`
@@ -103,8 +104,8 @@ MigrateRepo <- R6::R6Class(
       if (!is.null(MigrateRepoObject$`auth_password`)) {
         self$`auth_password` <- MigrateRepoObject$`auth_password`
       }
-      if (!is.null(MigrateRepoObject$`uid`)) {
-        self$`uid` <- MigrateRepoObject$`uid`
+      if (!is.null(MigrateRepoObject$`user_id`)) {
+        self$`user_id` <- MigrateRepoObject$`user_id`
       }
       if (!is.null(MigrateRepoObject$`repo_name`)) {
         self$`repo_name` <- MigrateRepoObject$`repo_name`
@@ -112,8 +113,8 @@ MigrateRepo <- R6::R6Class(
       if (!is.null(MigrateRepoObject$`mirror`)) {
         self$`mirror` <- MigrateRepoObject$`mirror`
       }
-      if (!is.null(MigrateRepoObject$`private`)) {
-        self$`private` <- MigrateRepoObject$`private`
+      if (!is.null(MigrateRepoObject$`visibility`)) {
+        self$`visibility` <- MigrateRepoObject$`visibility`
       }
       if (!is.null(MigrateRepoObject$`description`)) {
         self$`description` <- MigrateRepoObject$`description`
@@ -125,19 +126,19 @@ MigrateRepo <- R6::R6Class(
            "clone_addr": %s,
            "auth_username": %s,
            "auth_password": %s,
-           "uid": %d,
+           "user_id": %d,
            "repo_name": %s,
            "mirror": %s,
-           "private": %s,
+           "visibility": %s,
            "description": %s
         }',
         self$`clone_addr`,
         self$`auth_username`,
         self$`auth_password`,
-        self$`uid`,
+        self$`user_id`,
         self$`repo_name`,
         self$`mirror`,
-        self$`private`,
+        self$`visibility`,
         self$`description`
       )
     },
@@ -146,10 +147,10 @@ MigrateRepo <- R6::R6Class(
       self$`clone_addr` <- MigrateRepoObject$`clone_addr`
       self$`auth_username` <- MigrateRepoObject$`auth_username`
       self$`auth_password` <- MigrateRepoObject$`auth_password`
-      self$`uid` <- MigrateRepoObject$`uid`
+      self$`user_id` <- MigrateRepoObject$`user_id`
       self$`repo_name` <- MigrateRepoObject$`repo_name`
       self$`mirror` <- MigrateRepoObject$`mirror`
-      self$`private` <- MigrateRepoObject$`private`
+      self$`visibility` <- MigrateRepoObject$`visibility`
       self$`description` <- MigrateRepoObject$`description`
     }
   )

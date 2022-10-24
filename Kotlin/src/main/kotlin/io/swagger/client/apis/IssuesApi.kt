@@ -18,7 +18,7 @@ import io.swagger.client.models.PostIssue
 
 import dagshub_api.infrastructure.*
 
-class IssuesApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
+class IssuesApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
 
     /**
      * Create an issue

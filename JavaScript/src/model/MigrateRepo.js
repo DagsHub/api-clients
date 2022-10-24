@@ -25,11 +25,11 @@ export class MigrateRepo {
    * @alias module:model/MigrateRepo
    * @class
    * @param cloneAddr {String} Remote Git address (HTTP/HTTPS URL or local path)
-   * @param uid {Number} User ID who takes ownership of this repository
+   * @param userId {Number} User ID who takes ownership of this repository
    */
-  constructor(cloneAddr, uid) {
+  constructor(cloneAddr, userId) {
     this.cloneAddr = cloneAddr;
-    this.uid = uid;
+    this.userId = userId;
   }
 
   /**
@@ -48,14 +48,14 @@ export class MigrateRepo {
         obj.authUsername = ApiClient.convertToType(data['auth_username'], 'String');
       if (data.hasOwnProperty('auth_password'))
         obj.authPassword = ApiClient.convertToType(data['auth_password'], 'String');
-      if (data.hasOwnProperty('uid'))
-        obj.uid = ApiClient.convertToType(data['uid'], 'Number');
+      if (data.hasOwnProperty('user_id'))
+        obj.userId = ApiClient.convertToType(data['user_id'], 'Number');
       if (data.hasOwnProperty('repo_name'))
         obj.repoName = ApiClient.convertToType(data['repo_name'], 'String');
       if (data.hasOwnProperty('mirror'))
         obj.mirror = ApiClient.convertToType(data['mirror'], 'Boolean');
-      if (data.hasOwnProperty('private'))
-        obj._private = ApiClient.convertToType(data['private'], 'Boolean');
+      if (data.hasOwnProperty('visibility'))
+        obj.visibility = ApiClient.convertToType(data['visibility'], 'String');
       if (data.hasOwnProperty('description'))
         obj.description = ApiClient.convertToType(data['description'], 'String');
     }
@@ -83,9 +83,9 @@ MigrateRepo.prototype.authPassword = undefined;
 
 /**
  * User ID who takes ownership of this repository
- * @member {Number} uid
+ * @member {Number} userId
  */
-MigrateRepo.prototype.uid = undefined;
+MigrateRepo.prototype.userId = undefined;
 
 /**
  * Name of the repository
@@ -101,11 +101,29 @@ MigrateRepo.prototype.repoName = undefined;
 MigrateRepo.prototype.mirror = false;
 
 /**
- * Repository will be private.
- * @member {Boolean} _private
- * @default false
+ * Allowed values for the <code>visibility</code> property.
+ * @enum {String}
+ * @readonly
  */
-MigrateRepo.prototype._private = false;
+MigrateRepo.VisibilityEnum = {
+  /**
+   * value: "private"
+   * @const
+   */
+  _private: "private",
+
+  /**
+   * value: "public"
+   * @const
+   */
+  _public: "public"
+};
+/**
+ * Repository will be private or public.
+ * @member {module:model/MigrateRepo.VisibilityEnum} visibility
+ * @default 'false'
+ */
+MigrateRepo.prototype.visibility = 'false';
 
 /**
  * Description of the repository

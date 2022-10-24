@@ -12,6 +12,7 @@
 #' @field description 
 #' @field private 
 #' @field auto_init 
+#' @field project_template 
 #' @field gitignores 
 #' @field license 
 #' @field readme 
@@ -26,10 +27,11 @@ CreateRepo <- R6::R6Class(
     `description` = NULL,
     `private` = NULL,
     `auto_init` = NULL,
+    `project_template` = NULL,
     `gitignores` = NULL,
     `license` = NULL,
     `readme` = NULL,
-    initialize = function(`name`, `description`, `private`, `auto_init`, `gitignores`, `license`, `readme`){
+    initialize = function(`name`, `description`, `private`, `auto_init`, `project_template`, `gitignores`, `license`, `readme`){
       if (!missing(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -43,6 +45,10 @@ CreateRepo <- R6::R6Class(
       }
       if (!missing(`auto_init`)) {
         self$`auto_init` <- `auto_init`
+      }
+      if (!missing(`project_template`)) {
+        stopifnot(is.character(`project_template`), length(`project_template`) == 1)
+        self$`project_template` <- `project_template`
       }
       if (!missing(`gitignores`)) {
         stopifnot(is.character(`gitignores`), length(`gitignores`) == 1)
@@ -71,6 +77,9 @@ CreateRepo <- R6::R6Class(
       if (!is.null(self$`auto_init`)) {
         CreateRepoObject[['auto_init']] <- self$`auto_init`
       }
+      if (!is.null(self$`project_template`)) {
+        CreateRepoObject[['project_template']] <- self$`project_template`
+      }
       if (!is.null(self$`gitignores`)) {
         CreateRepoObject[['gitignores']] <- self$`gitignores`
       }
@@ -97,6 +106,9 @@ CreateRepo <- R6::R6Class(
       if (!is.null(CreateRepoObject$`auto_init`)) {
         self$`auto_init` <- CreateRepoObject$`auto_init`
       }
+      if (!is.null(CreateRepoObject$`project_template`)) {
+        self$`project_template` <- CreateRepoObject$`project_template`
+      }
       if (!is.null(CreateRepoObject$`gitignores`)) {
         self$`gitignores` <- CreateRepoObject$`gitignores`
       }
@@ -114,6 +126,7 @@ CreateRepo <- R6::R6Class(
            "description": %s,
            "private": %s,
            "auto_init": %s,
+           "project_template": %s,
            "gitignores": %s,
            "license": %s,
            "readme": %s
@@ -122,6 +135,7 @@ CreateRepo <- R6::R6Class(
         self$`description`,
         self$`private`,
         self$`auto_init`,
+        self$`project_template`,
         self$`gitignores`,
         self$`license`,
         self$`readme`
@@ -133,6 +147,7 @@ CreateRepo <- R6::R6Class(
       self$`description` <- CreateRepoObject$`description`
       self$`private` <- CreateRepoObject$`private`
       self$`auto_init` <- CreateRepoObject$`auto_init`
+      self$`project_template` <- CreateRepoObject$`project_template`
       self$`gitignores` <- CreateRepoObject$`gitignores`
       self$`license` <- CreateRepoObject$`license`
       self$`readme` <- CreateRepoObject$`readme`

@@ -17,6 +17,7 @@ package io.swagger.client.model
  * @param description A short description of the repository
  * @param `private` Either true to create a private repository, or false to create a public one.
  * @param autoInit Pass true to create an initial commit with README, .gitignore and LICENSE.
+ * @param projectTemplate Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license. 
  * @param gitignores Desired language .gitignore templates to apply. Use the name of the templates. for example: '''Go, Sublime Text'''
  * @param license Desired LICENSE template to apply. Use the name of the template. for example: '''MIT License'''
  * @param readme Desired README template to apply. Use the name of the template.
@@ -26,6 +27,7 @@ case class CreateRepo (
   description: Option[String] = None,
   `private`: Option[Boolean] = None,
   autoInit: Option[Boolean] = None,
+  projectTemplate: Option[String] = None,
   gitignores: Option[String] = None,
   license: Option[String] = None,
   readme: Option[String] = None

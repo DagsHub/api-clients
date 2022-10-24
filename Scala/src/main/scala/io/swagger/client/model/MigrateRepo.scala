@@ -16,20 +16,20 @@ package io.swagger.client.model
  * @param cloneAddr Remote Git address (HTTP/HTTPS URL or local path)
  * @param authUsername Authorization username
  * @param authPassword Authorization password
- * @param uid User ID who takes ownership of this repository
+ * @param userId User ID who takes ownership of this repository
  * @param repoName Name of the repository for example: '''repo-name'''
  * @param mirror Repository will be a mirror (connected repository).
- * @param `private` Repository will be private.
+ * @param visibility Repository will be private or public.
  * @param description Description of the repository for example: '''...'''
  */
 case class MigrateRepo (
   cloneAddr: String,
   authUsername: Option[String] = None,
   authPassword: Option[String] = None,
-  uid: Integer,
+  userId: Integer,
   repoName: Option[String] = None,
   mirror: Option[Boolean] = None,
-  `private`: Option[Boolean] = None,
+  visibility: Option[String] = None,
   description: Option[String] = None
 )
 

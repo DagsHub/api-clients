@@ -63,6 +63,12 @@
         // expect(instance.autoInit).to.be(expectedValueLiteral);
       });
 
+      it('should have the property projectTemplate (base name: "project_template")', function() {
+        // TODO: update the code to test the property projectTemplate
+        expect(instance).to.have.property('projectTemplate');
+        // expect(instance.projectTemplate).to.be(expectedValueLiteral);
+      });
+
       it('should have the property gitignores (base name: "gitignores")', function() {
         // TODO: update the code to test the property gitignores
         expect(instance).to.have.property('gitignores');

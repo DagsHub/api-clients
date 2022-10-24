@@ -22,6 +22,7 @@ from dagshub_api.api.content_api import ContentApi
 from dagshub_api.api.issues_api import IssuesApi
 from dagshub_api.api.releases_api import ReleasesApi
 from dagshub_api.api.repository_api import RepositoryApi
+from dagshub_api.api.user_api import UserApi
 from dagshub_api.api.webhooks_api import WebhooksApi
 # import ApiClient
 from dagshub_api.api_client import ApiClient
