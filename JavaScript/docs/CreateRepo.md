@@ -7,9 +7,19 @@ Name | Type | Description | Notes
 **description** | **String** | A short description of the repository | [optional] 
 **_private** | **Boolean** | Either true to create a private repository, or false to create a public one. | [optional] [default to false]
 **autoInit** | **Boolean** | Pass true to create an initial commit with README, .gitignore and LICENSE. | [optional] [default to false]
+**projectTemplate** | **String** | Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license.  | [optional] 
 **gitignores** | **String** | Desired language .gitignore templates to apply. Use the name of the templates. | [optional] 
 **license** | **String** | Desired LICENSE template to apply. Use the name of the template. | [optional] 
 **readme** | **String** | Desired README template to apply. Use the name of the template. | [optional] [default to &#x27;Default&#x27;]
+
+<a name="ProjectTemplateEnum"></a>
+## Enum: ProjectTemplateEnum
+
+* `cookiecutterDagshubDvc` (value: `"cookiecutter-dagshub-dvc"`)
+* `custom` (value: `"custom"`)
+* `none` (value: `"none"`)
+* `notebookTemplate` (value: `"notebook-template"`)
+
 
 <a name="LicenseEnum"></a>
 ## Enum: LicenseEnum

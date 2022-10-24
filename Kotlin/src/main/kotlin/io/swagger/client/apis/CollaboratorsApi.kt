@@ -15,7 +15,7 @@ import io.swagger.client.models.CollaboratorsCollaboratorBody
 
 import dagshub_api.infrastructure.*
 
-class CollaboratorsApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
+class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
 
     /**
      * Add user as a collaborator

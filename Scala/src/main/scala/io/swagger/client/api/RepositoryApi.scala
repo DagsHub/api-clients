@@ -45,7 +45,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class RepositoryApi(
-  val defBasePath: String = "http://dagshub.com/api/v1/",
+  val defBasePath: String = "https://dagshub.com/api/v1/",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -131,6 +131,34 @@ class RepositoryApi(
    */
   def createRepoAsync(body: Option[CreateRepo] = None) = {
       helper.createRepo(body)
+  }
+
+  /**
+   * Get repository information
+   * 
+   *
+   * @param username A DagsHub username 
+   * @param repo name of the repository 
+   * @return void
+   */
+  def getRepo(username: String, repo: String) = {
+    val await = Try(Await.result(getRepoAsync(username, repo), Duration.Inf))
+    await match {
+      case Success(i) => Some(await.get)
+      case Failure(t) => None
+    }
+  }
+
+  /**
+   * Get repository information asynchronously
+   * 
+   *
+   * @param username A DagsHub username 
+   * @param repo name of the repository 
+   * @return Future(void)
+   */
+  def getRepoAsync(username: String, repo: String) = {
+      helper.getRepo(username, repo)
   }
 
   /**
@@ -302,6 +330,28 @@ class RepositoryApiAsyncHelper(client: TransportClient, config: SwaggerConfig) e
 
 
     val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, writer.write(body))
+    resFuture flatMap { resp =>
+      process(reader.read(resp))
+    }
+  }
+
+  def getRepo(username: String,
+    repo: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
+    // create path and map variables
+    val path = (addFmt("/repos/{username}/{repo}")
+      replaceAll("\\{" + "username" + "\\}", username.toString)
+      replaceAll("\\{" + "repo" + "\\}", repo.toString))
+
+    // query params
+    val queryParams = new mutable.HashMap[String, String]
+    val headerParams = new mutable.HashMap[String, String]
+
+    if (username == null) throw new Exception("Missing required parameter 'username' when calling RepositoryApi->getRepo")
+
+    if (repo == null) throw new Exception("Missing required parameter 'repo' when calling RepositoryApi->getRepo")
+
+
+    val resFuture = client.submit("GET", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>
       process(reader.read(resp))
     }

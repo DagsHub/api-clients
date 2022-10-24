@@ -18,6 +18,7 @@ package io.swagger.client.models
  * @param description A short description of the repository
  * @param &#x60;private&#x60; Either true to create a private repository, or false to create a public one.
  * @param autoInit Pass true to create an initial commit with README, .gitignore and LICENSE.
+ * @param projectTemplate Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license. 
  * @param gitignores Desired language .gitignore templates to apply. Use the name of the templates.
  * @param license Desired LICENSE template to apply. Use the name of the template.
  * @param readme Desired README template to apply. Use the name of the template.
@@ -32,6 +33,8 @@ data class CreateRepo (
     val `private`: kotlin.Boolean? = null,
     /* Pass true to create an initial commit with README, .gitignore and LICENSE. */
     val autoInit: kotlin.Boolean? = null,
+    /* Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license.  */
+    val projectTemplate: CreateRepo.ProjectTemplate? = null,
     /* Desired language .gitignore templates to apply. Use the name of the templates. */
     val gitignores: kotlin.String? = null,
     /* Desired LICENSE template to apply. Use the name of the template. */
@@ -39,6 +42,16 @@ data class CreateRepo (
     /* Desired README template to apply. Use the name of the template. */
     val readme: kotlin.String? = null
 ) {
+    /**
+    * Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license. 
+    * Values: COOKIECUTTERDAGSHUBDVC,CUSTOM,NONE,NOTEBOOKTEMPLATE
+    */
+    enum class ProjectTemplate(val value: kotlin.String){
+        COOKIECUTTERDAGSHUBDVC("cookiecutter-dagshub-dvc"),
+        CUSTOM("custom"),
+        NONE("none"),
+        NOTEBOOKTEMPLATE("notebook-template");
+    }
     /**
     * Desired LICENSE template to apply. Use the name of the template.
     * Values: APACHE_LICENSE_2PERIOD0,MIT_LICENSE,ABSTYLES_LICENSE,ACADEMIC_FREE_LICENSE_V1PERIOD1,ACADEMIC_FREE_LICENSE_V1PERIOD2,ACADEMIC_FREE_LICENSE_V2PERIOD0,ACADEMIC_FREE_LICENSE_V2PERIOD1,ACADEMIC_FREE_LICENSE_V3PERIOD0,AFFERO_GENERAL_PUBLIC_LICENSE_V1PERIOD0,APACHE_LICENSE_1PERIOD0,APACHE_LICENSE_1PERIOD1,ARTISTIC_LICENSE_1PERIOD0,ARTISTIC_LICENSE_2PERIOD0,BSD_2CLAUSE_LICENSE,BSD_3CLAUSE_LICENSE,BSD_4CLAUSE_LICENSE,CREATIVE_COMMONS_CC0_1PERIOD0_UNIVERSAL,ECLIPSE_PUBLIC_LICENSE_1PERIOD0,EDUCATIONAL_COMMUNITY_LICENSE_V1PERIOD0,EDUCATIONAL_COMMUNITY_LICENSE_V2PERIOD0,GNU_AFFERO_GENERAL_PUBLIC_LICENSE_V3PERIOD0,GNU_FREE_DOCUMENTATION_LICENSE_V1PERIOD1,GNU_FREE_DOCUMENTATION_LICENSE_V1PERIOD2,GNU_FREE_DOCUMENTATION_LICENSE_V1PERIOD3,GNU_GENERAL_PUBLIC_LICENSE_V1PERIOD0,GNU_GENERAL_PUBLIC_LICENSE_V2PERIOD0,GNU_GENERAL_PUBLIC_LICENSE_V3PERIOD0,GNU_LESSER_GENERAL_PUBLIC_LICENSE_V2PERIOD1,GNU_LESSER_GENERAL_PUBLIC_LICENSE_V3PERIOD0,GNU_LIBRARY_GENERAL_PUBLIC_LICENSE_V2PERIOD0,ISC_LICENSE,MOZILLA_PUBLIC_LICENSE_1PERIOD0,MOZILLA_PUBLIC_LICENSE_1PERIOD1,MOZILLA_PUBLIC_LICENSE_2PERIOD03

@@ -30,6 +30,39 @@ namespace dagshub_api.Model
         public partial class CreateRepo :  IEquatable<CreateRepo>, IValidatableObject
     {
         /// <summary>
+        /// Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license. 
+        /// </summary>
+        /// <value>Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+                public enum ProjectTemplateEnum
+        {
+            /// <summary>
+            /// Enum CookiecutterDagshubDvc for value: cookiecutter-dagshub-dvc
+            /// </summary>
+            [EnumMember(Value = "cookiecutter-dagshub-dvc")]
+            CookiecutterDagshubDvc = 1,
+            /// <summary>
+            /// Enum Custom for value: custom
+            /// </summary>
+            [EnumMember(Value = "custom")]
+            Custom = 2,
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 3,
+            /// <summary>
+            /// Enum NotebookTemplate for value: notebook-template
+            /// </summary>
+            [EnumMember(Value = "notebook-template")]
+            NotebookTemplate = 4        }
+        /// <summary>
+        /// Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license. 
+        /// </summary>
+        /// <value>Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license. </value>
+        [DataMember(Name="project_template", EmitDefaultValue=false)]
+        public ProjectTemplateEnum? ProjectTemplate { get; set; }
+        /// <summary>
         /// Desired LICENSE template to apply. Use the name of the template.
         /// </summary>
         /// <value>Desired LICENSE template to apply. Use the name of the template.</value>
@@ -219,10 +252,11 @@ namespace dagshub_api.Model
         /// <param name="description">A short description of the repository.</param>
         /// <param name="_private">Either true to create a private repository, or false to create a public one. (default to false).</param>
         /// <param name="autoInit">Pass true to create an initial commit with README, .gitignore and LICENSE. (default to false).</param>
+        /// <param name="projectTemplate">Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license. .</param>
         /// <param name="gitignores">Desired language .gitignore templates to apply. Use the name of the templates..</param>
         /// <param name="license">Desired LICENSE template to apply. Use the name of the template..</param>
         /// <param name="readme">Desired README template to apply. Use the name of the template. (default to &quot;Default&quot;).</param>
-        public CreateRepo(string name = default(string), string description = default(string), bool? _private = false, bool? autoInit = false, string gitignores = default(string), LicenseEnum? license = default(LicenseEnum?), string readme = "Default")
+        public CreateRepo(string name = default(string), string description = default(string), bool? _private = false, bool? autoInit = false, ProjectTemplateEnum? projectTemplate = default(ProjectTemplateEnum?), string gitignores = default(string), LicenseEnum? license = default(LicenseEnum?), string readme = "Default")
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -252,6 +286,7 @@ namespace dagshub_api.Model
             {
                 this.AutoInit = autoInit;
             }
+            this.ProjectTemplate = projectTemplate;
             this.Gitignores = gitignores;
             this.License = license;
             // use default value if no "readme" provided
@@ -293,6 +328,7 @@ namespace dagshub_api.Model
         [DataMember(Name="auto_init", EmitDefaultValue=false)]
         public bool? AutoInit { get; set; }
 
+
         /// <summary>
         /// Desired language .gitignore templates to apply. Use the name of the templates.
         /// </summary>
@@ -320,6 +356,7 @@ namespace dagshub_api.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  _Private: ").Append(_Private).Append("\n");
             sb.Append("  AutoInit: ").Append(AutoInit).Append("\n");
+            sb.Append("  ProjectTemplate: ").Append(ProjectTemplate).Append("\n");
             sb.Append("  Gitignores: ").Append(Gitignores).Append("\n");
             sb.Append("  License: ").Append(License).Append("\n");
             sb.Append("  Readme: ").Append(Readme).Append("\n");
@@ -378,6 +415,11 @@ namespace dagshub_api.Model
                     this.AutoInit.Equals(input.AutoInit))
                 ) && 
                 (
+                    this.ProjectTemplate == input.ProjectTemplate ||
+                    (this.ProjectTemplate != null &&
+                    this.ProjectTemplate.Equals(input.ProjectTemplate))
+                ) && 
+                (
                     this.Gitignores == input.Gitignores ||
                     (this.Gitignores != null &&
                     this.Gitignores.Equals(input.Gitignores))
@@ -411,6 +453,8 @@ namespace dagshub_api.Model
                     hashCode = hashCode * 59 + this._Private.GetHashCode();
                 if (this.AutoInit != null)
                     hashCode = hashCode * 59 + this.AutoInit.GetHashCode();
+                if (this.ProjectTemplate != null)
+                    hashCode = hashCode * 59 + this.ProjectTemplate.GetHashCode();
                 if (this.Gitignores != null)
                     hashCode = hashCode * 59 + this.Gitignores.GetHashCode();
                 if (this.License != null)

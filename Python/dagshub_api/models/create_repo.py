@@ -32,6 +32,7 @@ class CreateRepo(object):
         'description': 'str',
         'private': 'bool',
         'auto_init': 'bool',
+        'project_template': 'str',
         'gitignores': 'str',
         'license': 'str',
         'readme': 'str'
@@ -42,17 +43,19 @@ class CreateRepo(object):
         'description': 'description',
         'private': 'private',
         'auto_init': 'auto_init',
+        'project_template': 'project_template',
         'gitignores': 'gitignores',
         'license': 'license',
         'readme': 'readme'
     }
 
-    def __init__(self, name=None, description=None, private=False, auto_init=False, gitignores=None, license=None, readme='Default'):  # noqa: E501
+    def __init__(self, name=None, description=None, private=False, auto_init=False, project_template=None, gitignores=None, license=None, readme='Default'):  # noqa: E501
         """CreateRepo - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
         self._private = None
         self._auto_init = None
+        self._project_template = None
         self._gitignores = None
         self._license = None
         self._readme = None
@@ -64,6 +67,8 @@ class CreateRepo(object):
             self.private = private
         if auto_init is not None:
             self.auto_init = auto_init
+        if project_template is not None:
+            self.project_template = project_template
         if gitignores is not None:
             self.gitignores = gitignores
         if license is not None:
@@ -164,6 +169,35 @@ class CreateRepo(object):
         """
 
         self._auto_init = auto_init
+
+    @property
+    def project_template(self):
+        """Gets the project_template of this CreateRepo.  # noqa: E501
+
+        Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license.   # noqa: E501
+
+        :return: The project_template of this CreateRepo.  # noqa: E501
+        :rtype: str
+        """
+        return self._project_template
+
+    @project_template.setter
+    def project_template(self, project_template):
+        """Sets the project_template of this CreateRepo.
+
+        Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license.   # noqa: E501
+
+        :param project_template: The project_template of this CreateRepo.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["cookiecutter-dagshub-dvc", "custom", "none", "notebook-template"]  # noqa: E501
+        if project_template not in allowed_values:
+            raise ValueError(
+                "Invalid value for `project_template` ({0}), must be one of {1}"  # noqa: E501
+                .format(project_template, allowed_values)
+            )
+
+        self._project_template = project_template
 
     @property
     def gitignores(self):

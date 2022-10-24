@@ -222,6 +222,103 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_repo(self, username, repo, **kwargs):  # noqa: E501
+        """Get repository information  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_repo(username, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: A DagsHub username (required)
+        :param str repo: name of the repository (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_repo_with_http_info(username, repo, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_repo_with_http_info(username, repo, **kwargs)  # noqa: E501
+            return data
+
+    def get_repo_with_http_info(self, username, repo, **kwargs):  # noqa: E501
+        """Get repository information  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_repo_with_http_info(username, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str username: A DagsHub username (required)
+        :param str repo: name of the repository (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['username', 'repo']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_repo" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'username' is set
+        if ('username' not in params or
+                params['username'] is None):
+            raise ValueError("Missing the required parameter `username` when calling `get_repo`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params or
+                params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `get_repo`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'username' in params:
+            path_params['username'] = params['username']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['basicAuth', 'tokenAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{username}/{repo}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def list_my_repos(self, **kwargs):  # noqa: E501
         """List your repositories  # noqa: E501
 

@@ -1,11 +1,12 @@
 # dagshub_api.Api.RepositoryApi
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateOrgRepo**](RepositoryApi.md#createorgrepo) | **POST** /org/{orgname}/repos | Create in organization
 [**CreateRepo**](RepositoryApi.md#createrepo) | **POST** /user/repos | Create
+[**GetRepo**](RepositoryApi.md#getrepo) | **GET** /repos/{username}/{repo} | Get repository information
 [**ListMyRepos**](RepositoryApi.md#listmyrepos) | **GET** /user/repos | List your repositories
 [**ListOrgRepos**](RepositoryApi.md#listorgrepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**ListUserRepos**](RepositoryApi.md#listuserrepos) | **GET** /users/{username}/repos | List user repositories
@@ -145,6 +146,73 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+<a name="getrepo"></a>
+# **GetRepo**
+> void GetRepo (string username, string repo)
+
+Get repository information
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using dagshub_api.Api;
+using dagshub_api.Client;
+using dagshub_api.Model;
+
+namespace Example
+{
+    public class GetRepoExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: basicAuth
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure API key authorization: tokenAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
+            var apiInstance = new RepositoryApi();
+            var username = username_example;  // string | A DagsHub username
+            var repo = repo_example;  // string | name of the repository
+
+            try
+            {
+                // Get repository information
+                apiInstance.GetRepo(username, repo);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling RepositoryApi.GetRepo: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| A DagsHub username | 
+ **repo** | **string**| name of the repository | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

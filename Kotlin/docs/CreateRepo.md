@@ -7,9 +7,16 @@ Name | Type | Description | Notes
 **description** | [**kotlin.String**](.md) | A short description of the repository |  [optional]
 **&#x60;private&#x60;** | [**kotlin.Boolean**](.md) | Either true to create a private repository, or false to create a public one. |  [optional]
 **autoInit** | [**kotlin.Boolean**](.md) | Pass true to create an initial commit with README, .gitignore and LICENSE. |  [optional]
+**projectTemplate** | [**inline**](#ProjectTemplateEnum) | Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license.  |  [optional]
 **gitignores** | [**kotlin.String**](.md) | Desired language .gitignore templates to apply. Use the name of the templates. |  [optional]
 **license** | [**inline**](#LicenseEnum) | Desired LICENSE template to apply. Use the name of the template. |  [optional]
 **readme** | [**kotlin.String**](.md) | Desired README template to apply. Use the name of the template. |  [optional]
+
+<a name="ProjectTemplateEnum"></a>
+## Enum: project_template
+Name | Value
+---- | -----
+projectTemplate | cookiecutter-dagshub-dvc, custom, none, notebook-template
 
 <a name="LicenseEnum"></a>
 ## Enum: license

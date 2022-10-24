@@ -48,6 +48,8 @@ export class CreateRepo {
         obj._private = ApiClient.convertToType(data['private'], 'Boolean');
       if (data.hasOwnProperty('auto_init'))
         obj.autoInit = ApiClient.convertToType(data['auto_init'], 'Boolean');
+      if (data.hasOwnProperty('project_template'))
+        obj.projectTemplate = ApiClient.convertToType(data['project_template'], 'String');
       if (data.hasOwnProperty('gitignores'))
         obj.gitignores = ApiClient.convertToType(data['gitignores'], 'String');
       if (data.hasOwnProperty('license'))
@@ -84,6 +86,42 @@ CreateRepo.prototype._private = false;
  * @default false
  */
 CreateRepo.prototype.autoInit = false;
+
+/**
+ * Allowed values for the <code>projectTemplate</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateRepo.ProjectTemplateEnum = {
+  /**
+   * value: "cookiecutter-dagshub-dvc"
+   * @const
+   */
+  cookiecutterDagshubDvc: "cookiecutter-dagshub-dvc",
+
+  /**
+   * value: "custom"
+   * @const
+   */
+  custom: "custom",
+
+  /**
+   * value: "none"
+   * @const
+   */
+  none: "none",
+
+  /**
+   * value: "notebook-template"
+   * @const
+   */
+  notebookTemplate: "notebook-template"
+};
+/**
+ * Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license. 
+ * @member {module:model/CreateRepo.ProjectTemplateEnum} projectTemplate
+ */
+CreateRepo.prototype.projectTemplate = undefined;
 
 /**
  * Desired language .gitignore templates to apply. Use the name of the templates.

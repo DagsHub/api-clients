@@ -23,6 +23,9 @@
 #' create_repo Create
 #'
 #'
+#' get_repo Get repository information
+#'
+#'
 #' list_my_repos List your repositories
 #'
 #'
@@ -99,6 +102,36 @@ RepositoryApi <- R6::R6Class(
       urlPath <- "/user/repos"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+      
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    }
+    get_repo = function(username, repo, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/repos/{username}/{repo}"
+      if (!missing(`username`)) {
+        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      }
+
+      if (!missing(`repo`)) {
+        urlPath <- gsub(paste0("\\{", "repo", "\\}"), `repo`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

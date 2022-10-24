@@ -1,11 +1,12 @@
 # DagsHubApi.RepositoryApi
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
+[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
 [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
@@ -122,6 +123,60 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="getRepo"></a>
+# **getRepo**
+> getRepo(username, repo)
+
+Get repository information
+
+### Example
+```javascript
+import {DagsHubApi} from 'dags_hub_api';
+let defaultClient = DagsHubApi.ApiClient.instance;
+// Configure HTTP basic authorization: basicAuth
+let basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+// Configure API key authorization: tokenAuth
+let tokenAuth = defaultClient.authentications['tokenAuth'];
+tokenAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//tokenAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new DagsHubApi.RepositoryApi();
+let username = "username_example"; // String | A DagsHub username
+let repo = "repo_example"; // String | name of the repository
+
+apiInstance.getRepo(username, repo, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| A DagsHub username | 
+ **repo** | **String**| name of the repository | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 <a name="listMyRepos"></a>
