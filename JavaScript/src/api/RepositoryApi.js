@@ -127,6 +127,56 @@ export class RepositoryApi {
       );
     }
     /**
+     * Callback function to receive the result of the getRepo operation.
+     * @callback moduleapi/RepositoryApi~getRepoCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get repository information
+     * @param {String} username A DagsHub username
+     * @param {String} repo name of the repository
+     * @param {module:api/RepositoryApi~getRepoCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    getRepo(username, repo, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling getRepo");
+      }
+      // verify the required parameter 'repo' is set
+      if (repo === undefined || repo === null) {
+        throw new Error("Missing the required parameter 'repo' when calling getRepo");
+      }
+
+      let pathParams = {
+        'username': username,'repo': repo
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['basicAuth', 'tokenAuth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/repos/{username}/{repo}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the listMyRepos operation.
      * @callback moduleapi/RepositoryApi~listMyReposCallback
      * @param {String} error Error message, if any.

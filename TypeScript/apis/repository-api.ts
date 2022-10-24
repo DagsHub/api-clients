@@ -129,6 +129,62 @@ export const RepositoryApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
+         * 
+         * @summary Get repository information
+         * @param {string} username A DagsHub username
+         * @param {string} repo name of the repository
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRepo: async (username: string, repo: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'username' is not null or undefined
+            if (username === null || username === undefined) {
+                throw new RequiredError('username','Required parameter username was null or undefined when calling getRepo.');
+            }
+            // verify required parameter 'repo' is not null or undefined
+            if (repo === null || repo === undefined) {
+                throw new RequiredError('repo','Required parameter repo was null or undefined when calling getRepo.');
+            }
+            const localVarPath = `/repos/{username}/{repo}`
+                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+                .replace(`{${"repo"}}`, encodeURIComponent(String(repo)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+
+            // authentication tokenAuth required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("token")
+                    : await configuration.apiKey;
+                localVarQueryParameter["token"] = localVarApiKeyValue;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List repositories that are accessible to the authenticated user.  This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. 
          * @summary List your repositories
          * @param {*} [options] Override http request option.
@@ -428,6 +484,21 @@ export const RepositoryApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * 
+         * @summary Get repository information
+         * @param {string} username A DagsHub username
+         * @param {string} repo name of the repository
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRepo(username: string, repo: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await RepositoryApiAxiosParamCreator(configuration).getRepo(username, repo, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List repositories that are accessible to the authenticated user.  This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. 
          * @summary List your repositories
          * @param {*} [options] Override http request option.
@@ -530,6 +601,17 @@ export const RepositoryApiFactory = function (configuration?: Configuration, bas
             return RepositoryApiFp(configuration).createRepo(body, options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Get repository information
+         * @param {string} username A DagsHub username
+         * @param {string} repo name of the repository
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRepo(username: string, repo: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return RepositoryApiFp(configuration).getRepo(username, repo, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List repositories that are accessible to the authenticated user.  This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. 
          * @summary List your repositories
          * @param {*} [options] Override http request option.
@@ -613,6 +695,18 @@ export class RepositoryApi extends BaseAPI {
      */
     public async createRepo(body?: CreateRepo, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
         return RepositoryApiFp(this.configuration).createRepo(body, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get repository information
+     * @param {string} username A DagsHub username
+     * @param {string} repo name of the repository
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApi
+     */
+    public async getRepo(username: string, repo: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return RepositoryApiFp(this.configuration).getRepo(username, repo, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List repositories that are accessible to the authenticated user.  This includes repositories owned by the authenticated user, repositories where the authenticated user is a collaborator, and repositories that the authenticated user has access to through an organization membership. 

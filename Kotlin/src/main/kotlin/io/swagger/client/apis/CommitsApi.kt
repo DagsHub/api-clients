@@ -14,7 +14,7 @@ package io.swagger.client.apis
 
 import dagshub_api.infrastructure.*
 
-class CommitsApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
+class CommitsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
 
     /**
      * Get a single commit

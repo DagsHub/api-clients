@@ -1,11 +1,12 @@
 # RepositoryApi
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
+[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
 [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
@@ -104,6 +105,52 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="getRepo"></a>
+# **getRepo**
+> getRepo(username, repo)
+
+Get repository information
+
+### Example
+```kotlin
+// Import classes:
+//import dagshub_api.infrastructure.*
+//import io.swagger.client.models.*;
+
+val apiInstance = RepositoryApi()
+val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val repo : kotlin.String = repo_example // kotlin.String | name of the repository
+try {
+    apiInstance.getRepo(username, repo)
+} catch (e: ClientException) {
+    println("4xx response calling RepositoryApi#getRepo")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling RepositoryApi#getRepo")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **kotlin.String**| A DagsHub username |
+ **repo** | **kotlin.String**| name of the repository |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 <a name="listMyRepos"></a>

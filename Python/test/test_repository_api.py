@@ -42,6 +42,13 @@ class TestRepositoryApi(unittest.TestCase):
         """
         pass
 
+    def test_get_repo(self):
+        """Test case for get_repo
+
+        Get repository information  # noqa: E501
+        """
+        pass
+
     def test_list_my_repos(self):
         """Test case for list_my_repos
 

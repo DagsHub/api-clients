@@ -98,6 +98,14 @@ namespace dagshub_api.Test
             // TODO unit test for the property 'AutoInit'
         }
         /// <summary>
+        /// Test the property 'ProjectTemplate'
+        /// </summary>
+        [Test]
+        public void ProjectTemplateTest()
+        {
+            // TODO unit test for the property 'ProjectTemplate'
+        }
+        /// <summary>
         /// Test the property 'Gitignores'
         /// </summary>
         [Test]

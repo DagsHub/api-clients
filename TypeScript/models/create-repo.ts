@@ -42,6 +42,12 @@ export interface CreateRepo {
      */
     autoInit?: boolean;
     /**
+     * Choose 'custom' to set .gitignore, license and readme, or 'none' for a completely empty repository. For other templates you may specify only the license. 
+     * @type {string}
+     * @memberof CreateRepo
+     */
+    projectTemplate?: CreateRepoProjectTemplateEnum;
+    /**
      * Desired language .gitignore templates to apply. Use the name of the templates.
      * @type {string}
      * @memberof CreateRepo
@@ -61,6 +67,16 @@ export interface CreateRepo {
     readme?: string;
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateRepoProjectTemplateEnum {
+    CookiecutterDagshubDvc = 'cookiecutter-dagshub-dvc',
+    Custom = 'custom',
+    None = 'none',
+    NotebookTemplate = 'notebook-template'
+}
 /**
     * @export
     * @enum {string}

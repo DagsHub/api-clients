@@ -16,7 +16,7 @@ import io.swagger.client.models.MigrateRepo
 
 import dagshub_api.infrastructure.*
 
-class RepositoryApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
+class RepositoryApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
 
     /**
      * Create in organization
@@ -59,6 +59,31 @@ class RepositoryApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : Ap
         )
         val response = request<Any?>(
                 localVariableConfig, localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+    /**
+     * Get repository information
+     * 
+     * @param username A DagsHub username 
+     * @param repo name of the repository 
+     * @return void
+     */
+    fun getRepo(username: kotlin.String, repo: kotlin.String): Unit {
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableConfig = RequestConfig(
+                RequestMethod.GET,
+                "/repos/{username}/{repo}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo"), query = localVariableQuery
+        )
+        val response = request<Any?>(
+                localVariableConfig
         )
 
         return when (response.responseType) {

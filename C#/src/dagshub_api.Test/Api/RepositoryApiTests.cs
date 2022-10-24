@@ -86,6 +86,18 @@ namespace dagshub_api.Test
             
         }
         /// <summary>
+        /// Test GetRepo
+        /// </summary>
+        [Test]
+        public void GetRepoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string username = null;
+            //string repo = null;
+            //instance.GetRepo(username, repo);
+            
+        }
+        /// <summary>
         /// Test ListMyRepos
         /// </summary>
         [Test]

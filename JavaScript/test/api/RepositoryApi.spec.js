@@ -72,6 +72,24 @@
           done();
         });
       });
+      describe('getRepo', function() {
+        it('should call getRepo successfully', function(done) {
+          // TODO: uncomment, update parameter values for getRepo call
+          /*
+
+          instance.getRepo(username, repo, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('listMyRepos', function() {
         it('should call listMyRepos successfully', function(done) {
           // TODO: uncomment listMyRepos call and complete the assertions

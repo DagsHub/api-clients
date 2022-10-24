@@ -17,10 +17,10 @@ package io.swagger.client.models
  * @param cloneAddr Remote Git address (HTTP/HTTPS URL or local path)
  * @param authUsername Authorization username
  * @param authPassword Authorization password
- * @param uid User ID who takes ownership of this repository
+ * @param userId User ID who takes ownership of this repository
  * @param repoName Name of the repository
  * @param mirror Repository will be a mirror (connected repository).
- * @param &#x60;private&#x60; Repository will be private.
+ * @param visibility Repository will be private or public.
  * @param description Description of the repository
  */
 data class MigrateRepo (
@@ -32,14 +32,22 @@ data class MigrateRepo (
     /* Authorization password */
     val authPassword: kotlin.String? = null,
     /* User ID who takes ownership of this repository */
-    val uid: kotlin.Int,
+    val userId: kotlin.Int,
     /* Name of the repository */
     val repoName: kotlin.String? = null,
     /* Repository will be a mirror (connected repository). */
     val mirror: kotlin.Boolean? = null,
-    /* Repository will be private. */
-    val `private`: kotlin.Boolean? = null,
+    /* Repository will be private or public. */
+    val visibility: MigrateRepo.Visibility? = null,
     /* Description of the repository */
     val description: kotlin.String? = null
 ) {
+    /**
+    * Repository will be private or public.
+    * Values: PRIVATE,PUBLIC
+    */
+    enum class Visibility(val value: kotlin.String){
+        PRIVATE("private"),
+        PUBLIC("public");
+    }
 }
