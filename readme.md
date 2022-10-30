@@ -3,9 +3,9 @@ In this repository there are **auto-generated** native clients for using the [Da
 These clients are generated using [swagger-codegen](https://github.com/swagger-api/swagger-codegen), from the [DagsHub OpenAPI description](https://github.com/DagsHub/openapi-description).
 Every langauge has an explenation of how to use its client library in its `README.md`. 
 
-To use the **Python** API client, run:
+To use the **Python** API client, you can run:
 ```sh
-pip install dagshub_api
+wget https://raw.githubusercontent.com/DagsHub/api-clients/main/Python/setup.py -O - | python3 - install
 ```
 ## The clients were NOT tested, use at your own risk, and please [open an issue](https://github.com/DagsHub/api-clients/issues) if you encounter any problems.
 
