@@ -1,3 +1,16 @@
+# DagsHub API clients
+In this repository there are **auto-generated** native clients for using the [DagsHub API](https://dagshub.com/docs/api) in variouse code languages.
+These clients are generated using [swagger-codegen](https://github.com/swagger-api/swagger-codegen), from the [DagsHub OpenAPI description](https://github.com/DagsHub/openapi-description).
+Every langauge has an explenation of how to use its client library in its `README.md`. 
+
+To use the **Python** API client, run:
+```sh
+pip install dagshub_api
+```
+## The clients were NOT tested, use at your own risk, and please [open an issue](https://github.com/DagsHub/api-clients/issues) if you encounter any problems.
+
+---
+## Generating API clients
 ### Prerequisites
 **Unix:**
 ```sh
@@ -15,8 +28,8 @@ On a mac, it's even easier with `brew`:
 brew install swagger-codegen
 ```
 
-# Regenerate the code
-### Run the following snippet from this directory:
+### Regenerate the code
+Run the following snippet from this directory:
 ```sh
 swagger-codegen generate \
 -i https://raw.githubusercontent.com/DagsHub/openapi-description/main/spec.yaml \
