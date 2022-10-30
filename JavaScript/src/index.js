@@ -42,6 +42,7 @@ import {ContentApi} from './api/ContentApi';
 import {IssuesApi} from './api/IssuesApi';
 import {ReleasesApi} from './api/ReleasesApi';
 import {RepositoryApi} from './api/RepositoryApi';
+import {UserApi} from './api/UserApi';
 import {WebhooksApi} from './api/WebhooksApi';
 
 /**
@@ -255,6 +256,12 @@ export {
     * @property {module:api/RepositoryApi}
     */
     RepositoryApi,
+
+    /**
+    * The UserApi service constructor.
+    * @property {module:api/UserApi}
+    */
+    UserApi,
 
     /**
     * The WebhooksApi service constructor.

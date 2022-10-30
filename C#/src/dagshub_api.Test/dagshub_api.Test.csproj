@@ -81,7 +81,7 @@ OpenAPI spec version: 1.0.1
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\dagshub_api\dagshub_api.csproj">
-          <Project>{35304BB4-1160-46A2-931F-FBE9AE65C0B6}</Project>
+          <Project>{ABBCED32-529F-467C-8E5F-47D9A650094F}</Project>
           <Name>dagshub_api</Name>
       </ProjectReference>
   </ItemGroup>

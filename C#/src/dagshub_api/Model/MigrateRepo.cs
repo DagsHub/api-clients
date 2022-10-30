@@ -30,17 +30,40 @@ namespace dagshub_api.Model
         public partial class MigrateRepo :  IEquatable<MigrateRepo>, IValidatableObject
     {
         /// <summary>
+        /// Repository will be private or public.
+        /// </summary>
+        /// <value>Repository will be private or public.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+                public enum VisibilityEnum
+        {
+            /// <summary>
+            /// Enum Private for value: private
+            /// </summary>
+            [EnumMember(Value = "private")]
+            Private = 1,
+            /// <summary>
+            /// Enum Public for value: public
+            /// </summary>
+            [EnumMember(Value = "public")]
+            Public = 2        }
+        /// <summary>
+        /// Repository will be private or public.
+        /// </summary>
+        /// <value>Repository will be private or public.</value>
+        [DataMember(Name="visibility", EmitDefaultValue=false)]
+        public VisibilityEnum? Visibility { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="MigrateRepo" /> class.
         /// </summary>
         /// <param name="cloneAddr">Remote Git address (HTTP/HTTPS URL or local path) (required).</param>
         /// <param name="authUsername">Authorization username.</param>
         /// <param name="authPassword">Authorization password.</param>
-        /// <param name="uid">User ID who takes ownership of this repository (required).</param>
+        /// <param name="userId">User ID who takes ownership of this repository (required).</param>
         /// <param name="repoName">Name of the repository.</param>
         /// <param name="mirror">Repository will be a mirror (connected repository). (default to false).</param>
-        /// <param name="_private">Repository will be private. (default to false).</param>
+        /// <param name="visibility">Repository will be private or public. (default to false).</param>
         /// <param name="description">Description of the repository.</param>
-        public MigrateRepo(string cloneAddr = default(string), string authUsername = default(string), string authPassword = default(string), int? uid = default(int?), string repoName = default(string), bool? mirror = false, bool? _private = false, string description = default(string))
+        public MigrateRepo(string cloneAddr = default(string), string authUsername = default(string), string authPassword = default(string), int? userId = default(int?), string repoName = default(string), bool? mirror = false, VisibilityEnum? visibility = false, string description = default(string))
         {
             // to ensure "cloneAddr" is required (not null)
             if (cloneAddr == null)
@@ -51,14 +74,14 @@ namespace dagshub_api.Model
             {
                 this.CloneAddr = cloneAddr;
             }
-            // to ensure "uid" is required (not null)
-            if (uid == null)
+            // to ensure "userId" is required (not null)
+            if (userId == null)
             {
-                throw new InvalidDataException("uid is a required property for MigrateRepo and cannot be null");
+                throw new InvalidDataException("userId is a required property for MigrateRepo and cannot be null");
             }
             else
             {
-                this.Uid = uid;
+                this.UserId = userId;
             }
             this.AuthUsername = authUsername;
             this.AuthPassword = authPassword;
@@ -72,14 +95,14 @@ namespace dagshub_api.Model
             {
                 this.Mirror = mirror;
             }
-            // use default value if no "_private" provided
-            if (_private == null)
+            // use default value if no "visibility" provided
+            if (visibility == null)
             {
-                this._Private = false;
+                this.Visibility = false;
             }
             else
             {
-                this._Private = _private;
+                this.Visibility = visibility;
             }
             this.Description = description;
         }
@@ -109,8 +132,8 @@ namespace dagshub_api.Model
         /// User ID who takes ownership of this repository
         /// </summary>
         /// <value>User ID who takes ownership of this repository</value>
-        [DataMember(Name="uid", EmitDefaultValue=false)]
-        public int? Uid { get; set; }
+        [DataMember(Name="user_id", EmitDefaultValue=false)]
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Name of the repository
@@ -126,12 +149,6 @@ namespace dagshub_api.Model
         [DataMember(Name="mirror", EmitDefaultValue=false)]
         public bool? Mirror { get; set; }
 
-        /// <summary>
-        /// Repository will be private.
-        /// </summary>
-        /// <value>Repository will be private.</value>
-        [DataMember(Name="private", EmitDefaultValue=false)]
-        public bool? _Private { get; set; }
 
         /// <summary>
         /// Description of the repository
@@ -151,10 +168,10 @@ namespace dagshub_api.Model
             sb.Append("  CloneAddr: ").Append(CloneAddr).Append("\n");
             sb.Append("  AuthUsername: ").Append(AuthUsername).Append("\n");
             sb.Append("  AuthPassword: ").Append(AuthPassword).Append("\n");
-            sb.Append("  Uid: ").Append(Uid).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  RepoName: ").Append(RepoName).Append("\n");
             sb.Append("  Mirror: ").Append(Mirror).Append("\n");
-            sb.Append("  _Private: ").Append(_Private).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -206,9 +223,9 @@ namespace dagshub_api.Model
                     this.AuthPassword.Equals(input.AuthPassword))
                 ) && 
                 (
-                    this.Uid == input.Uid ||
-                    (this.Uid != null &&
-                    this.Uid.Equals(input.Uid))
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
                 ) && 
                 (
                     this.RepoName == input.RepoName ||
@@ -221,9 +238,9 @@ namespace dagshub_api.Model
                     this.Mirror.Equals(input.Mirror))
                 ) && 
                 (
-                    this._Private == input._Private ||
-                    (this._Private != null &&
-                    this._Private.Equals(input._Private))
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -247,14 +264,14 @@ namespace dagshub_api.Model
                     hashCode = hashCode * 59 + this.AuthUsername.GetHashCode();
                 if (this.AuthPassword != null)
                     hashCode = hashCode * 59 + this.AuthPassword.GetHashCode();
-                if (this.Uid != null)
-                    hashCode = hashCode * 59 + this.Uid.GetHashCode();
+                if (this.UserId != null)
+                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.RepoName != null)
                     hashCode = hashCode * 59 + this.RepoName.GetHashCode();
                 if (this.Mirror != null)
                     hashCode = hashCode * 59 + this.Mirror.GetHashCode();
-                if (this._Private != null)
-                    hashCode = hashCode * 59 + this._Private.GetHashCode();
+                if (this.Visibility != null)
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;

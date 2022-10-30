@@ -31,10 +31,10 @@ class MigrateRepo(object):
         'clone_addr': 'str',
         'auth_username': 'str',
         'auth_password': 'str',
-        'uid': 'int',
+        'user_id': 'int',
         'repo_name': 'str',
         'mirror': 'bool',
-        'private': 'bool',
+        'visibility': 'str',
         'description': 'str'
     }
 
@@ -42,22 +42,22 @@ class MigrateRepo(object):
         'clone_addr': 'clone_addr',
         'auth_username': 'auth_username',
         'auth_password': 'auth_password',
-        'uid': 'uid',
+        'user_id': 'user_id',
         'repo_name': 'repo_name',
         'mirror': 'mirror',
-        'private': 'private',
+        'visibility': 'visibility',
         'description': 'description'
     }
 
-    def __init__(self, clone_addr=None, auth_username=None, auth_password=None, uid=None, repo_name=None, mirror=False, private=False, description=None):  # noqa: E501
+    def __init__(self, clone_addr=None, auth_username=None, auth_password=None, user_id=None, repo_name=None, mirror=False, visibility='false', description=None):  # noqa: E501
         """MigrateRepo - a model defined in Swagger"""  # noqa: E501
         self._clone_addr = None
         self._auth_username = None
         self._auth_password = None
-        self._uid = None
+        self._user_id = None
         self._repo_name = None
         self._mirror = None
-        self._private = None
+        self._visibility = None
         self._description = None
         self.discriminator = None
         self.clone_addr = clone_addr
@@ -65,13 +65,13 @@ class MigrateRepo(object):
             self.auth_username = auth_username
         if auth_password is not None:
             self.auth_password = auth_password
-        self.uid = uid
+        self.user_id = user_id
         if repo_name is not None:
             self.repo_name = repo_name
         if mirror is not None:
             self.mirror = mirror
-        if private is not None:
-            self.private = private
+        if visibility is not None:
+            self.visibility = visibility
         if description is not None:
             self.description = description
 
@@ -147,29 +147,29 @@ class MigrateRepo(object):
         self._auth_password = auth_password
 
     @property
-    def uid(self):
-        """Gets the uid of this MigrateRepo.  # noqa: E501
+    def user_id(self):
+        """Gets the user_id of this MigrateRepo.  # noqa: E501
 
         User ID who takes ownership of this repository  # noqa: E501
 
-        :return: The uid of this MigrateRepo.  # noqa: E501
+        :return: The user_id of this MigrateRepo.  # noqa: E501
         :rtype: int
         """
-        return self._uid
+        return self._user_id
 
-    @uid.setter
-    def uid(self, uid):
-        """Sets the uid of this MigrateRepo.
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this MigrateRepo.
 
         User ID who takes ownership of this repository  # noqa: E501
 
-        :param uid: The uid of this MigrateRepo.  # noqa: E501
+        :param user_id: The user_id of this MigrateRepo.  # noqa: E501
         :type: int
         """
-        if uid is None:
-            raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
+        if user_id is None:
+            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
-        self._uid = uid
+        self._user_id = user_id
 
     @property
     def repo_name(self):
@@ -218,27 +218,33 @@ class MigrateRepo(object):
         self._mirror = mirror
 
     @property
-    def private(self):
-        """Gets the private of this MigrateRepo.  # noqa: E501
+    def visibility(self):
+        """Gets the visibility of this MigrateRepo.  # noqa: E501
 
-        Repository will be private.  # noqa: E501
+        Repository will be private or public.  # noqa: E501
 
-        :return: The private of this MigrateRepo.  # noqa: E501
-        :rtype: bool
+        :return: The visibility of this MigrateRepo.  # noqa: E501
+        :rtype: str
         """
-        return self._private
+        return self._visibility
 
-    @private.setter
-    def private(self, private):
-        """Sets the private of this MigrateRepo.
+    @visibility.setter
+    def visibility(self, visibility):
+        """Sets the visibility of this MigrateRepo.
 
-        Repository will be private.  # noqa: E501
+        Repository will be private or public.  # noqa: E501
 
-        :param private: The private of this MigrateRepo.  # noqa: E501
-        :type: bool
+        :param visibility: The visibility of this MigrateRepo.  # noqa: E501
+        :type: str
         """
+        allowed_values = ["private", "public"]  # noqa: E501
+        if visibility not in allowed_values:
+            raise ValueError(
+                "Invalid value for `visibility` ({0}), must be one of {1}"  # noqa: E501
+                .format(visibility, allowed_values)
+            )
 
-        self._private = private
+        self._visibility = visibility
 
     @property
     def description(self):

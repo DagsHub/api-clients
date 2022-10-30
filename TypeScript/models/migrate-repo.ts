@@ -40,7 +40,7 @@ export interface MigrateRepo {
      * @type {number}
      * @memberof MigrateRepo
      */
-    uid: number;
+    userId: number;
     /**
      * Name of the repository
      * @type {string}
@@ -54,11 +54,11 @@ export interface MigrateRepo {
      */
     mirror?: boolean;
     /**
-     * Repository will be private.
-     * @type {boolean}
+     * Repository will be private or public.
+     * @type {string}
      * @memberof MigrateRepo
      */
-    _private?: boolean;
+    visibility?: MigrateRepoVisibilityEnum;
     /**
      * Description of the repository
      * @type {string}
@@ -66,3 +66,13 @@ export interface MigrateRepo {
      */
     description?: string;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MigrateRepoVisibilityEnum {
+    Private = 'private',
+    Public = 'public'
+}
+

@@ -95,7 +95,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -115,11 +115,14 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**list_releases**](docs/ReleasesApi.md#list_releases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**create_org_repo**](docs/RepositoryApi.md#create_org_repo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**create_repo**](docs/RepositoryApi.md#create_repo) | **POST** /user/repos | Create
+*RepositoryApi* | [**get_repo**](docs/RepositoryApi.md#get_repo) | **GET** /repos/{username}/{repo} | Get repository information
 *RepositoryApi* | [**list_my_repos**](docs/RepositoryApi.md#list_my_repos) | **GET** /user/repos | List your repositories
 *RepositoryApi* | [**list_org_repos**](docs/RepositoryApi.md#list_org_repos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *RepositoryApi* | [**list_user_repos**](docs/RepositoryApi.md#list_user_repos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrate_repo**](docs/RepositoryApi.md#migrate_repo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](docs/RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*UserApi* | [**get_authenticated_user**](docs/UserApi.md#get_authenticated_user) | **GET** /user | Get authenticated user information
+*UserApi* | [**get_user**](docs/UserApi.md#get_user) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**create_hook**](docs/WebhooksApi.md#create_hook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
 *WebhooksApi* | [**delete_hook**](docs/WebhooksApi.md#delete_hook) | **DELETE** /repos/{owner}/{repo}/hooks/{id} | Delete a hook
 *WebhooksApi* | [**edit_hook**](docs/WebhooksApi.md#edit_hook) | **PATCH** /repos/{owner}/{repo}/hooks/{id} | Edit a hook

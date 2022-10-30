@@ -11,6 +11,12 @@ import Foundation
 
 public struct CreateRepo: Codable {
 
+    public enum ProjectTemplate: String, Codable { 
+        case cookiecutterDagshubDvc = "cookiecutter-dagshub-dvc"
+        case custom = "custom"
+        case _none = "none"
+        case notebookTemplate = "notebook-template"
+    }
     public enum License: String, Codable { 
         case apacheLicense20 = "Apache License 2.0"
         case mitLicense = "MIT License"
@@ -55,6 +61,8 @@ public struct CreateRepo: Codable {
     public var _private: Bool?
     /** Pass true to create an initial commit with README, .gitignore and LICENSE. */
     public var autoInit: Bool?
+    /** Choose &#x27;custom&#x27; to set .gitignore, license and readme, or &#x27;none&#x27; for a completely empty repository. For other templates you may specify only the license.  */
+    public var projectTemplate: ProjectTemplate?
     /** Desired language .gitignore templates to apply. Use the name of the templates. */
     public var gitignores: String?
     /** Desired LICENSE template to apply. Use the name of the template. */
@@ -62,11 +70,12 @@ public struct CreateRepo: Codable {
     /** Desired README template to apply. Use the name of the template. */
     public var readme: String?
 
-    public init(name: String, _description: String? = nil, _private: Bool? = nil, autoInit: Bool? = nil, gitignores: String? = nil, license: License? = nil, readme: String? = nil) {
+    public init(name: String, _description: String? = nil, _private: Bool? = nil, autoInit: Bool? = nil, projectTemplate: ProjectTemplate? = nil, gitignores: String? = nil, license: License? = nil, readme: String? = nil) {
         self.name = name
         self._description = _description
         self._private = _private
         self.autoInit = autoInit
+        self.projectTemplate = projectTemplate
         self.gitignores = gitignores
         self.license = license
         self.readme = readme
@@ -77,6 +86,7 @@ public struct CreateRepo: Codable {
         case _description = "description"
         case _private = "private"
         case autoInit = "auto_init"
+        case projectTemplate = "project_template"
         case gitignores
         case license
         case readme

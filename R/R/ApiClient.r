@@ -22,7 +22,7 @@
 ApiClient  <- R6::R6Class(
   'ApiClient',
   public = list(
-    basePath = "http://dagshub.com/api/v1/",
+    basePath = "https://dagshub.com/api/v1/",
     configuration = NULL,
     userAgent = NULL,
     defaultHeaders = NULL,

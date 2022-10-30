@@ -90,12 +90,12 @@ namespace dagshub_api.Test
             // TODO unit test for the property 'AuthPassword'
         }
         /// <summary>
-        /// Test the property 'Uid'
+        /// Test the property 'UserId'
         /// </summary>
         [Test]
-        public void UidTest()
+        public void UserIdTest()
         {
-            // TODO unit test for the property 'Uid'
+            // TODO unit test for the property 'UserId'
         }
         /// <summary>
         /// Test the property 'RepoName'
@@ -114,12 +114,12 @@ namespace dagshub_api.Test
             // TODO unit test for the property 'Mirror'
         }
         /// <summary>
-        /// Test the property '_Private'
+        /// Test the property 'Visibility'
         /// </summary>
         [Test]
-        public void _PrivateTest()
+        public void VisibilityTest()
         {
-            // TODO unit test for the property '_Private'
+            // TODO unit test for the property 'Visibility'
         }
         /// <summary>
         /// Test the property 'Description'

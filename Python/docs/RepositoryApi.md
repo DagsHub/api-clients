@@ -1,11 +1,12 @@
 # dagshub_api.RepositoryApi
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_org_repo**](RepositoryApi.md#create_org_repo) | **POST** /org/{orgname}/repos | Create in organization
 [**create_repo**](RepositoryApi.md#create_repo) | **POST** /user/repos | Create
+[**get_repo**](RepositoryApi.md#get_repo) | **GET** /repos/{username}/{repo} | Get repository information
 [**list_my_repos**](RepositoryApi.md#list_my_repos) | **GET** /user/repos | List your repositories
 [**list_org_repos**](RepositoryApi.md#list_org_repos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**list_user_repos**](RepositoryApi.md#list_user_repos) | **GET** /users/{username}/repos | List user repositories
@@ -122,6 +123,62 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_repo**
+> get_repo(username, repo)
+
+Get repository information
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dagshub_api
+from dagshub_api.rest import ApiException
+from pprint import pprint
+# Configure HTTP basic authorization: basicAuth
+configuration = dagshub_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: tokenAuth
+configuration = dagshub_api.Configuration()
+configuration.api_key['token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
+username = 'username_example' # str | A DagsHub username
+repo = 'repo_example' # str | name of the repository
+
+try:
+    # Get repository information
+    api_instance.get_repo(username, repo)
+except ApiException as e:
+    print("Exception when calling RepositoryApi->get_repo: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| A DagsHub username | 
+ **repo** | **str**| name of the repository | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

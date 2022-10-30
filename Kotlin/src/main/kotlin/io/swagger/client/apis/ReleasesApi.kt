@@ -14,7 +14,7 @@ package io.swagger.client.apis
 
 import dagshub_api.infrastructure.*
 
-class ReleasesApi(basePath: kotlin.String = "http://dagshub.com/api/v1/") : ApiClient(basePath) {
+class ReleasesApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
 
     /**
      * List Releases

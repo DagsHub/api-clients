@@ -61,7 +61,7 @@ libraryDependencies += "io.swagger" % "swagger-scala-client" % "1.0.0"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -81,11 +81,14 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**listReleases**](ReleasesApi.md#listReleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
+*RepositoryApi* | [**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
 *RepositoryApi* | [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 *RepositoryApi* | [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *RepositoryApi* | [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrateRepo**](RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*UserApi* | [**getAuthenticatedUser**](UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
+*UserApi* | [**getUser**](UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**createHook**](WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
 *WebhooksApi* | [**deleteHook**](WebhooksApi.md#deleteHook) | **DELETE** /repos/{owner}/{repo}/hooks/{id} | Delete a hook
 *WebhooksApi* | [**editHook**](WebhooksApi.md#editHook) | **PATCH** /repos/{owner}/{repo}/hooks/{id} | Edit a hook

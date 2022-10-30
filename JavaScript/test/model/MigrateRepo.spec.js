@@ -57,10 +57,10 @@
         // expect(instance.authPassword).to.be(expectedValueLiteral);
       });
 
-      it('should have the property uid (base name: "uid")', function() {
-        // TODO: update the code to test the property uid
-        expect(instance).to.have.property('uid');
-        // expect(instance.uid).to.be(expectedValueLiteral);
+      it('should have the property userId (base name: "user_id")', function() {
+        // TODO: update the code to test the property userId
+        expect(instance).to.have.property('userId');
+        // expect(instance.userId).to.be(expectedValueLiteral);
       });
 
       it('should have the property repoName (base name: "repo_name")', function() {
@@ -75,10 +75,10 @@
         // expect(instance.mirror).to.be(expectedValueLiteral);
       });
 
-      it('should have the property _private (base name: "private")', function() {
-        // TODO: update the code to test the property _private
-        expect(instance).to.have.property('_private');
-        // expect(instance._private).to.be(expectedValueLiteral);
+      it('should have the property visibility (base name: "visibility")', function() {
+        // TODO: update the code to test the property visibility
+        expect(instance).to.have.property('visibility');
+        // expect(instance.visibility).to.be(expectedValueLiteral);
       });
 
       it('should have the property description (base name: "description")', function() {
