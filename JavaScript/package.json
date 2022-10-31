@@ -1,7 +1,7 @@
 {
   "name": "dags_hub_api",
-  "version": "1.0.1",
-  "description": "The_api_docs_are_made_with_SwaggerUI_using_the_OpenAPI_3_specification_",
+  "version": "1.0.2",
+  "description": "This_API_provides_a_way_to_retrive__interact_with_data_about_DagsHub_repositories_users_issues_webhooks_and_more_The_API_is_also_used_by_the__DagsHub_Direct_Data_Access_streaming_client_httpsgithub_comDagsHubclient_to_stream_content_from_a_repository_for_easier_and_faster_training_",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {

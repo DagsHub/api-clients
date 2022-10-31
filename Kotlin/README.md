@@ -43,7 +43,9 @@ Class | Method | HTTP request | Description
 *CommitsApi* | [**getCommit**](docs/CommitsApi.md#getcommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
 *CommitsApi* | [**getCommitSha1**](docs/CommitsApi.md#getcommitsha1) | **GET** /repos/{owner}/{repo}/commits/{ref} | Get the SHA-1 of a commit reference
 *ContentApi* | [**getArchive**](docs/ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*ContentApi* | [**getContent**](docs/ContentApi.md#getcontent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *ContentApi* | [**getRaw**](docs/ContentApi.md#getraw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+*ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadcontent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *IssuesApi* | [**createIssue**](docs/IssuesApi.md#createissue) | **POST** /repos/{owner}/{repo}/issues | Create an issue
 *IssuesApi* | [**editIssue**](docs/IssuesApi.md#editissue) | **PATCH** /repos/{owner}/{repo}/issues | Edit an issue
 *IssuesApi* | [**getIssue**](docs/IssuesApi.md#getissue) | **GET** /repos/{owner}/{repo}/issues/{index} | Get a single issue
@@ -72,6 +74,7 @@ Class | Method | HTTP request | Description
  - [io.swagger.client.models.Closed](docs/Closed.md)
  - [io.swagger.client.models.CollaboratorsCollaboratorBody](docs/CollaboratorsCollaboratorBody.md)
  - [io.swagger.client.models.CreateRepo](docs/CreateRepo.md)
+ - [io.swagger.client.models.Files](docs/Files.md)
  - [io.swagger.client.models.HooksIdBody](docs/HooksIdBody.md)
  - [io.swagger.client.models.Issue](docs/Issue.md)
  - [io.swagger.client.models.IssueAssignee](docs/IssueAssignee.md)
@@ -83,6 +86,7 @@ Class | Method | HTTP request | Description
  - [io.swagger.client.models.Milestone](docs/Milestone.md)
  - [io.swagger.client.models.PatchIssue](docs/PatchIssue.md)
  - [io.swagger.client.models.PostIssue](docs/PostIssue.md)
+ - [io.swagger.client.models.PutFile](docs/PutFile.md)
  - [io.swagger.client.models.RepoHooksBody](docs/RepoHooksBody.md)
  - [io.swagger.client.models.State](docs/State.md)
  - [io.swagger.client.models.Title](docs/Title.md)
