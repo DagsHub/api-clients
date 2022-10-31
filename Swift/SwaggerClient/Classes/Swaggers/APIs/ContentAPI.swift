@@ -79,6 +79,82 @@ open class ContentAPI {
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
     /**
+     List data in a repository folder
+
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter branch: (path) branch of the repository 
+     - parameter path: (path) path of a folder in the repository 
+     - parameter includeSize: (query)  (optional, default to false)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getContent(owner: String, repo: String, branch: String, path: String, includeSize: Bool? = nil, completion: @escaping ((_ data: Files?,_ error: Error?) -> Void)) {
+        getContentWithRequestBuilder(owner: owner, repo: repo, branch: branch, path: path, includeSize: includeSize).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     List data in a repository folder
+     - GET /repos/{owner}/{repo}/content/{branch}/{path}
+
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey token (QUERY)
+       - name: tokenAuth
+     - examples: [{contentType=application/json, example=[ {
+  "path" : "images/000.png",
+  "versioning" : "dvc",
+  "size" : 421,
+  "download_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png",
+  "type" : "[file]",
+  "hash" : "79fb7f8632d7e15b3b46a7411d08bcdd"
+}, {
+  "path" : "images/000.png",
+  "versioning" : "dvc",
+  "size" : 421,
+  "download_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png",
+  "type" : "[file]",
+  "hash" : "79fb7f8632d7e15b3b46a7411d08bcdd"
+} ]}]
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter branch: (path) branch of the repository 
+     - parameter path: (path) path of a folder in the repository 
+     - parameter includeSize: (query)  (optional, default to false)
+
+     - returns: RequestBuilder<Files> 
+     */
+    open class func getContentWithRequestBuilder(owner: String, repo: String, branch: String, path: String, includeSize: Bool? = nil) -> RequestBuilder<Files> {
+        var path = "/repos/{owner}/{repo}/content/{branch}/{path}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
+        let repoPreEscape = "\(repo)"
+        let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
+        let branchPreEscape = "\(branch)"
+        let branchPostEscape = branchPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{branch}", with: branchPostEscape, options: .literal, range: nil)
+        let pathPreEscape = "\(path)"
+        let pathPostEscape = pathPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{path}", with: pathPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+                        "include_size": includeSize
+        ])
+
+
+        let requestBuilder: RequestBuilder<Files>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
      Download raw content
 
      - parameter username: (path) A DagsHub username 
@@ -137,5 +213,108 @@ open class ContentAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
+     * enum for parameter commitChoice
+     */
+    public enum CommitChoice_uploadContent: String { 
+        case direct = "direct"
+        case commitToNewBranch = "commit-to-new-branch"
+    }
+
+    /**
+     * enum for parameter versioning
+     */
+    public enum Versioning_uploadContent: String { 
+        case auto = "auto"
+        case dvc = "dvc"
+        case git = "git"
+    }
+
+    /**
+     Upload data to a repository
+
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter branch: (path) branch of the repository 
+     - parameter path: (path) path of a folder in the repository 
+     - parameter commitSummary: (form)  (optional)
+     - parameter commitMessage: (form)  (optional)
+     - parameter commitChoice: (form)  (optional)
+     - parameter lastCommit: (form)  (optional)
+     - parameter newBranchName: (form)  (optional)
+     - parameter versioning: (form)  (optional)
+     - parameter files: (form)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func uploadContent(owner: String, repo: String, branch: String, path: String, commitSummary: String? = nil, commitMessage: String? = nil, commitChoice: CommitChoice_uploadContent? = nil, lastCommit: String? = nil, newBranchName: String? = nil, versioning: Versioning_uploadContent? = nil, files: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        uploadContentWithRequestBuilder(owner: owner, repo: repo, branch: branch, path: path, commitSummary: commitSummary, commitMessage: commitMessage, commitChoice: commitChoice, lastCommit: lastCommit, newBranchName: newBranchName, versioning: versioning, files: files).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     Upload data to a repository
+     - PUT /repos/{owner}/{repo}/content/{branch}/{path}
+     - 
+
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey token (QUERY)
+       - name: tokenAuth
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter branch: (path) branch of the repository 
+     - parameter path: (path) path of a folder in the repository 
+     - parameter commitSummary: (form)  (optional)
+     - parameter commitMessage: (form)  (optional)
+     - parameter commitChoice: (form)  (optional)
+     - parameter lastCommit: (form)  (optional)
+     - parameter newBranchName: (form)  (optional)
+     - parameter versioning: (form)  (optional)
+     - parameter files: (form)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func uploadContentWithRequestBuilder(owner: String, repo: String, branch: String, path: String, commitSummary: String? = nil, commitMessage: String? = nil, commitChoice: CommitChoice_uploadContent? = nil, lastCommit: String? = nil, newBranchName: String? = nil, versioning: Versioning_uploadContent? = nil, files: String? = nil) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/content/{branch}/{path}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
+        let repoPreEscape = "\(repo)"
+        let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
+        let branchPreEscape = "\(branch)"
+        let branchPostEscape = branchPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{branch}", with: branchPostEscape, options: .literal, range: nil)
+        let pathPreEscape = "\(path)"
+        let pathPostEscape = pathPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{path}", with: pathPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let formParams: [String:Any?] = [
+                "commit_summary": commitSummary,
+                "commit_message": commitMessage,
+                "commit_choice": commitChoice?.rawValue,
+                "last_commit": lastCommit,
+                "new_branch_name": newBranchName,
+                "versioning": versioning?.rawValue,
+                "files": files
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 }

@@ -2,14 +2,128 @@ openapi: 3.0.3
 info:
   title: DagsHub API
   description: |
-    The api docs are made with SwaggerUI using the OpenAPI 3 specification.
-  version: 1.0.1
+    This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more.
+    The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training.
+  version: 1.0.2
 servers:
 - url: https://dagshub.com/api/v1/
 security:
 - basicAuth: []
 - tokenAuth: []
 paths:
+  /repos/{owner}/{repo}/content/{branch}/{path}:
+    get:
+      tags:
+      - Content
+      summary: List data in a repository folder
+      description: |
+        List files, commit sha1, and versioning type for a folder in repository.
+
+        To get sizes add to the query param `include_size=true`. May result slower response.
+      operationId: getContent
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: branch
+        in: path
+        description: branch of the repository
+        required: true
+        schema:
+          type: string
+      - name: path
+        in: path
+        description: path of a folder in the repository
+        required: true
+        schema:
+          type: string
+      - name: include_size
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+          default: false
+      responses:
+        "200":
+          description: Successfully retrived the data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Files'
+              example:
+              - path: images/000.png
+                type: file
+                size: 0
+                hash: 79fb7f8632d7e15b3b46a7411d08bcdd
+                versioning: dvc
+                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+              - path: images/001.png
+                type: file
+                size: 0
+                hash: 7dd5befce39375036da253b435e1db98
+                versioning: dvc
+                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/001.png
+              - path: images/002.png
+                type: file
+                size: 0
+                hash: a58f181cd982a1e21c77949588737c8b
+                versioning: dvc
+                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/002.png
+        "404":
+          description: Non existing path
+    put:
+      tags:
+      - Content
+      summary: Upload data to a repository
+      operationId: uploadContent
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: branch
+        in: path
+        description: branch of the repository
+        required: true
+        schema:
+          type: string
+      - name: path
+        in: path
+        description: path of a folder in the repository
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PutFile'
+      responses:
+        "200":
+          description: Successfully uploaded content
   /user:
     get:
       tags:
@@ -1005,6 +1119,50 @@ paths:
                 created_at: 2022-08-29T11:31:22+08:00
 components:
   schemas:
+    Files:
+      type: array
+      items:
+        $ref: '#/components/schemas/File'
+      x-schema-name: Files
+    PutFile:
+      required:
+      - commit_choice
+      - files
+      type: object
+      properties:
+        commit_summary:
+          type: string
+        commit_message:
+          type: string
+          example: Upload file using API
+        commit_choice:
+          type: string
+          example: direct
+          enum:
+          - direct
+          - commit-to-new-branch
+        last_commit:
+          type: string
+          description: "If omitted, **only new files** will be accepted. \n  \nOtherwise,\
+            \ the request is accepted only if **the tip of the branch is the same\
+            \ as `last_commit`** at the moment of processing the request.\n\nThis\
+            \ is done to prevent accidental conflicting changes.\nTo get the latest\
+            \ commit you can use the [branches API](#operations-Branches-getBranch)\n"
+        new_branch_name:
+          type: string
+          example: new-branch
+        versioning:
+          type: string
+          default: auto
+          enum:
+          - auto
+          - dvc
+          - git
+        files:
+          type: string
+          description: This property can be sent multiple times to upload multiple
+            files.
+          format: binary
     Issues:
       type: array
       items:
@@ -1214,7 +1372,7 @@ components:
         description:
           type: string
           description: Description of the repository
-          example: '...'
+          example: This is a repository
     WebhookConfig:
       required:
       - content_type
@@ -1254,6 +1412,41 @@ components:
       default:
       - push
       x-schema-name: WebhookEvents
+    File:
+      type: object
+      properties:
+        path:
+          type: string
+          example: images/000.png
+        type:
+          type: string
+          example: "[file]"
+          enum:
+          - file
+          - dir
+        size:
+          type: integer
+          format: int64
+          example: 421
+        hash:
+          type: string
+          example: 79fb7f8632d7e15b3b46a7411d08bcdd
+        versioning:
+          type: string
+          example: dvc
+          enum:
+          - git
+          - dvc
+        download_url:
+          type: string
+          example: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+      example:
+        path: images/000.png
+        versioning: dvc
+        size: 421
+        download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+        type: "[file]"
+        hash: 79fb7f8632d7e15b3b46a7411d08bcdd
     Title:
       type: string
       description: The title of the issue
@@ -1388,14 +1581,6 @@ components:
           type: string
       additionalProperties: false
   parameters:
-    Username:
-      name: username
-      in: path
-      description: A DagsHub username
-      required: true
-      schema:
-        type: string
-      example: nirbarazida
     Owner:
       name: owner
       in: path
@@ -1412,6 +1597,28 @@ components:
       schema:
         type: string
       example: dagshub-docs
+    Branch:
+      name: branch
+      in: path
+      description: branch of the repository
+      required: true
+      schema:
+        type: string
+    Path:
+      name: path
+      in: path
+      description: path of a folder in the repository
+      required: true
+      schema:
+        type: string
+    Username:
+      name: username
+      in: path
+      description: A DagsHub username
+      required: true
+      schema:
+        type: string
+      example: nirbarazida
     Index:
       name: index
       in: path
@@ -1435,13 +1642,6 @@ components:
       schema:
         type: string
         example: master
-    Branch:
-      name: branch
-      in: path
-      description: branch of the repository
-      required: true
-      schema:
-        type: string
     Collaborator:
       name: collaborator
       in: path

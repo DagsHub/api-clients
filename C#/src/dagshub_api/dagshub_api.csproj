@@ -2,9 +2,9 @@
 <!--
 DagsHub API
 
-The api docs are made with SwaggerUI using the OpenAPI 3 specification. 
+This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
-OpenAPI spec version: 1.0.1
+OpenAPI spec version: 1.0.2
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABBCED32-529F-467C-8E5F-47D9A650094F}</ProjectGuid>
+    <ProjectGuid>{E0A7FE8C-78BD-4175-81A9-98AB9BFA0846}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>dagshub_api</RootNamespace>
