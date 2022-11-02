@@ -13,12 +13,12 @@
  *
  */
 import {ApiClient} from '../ApiClient';
-import {ComponentsschemasAssigneeYaml} from './ComponentsschemasAssigneeYaml';
-import {ComponentsschemasBodyYaml} from './ComponentsschemasBodyYaml';
-import {ComponentsschemasClosedYaml} from './ComponentsschemasClosedYaml';
-import {ComponentsschemasLabelsYaml} from './ComponentsschemasLabelsYaml';
-import {ComponentsschemasMilestoneYaml} from './ComponentsschemasMilestoneYaml';
-import {ComponentsschemasTitleYaml} from './ComponentsschemasTitleYaml';
+import {Assignee} from './Assignee';
+import {Body} from './Body';
+import {Closed} from './Closed';
+import {Labels} from './Labels';
+import {Milestone} from './Milestone';
+import {Title} from './Title';
 
 /**
  * The PostIssue model module.
@@ -45,49 +45,49 @@ export class PostIssue {
     if (data) {
       obj = obj || new PostIssue();
       if (data.hasOwnProperty('title'))
-        obj.title = ComponentsschemasTitleYaml.constructFromObject(data['title']);
+        obj.title = Title.constructFromObject(data['title']);
       if (data.hasOwnProperty('body'))
-        obj.body = ComponentsschemasBodyYaml.constructFromObject(data['body']);
+        obj.body = Body.constructFromObject(data['body']);
       if (data.hasOwnProperty('assignee'))
-        obj.assignee = ComponentsschemasAssigneeYaml.constructFromObject(data['assignee']);
+        obj.assignee = Assignee.constructFromObject(data['assignee']);
       if (data.hasOwnProperty('milestone'))
-        obj.milestone = ComponentsschemasMilestoneYaml.constructFromObject(data['milestone']);
+        obj.milestone = Milestone.constructFromObject(data['milestone']);
       if (data.hasOwnProperty('labels'))
-        obj.labels = ComponentsschemasLabelsYaml.constructFromObject(data['labels']);
+        obj.labels = Labels.constructFromObject(data['labels']);
       if (data.hasOwnProperty('closed'))
-        obj.closed = ComponentsschemasClosedYaml.constructFromObject(data['closed']);
+        obj.closed = Closed.constructFromObject(data['closed']);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/ComponentsschemasTitleYaml} title
+ * @member {module:model/Title} title
  */
 PostIssue.prototype.title = undefined;
 
 /**
- * @member {module:model/ComponentsschemasBodyYaml} body
+ * @member {module:model/Body} body
  */
 PostIssue.prototype.body = undefined;
 
 /**
- * @member {module:model/ComponentsschemasAssigneeYaml} assignee
+ * @member {module:model/Assignee} assignee
  */
 PostIssue.prototype.assignee = undefined;
 
 /**
- * @member {module:model/ComponentsschemasMilestoneYaml} milestone
+ * @member {module:model/Milestone} milestone
  */
 PostIssue.prototype.milestone = undefined;
 
 /**
- * @member {module:model/ComponentsschemasLabelsYaml} labels
+ * @member {module:model/Labels} labels
  */
 PostIssue.prototype.labels = undefined;
 
 /**
- * @member {module:model/ComponentsschemasClosedYaml} closed
+ * @member {module:model/Closed} closed
  */
 PostIssue.prototype.closed = undefined;
 

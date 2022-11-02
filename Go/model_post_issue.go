@@ -9,10 +9,10 @@
 package dagshub_api
 
 type PostIssue struct {
-	Title *ComponentsschemasTitleYaml `json:"title,omitempty"`
-	Body *ComponentsschemasBodyYaml `json:"body,omitempty"`
-	Assignee *ComponentsschemasAssigneeYaml `json:"assignee,omitempty"`
-	Milestone *ComponentsschemasMilestoneYaml `json:"milestone,omitempty"`
-	Labels *ComponentsschemasLabelsYaml `json:"labels,omitempty"`
-	Closed *ComponentsschemasClosedYaml `json:"closed,omitempty"`
+	Title string `json:"title,omitempty"`
+	Body string `json:"body,omitempty"`
+	Assignee string `json:"assignee,omitempty"`
+	Milestone int32 `json:"milestone,omitempty"`
+	Labels *[]int32 `json:"labels,omitempty"`
+	Closed bool `json:"closed,omitempty"`
 }

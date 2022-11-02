@@ -11,7 +11,6 @@
  */
 package io.swagger.client.models
 
-import io.swagger.client.models.SlashcomponentsSlashschemasSlashFileyaml
 
 /**
  * 

@@ -79,32 +79,32 @@ PostIssue <- R6::R6Class(
     fromJSON = function(PostIssueJson) {
       PostIssueObject <- jsonlite::fromJSON(PostIssueJson)
       if (!is.null(PostIssueObject$`title`)) {
-        titleObject <- ComponentsschemasTitleYaml$new()
+        titleObject <- Title$new()
         titleObject$fromJSON(jsonlite::toJSON(PostIssueObject$title, auto_unbox = TRUE))
         self$`title` <- titleObject
       }
       if (!is.null(PostIssueObject$`body`)) {
-        bodyObject <- ComponentsschemasBodyYaml$new()
+        bodyObject <- Body$new()
         bodyObject$fromJSON(jsonlite::toJSON(PostIssueObject$body, auto_unbox = TRUE))
         self$`body` <- bodyObject
       }
       if (!is.null(PostIssueObject$`assignee`)) {
-        assigneeObject <- ComponentsschemasAssigneeYaml$new()
+        assigneeObject <- Assignee$new()
         assigneeObject$fromJSON(jsonlite::toJSON(PostIssueObject$assignee, auto_unbox = TRUE))
         self$`assignee` <- assigneeObject
       }
       if (!is.null(PostIssueObject$`milestone`)) {
-        milestoneObject <- ComponentsschemasMilestoneYaml$new()
+        milestoneObject <- Milestone$new()
         milestoneObject$fromJSON(jsonlite::toJSON(PostIssueObject$milestone, auto_unbox = TRUE))
         self$`milestone` <- milestoneObject
       }
       if (!is.null(PostIssueObject$`labels`)) {
-        labelsObject <- ComponentsschemasLabelsYaml$new()
+        labelsObject <- Labels$new()
         labelsObject$fromJSON(jsonlite::toJSON(PostIssueObject$labels, auto_unbox = TRUE))
         self$`labels` <- labelsObject
       }
       if (!is.null(PostIssueObject$`closed`)) {
-        closedObject <- ComponentsschemasClosedYaml$new()
+        closedObject <- Closed$new()
         closedObject$fromJSON(jsonlite::toJSON(PostIssueObject$closed, auto_unbox = TRUE))
         self$`closed` <- closedObject
       }
@@ -129,18 +129,18 @@ PostIssue <- R6::R6Class(
     },
     fromJSONString = function(PostIssueJson) {
       PostIssueObject <- jsonlite::fromJSON(PostIssueJson)
-      ComponentsschemasTitleYamlObject <- ComponentsschemasTitleYaml$new()
-      self$`title` <- ComponentsschemasTitleYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$title, auto_unbox = TRUE))
-      ComponentsschemasBodyYamlObject <- ComponentsschemasBodyYaml$new()
-      self$`body` <- ComponentsschemasBodyYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$body, auto_unbox = TRUE))
-      ComponentsschemasAssigneeYamlObject <- ComponentsschemasAssigneeYaml$new()
-      self$`assignee` <- ComponentsschemasAssigneeYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$assignee, auto_unbox = TRUE))
-      ComponentsschemasMilestoneYamlObject <- ComponentsschemasMilestoneYaml$new()
-      self$`milestone` <- ComponentsschemasMilestoneYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$milestone, auto_unbox = TRUE))
-      ComponentsschemasLabelsYamlObject <- ComponentsschemasLabelsYaml$new()
-      self$`labels` <- ComponentsschemasLabelsYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$labels, auto_unbox = TRUE))
-      ComponentsschemasClosedYamlObject <- ComponentsschemasClosedYaml$new()
-      self$`closed` <- ComponentsschemasClosedYamlObject$fromJSON(jsonlite::toJSON(PostIssueObject$closed, auto_unbox = TRUE))
+      TitleObject <- Title$new()
+      self$`title` <- TitleObject$fromJSON(jsonlite::toJSON(PostIssueObject$title, auto_unbox = TRUE))
+      BodyObject <- Body$new()
+      self$`body` <- BodyObject$fromJSON(jsonlite::toJSON(PostIssueObject$body, auto_unbox = TRUE))
+      AssigneeObject <- Assignee$new()
+      self$`assignee` <- AssigneeObject$fromJSON(jsonlite::toJSON(PostIssueObject$assignee, auto_unbox = TRUE))
+      MilestoneObject <- Milestone$new()
+      self$`milestone` <- MilestoneObject$fromJSON(jsonlite::toJSON(PostIssueObject$milestone, auto_unbox = TRUE))
+      LabelsObject <- Labels$new()
+      self$`labels` <- LabelsObject$fromJSON(jsonlite::toJSON(PostIssueObject$labels, auto_unbox = TRUE))
+      ClosedObject <- Closed$new()
+      self$`closed` <- ClosedObject$fromJSON(jsonlite::toJSON(PostIssueObject$closed, auto_unbox = TRUE))
     }
   )
 )

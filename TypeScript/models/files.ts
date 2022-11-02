@@ -11,11 +11,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ComponentsschemasFileYaml } from './componentsschemas-file-yaml';
 /**
  * 
  * @export
  * @interface Files
  */
-export interface Files extends Array<ComponentsschemasFileYaml> {
+export interface Files extends Array<any> {
 }

@@ -25,7 +25,7 @@ import java.io.IOException;
  * PutFile
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T12:04:04.486503Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
 public class PutFile {
   @SerializedName("commit_summary")
   private String commitSummary = null;

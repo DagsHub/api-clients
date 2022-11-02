@@ -11,9 +11,12 @@
  */
 package io.swagger.client.models
 
-import io.swagger.client.models.SlashcomponentsSlashschemasSlashBodyyaml
-import io.swagger.client.models.SlashcomponentsSlashschemasSlashTitleyaml
-import io.swagger.client.models.SlashcomponentsSlashschemasSlashUseryaml
+import io.swagger.client.models.Body
+import io.swagger.client.models.IssueAssignee
+import io.swagger.client.models.IssueLabels
+import io.swagger.client.models.IssueMilestone
+import io.swagger.client.models.Title
+import io.swagger.client.models.User
 
 /**
  * 
@@ -36,12 +39,12 @@ data class Issue (
 
     val id: kotlin.Int? = null,
     val number: kotlin.Int? = null,
-    val user: SlashcomponentsSlashschemasSlashUseryaml? = null,
-    val title: SlashcomponentsSlashschemasSlashTitleyaml,
-    val body: SlashcomponentsSlashschemasSlashBodyyaml,
-    val labels: kotlin.Array<kotlin.Any>,
-    val milestone: kotlin.Any,
-    val assignee: kotlin.Any,
+    val user: User? = null,
+    val title: Title,
+    val body: Body,
+    val labels: kotlin.Array<IssueLabels>,
+    val milestone: IssueMilestone,
+    val assignee: IssueAssignee,
     val state: kotlin.String? = null,
     val comments: kotlin.Int? = null,
     val createdAt: kotlin.String? = null,

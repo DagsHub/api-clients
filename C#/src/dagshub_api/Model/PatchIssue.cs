@@ -37,7 +37,7 @@ namespace dagshub_api.Model
         /// <param name="assignee">assignee.</param>
         /// <param name="milestone">milestone.</param>
         /// <param name="state">state.</param>
-        public PatchIssue(ComponentsschemasTitleYaml title = default(ComponentsschemasTitleYaml), ComponentsschemasBodyYaml body = default(ComponentsschemasBodyYaml), ComponentsschemasAssigneeYaml assignee = default(ComponentsschemasAssigneeYaml), ComponentsschemasMilestoneYaml milestone = default(ComponentsschemasMilestoneYaml), ComponentsschemasStateYaml state = default(ComponentsschemasStateYaml))
+        public PatchIssue(string title = default(string), string body = default(string), string assignee = default(string), int? milestone = default(int?), State state = default(State))
         {
             this.Title = title;
             this.Body = body;
@@ -50,31 +50,31 @@ namespace dagshub_api.Model
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
-        public ComponentsschemasTitleYaml Title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
         [DataMember(Name="body", EmitDefaultValue=false)]
-        public ComponentsschemasBodyYaml Body { get; set; }
+        public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets Assignee
         /// </summary>
         [DataMember(Name="assignee", EmitDefaultValue=false)]
-        public ComponentsschemasAssigneeYaml Assignee { get; set; }
+        public string Assignee { get; set; }
 
         /// <summary>
         /// Gets or Sets Milestone
         /// </summary>
         [DataMember(Name="milestone", EmitDefaultValue=false)]
-        public ComponentsschemasMilestoneYaml Milestone { get; set; }
+        public int? Milestone { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name="state", EmitDefaultValue=false)]
-        public ComponentsschemasStateYaml State { get; set; }
+        public State State { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

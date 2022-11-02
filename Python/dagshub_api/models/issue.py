@@ -30,12 +30,12 @@ class Issue(object):
     swagger_types = {
         'id': 'int',
         'number': 'int',
-        'user': 'ComponentsschemasUserYaml',
-        'title': 'ComponentsschemasTitleYaml',
-        'body': 'ComponentsschemasBodyYaml',
-        'labels': 'list[object]',
-        'milestone': 'object',
-        'assignee': 'object',
+        'user': 'User',
+        'title': 'Title',
+        'body': 'Body',
+        'labels': 'list[IssueLabels]',
+        'milestone': 'IssueMilestone',
+        'assignee': 'IssueAssignee',
         'state': 'str',
         'comments': 'int',
         'created_at': 'str',
@@ -149,7 +149,7 @@ class Issue(object):
 
 
         :return: The user of this Issue.  # noqa: E501
-        :rtype: ComponentsschemasUserYaml
+        :rtype: User
         """
         return self._user
 
@@ -159,7 +159,7 @@ class Issue(object):
 
 
         :param user: The user of this Issue.  # noqa: E501
-        :type: ComponentsschemasUserYaml
+        :type: User
         """
 
         self._user = user
@@ -170,7 +170,7 @@ class Issue(object):
 
 
         :return: The title of this Issue.  # noqa: E501
-        :rtype: ComponentsschemasTitleYaml
+        :rtype: Title
         """
         return self._title
 
@@ -180,7 +180,7 @@ class Issue(object):
 
 
         :param title: The title of this Issue.  # noqa: E501
-        :type: ComponentsschemasTitleYaml
+        :type: Title
         """
         if title is None:
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
@@ -193,7 +193,7 @@ class Issue(object):
 
 
         :return: The body of this Issue.  # noqa: E501
-        :rtype: ComponentsschemasBodyYaml
+        :rtype: Body
         """
         return self._body
 
@@ -203,7 +203,7 @@ class Issue(object):
 
 
         :param body: The body of this Issue.  # noqa: E501
-        :type: ComponentsschemasBodyYaml
+        :type: Body
         """
         if body is None:
             raise ValueError("Invalid value for `body`, must not be `None`")  # noqa: E501
@@ -216,7 +216,7 @@ class Issue(object):
 
 
         :return: The labels of this Issue.  # noqa: E501
-        :rtype: list[object]
+        :rtype: list[IssueLabels]
         """
         return self._labels
 
@@ -226,7 +226,7 @@ class Issue(object):
 
 
         :param labels: The labels of this Issue.  # noqa: E501
-        :type: list[object]
+        :type: list[IssueLabels]
         """
         if labels is None:
             raise ValueError("Invalid value for `labels`, must not be `None`")  # noqa: E501
@@ -239,7 +239,7 @@ class Issue(object):
 
 
         :return: The milestone of this Issue.  # noqa: E501
-        :rtype: object
+        :rtype: IssueMilestone
         """
         return self._milestone
 
@@ -249,7 +249,7 @@ class Issue(object):
 
 
         :param milestone: The milestone of this Issue.  # noqa: E501
-        :type: object
+        :type: IssueMilestone
         """
         if milestone is None:
             raise ValueError("Invalid value for `milestone`, must not be `None`")  # noqa: E501
@@ -262,7 +262,7 @@ class Issue(object):
 
 
         :return: The assignee of this Issue.  # noqa: E501
-        :rtype: object
+        :rtype: IssueAssignee
         """
         return self._assignee
 
@@ -272,7 +272,7 @@ class Issue(object):
 
 
         :param assignee: The assignee of this Issue.  # noqa: E501
-        :type: object
+        :type: IssueAssignee
         """
         if assignee is None:
             raise ValueError("Invalid value for `assignee`, must not be `None`")  # noqa: E501

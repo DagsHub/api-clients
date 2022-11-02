@@ -11,12 +11,12 @@ package dagshub_api
 type Issue struct {
 	Id int32 `json:"id,omitempty"`
 	Number int32 `json:"number,omitempty"`
-	User *ComponentsschemasUserYaml `json:"user,omitempty"`
-	Title *ComponentsschemasTitleYaml `json:"title"`
-	Body *ComponentsschemasBodyYaml `json:"body"`
-	Labels []interface{} `json:"labels"`
-	Milestone *interface{} `json:"milestone"`
-	Assignee *interface{} `json:"assignee"`
+	User *User `json:"user,omitempty"`
+	Title string `json:"title"`
+	Body string `json:"body"`
+	Labels []IssueLabels `json:"labels"`
+	Milestone *IssueMilestone `json:"milestone"`
+	Assignee *IssueAssignee `json:"assignee"`
 	State string `json:"state,omitempty"`
 	Comments int32 `json:"comments,omitempty"`
 	CreatedAt string `json:"created_at,omitempty"`

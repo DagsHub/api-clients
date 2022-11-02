@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | [**SlashcomponentsSlashschemasSlashTitleyaml**](SlashcomponentsSlashschemasSlashTitleyaml.md) |  |  [optional]
-**body** | [**SlashcomponentsSlashschemasSlashBodyyaml**](SlashcomponentsSlashschemasSlashBodyyaml.md) |  |  [optional]
-**assignee** | [**SlashcomponentsSlashschemasSlashAssigneeyaml**](SlashcomponentsSlashschemasSlashAssigneeyaml.md) |  |  [optional]
-**milestone** | [**SlashcomponentsSlashschemasSlashMilestoneyaml**](SlashcomponentsSlashschemasSlashMilestoneyaml.md) |  |  [optional]
-**labels** | [**SlashcomponentsSlashschemasSlashLabelsyaml**](SlashcomponentsSlashschemasSlashLabelsyaml.md) |  |  [optional]
-**closed** | [**SlashcomponentsSlashschemasSlashClosedyaml**](SlashcomponentsSlashschemasSlashClosedyaml.md) |  |  [optional]
+**title** | [**Title**](Title.md) |  |  [optional]
+**body** | [**Body**](Body.md) |  |  [optional]
+**assignee** | [**Assignee**](Assignee.md) |  |  [optional]
+**milestone** | [**Milestone**](Milestone.md) |  |  [optional]
+**labels** | [**Labels**](Labels.md) |  |  [optional]
+**closed** | [**Closed**](Closed.md) |  |  [optional]

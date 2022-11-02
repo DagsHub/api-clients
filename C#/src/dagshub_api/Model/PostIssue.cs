@@ -38,7 +38,7 @@ namespace dagshub_api.Model
         /// <param name="milestone">milestone.</param>
         /// <param name="labels">labels.</param>
         /// <param name="closed">closed.</param>
-        public PostIssue(ComponentsschemasTitleYaml title = default(ComponentsschemasTitleYaml), ComponentsschemasBodyYaml body = default(ComponentsschemasBodyYaml), ComponentsschemasAssigneeYaml assignee = default(ComponentsschemasAssigneeYaml), ComponentsschemasMilestoneYaml milestone = default(ComponentsschemasMilestoneYaml), ComponentsschemasLabelsYaml labels = default(ComponentsschemasLabelsYaml), ComponentsschemasClosedYaml closed = default(ComponentsschemasClosedYaml))
+        public PostIssue(string title = default(string), string body = default(string), string assignee = default(string), int? milestone = default(int?), Labels labels = default(Labels), bool? closed = default(bool?))
         {
             this.Title = title;
             this.Body = body;
@@ -52,37 +52,37 @@ namespace dagshub_api.Model
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
-        public ComponentsschemasTitleYaml Title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
         [DataMember(Name="body", EmitDefaultValue=false)]
-        public ComponentsschemasBodyYaml Body { get; set; }
+        public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets Assignee
         /// </summary>
         [DataMember(Name="assignee", EmitDefaultValue=false)]
-        public ComponentsschemasAssigneeYaml Assignee { get; set; }
+        public string Assignee { get; set; }
 
         /// <summary>
         /// Gets or Sets Milestone
         /// </summary>
         [DataMember(Name="milestone", EmitDefaultValue=false)]
-        public ComponentsschemasMilestoneYaml Milestone { get; set; }
+        public int? Milestone { get; set; }
 
         /// <summary>
         /// Gets or Sets Labels
         /// </summary>
         [DataMember(Name="labels", EmitDefaultValue=false)]
-        public ComponentsschemasLabelsYaml Labels { get; set; }
+        public Labels Labels { get; set; }
 
         /// <summary>
         /// Gets or Sets Closed
         /// </summary>
         [DataMember(Name="closed", EmitDefaultValue=false)]
-        public ComponentsschemasClosedYaml Closed { get; set; }
+        public bool? Closed { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
