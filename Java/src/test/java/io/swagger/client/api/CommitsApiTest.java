@@ -47,21 +47,4 @@ public class CommitsApiTest {
 
         // TODO: test validations
     }
-    /**
-     * Get the SHA-1 of a commit reference
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void getCommitSha1Test() throws Exception {
-        String owner = null;
-        String repo = null;
-        String ref = null;
-        String response = api.getCommitSha1(owner, repo, ref);
-
-        // TODO: test validations
-    }
 }

@@ -95,7 +95,10 @@ namespace dagshub_api.Test
         public void RemoveCollaboratorTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //instance.RemoveCollaborator();
+            //string username = null;
+            //string repo = null;
+            //string collaborator = null;
+            //instance.RemoveCollaborator(username, repo, collaborator);
             
         }
     }

@@ -14,6 +14,7 @@
 export * from './apis/collaborators-api';
 export * from './apis/commits-api';
 export * from './apis/content-api';
+export * from './apis/experiments-api';
 export * from './apis/issues-api';
 export * from './apis/releases-api';
 export * from './apis/repository-api';

@@ -43,7 +43,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class CommitsApi(
-  val defBasePath: String = "https://dagshub.com/api/v1/",
+  val defBasePath: String = "https://dagshub.com/api/v1",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -107,36 +107,6 @@ class CommitsApi(
       helper.getCommit(owner, repo, sha)
   }
 
-  /**
-   * Get the SHA-1 of a commit reference
-   * 
-   *
-   * @param owner owner of the repository 
-   * @param repo name of the repository 
-   * @param ref The name of the commit/branch/tag 
-   * @return String
-   */
-  def getCommitSha1(owner: String, repo: String, ref: String): Option[String] = {
-    val await = Try(Await.result(getCommitSha1Async(owner, repo, ref), Duration.Inf))
-    await match {
-      case Success(i) => Some(await.get)
-      case Failure(t) => None
-    }
-  }
-
-  /**
-   * Get the SHA-1 of a commit reference asynchronously
-   * 
-   *
-   * @param owner owner of the repository 
-   * @param repo name of the repository 
-   * @param ref The name of the commit/branch/tag 
-   * @return Future(String)
-   */
-  def getCommitSha1Async(owner: String, repo: String, ref: String): Future[String] = {
-      helper.getCommitSha1(owner, repo, ref)
-  }
-
 }
 
 class CommitsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
@@ -159,32 +129,6 @@ class CommitsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CommitsApi->getCommit")
 
     if (sha == null) throw new Exception("Missing required parameter 'sha' when calling CommitsApi->getCommit")
-
-
-    val resFuture = client.submit("GET", path, queryParams.toMap, headerParams.toMap, "")
-    resFuture flatMap { resp =>
-      process(reader.read(resp))
-    }
-  }
-
-  def getCommitSha1(owner: String,
-    repo: String,
-    ref: String)(implicit reader: ClientResponseReader[String]): Future[String] = {
-    // create path and map variables
-    val path = (addFmt("/repos/{owner}/{repo}/commits/{ref}")
-      replaceAll("\\{" + "owner" + "\\}", owner.toString)
-      replaceAll("\\{" + "repo" + "\\}", repo.toString)
-      replaceAll("\\{" + "ref" + "\\}", ref.toString))
-
-    // query params
-    val queryParams = new mutable.HashMap[String, String]
-    val headerParams = new mutable.HashMap[String, String]
-
-    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling CommitsApi->getCommitSha1")
-
-    if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CommitsApi->getCommitSha1")
-
-    if (ref == null) throw new Exception("Missing required parameter 'ref' when calling CommitsApi->getCommitSha1")
 
 
     val resFuture = client.submit("GET", path, queryParams.toMap, headerParams.toMap, "")

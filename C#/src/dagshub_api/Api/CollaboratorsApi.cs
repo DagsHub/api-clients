@@ -80,8 +80,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns></returns>
-        void RemoveCollaborator ();
+        void RemoveCollaborator (string username, string repo, string collaborator);
 
         /// <summary>
         /// Delete collaborator
@@ -90,8 +93,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RemoveCollaboratorWithHttpInfo ();
+        ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string username, string repo, string collaborator);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -151,8 +157,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveCollaboratorAsync ();
+        System.Threading.Tasks.Task RemoveCollaboratorAsync (string username, string repo, string collaborator);
 
         /// <summary>
         /// Delete collaborator
@@ -161,8 +170,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator);
         #endregion Asynchronous Operations
     }
 
@@ -636,19 +648,34 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns></returns>
-        public void RemoveCollaborator ()
+        public void RemoveCollaborator (string username, string repo, string collaborator)
         {
-             RemoveCollaboratorWithHttpInfo();
+             RemoveCollaboratorWithHttpInfo(username, repo, collaborator);
         }
 
         /// <summary>
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> RemoveCollaboratorWithHttpInfo ()
+        public ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string username, string repo, string collaborator)
         {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'collaborator' is set
+            if (collaborator == null)
+                throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->RemoveCollaborator");
 
             var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -670,6 +697,9 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
@@ -704,10 +734,13 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveCollaboratorAsync ()
+        public async System.Threading.Tasks.Task RemoveCollaboratorAsync (string username, string repo, string collaborator)
         {
-             await RemoveCollaboratorAsyncWithHttpInfo();
+             await RemoveCollaboratorAsyncWithHttpInfo(username, repo, collaborator);
 
         }
 
@@ -715,9 +748,21 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username">A DagsHub username</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator)
         {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'collaborator' is set
+            if (collaborator == null)
+                throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->RemoveCollaborator");
 
             var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -739,6 +784,9 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))

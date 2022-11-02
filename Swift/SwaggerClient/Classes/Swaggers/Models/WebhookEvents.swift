@@ -9,4 +9,4 @@ import Foundation
 
 
 /** Determines what events the hook is triggered format. */
-public typealias WebhookEvents = [Any]
+public typealias WebhookEvents = [String]

@@ -3,6 +3,8 @@ export * from './body';
 export * from './closed';
 export * from './collaborators-collaborator-body';
 export * from './create-repo';
+export * from './edit-experiment-post';
+export * from './experiment-keys';
 export * from './files';
 export * from './hooks-id-body';
 export * from './issue';

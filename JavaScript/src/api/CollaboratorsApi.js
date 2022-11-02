@@ -151,14 +151,29 @@ export class CollaboratorsApi {
 
     /**
      * Delete collaborator
+     * @param {String} username A DagsHub username
+     * @param {String} repo name of the repository
+     * @param {String} collaborator collaborator username
      * @param {module:api/CollaboratorsApi~removeCollaboratorCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    removeCollaborator(callback) {
+    removeCollaborator(username, repo, collaborator, callback) {
       
       let postBody = null;
+      // verify the required parameter 'username' is set
+      if (username === undefined || username === null) {
+        throw new Error("Missing the required parameter 'username' when calling removeCollaborator");
+      }
+      // verify the required parameter 'repo' is set
+      if (repo === undefined || repo === null) {
+        throw new Error("Missing the required parameter 'repo' when calling removeCollaborator");
+      }
+      // verify the required parameter 'collaborator' is set
+      if (collaborator === undefined || collaborator === null) {
+        throw new Error("Missing the required parameter 'collaborator' when calling removeCollaborator");
+      }
 
       let pathParams = {
-        
+        'username': username,'repo': repo,'collaborator': collaborator
       };
       let queryParams = {
         

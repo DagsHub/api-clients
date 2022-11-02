@@ -207,9 +207,12 @@ func (a *CollaboratorsApiService) GetCollaborators(ctx context.Context, username
 /*
 CollaboratorsApiService Delete collaborator
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param username A DagsHub username
+ * @param repo name of the repository
+ * @param collaborator collaborator username
 
 */
-func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context) (*http.Response, error) {
+func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context, username string, repo string, collaborator string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -220,6 +223,9 @@ func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context) (*http
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/collaborators/{collaborator}"
+	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"collaborator"+"}", fmt.Sprintf("%v", collaborator), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

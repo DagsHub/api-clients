@@ -1,6 +1,6 @@
 # dagshub_api.CollaboratorsApi
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -125,7 +125,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_collaborator**
-> remove_collaborator()
+> remove_collaborator(username, repo, collaborator)
 
 Delete collaborator
 
@@ -148,16 +148,24 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.CollaboratorsApi(dagshub_api.ApiClient(configuration))
+username = 'username_example' # str | A DagsHub username
+repo = 'repo_example' # str | name of the repository
+collaborator = 'collaborator_example' # str | collaborator username
 
 try:
     # Delete collaborator
-    api_instance.remove_collaborator()
+    api_instance.remove_collaborator(username, repo, collaborator)
 except ApiException as e:
     print("Exception when calling CollaboratorsApi->remove_collaborator: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **str**| A DagsHub username | 
+ **repo** | **str**| name of the repository | 
+ **collaborator** | **str**| collaborator username | 
 
 ### Return type
 

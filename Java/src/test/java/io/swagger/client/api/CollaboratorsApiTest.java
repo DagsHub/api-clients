@@ -75,7 +75,10 @@ public class CollaboratorsApiTest {
      */
     @Test
     public void removeCollaboratorTest() throws Exception {
-        api.removeCollaborator();
+        String username = null;
+        String repo = null;
+        String collaborator = null;
+        api.removeCollaborator(username, repo, collaborator);
 
         // TODO: test validations
     }

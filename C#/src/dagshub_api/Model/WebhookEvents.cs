@@ -27,7 +27,7 @@ namespace dagshub_api.Model
     /// Determines what events the hook is triggered format.
     /// </summary>
     [DataContract]
-        public partial class WebhookEvents : List<Object>,  IEquatable<WebhookEvents>, IValidatableObject
+        public partial class WebhookEvents : List<string>,  IEquatable<WebhookEvents>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookEvents" /> class.

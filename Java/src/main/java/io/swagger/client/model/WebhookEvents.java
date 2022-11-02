@@ -21,8 +21,8 @@ import java.util.List;
  * Determines what events the hook is triggered format.
  */
 @Schema(description = "Determines what events the hook is triggered format.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
-public class WebhookEvents extends ArrayList<Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T13:43:48.600724Z[Etc/UTC]")
+public class WebhookEvents extends ArrayList<String> {
 
   @Override
   public boolean equals(java.lang.Object o) {

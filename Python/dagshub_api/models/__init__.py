@@ -19,6 +19,8 @@ from dagshub_api.models.body import Body
 from dagshub_api.models.closed import Closed
 from dagshub_api.models.collaborators_collaborator_body import CollaboratorsCollaboratorBody
 from dagshub_api.models.create_repo import CreateRepo
+from dagshub_api.models.edit_experiment_post import EditExperimentPost
+from dagshub_api.models.experiment_keys import ExperimentKeys
 from dagshub_api.models.file import File
 from dagshub_api.models.files import Files
 from dagshub_api.models.hooks_id_body import HooksIdBody

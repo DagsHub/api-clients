@@ -14,7 +14,7 @@ package io.swagger.client.apis
 
 import dagshub_api.infrastructure.*
 
-class BranchesApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
+class BranchesApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClient(basePath) {
 
     /**
      * Get Branch

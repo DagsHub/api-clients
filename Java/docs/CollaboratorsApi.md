@@ -1,6 +1,6 @@
 # CollaboratorsApi
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -130,7 +130,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator()
+> removeCollaborator(username, repo, collaborator)
 
 Delete collaborator
 
@@ -156,8 +156,11 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 CollaboratorsApi apiInstance = new CollaboratorsApi();
+String username = "username_example"; // String | A DagsHub username
+String repo = "repo_example"; // String | name of the repository
+String collaborator = "collaborator_example"; // String | collaborator username
 try {
-    apiInstance.removeCollaborator();
+    apiInstance.removeCollaborator(username, repo, collaborator);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollaboratorsApi#removeCollaborator");
     e.printStackTrace();
@@ -165,7 +168,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| A DagsHub username |
+ **repo** | **String**| name of the repository |
+ **collaborator** | **String**| collaborator username |
 
 ### Return type
 

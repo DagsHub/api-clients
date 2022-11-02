@@ -17,7 +17,7 @@ import "./dagshub_api"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -27,11 +27,15 @@ Class | Method | HTTP request | Description
 *CollaboratorsApi* | [**GetCollaborators**](docs/CollaboratorsApi.md#getcollaborators) | **Get** /repos/{username}/{repo}/collaborators | Get collaborators
 *CollaboratorsApi* | [**RemoveCollaborator**](docs/CollaboratorsApi.md#removecollaborator) | **Delete** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
 *CommitsApi* | [**GetCommit**](docs/CommitsApi.md#getcommit) | **Get** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*CommitsApi* | [**GetCommitSha1**](docs/CommitsApi.md#getcommitsha1) | **Get** /repos/{owner}/{repo}/commits/{ref} | Get the SHA-1 of a commit reference
 *ContentApi* | [**GetArchive**](docs/ContentApi.md#getarchive) | **Get** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
 *ContentApi* | [**GetContent**](docs/ContentApi.md#getcontent) | **Get** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *ContentApi* | [**GetRaw**](docs/ContentApi.md#getraw) | **Get** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**UploadContent**](docs/ContentApi.md#uploadcontent) | **Put** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
+*ExperimentsApi* | [**AddExperimentLabel**](docs/ExperimentsApi.md#addexperimentlabel) | **Post** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+*ExperimentsApi* | [**DeleteExperimentLabel**](docs/ExperimentsApi.md#deleteexperimentlabel) | **Delete** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
+*ExperimentsApi* | [**EditExperiment**](docs/ExperimentsApi.md#editexperiment) | **Post** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
+*ExperimentsApi* | [**GetExperimentMetrics**](docs/ExperimentsApi.md#getexperimentmetrics) | **Post** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
+*ExperimentsApi* | [**GetExperiments**](docs/ExperimentsApi.md#getexperiments) | **Get** /repos/{owner}/{repo}/experiments | List Experiments
 *IssuesApi* | [**CreateIssue**](docs/IssuesApi.md#createissue) | **Post** /repos/{owner}/{repo}/issues | Create an issue
 *IssuesApi* | [**EditIssue**](docs/IssuesApi.md#editissue) | **Patch** /repos/{owner}/{repo}/issues | Edit an issue
 *IssuesApi* | [**GetIssue**](docs/IssuesApi.md#getissue) | **Get** /repos/{owner}/{repo}/issues/{index} | Get a single issue
@@ -56,6 +60,8 @@ Class | Method | HTTP request | Description
 
  - [CollaboratorsCollaboratorBody](docs/CollaboratorsCollaboratorBody.md)
  - [CreateRepo](docs/CreateRepo.md)
+ - [EditExperimentPost](docs/EditExperimentPost.md)
+ - [ExperimentKeys](docs/ExperimentKeys.md)
  - [File](docs/File.md)
  - [HooksIdBody](docs/HooksIdBody.md)
  - [Issue](docs/Issue.md)

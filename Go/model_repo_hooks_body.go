@@ -12,5 +12,5 @@ type RepoHooksBody struct {
 	// The type of webhook
 	Type_ string `json:"type"`
 	Config *WebhookConfig `json:"config"`
-	Events *[]interface{} `json:"events,omitempty"`
+	Events *[]string `json:"events,omitempty"`
 }

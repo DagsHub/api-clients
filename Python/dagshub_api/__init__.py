@@ -19,6 +19,7 @@ from dagshub_api.api.branches_api import BranchesApi
 from dagshub_api.api.collaborators_api import CollaboratorsApi
 from dagshub_api.api.commits_api import CommitsApi
 from dagshub_api.api.content_api import ContentApi
+from dagshub_api.api.experiments_api import ExperimentsApi
 from dagshub_api.api.issues_api import IssuesApi
 from dagshub_api.api.releases_api import ReleasesApi
 from dagshub_api.api.repository_api import RepositoryApi
@@ -33,6 +34,8 @@ from dagshub_api.models.body import Body
 from dagshub_api.models.closed import Closed
 from dagshub_api.models.collaborators_collaborator_body import CollaboratorsCollaboratorBody
 from dagshub_api.models.create_repo import CreateRepo
+from dagshub_api.models.edit_experiment_post import EditExperimentPost
+from dagshub_api.models.experiment_keys import ExperimentKeys
 from dagshub_api.models.file import File
 from dagshub_api.models.files import Files
 from dagshub_api.models.hooks_id_body import HooksIdBody

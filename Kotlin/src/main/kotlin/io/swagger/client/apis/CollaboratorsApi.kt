@@ -15,7 +15,7 @@ import io.swagger.client.models.CollaboratorsCollaboratorBody
 
 import dagshub_api.infrastructure.*
 
-class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
+class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClient(basePath) {
 
     /**
      * Add user as a collaborator
@@ -73,13 +73,16 @@ class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") 
     /**
      * Delete collaborator
      * 
+     * @param username A DagsHub username 
+     * @param repo name of the repository 
+     * @param collaborator collaborator username 
      * @return void
      */
-    fun removeCollaborator(): Unit {
+    fun removeCollaborator(username: kotlin.String, repo: kotlin.String, collaborator: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.DELETE,
-                "/repos/{username}/{repo}/collaborators/{collaborator}", query = localVariableQuery
+                "/repos/{username}/{repo}/collaborators/{collaborator}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "collaborator" + "}", "$collaborator"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig

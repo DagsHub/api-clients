@@ -15,7 +15,7 @@ import io.swagger.client.models.Files
 
 import dagshub_api.infrastructure.*
 
-class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
+class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClient(basePath) {
 
     /**
      * Download archive

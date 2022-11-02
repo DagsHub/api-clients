@@ -16,5 +16,5 @@
  * @export
  * @interface WebhookEvents
  */
-export interface WebhookEvents extends Array<any> {
+export interface WebhookEvents extends Array<string> {
 }

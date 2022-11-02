@@ -122,10 +122,13 @@ open class CollaboratorsAPI {
     /**
      Delete collaborator
 
+     - parameter username: (path) A DagsHub username 
+     - parameter repo: (path) name of the repository 
+     - parameter collaborator: (path) collaborator username 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func removeCollaborator(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        removeCollaboratorWithRequestBuilder().execute { (response, error) -> Void in
+    open class func removeCollaborator(username: String, repo: String, collaborator: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        removeCollaboratorWithRequestBuilder(username: username, repo: repo, collaborator: collaborator).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -146,11 +149,23 @@ open class CollaboratorsAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
+     - parameter username: (path) A DagsHub username 
+     - parameter repo: (path) name of the repository 
+     - parameter collaborator: (path) collaborator username 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func removeCollaboratorWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/repos/{username}/{repo}/collaborators/{collaborator}"
+    open class func removeCollaboratorWithRequestBuilder(username: String, repo: String, collaborator: String) -> RequestBuilder<Void> {
+        var path = "/repos/{username}/{repo}/collaborators/{collaborator}"
+        let usernamePreEscape = "\(username)"
+        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+        let repoPreEscape = "\(repo)"
+        let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
+        let collaboratorPreEscape = "\(collaborator)"
+        let collaboratorPostEscape = collaboratorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{collaborator}", with: collaboratorPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)

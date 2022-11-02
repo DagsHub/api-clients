@@ -52,12 +52,12 @@ namespace dagshub_api.Client
         public ApiClient()
         {
             Configuration = dagshub_api.Client.Configuration.Default;
-            RestClient = new RestClient("https://dagshub.com/api/v1/");
+            RestClient = new RestClient("https://dagshub.com/api/v1");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://dagshub.com/api/v1/).
+        /// with default base path (https://dagshub.com/api/v1).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -72,7 +72,7 @@ namespace dagshub_api.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://dagshub.com/api/v1/")
+        public ApiClient(String basePath = "https://dagshub.com/api/v1")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
