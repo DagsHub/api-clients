@@ -21,11 +21,11 @@ package io.swagger.client.model
  * @param closed 
  */
 case class PostIssue (
-  title: Option[Title] = None,
-  body: Option[Body] = None,
-  assignee: Option[Assignee] = None,
-  milestone: Option[Milestone] = None,
-  labels: Option[Labels] = None,
-  closed: Option[Closed] = None
+  title: Option[./components/schemas/Title.yaml] = None,
+  body: Option[./components/schemas/Body.yaml] = None,
+  assignee: Option[./components/schemas/Assignee.yaml] = None,
+  milestone: Option[./components/schemas/Milestone.yaml] = None,
+  labels: Option[./components/schemas/Labels.yaml] = None,
+  closed: Option[./components/schemas/Closed.yaml] = None
 )
 

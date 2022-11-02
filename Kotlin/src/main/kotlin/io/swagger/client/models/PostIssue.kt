@@ -11,12 +11,12 @@
  */
 package io.swagger.client.models
 
-import io.swagger.client.models.Assignee
-import io.swagger.client.models.Body
-import io.swagger.client.models.Closed
-import io.swagger.client.models.Labels
-import io.swagger.client.models.Milestone
-import io.swagger.client.models.Title
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashAssigneeyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashBodyyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashClosedyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashLabelsyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashMilestoneyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashTitleyaml
 
 /**
  * 
@@ -29,11 +29,11 @@ import io.swagger.client.models.Title
  */
 data class PostIssue (
 
-    val title: Title? = null,
-    val body: Body? = null,
-    val assignee: Assignee? = null,
-    val milestone: Milestone? = null,
-    val labels: Labels? = null,
-    val closed: Closed? = null
+    val title: SlashcomponentsSlashschemasSlashTitleyaml? = null,
+    val body: SlashcomponentsSlashschemasSlashBodyyaml? = null,
+    val assignee: SlashcomponentsSlashschemasSlashAssigneeyaml? = null,
+    val milestone: SlashcomponentsSlashschemasSlashMilestoneyaml? = null,
+    val labels: SlashcomponentsSlashschemasSlashLabelsyaml? = null,
+    val closed: SlashcomponentsSlashschemasSlashClosedyaml? = null
 ) {
 }

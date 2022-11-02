@@ -13,12 +13,12 @@ public struct Issue: Codable {
 
     public var _id: Int?
     public var number: Int?
-    public var user: User?
-    public var title: Title
-    public var body: Body
-    public var labels: [IssueLabels]
-    public var milestone: IssueMilestone
-    public var assignee: IssueAssignee
+    public var user: ComponentsschemasUserYaml?
+    public var title: ComponentsschemasTitleYaml
+    public var body: ComponentsschemasBodyYaml
+    public var labels: [Any]
+    public var milestone: Any
+    public var assignee: Any
     public var state: String?
     public var comments: Int?
     public var createdAt: String?
@@ -26,7 +26,7 @@ public struct Issue: Codable {
     public var pullRequest: Any?
     public var closed: Bool
 
-    public init(_id: Int? = nil, number: Int? = nil, user: User? = nil, title: Title, body: Body, labels: [IssueLabels], milestone: IssueMilestone, assignee: IssueAssignee, state: String? = nil, comments: Int? = nil, createdAt: String? = nil, updatedAt: String? = nil, pullRequest: Any? = nil, closed: Bool) {
+    public init(_id: Int? = nil, number: Int? = nil, user: ComponentsschemasUserYaml? = nil, title: ComponentsschemasTitleYaml, body: ComponentsschemasBodyYaml, labels: [Any], milestone: Any, assignee: Any, state: String? = nil, comments: Int? = nil, createdAt: String? = nil, updatedAt: String? = nil, pullRequest: Any? = nil, closed: Bool) {
         self._id = _id
         self.number = number
         self.user = user

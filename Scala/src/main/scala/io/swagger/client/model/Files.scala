@@ -11,7 +11,6 @@
  */
 package io.swagger.client.model
 
-import java.io.File
 import scala.collection.mutable.ListBuffer
 
 /**

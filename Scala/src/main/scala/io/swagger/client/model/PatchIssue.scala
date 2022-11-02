@@ -20,10 +20,10 @@ package io.swagger.client.model
  * @param state 
  */
 case class PatchIssue (
-  title: Option[Title] = None,
-  body: Option[Body] = None,
-  assignee: Option[Assignee] = None,
-  milestone: Option[Milestone] = None,
-  state: Option[State] = None
+  title: Option[./components/schemas/Title.yaml] = None,
+  body: Option[./components/schemas/Body.yaml] = None,
+  assignee: Option[./components/schemas/Assignee.yaml] = None,
+  milestone: Option[./components/schemas/Milestone.yaml] = None,
+  state: Option[./components/schemas/State.yaml] = None
 )
 

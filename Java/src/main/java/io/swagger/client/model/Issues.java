@@ -14,15 +14,15 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import io.swagger.client.model.Issue;
+import io.swagger.client.model.ComponentsschemasIssueYaml;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * Issues
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
-public class Issues extends ArrayList<Issue> {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T12:04:04.486503Z[Etc/UTC]")
+public class Issues extends ArrayList<ComponentsschemasIssueYaml> {
 
   @Override
   public boolean equals(java.lang.Object o) {

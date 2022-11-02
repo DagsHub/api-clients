@@ -11,11 +11,11 @@
  */
 package io.swagger.client.models
 
-import io.swagger.client.models.Assignee
-import io.swagger.client.models.Body
-import io.swagger.client.models.Milestone
-import io.swagger.client.models.State
-import io.swagger.client.models.Title
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashAssigneeyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashBodyyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashMilestoneyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashStateyaml
+import io.swagger.client.models.SlashcomponentsSlashschemasSlashTitleyaml
 
 /**
  * 
@@ -27,10 +27,10 @@ import io.swagger.client.models.Title
  */
 data class PatchIssue (
 
-    val title: Title? = null,
-    val body: Body? = null,
-    val assignee: Assignee? = null,
-    val milestone: Milestone? = null,
-    val state: State? = null
+    val title: SlashcomponentsSlashschemasSlashTitleyaml? = null,
+    val body: SlashcomponentsSlashschemasSlashBodyyaml? = null,
+    val assignee: SlashcomponentsSlashschemasSlashAssigneeyaml? = null,
+    val milestone: SlashcomponentsSlashschemasSlashMilestoneyaml? = null,
+    val state: SlashcomponentsSlashschemasSlashStateyaml? = null
 ) {
 }

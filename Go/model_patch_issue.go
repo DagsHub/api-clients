@@ -9,9 +9,9 @@
 package dagshub_api
 
 type PatchIssue struct {
-	Title string `json:"title,omitempty"`
-	Body string `json:"body,omitempty"`
-	Assignee string `json:"assignee,omitempty"`
-	Milestone int32 `json:"milestone,omitempty"`
-	State *State `json:"state,omitempty"`
+	Title *ComponentsschemasTitleYaml `json:"title,omitempty"`
+	Body *ComponentsschemasBodyYaml `json:"body,omitempty"`
+	Assignee *ComponentsschemasAssigneeYaml `json:"assignee,omitempty"`
+	Milestone *ComponentsschemasMilestoneYaml `json:"milestone,omitempty"`
+	State *ComponentsschemasStateYaml `json:"state,omitempty"`
 }

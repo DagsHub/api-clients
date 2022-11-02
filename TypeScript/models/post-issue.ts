@@ -11,12 +11,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Assignee } from './assignee';
-import { Body } from './body';
-import { Closed } from './closed';
-import { Labels } from './labels';
-import { Milestone } from './milestone';
-import { Title } from './title';
+import { ComponentsschemasAssigneeYaml } from './componentsschemas-assignee-yaml';
+import { ComponentsschemasBodyYaml } from './componentsschemas-body-yaml';
+import { ComponentsschemasClosedYaml } from './componentsschemas-closed-yaml';
+import { ComponentsschemasLabelsYaml } from './componentsschemas-labels-yaml';
+import { ComponentsschemasMilestoneYaml } from './componentsschemas-milestone-yaml';
+import { ComponentsschemasTitleYaml } from './componentsschemas-title-yaml';
 /**
  * 
  * @export
@@ -25,38 +25,38 @@ import { Title } from './title';
 export interface PostIssue {
     /**
      * 
-     * @type {Title}
+     * @type {ComponentsschemasTitleYaml}
      * @memberof PostIssue
      */
-    title?: Title;
+    title?: ComponentsschemasTitleYaml;
     /**
      * 
-     * @type {Body}
+     * @type {ComponentsschemasBodyYaml}
      * @memberof PostIssue
      */
-    body?: Body;
+    body?: ComponentsschemasBodyYaml;
     /**
      * 
-     * @type {Assignee}
+     * @type {ComponentsschemasAssigneeYaml}
      * @memberof PostIssue
      */
-    assignee?: Assignee;
+    assignee?: ComponentsschemasAssigneeYaml;
     /**
      * 
-     * @type {Milestone}
+     * @type {ComponentsschemasMilestoneYaml}
      * @memberof PostIssue
      */
-    milestone?: Milestone;
+    milestone?: ComponentsschemasMilestoneYaml;
     /**
      * 
-     * @type {Labels}
+     * @type {ComponentsschemasLabelsYaml}
      * @memberof PostIssue
      */
-    labels?: Labels;
+    labels?: ComponentsschemasLabelsYaml;
     /**
      * 
-     * @type {Closed}
+     * @type {ComponentsschemasClosedYaml}
      * @memberof PostIssue
      */
-    closed?: Closed;
+    closed?: ComponentsschemasClosedYaml;
 }

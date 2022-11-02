@@ -8,4 +8,4 @@
 import Foundation
 
 
-public typealias Issues = [Issue]
+public typealias Issues = [ComponentsschemasIssueYaml]

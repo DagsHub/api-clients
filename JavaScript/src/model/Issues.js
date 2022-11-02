@@ -13,7 +13,7 @@
  *
  */
 import {ApiClient} from '../ApiClient';
-import {Issue} from './Issue';
+import {ComponentsschemasIssueYaml} from './ComponentsschemasIssueYaml';
 
 /**
  * The Issues model module.
@@ -41,7 +41,7 @@ export class Issues extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new Issues();
-      ApiClient.constructFromObject(data, obj, 'Issue');
+      ApiClient.constructFromObject(data, obj, 'ComponentsschemasIssueYaml');
     }
     return obj;
   }

@@ -11,12 +11,9 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Body } from './body';
-import { IssueAssignee } from './issue-assignee';
-import { IssueLabels } from './issue-labels';
-import { IssueMilestone } from './issue-milestone';
-import { Title } from './title';
-import { User } from './user';
+import { ComponentsschemasBodyYaml } from './componentsschemas-body-yaml';
+import { ComponentsschemasTitleYaml } from './componentsschemas-title-yaml';
+import { ComponentsschemasUserYaml } from './componentsschemas-user-yaml';
 /**
  * 
  * @export
@@ -37,40 +34,40 @@ export interface Issue {
     number?: number;
     /**
      * 
-     * @type {User}
+     * @type {ComponentsschemasUserYaml}
      * @memberof Issue
      */
-    user?: User;
+    user?: ComponentsschemasUserYaml;
     /**
      * 
-     * @type {Title}
+     * @type {ComponentsschemasTitleYaml}
      * @memberof Issue
      */
-    title: Title;
+    title: ComponentsschemasTitleYaml;
     /**
      * 
-     * @type {Body}
+     * @type {ComponentsschemasBodyYaml}
      * @memberof Issue
      */
-    body: Body;
+    body: ComponentsschemasBodyYaml;
     /**
      * 
-     * @type {Array<IssueLabels>}
+     * @type {Array<any>}
      * @memberof Issue
      */
-    labels: Array<IssueLabels>;
+    labels: Array<any>;
     /**
      * 
-     * @type {IssueMilestone}
+     * @type {any}
      * @memberof Issue
      */
-    milestone: IssueMilestone;
+    milestone: any;
     /**
      * 
-     * @type {IssueAssignee}
+     * @type {any}
      * @memberof Issue
      */
-    assignee: IssueAssignee;
+    assignee: any;
     /**
      * 
      * @type {string}
