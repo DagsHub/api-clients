@@ -11,12 +11,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ComponentsschemasAssigneeYaml } from './componentsschemas-assignee-yaml';
-import { ComponentsschemasBodyYaml } from './componentsschemas-body-yaml';
-import { ComponentsschemasClosedYaml } from './componentsschemas-closed-yaml';
-import { ComponentsschemasLabelsYaml } from './componentsschemas-labels-yaml';
-import { ComponentsschemasMilestoneYaml } from './componentsschemas-milestone-yaml';
-import { ComponentsschemasTitleYaml } from './componentsschemas-title-yaml';
+import { Assignee } from './assignee';
+import { Body } from './body';
+import { Closed } from './closed';
+import { Labels } from './labels';
+import { Milestone } from './milestone';
+import { Title } from './title';
 /**
  * 
  * @export
@@ -25,38 +25,38 @@ import { ComponentsschemasTitleYaml } from './componentsschemas-title-yaml';
 export interface PostIssue {
     /**
      * 
-     * @type {ComponentsschemasTitleYaml}
+     * @type {Title}
      * @memberof PostIssue
      */
-    title?: ComponentsschemasTitleYaml;
+    title?: Title;
     /**
      * 
-     * @type {ComponentsschemasBodyYaml}
+     * @type {Body}
      * @memberof PostIssue
      */
-    body?: ComponentsschemasBodyYaml;
+    body?: Body;
     /**
      * 
-     * @type {ComponentsschemasAssigneeYaml}
+     * @type {Assignee}
      * @memberof PostIssue
      */
-    assignee?: ComponentsschemasAssigneeYaml;
+    assignee?: Assignee;
     /**
      * 
-     * @type {ComponentsschemasMilestoneYaml}
+     * @type {Milestone}
      * @memberof PostIssue
      */
-    milestone?: ComponentsschemasMilestoneYaml;
+    milestone?: Milestone;
     /**
      * 
-     * @type {ComponentsschemasLabelsYaml}
+     * @type {Labels}
      * @memberof PostIssue
      */
-    labels?: ComponentsschemasLabelsYaml;
+    labels?: Labels;
     /**
      * 
-     * @type {ComponentsschemasClosedYaml}
+     * @type {Closed}
      * @memberof PostIssue
      */
-    closed?: ComponentsschemasClosedYaml;
+    closed?: Closed;
 }

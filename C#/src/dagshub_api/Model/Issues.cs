@@ -27,7 +27,7 @@ namespace dagshub_api.Model
     /// Issues
     /// </summary>
     [DataContract]
-        public partial class Issues : List<ComponentsschemasIssueYaml>,  IEquatable<Issues>, IValidatableObject
+        public partial class Issues : List<Issue>,  IEquatable<Issues>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Issues" /> class.

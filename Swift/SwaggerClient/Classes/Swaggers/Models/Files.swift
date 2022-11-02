@@ -8,4 +8,4 @@
 import Foundation
 
 
-public typealias Files = [ComponentsschemasFileYaml]
+public typealias Files = [File]

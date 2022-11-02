@@ -11,13 +11,13 @@ import Foundation
 
 public struct PatchIssue: Codable {
 
-    public var title: ComponentsschemasTitleYaml?
-    public var body: ComponentsschemasBodyYaml?
-    public var assignee: ComponentsschemasAssigneeYaml?
-    public var milestone: ComponentsschemasMilestoneYaml?
-    public var state: ComponentsschemasStateYaml?
+    public var title: Title?
+    public var body: Body?
+    public var assignee: Assignee?
+    public var milestone: Milestone?
+    public var state: State?
 
-    public init(title: ComponentsschemasTitleYaml? = nil, body: ComponentsschemasBodyYaml? = nil, assignee: ComponentsschemasAssigneeYaml? = nil, milestone: ComponentsschemasMilestoneYaml? = nil, state: ComponentsschemasStateYaml? = nil) {
+    public init(title: Title? = nil, body: Body? = nil, assignee: Assignee? = nil, milestone: Milestone? = nil, state: State? = nil) {
         self.title = title
         self.body = body
         self.assignee = assignee

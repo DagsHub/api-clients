@@ -13,11 +13,11 @@
  *
  */
 import {ApiClient} from '../ApiClient';
-import {ComponentsschemasAssigneeYaml} from './ComponentsschemasAssigneeYaml';
-import {ComponentsschemasBodyYaml} from './ComponentsschemasBodyYaml';
-import {ComponentsschemasMilestoneYaml} from './ComponentsschemasMilestoneYaml';
-import {ComponentsschemasStateYaml} from './ComponentsschemasStateYaml';
-import {ComponentsschemasTitleYaml} from './ComponentsschemasTitleYaml';
+import {Assignee} from './Assignee';
+import {Body} from './Body';
+import {Milestone} from './Milestone';
+import {State} from './State';
+import {Title} from './Title';
 
 /**
  * The PatchIssue model module.
@@ -44,42 +44,42 @@ export class PatchIssue {
     if (data) {
       obj = obj || new PatchIssue();
       if (data.hasOwnProperty('title'))
-        obj.title = ComponentsschemasTitleYaml.constructFromObject(data['title']);
+        obj.title = Title.constructFromObject(data['title']);
       if (data.hasOwnProperty('body'))
-        obj.body = ComponentsschemasBodyYaml.constructFromObject(data['body']);
+        obj.body = Body.constructFromObject(data['body']);
       if (data.hasOwnProperty('assignee'))
-        obj.assignee = ComponentsschemasAssigneeYaml.constructFromObject(data['assignee']);
+        obj.assignee = Assignee.constructFromObject(data['assignee']);
       if (data.hasOwnProperty('milestone'))
-        obj.milestone = ComponentsschemasMilestoneYaml.constructFromObject(data['milestone']);
+        obj.milestone = Milestone.constructFromObject(data['milestone']);
       if (data.hasOwnProperty('state'))
-        obj.state = ComponentsschemasStateYaml.constructFromObject(data['state']);
+        obj.state = State.constructFromObject(data['state']);
     }
     return obj;
   }
 }
 
 /**
- * @member {module:model/ComponentsschemasTitleYaml} title
+ * @member {module:model/Title} title
  */
 PatchIssue.prototype.title = undefined;
 
 /**
- * @member {module:model/ComponentsschemasBodyYaml} body
+ * @member {module:model/Body} body
  */
 PatchIssue.prototype.body = undefined;
 
 /**
- * @member {module:model/ComponentsschemasAssigneeYaml} assignee
+ * @member {module:model/Assignee} assignee
  */
 PatchIssue.prototype.assignee = undefined;
 
 /**
- * @member {module:model/ComponentsschemasMilestoneYaml} milestone
+ * @member {module:model/Milestone} milestone
  */
 PatchIssue.prototype.milestone = undefined;
 
 /**
- * @member {module:model/ComponentsschemasStateYaml} state
+ * @member {module:model/State} state
  */
 PatchIssue.prototype.state = undefined;
 

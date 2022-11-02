@@ -13,9 +13,12 @@
  *
  */
 import {ApiClient} from '../ApiClient';
-import {ComponentsschemasBodyYaml} from './ComponentsschemasBodyYaml';
-import {ComponentsschemasTitleYaml} from './ComponentsschemasTitleYaml';
-import {ComponentsschemasUserYaml} from './ComponentsschemasUserYaml';
+import {Body} from './Body';
+import {IssueAssignee} from './IssueAssignee';
+import {IssueLabels} from './IssueLabels';
+import {IssueMilestone} from './IssueMilestone';
+import {Title} from './Title';
+import {User} from './User';
 
 /**
  * The Issue model module.
@@ -27,11 +30,11 @@ export class Issue {
    * Constructs a new <code>Issue</code>.
    * @alias module:model/Issue
    * @class
-   * @param title {module:model/ComponentsschemasTitleYaml} 
-   * @param body {module:model/ComponentsschemasBodyYaml} 
-   * @param labels {Array.<Object>} 
-   * @param milestone {Object} 
-   * @param assignee {Object} 
+   * @param title {module:model/Title} 
+   * @param body {module:model/Body} 
+   * @param labels {Array.<module:model/IssueLabels>} 
+   * @param milestone {module:model/IssueMilestone} 
+   * @param assignee {module:model/IssueAssignee} 
    * @param closed {Boolean} 
    */
   constructor(title, body, labels, milestone, assignee, closed) {
@@ -58,17 +61,17 @@ export class Issue {
       if (data.hasOwnProperty('number'))
         obj._number = ApiClient.convertToType(data['number'], 'Number');
       if (data.hasOwnProperty('user'))
-        obj.user = ComponentsschemasUserYaml.constructFromObject(data['user']);
+        obj.user = User.constructFromObject(data['user']);
       if (data.hasOwnProperty('title'))
-        obj.title = ComponentsschemasTitleYaml.constructFromObject(data['title']);
+        obj.title = Title.constructFromObject(data['title']);
       if (data.hasOwnProperty('body'))
-        obj.body = ComponentsschemasBodyYaml.constructFromObject(data['body']);
+        obj.body = Body.constructFromObject(data['body']);
       if (data.hasOwnProperty('labels'))
-        obj.labels = ApiClient.convertToType(data['labels'], [Object]);
+        obj.labels = ApiClient.convertToType(data['labels'], [IssueLabels]);
       if (data.hasOwnProperty('milestone'))
-        obj.milestone = ApiClient.convertToType(data['milestone'], Object);
+        obj.milestone = IssueMilestone.constructFromObject(data['milestone']);
       if (data.hasOwnProperty('assignee'))
-        obj.assignee = ApiClient.convertToType(data['assignee'], Object);
+        obj.assignee = IssueAssignee.constructFromObject(data['assignee']);
       if (data.hasOwnProperty('state'))
         obj.state = ApiClient.convertToType(data['state'], 'String');
       if (data.hasOwnProperty('comments'))
@@ -97,32 +100,32 @@ Issue.prototype.id = undefined;
 Issue.prototype._number = undefined;
 
 /**
- * @member {module:model/ComponentsschemasUserYaml} user
+ * @member {module:model/User} user
  */
 Issue.prototype.user = undefined;
 
 /**
- * @member {module:model/ComponentsschemasTitleYaml} title
+ * @member {module:model/Title} title
  */
 Issue.prototype.title = undefined;
 
 /**
- * @member {module:model/ComponentsschemasBodyYaml} body
+ * @member {module:model/Body} body
  */
 Issue.prototype.body = undefined;
 
 /**
- * @member {Array.<Object>} labels
+ * @member {Array.<module:model/IssueLabels>} labels
  */
 Issue.prototype.labels = undefined;
 
 /**
- * @member {Object} milestone
+ * @member {module:model/IssueMilestone} milestone
  */
 Issue.prototype.milestone = undefined;
 
 /**
- * @member {Object} assignee
+ * @member {module:model/IssueAssignee} assignee
  */
 Issue.prototype.assignee = undefined;
 

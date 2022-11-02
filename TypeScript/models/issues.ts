@@ -11,11 +11,11 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ComponentsschemasIssueYaml } from './componentsschemas-issue-yaml';
+import { Issue } from './issue';
 /**
  * 
  * @export
  * @interface Issues
  */
-export interface Issues extends Array<ComponentsschemasIssueYaml> {
+export interface Issues extends Array<Issue> {
 }

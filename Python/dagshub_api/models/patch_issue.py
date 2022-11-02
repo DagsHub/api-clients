@@ -28,11 +28,11 @@ class PatchIssue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'title': 'ComponentsschemasTitleYaml',
-        'body': 'ComponentsschemasBodyYaml',
-        'assignee': 'ComponentsschemasAssigneeYaml',
-        'milestone': 'ComponentsschemasMilestoneYaml',
-        'state': 'ComponentsschemasStateYaml'
+        'title': 'Title',
+        'body': 'Body',
+        'assignee': 'Assignee',
+        'milestone': 'Milestone',
+        'state': 'State'
     }
 
     attribute_map = {
@@ -68,7 +68,7 @@ class PatchIssue(object):
 
 
         :return: The title of this PatchIssue.  # noqa: E501
-        :rtype: ComponentsschemasTitleYaml
+        :rtype: Title
         """
         return self._title
 
@@ -78,7 +78,7 @@ class PatchIssue(object):
 
 
         :param title: The title of this PatchIssue.  # noqa: E501
-        :type: ComponentsschemasTitleYaml
+        :type: Title
         """
 
         self._title = title
@@ -89,7 +89,7 @@ class PatchIssue(object):
 
 
         :return: The body of this PatchIssue.  # noqa: E501
-        :rtype: ComponentsschemasBodyYaml
+        :rtype: Body
         """
         return self._body
 
@@ -99,7 +99,7 @@ class PatchIssue(object):
 
 
         :param body: The body of this PatchIssue.  # noqa: E501
-        :type: ComponentsschemasBodyYaml
+        :type: Body
         """
 
         self._body = body
@@ -110,7 +110,7 @@ class PatchIssue(object):
 
 
         :return: The assignee of this PatchIssue.  # noqa: E501
-        :rtype: ComponentsschemasAssigneeYaml
+        :rtype: Assignee
         """
         return self._assignee
 
@@ -120,7 +120,7 @@ class PatchIssue(object):
 
 
         :param assignee: The assignee of this PatchIssue.  # noqa: E501
-        :type: ComponentsschemasAssigneeYaml
+        :type: Assignee
         """
 
         self._assignee = assignee
@@ -131,7 +131,7 @@ class PatchIssue(object):
 
 
         :return: The milestone of this PatchIssue.  # noqa: E501
-        :rtype: ComponentsschemasMilestoneYaml
+        :rtype: Milestone
         """
         return self._milestone
 
@@ -141,7 +141,7 @@ class PatchIssue(object):
 
 
         :param milestone: The milestone of this PatchIssue.  # noqa: E501
-        :type: ComponentsschemasMilestoneYaml
+        :type: Milestone
         """
 
         self._milestone = milestone
@@ -152,7 +152,7 @@ class PatchIssue(object):
 
 
         :return: The state of this PatchIssue.  # noqa: E501
-        :rtype: ComponentsschemasStateYaml
+        :rtype: State
         """
         return self._state
 
@@ -162,7 +162,7 @@ class PatchIssue(object):
 
 
         :param state: The state of this PatchIssue.  # noqa: E501
-        :type: ComponentsschemasStateYaml
+        :type: State
         """
 
         self._state = state

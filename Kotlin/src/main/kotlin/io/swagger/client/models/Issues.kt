@@ -11,7 +11,7 @@
  */
 package io.swagger.client.models
 
-import io.swagger.client.models.SlashcomponentsSlashschemasSlashIssueyaml
+import io.swagger.client.models.Issue
 
 /**
  * 
