@@ -44,7 +44,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class CollaboratorsApi(
-  val defBasePath: String = "https://dagshub.com/api/v1/",
+  val defBasePath: String = "https://dagshub.com/api/v1",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {
@@ -142,10 +142,13 @@ class CollaboratorsApi(
    * Delete collaborator
    * 
    *
+   * @param username A DagsHub username 
+   * @param repo name of the repository 
+   * @param collaborator collaborator username 
    * @return void
    */
-  def removeCollaborator() = {
-    val await = Try(Await.result(removeCollaboratorAsync(), Duration.Inf))
+  def removeCollaborator(username: String, repo: String, collaborator: String) = {
+    val await = Try(Await.result(removeCollaboratorAsync(username, repo, collaborator), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -156,10 +159,13 @@ class CollaboratorsApi(
    * Delete collaborator asynchronously
    * 
    *
+   * @param username A DagsHub username 
+   * @param repo name of the repository 
+   * @param collaborator collaborator username 
    * @return Future(void)
    */
-  def removeCollaboratorAsync() = {
-      helper.removeCollaborator()
+  def removeCollaboratorAsync(username: String, repo: String, collaborator: String) = {
+      helper.removeCollaborator(username, repo, collaborator)
   }
 
 }
@@ -216,13 +222,24 @@ class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig
     }
   }
 
-  def removeCollaborator()(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
+  def removeCollaborator(username: String,
+    repo: String,
+    collaborator: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/collaborators/{collaborator}"))
+    val path = (addFmt("/repos/{username}/{repo}/collaborators/{collaborator}")
+      replaceAll("\\{" + "username" + "\\}", username.toString)
+      replaceAll("\\{" + "repo" + "\\}", repo.toString)
+      replaceAll("\\{" + "collaborator" + "\\}", collaborator.toString))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
+
+    if (username == null) throw new Exception("Missing required parameter 'username' when calling CollaboratorsApi->removeCollaborator")
+
+    if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CollaboratorsApi->removeCollaborator")
+
+    if (collaborator == null) throw new Exception("Missing required parameter 'collaborator' when calling CollaboratorsApi->removeCollaborator")
 
 
     val resFuture = client.submit("DELETE", path, queryParams.toMap, headerParams.toMap, "")

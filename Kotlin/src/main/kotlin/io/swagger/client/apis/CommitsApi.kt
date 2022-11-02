@@ -14,7 +14,7 @@ package io.swagger.client.apis
 
 import dagshub_api.infrastructure.*
 
-class CommitsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
+class CommitsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClient(basePath) {
 
     /**
      * Get a single commit
@@ -36,33 +36,6 @@ class CommitsApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiC
 
         return when (response.responseType) {
             ResponseType.Success -> Unit
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-        }
-    }
-    /**
-     * Get the SHA-1 of a commit reference
-     * 
-     * @param owner owner of the repository 
-     * @param repo name of the repository 
-     * @param ref The name of the commit/branch/tag 
-     * @return kotlin.String
-     */
-    @Suppress("UNCHECKED_CAST")
-    fun getCommitSha1(owner: kotlin.String, repo: kotlin.String, ref: kotlin.String): kotlin.String {
-        val localVariableQuery: MultiValueMap = mapOf()
-        val localVariableConfig = RequestConfig(
-                RequestMethod.GET,
-                "/repos/{owner}/{repo}/commits/{ref}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref"), query = localVariableQuery
-        )
-        val response = request<kotlin.String>(
-                localVariableConfig
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as kotlin.String
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

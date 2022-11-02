@@ -16,7 +16,7 @@ import io.swagger.client.models.MigrateRepo
 
 import dagshub_api.infrastructure.*
 
-class RepositoryApi(basePath: kotlin.String = "https://dagshub.com/api/v1/") : ApiClient(basePath) {
+class RepositoryApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClient(basePath) {
 
     /**
      * Create in organization

@@ -328,16 +328,22 @@ public class CollaboratorsApi {
     }
     /**
      * Build call for removeCollaborator
+     * @param username A DagsHub username (required)
+     * @param repo name of the repository (required)
+     * @param collaborator collaborator username (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeCollaboratorCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call removeCollaboratorCall(String username, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
+        String localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}"
+            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
+            .replaceAll("\\{" + "collaborator" + "\\}", apiClient.escapeString(collaborator.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -375,9 +381,21 @@ public class CollaboratorsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeCollaboratorValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call removeCollaboratorValidateBeforeCall(String username, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'username' is set
+        if (username == null) {
+            throw new ApiException("Missing the required parameter 'username' when calling removeCollaborator(Async)");
+        }
+        // verify the required parameter 'repo' is set
+        if (repo == null) {
+            throw new ApiException("Missing the required parameter 'repo' when calling removeCollaborator(Async)");
+        }
+        // verify the required parameter 'collaborator' is set
+        if (collaborator == null) {
+            throw new ApiException("Missing the required parameter 'collaborator' when calling removeCollaborator(Async)");
+        }
         
-        com.squareup.okhttp.Call call = removeCollaboratorCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeCollaboratorCall(username, repo, collaborator, progressListener, progressRequestListener);
         return call;
 
         
@@ -389,31 +407,40 @@ public class CollaboratorsApi {
     /**
      * Delete collaborator
      * 
+     * @param username A DagsHub username (required)
+     * @param repo name of the repository (required)
+     * @param collaborator collaborator username (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void removeCollaborator() throws ApiException {
-        removeCollaboratorWithHttpInfo();
+    public void removeCollaborator(String username, String repo, String collaborator) throws ApiException {
+        removeCollaboratorWithHttpInfo(username, repo, collaborator);
     }
 
     /**
      * Delete collaborator
      * 
+     * @param username A DagsHub username (required)
+     * @param repo name of the repository (required)
+     * @param collaborator collaborator username (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> removeCollaboratorWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(null, null);
+    public ApiResponse<Void> removeCollaboratorWithHttpInfo(String username, String repo, String collaborator) throws ApiException {
+        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(username, repo, collaborator, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete collaborator (asynchronously)
      * 
+     * @param username A DagsHub username (required)
+     * @param repo name of the repository (required)
+     * @param collaborator collaborator username (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeCollaboratorAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeCollaboratorAsync(String username, String repo, String collaborator, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -434,7 +461,7 @@ public class CollaboratorsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(username, repo, collaborator, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

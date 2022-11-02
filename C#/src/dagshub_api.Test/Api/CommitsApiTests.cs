@@ -74,19 +74,6 @@ namespace dagshub_api.Test
             //instance.GetCommit(owner, repo, sha);
             
         }
-        /// <summary>
-        /// Test GetCommitSha1
-        /// </summary>
-        [Test]
-        public void GetCommitSha1Test()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string owner = null;
-            //string repo = null;
-            //string _ref = null;
-            //var response = instance.GetCommitSha1(owner, repo, _ref);
-            //Assert.IsInstanceOf<string> (response, "response is string");
-        }
     }
 
 }

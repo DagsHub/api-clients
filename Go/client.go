@@ -52,6 +52,8 @@ type APIClient struct {
 
 	ContentApi *ContentApiService
 
+	ExperimentsApi *ExperimentsApiService
+
 	IssuesApi *IssuesApiService
 
 	ReleasesApi *ReleasesApiService
@@ -83,6 +85,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CollaboratorsApi = (*CollaboratorsApiService)(&c.common)
 	c.CommitsApi = (*CommitsApiService)(&c.common)
 	c.ContentApi = (*ContentApiService)(&c.common)
+	c.ExperimentsApi = (*ExperimentsApiService)(&c.common)
 	c.IssuesApi = (*IssuesApiService)(&c.common)
 	c.ReleasesApi = (*ReleasesApiService)(&c.common)
 	c.RepositoryApi = (*RepositoryApiService)(&c.common)

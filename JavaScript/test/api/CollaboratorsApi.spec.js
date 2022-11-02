@@ -73,10 +73,10 @@
       });
       describe('removeCollaborator', function() {
         it('should call removeCollaborator successfully', function(done) {
-          // TODO: uncomment removeCollaborator call
+          // TODO: uncomment, update parameter values for removeCollaborator call
           /*
 
-          instance.removeCollaborator(function(error, data, response) {
+          instance.removeCollaborator(username, repo, collaborator, function(error, data, response) {
             if (error) {
               done(error);
               return;

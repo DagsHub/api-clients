@@ -1,6 +1,6 @@
 # {{classname}}
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -74,11 +74,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveCollaborator**
-> RemoveCollaborator(ctx, )
+> RemoveCollaborator(ctx, username, repo, collaborator)
 Delete collaborator
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **username** | **string**| A DagsHub username | 
+  **repo** | **string**| name of the repository | 
+  **collaborator** | **string**| collaborator username | 
 
 ### Return type
 

@@ -111,12 +111,24 @@ CollaboratorsApi <- R6::R6Class(
       }
 
     }
-    remove_collaborator = function(...){
+    remove_collaborator = function(username, repo, collaborator, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/repos/{username}/{repo}/collaborators/{collaborator}"
+      if (!missing(`username`)) {
+        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      }
+
+      if (!missing(`repo`)) {
+        urlPath <- gsub(paste0("\\{", "repo", "\\}"), `repo`, urlPath)
+      }
+
+      if (!missing(`collaborator`)) {
+        urlPath <- gsub(paste0("\\{", "collaborator", "\\}"), `collaborator`, urlPath)
+      }
+
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
                                  queryParams = queryParams,

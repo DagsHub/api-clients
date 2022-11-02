@@ -1,6 +1,6 @@
 # dagshub_api.Api.CollaboratorsApi
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -148,7 +148,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="removecollaborator"></a>
 # **RemoveCollaborator**
-> void RemoveCollaborator ()
+> void RemoveCollaborator (string username, string repo, string collaborator)
 
 Delete collaborator
 
@@ -175,11 +175,14 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new CollaboratorsApi();
+            var username = username_example;  // string | A DagsHub username
+            var repo = repo_example;  // string | name of the repository
+            var collaborator = collaborator_example;  // string | collaborator username
 
             try
             {
                 // Delete collaborator
-                apiInstance.RemoveCollaborator();
+                apiInstance.RemoveCollaborator(username, repo, collaborator);
             }
             catch (Exception e)
             {
@@ -191,7 +194,12 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| A DagsHub username | 
+ **repo** | **string**| name of the repository | 
+ **collaborator** | **string**| collaborator username | 
 
 ### Return type
 

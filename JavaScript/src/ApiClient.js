@@ -32,9 +32,9 @@ export class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://dagshub.com/api/v1/
+         * @default https://dagshub.com/api/v1
          */
-        this.basePath = 'https://dagshub.com/api/v1/'.replace(/\/+$/, '');
+        this.basePath = 'https://dagshub.com/api/v1'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.

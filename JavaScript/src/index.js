@@ -18,6 +18,8 @@ import {Body} from './model/Body';
 import {Closed} from './model/Closed';
 import {CollaboratorsCollaboratorBody} from './model/CollaboratorsCollaboratorBody';
 import {CreateRepo} from './model/CreateRepo';
+import {EditExperimentPost} from './model/EditExperimentPost';
+import {ExperimentKeys} from './model/ExperimentKeys';
 import {File} from './model/File';
 import {Files} from './model/Files';
 import {HooksIdBody} from './model/HooksIdBody';
@@ -42,6 +44,7 @@ import {BranchesApi} from './api/BranchesApi';
 import {CollaboratorsApi} from './api/CollaboratorsApi';
 import {CommitsApi} from './api/CommitsApi';
 import {ContentApi} from './api/ContentApi';
+import {ExperimentsApi} from './api/ExperimentsApi';
 import {IssuesApi} from './api/IssuesApi';
 import {ReleasesApi} from './api/ReleasesApi';
 import {RepositoryApi} from './api/RepositoryApi';
@@ -115,6 +118,18 @@ export {
      * @property {module:model/CreateRepo}
      */
     CreateRepo,
+
+    /**
+     * The EditExperimentPost model constructor.
+     * @property {module:model/EditExperimentPost}
+     */
+    EditExperimentPost,
+
+    /**
+     * The ExperimentKeys model constructor.
+     * @property {module:model/ExperimentKeys}
+     */
+    ExperimentKeys,
 
     /**
      * The File model constructor.
@@ -259,6 +274,12 @@ export {
     * @property {module:api/ContentApi}
     */
     ContentApi,
+
+    /**
+    * The ExperimentsApi service constructor.
+    * @property {module:api/ExperimentsApi}
+    */
+    ExperimentsApi,
 
     /**
     * The IssuesApi service constructor.

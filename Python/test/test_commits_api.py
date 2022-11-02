@@ -35,13 +35,6 @@ class TestCommitsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_commit_sha1(self):
-        """Test case for get_commit_sha1
-
-        Get the SHA-1 of a commit reference  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -98,7 +98,7 @@ api.getBranch(owner, repo, branch, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -108,11 +108,15 @@ Class | Method | HTTP request | Description
 *DagsHubApi.CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
 *DagsHubApi.CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
 *DagsHubApi.CommitsApi* | [**getCommit**](docs/CommitsApi.md#getCommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*DagsHubApi.CommitsApi* | [**getCommitSha1**](docs/CommitsApi.md#getCommitSha1) | **GET** /repos/{owner}/{repo}/commits/{ref} | Get the SHA-1 of a commit reference
 *DagsHubApi.ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
 *DagsHubApi.ContentApi* | [**getContent**](docs/ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *DagsHubApi.ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 *DagsHubApi.ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
+*DagsHubApi.ExperimentsApi* | [**addExperimentLabel**](docs/ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+*DagsHubApi.ExperimentsApi* | [**deleteExperimentLabel**](docs/ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
+*DagsHubApi.ExperimentsApi* | [**editExperiment**](docs/ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
+*DagsHubApi.ExperimentsApi* | [**getExperimentMetrics**](docs/ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
+*DagsHubApi.ExperimentsApi* | [**getExperiments**](docs/ExperimentsApi.md#getExperiments) | **GET** /repos/{owner}/{repo}/experiments | List Experiments
 *DagsHubApi.IssuesApi* | [**createIssue**](docs/IssuesApi.md#createIssue) | **POST** /repos/{owner}/{repo}/issues | Create an issue
 *DagsHubApi.IssuesApi* | [**editIssue**](docs/IssuesApi.md#editIssue) | **PATCH** /repos/{owner}/{repo}/issues | Edit an issue
 *DagsHubApi.IssuesApi* | [**getIssue**](docs/IssuesApi.md#getIssue) | **GET** /repos/{owner}/{repo}/issues/{index} | Get a single issue
@@ -140,6 +144,8 @@ Class | Method | HTTP request | Description
  - [DagsHubApi.Closed](docs/Closed.md)
  - [DagsHubApi.CollaboratorsCollaboratorBody](docs/CollaboratorsCollaboratorBody.md)
  - [DagsHubApi.CreateRepo](docs/CreateRepo.md)
+ - [DagsHubApi.EditExperimentPost](docs/EditExperimentPost.md)
+ - [DagsHubApi.ExperimentKeys](docs/ExperimentKeys.md)
  - [DagsHubApi.File](docs/File.md)
  - [DagsHubApi.Files](docs/Files.md)
  - [DagsHubApi.HooksIdBody](docs/HooksIdBody.md)

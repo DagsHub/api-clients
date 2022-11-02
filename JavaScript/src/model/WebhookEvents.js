@@ -41,7 +41,7 @@ export class WebhookEvents extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new WebhookEvents();
-      ApiClient.constructFromObject(data, obj, 'Object');
+      ApiClient.constructFromObject(data, obj, 'String');
     }
     return obj;
   }

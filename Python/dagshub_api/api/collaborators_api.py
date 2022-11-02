@@ -246,41 +246,47 @@ class CollaboratorsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def remove_collaborator(self, **kwargs):  # noqa: E501
+    def remove_collaborator(self, username, repo, collaborator, **kwargs):  # noqa: E501
         """Delete collaborator  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_collaborator(async_req=True)
+        >>> thread = api.remove_collaborator(username, repo, collaborator, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str username: A DagsHub username (required)
+        :param str repo: name of the repository (required)
+        :param str collaborator: collaborator username (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.remove_collaborator_with_http_info(**kwargs)  # noqa: E501
+            return self.remove_collaborator_with_http_info(username, repo, collaborator, **kwargs)  # noqa: E501
         else:
-            (data) = self.remove_collaborator_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.remove_collaborator_with_http_info(username, repo, collaborator, **kwargs)  # noqa: E501
             return data
 
-    def remove_collaborator_with_http_info(self, **kwargs):  # noqa: E501
+    def remove_collaborator_with_http_info(self, username, repo, collaborator, **kwargs):  # noqa: E501
         """Delete collaborator  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.remove_collaborator_with_http_info(async_req=True)
+        >>> thread = api.remove_collaborator_with_http_info(username, repo, collaborator, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param str username: A DagsHub username (required)
+        :param str repo: name of the repository (required)
+        :param str collaborator: collaborator username (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['username', 'repo', 'collaborator']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -295,10 +301,28 @@ class CollaboratorsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'username' is set
+        if ('username' not in params or
+                params['username'] is None):
+            raise ValueError("Missing the required parameter `username` when calling `remove_collaborator`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if ('repo' not in params or
+                params['repo'] is None):
+            raise ValueError("Missing the required parameter `repo` when calling `remove_collaborator`")  # noqa: E501
+        # verify the required parameter 'collaborator' is set
+        if ('collaborator' not in params or
+                params['collaborator'] is None):
+            raise ValueError("Missing the required parameter `collaborator` when calling `remove_collaborator`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'username' in params:
+            path_params['username'] = params['username']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+        if 'collaborator' in params:
+            path_params['collaborator'] = params['collaborator']  # noqa: E501
 
         query_params = []
 

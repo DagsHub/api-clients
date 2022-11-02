@@ -1,6 +1,6 @@
 # DagsHubApi.CollaboratorsApi
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -123,7 +123,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator()
+> removeCollaborator(username, repo, collaborator)
 
 Delete collaborator
 
@@ -143,7 +143,11 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.CollaboratorsApi();
-apiInstance.removeCollaborator((error, data, response) => {
+let username = "username_example"; // String | A DagsHub username
+let repo = "repo_example"; // String | name of the repository
+let collaborator = "collaborator_example"; // String | collaborator username
+
+apiInstance.removeCollaborator(username, repo, collaborator, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -153,7 +157,12 @@ apiInstance.removeCollaborator((error, data, response) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **String**| A DagsHub username | 
+ **repo** | **String**| name of the repository | 
+ **collaborator** | **String**| collaborator username | 
 
 ### Return type
 

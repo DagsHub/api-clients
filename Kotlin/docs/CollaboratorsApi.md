@@ -1,6 +1,6 @@
 # CollaboratorsApi
 
-All URIs are relative to *https://dagshub.com/api/v1/*
+All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -106,7 +106,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator()
+> removeCollaborator(username, repo, collaborator)
 
 Delete collaborator
 
@@ -117,8 +117,11 @@ Delete collaborator
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
+val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val repo : kotlin.String = repo_example // kotlin.String | name of the repository
+val collaborator : kotlin.String = collaborator_example // kotlin.String | collaborator username
 try {
-    apiInstance.removeCollaborator()
+    apiInstance.removeCollaborator(username, repo, collaborator)
 } catch (e: ClientException) {
     println("4xx response calling CollaboratorsApi#removeCollaborator")
     e.printStackTrace()
@@ -129,7 +132,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **kotlin.String**| A DagsHub username |
+ **repo** | **kotlin.String**| name of the repository |
+ **collaborator** | **kotlin.String**| collaborator username |
 
 ### Return type
 

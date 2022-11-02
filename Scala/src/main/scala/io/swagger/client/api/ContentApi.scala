@@ -44,7 +44,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class ContentApi(
-  val defBasePath: String = "https://dagshub.com/api/v1/",
+  val defBasePath: String = "https://dagshub.com/api/v1",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {

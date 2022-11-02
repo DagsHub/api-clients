@@ -6,7 +6,7 @@ info:
     The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training.
   version: 1.0.2
 servers:
-- url: https://dagshub.com/api/v1/
+- url: https://dagshub.com/api/v1
 security:
 - basicAuth: []
 - tokenAuth: []
@@ -297,6 +297,240 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Issue'
+  /repos/{owner}/{repo}/experiments:
+    get:
+      tags:
+      - Experiments
+      summary: List Experiments
+      description: Get a list of experiments in the given repository
+      operationId: getExperiments
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      responses:
+        "200":
+          description: retrieved experiments successfully
+          content:
+            application/json:
+              example:
+                experiments:
+                  "2301":
+                    ID: "2301"
+                    RepoID: 74
+                    CommitID: 6cdbe879ecf2adbfff2631d90b27de6569c0fc2a
+                    TimeUnixMs: 1595149314000
+                    Tags:
+                      CommitAuthorName: Martin Daniel
+                      CommitAuthorTimestampUnixSec: 1595149314
+                      CommitCommitterName: Martin Daniel
+                      CommitCommitterTimestampUnixSec: 1595149314
+                      CommitMessage: |
+                        Change parameters
+                    Name: ""
+                    MetricsByPath:
+                      metrics.csv:
+                        LatestByName:
+                          test__accuracy:
+                            ExperimentID: "2301"
+                            Name: test__accuracy
+                            Value: 0.91712
+                            Timestamp: 1595149274803
+                            Step: 1
+                            ValueStr: "0.91712"
+                            Path: metrics.csv
+                            IsInvalidFloat: false
+                    HyperParamsByPath:
+                      params.yml:
+                      - ExperimentID: 2301
+                        Name: tfidf__max_df
+                        Value: "1"
+                        Path: params.yml
+                    Labels: []
+                    Errors: []
+                    Source: git
+                    Group: ""
+  /repos/{owner}/{repo}/experiments/metricsForExperiments:
+    post:
+      tags:
+      - Experiments
+      summary: Get experiment metrics for experiment
+      operationId: getExperimentMetrics
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentKeys'
+      responses:
+        "200":
+          description: Retrieved experiments metrics
+          content:
+            application/json:
+              example:
+                "2306":
+                  metrics.csv:
+                    test__accuracy:
+                    - Value: 0.91712
+                      Timestamp: 1595149274803
+                      Step: 1
+                      ValueStr: "0.91712"
+                    train__roc_auc:
+                    - Value: 0.9997316690244479
+                      Timestamp: 1595149273838
+                      Step: 1
+                      ValueStr: "0.9997316690244479"
+  /repos/{owner}/{repo}/experiments/experiment/{experimentKey}:
+    post:
+      tags:
+      - Experiments
+      summary: Edit experiment info
+      description: "Edit experiment info, currently supports just changing experiment\
+        \ name."
+      operationId: editExperiment
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: experimentKey
+        in: path
+        description: a valid experiment key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditExperimentPost'
+      responses:
+        "200":
+          description: Edit experiment info successfully
+          content:
+            application/json:
+              example: Awesome New Experiment Name
+  /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel}:
+    post:
+      tags:
+      - Experiments
+      summary: Add label to experiment
+      operationId: addExperimentLabel
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: experimentKey
+        in: path
+        description: a valid experiment key
+        required: true
+        schema:
+          type: string
+      - name: experimentLabel
+        in: path
+        description: "A label for the experiment, max 128 characters."
+        required: true
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Experiment not found
+        "400":
+          description: Bad request
+        "200":
+          description: Experiment label was added
+          content:
+            application/json:
+              example: Cool New Label
+    delete:
+      tags:
+      - Experiments
+      summary: Delete experiment label
+      operationId: deleteExperimentLabel
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: experimentKey
+        in: path
+        description: a valid experiment key
+        required: true
+        schema:
+          type: string
+      - name: experimentLabel
+        in: path
+        description: "A label for the experiment, max 128 characters."
+        required: true
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Label/experiment not found
+        "400":
+          description: "Bad request: experiment label name can be up to 128 characters\
+            \ long."
+        "200":
+          description: Experiment label was deleted
+          content:
+            application/json:
+              example: []
   /repos/search:
     get:
       tags:
@@ -753,6 +987,27 @@ paths:
       - Collaborators
       summary: Delete collaborator
       operationId: removeCollaborator
+      parameters:
+      - name: username
+        in: path
+        description: A DagsHub username
+        required: true
+        schema:
+          type: string
+        example: nirbarazida
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: dagshub-docs
+      - name: collaborator
+        in: path
+        description: collaborator username
+        required: true
+        schema:
+          type: string
       responses:
         "204":
           description: "No Content, deleted successfully"
@@ -863,43 +1118,6 @@ paths:
                   deletions: 1
                   total: 2
                 experiment: null
-  /repos/{owner}/{repo}/commits/{ref}:
-    get:
-      tags:
-      - Commits
-      summary: Get the SHA-1 of a commit reference
-      operationId: getCommitSha1
-      parameters:
-      - name: owner
-        in: path
-        description: owner of the repository
-        required: true
-        schema:
-          type: string
-        example: DAGsHub-Official
-      - name: repo
-        in: path
-        description: name of the repository
-        required: true
-        schema:
-          type: string
-        example: dagshub-docs
-      - name: ref
-        in: path
-        description: The name of the commit/branch/tag
-        required: true
-        schema:
-          type: string
-          example: master
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-                x-content-type: application/json
-              example: dc20792485ffd49b0bca49f90a8d44a16241b84a
   /repos/{owner}/{repo}/releases:
     get:
       tags:
@@ -1256,6 +1474,23 @@ components:
           $ref: '#/components/schemas/Milestone'
         state:
           $ref: '#/components/schemas/State'
+    ExperimentKeys:
+      required:
+      - experiment_keys
+      type: object
+      properties:
+        experiment_keys:
+          type: array
+          items:
+            type: string
+    EditExperimentPost:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: Awesome Experiment
     CreateRepo:
       required:
       - name
@@ -1408,7 +1643,7 @@ components:
       - pull_request
       - release
       items:
-        type: object
+        type: string
       default:
       - push
       x-schema-name: WebhookEvents
@@ -1626,6 +1861,20 @@ components:
       required: true
       schema:
         type: integer
+    ExperimentKey:
+      name: experimentKey
+      in: path
+      description: a valid experiment key
+      required: true
+      schema:
+        type: string
+    ExperimentLabel:
+      name: experimentLabel
+      in: path
+      description: "A label for the experiment, max 128 characters."
+      required: true
+      schema:
+        type: string
     Orgname:
       name: orgname
       in: path
