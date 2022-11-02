@@ -19,34 +19,39 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.Labels;
+import io.swagger.client.model.ComponentsschemasAssigneeYaml;
+import io.swagger.client.model.ComponentsschemasBodyYaml;
+import io.swagger.client.model.ComponentsschemasClosedYaml;
+import io.swagger.client.model.ComponentsschemasLabelsYaml;
+import io.swagger.client.model.ComponentsschemasMilestoneYaml;
+import io.swagger.client.model.ComponentsschemasTitleYaml;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
  * PostIssue
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T12:04:04.486503Z[Etc/UTC]")
 public class PostIssue {
   @SerializedName("title")
-  private String title = null;
+  private ComponentsschemasTitleYaml title = null;
 
   @SerializedName("body")
-  private String body = null;
+  private ComponentsschemasBodyYaml body = null;
 
   @SerializedName("assignee")
-  private String assignee = null;
+  private ComponentsschemasAssigneeYaml assignee = null;
 
   @SerializedName("milestone")
-  private Integer milestone = null;
+  private ComponentsschemasMilestoneYaml milestone = null;
 
   @SerializedName("labels")
-  private Labels labels = null;
+  private ComponentsschemasLabelsYaml labels = null;
 
   @SerializedName("closed")
-  private Boolean closed = null;
+  private ComponentsschemasClosedYaml closed = null;
 
-  public PostIssue title(String title) {
+  public PostIssue title(ComponentsschemasTitleYaml title) {
     this.title = title;
     return this;
   }
@@ -56,15 +61,15 @@ public class PostIssue {
    * @return title
   **/
   @Schema(description = "")
-  public String getTitle() {
+  public ComponentsschemasTitleYaml getTitle() {
     return title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(ComponentsschemasTitleYaml title) {
     this.title = title;
   }
 
-  public PostIssue body(String body) {
+  public PostIssue body(ComponentsschemasBodyYaml body) {
     this.body = body;
     return this;
   }
@@ -74,15 +79,15 @@ public class PostIssue {
    * @return body
   **/
   @Schema(description = "")
-  public String getBody() {
+  public ComponentsschemasBodyYaml getBody() {
     return body;
   }
 
-  public void setBody(String body) {
+  public void setBody(ComponentsschemasBodyYaml body) {
     this.body = body;
   }
 
-  public PostIssue assignee(String assignee) {
+  public PostIssue assignee(ComponentsschemasAssigneeYaml assignee) {
     this.assignee = assignee;
     return this;
   }
@@ -92,15 +97,15 @@ public class PostIssue {
    * @return assignee
   **/
   @Schema(description = "")
-  public String getAssignee() {
+  public ComponentsschemasAssigneeYaml getAssignee() {
     return assignee;
   }
 
-  public void setAssignee(String assignee) {
+  public void setAssignee(ComponentsschemasAssigneeYaml assignee) {
     this.assignee = assignee;
   }
 
-  public PostIssue milestone(Integer milestone) {
+  public PostIssue milestone(ComponentsschemasMilestoneYaml milestone) {
     this.milestone = milestone;
     return this;
   }
@@ -110,15 +115,15 @@ public class PostIssue {
    * @return milestone
   **/
   @Schema(description = "")
-  public Integer getMilestone() {
+  public ComponentsschemasMilestoneYaml getMilestone() {
     return milestone;
   }
 
-  public void setMilestone(Integer milestone) {
+  public void setMilestone(ComponentsschemasMilestoneYaml milestone) {
     this.milestone = milestone;
   }
 
-  public PostIssue labels(Labels labels) {
+  public PostIssue labels(ComponentsschemasLabelsYaml labels) {
     this.labels = labels;
     return this;
   }
@@ -128,15 +133,15 @@ public class PostIssue {
    * @return labels
   **/
   @Schema(description = "")
-  public Labels getLabels() {
+  public ComponentsschemasLabelsYaml getLabels() {
     return labels;
   }
 
-  public void setLabels(Labels labels) {
+  public void setLabels(ComponentsschemasLabelsYaml labels) {
     this.labels = labels;
   }
 
-  public PostIssue closed(Boolean closed) {
+  public PostIssue closed(ComponentsschemasClosedYaml closed) {
     this.closed = closed;
     return this;
   }
@@ -146,11 +151,11 @@ public class PostIssue {
    * @return closed
   **/
   @Schema(description = "")
-  public Boolean getClosed() {
+  public ComponentsschemasClosedYaml getClosed() {
     return closed;
   }
 
-  public void setClosed(Boolean closed) {
+  public void setClosed(ComponentsschemasClosedYaml closed) {
     this.closed = closed;
   }
 

@@ -70,27 +70,27 @@ PatchIssue <- R6::R6Class(
     fromJSON = function(PatchIssueJson) {
       PatchIssueObject <- jsonlite::fromJSON(PatchIssueJson)
       if (!is.null(PatchIssueObject$`title`)) {
-        titleObject <- Title$new()
+        titleObject <- ComponentsschemasTitleYaml$new()
         titleObject$fromJSON(jsonlite::toJSON(PatchIssueObject$title, auto_unbox = TRUE))
         self$`title` <- titleObject
       }
       if (!is.null(PatchIssueObject$`body`)) {
-        bodyObject <- Body$new()
+        bodyObject <- ComponentsschemasBodyYaml$new()
         bodyObject$fromJSON(jsonlite::toJSON(PatchIssueObject$body, auto_unbox = TRUE))
         self$`body` <- bodyObject
       }
       if (!is.null(PatchIssueObject$`assignee`)) {
-        assigneeObject <- Assignee$new()
+        assigneeObject <- ComponentsschemasAssigneeYaml$new()
         assigneeObject$fromJSON(jsonlite::toJSON(PatchIssueObject$assignee, auto_unbox = TRUE))
         self$`assignee` <- assigneeObject
       }
       if (!is.null(PatchIssueObject$`milestone`)) {
-        milestoneObject <- Milestone$new()
+        milestoneObject <- ComponentsschemasMilestoneYaml$new()
         milestoneObject$fromJSON(jsonlite::toJSON(PatchIssueObject$milestone, auto_unbox = TRUE))
         self$`milestone` <- milestoneObject
       }
       if (!is.null(PatchIssueObject$`state`)) {
-        stateObject <- State$new()
+        stateObject <- ComponentsschemasStateYaml$new()
         stateObject$fromJSON(jsonlite::toJSON(PatchIssueObject$state, auto_unbox = TRUE))
         self$`state` <- stateObject
       }
@@ -113,16 +113,16 @@ PatchIssue <- R6::R6Class(
     },
     fromJSONString = function(PatchIssueJson) {
       PatchIssueObject <- jsonlite::fromJSON(PatchIssueJson)
-      TitleObject <- Title$new()
-      self$`title` <- TitleObject$fromJSON(jsonlite::toJSON(PatchIssueObject$title, auto_unbox = TRUE))
-      BodyObject <- Body$new()
-      self$`body` <- BodyObject$fromJSON(jsonlite::toJSON(PatchIssueObject$body, auto_unbox = TRUE))
-      AssigneeObject <- Assignee$new()
-      self$`assignee` <- AssigneeObject$fromJSON(jsonlite::toJSON(PatchIssueObject$assignee, auto_unbox = TRUE))
-      MilestoneObject <- Milestone$new()
-      self$`milestone` <- MilestoneObject$fromJSON(jsonlite::toJSON(PatchIssueObject$milestone, auto_unbox = TRUE))
-      StateObject <- State$new()
-      self$`state` <- StateObject$fromJSON(jsonlite::toJSON(PatchIssueObject$state, auto_unbox = TRUE))
+      ComponentsschemasTitleYamlObject <- ComponentsschemasTitleYaml$new()
+      self$`title` <- ComponentsschemasTitleYamlObject$fromJSON(jsonlite::toJSON(PatchIssueObject$title, auto_unbox = TRUE))
+      ComponentsschemasBodyYamlObject <- ComponentsschemasBodyYaml$new()
+      self$`body` <- ComponentsschemasBodyYamlObject$fromJSON(jsonlite::toJSON(PatchIssueObject$body, auto_unbox = TRUE))
+      ComponentsschemasAssigneeYamlObject <- ComponentsschemasAssigneeYaml$new()
+      self$`assignee` <- ComponentsschemasAssigneeYamlObject$fromJSON(jsonlite::toJSON(PatchIssueObject$assignee, auto_unbox = TRUE))
+      ComponentsschemasMilestoneYamlObject <- ComponentsschemasMilestoneYaml$new()
+      self$`milestone` <- ComponentsschemasMilestoneYamlObject$fromJSON(jsonlite::toJSON(PatchIssueObject$milestone, auto_unbox = TRUE))
+      ComponentsschemasStateYamlObject <- ComponentsschemasStateYaml$new()
+      self$`state` <- ComponentsschemasStateYamlObject$fromJSON(jsonlite::toJSON(PatchIssueObject$state, auto_unbox = TRUE))
     }
   )
 )

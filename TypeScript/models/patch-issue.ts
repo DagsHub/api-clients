@@ -11,11 +11,11 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Assignee } from './assignee';
-import { Body } from './body';
-import { Milestone } from './milestone';
-import { State } from './state';
-import { Title } from './title';
+import { ComponentsschemasAssigneeYaml } from './componentsschemas-assignee-yaml';
+import { ComponentsschemasBodyYaml } from './componentsschemas-body-yaml';
+import { ComponentsschemasMilestoneYaml } from './componentsschemas-milestone-yaml';
+import { ComponentsschemasStateYaml } from './componentsschemas-state-yaml';
+import { ComponentsschemasTitleYaml } from './componentsschemas-title-yaml';
 /**
  * 
  * @export
@@ -24,32 +24,32 @@ import { Title } from './title';
 export interface PatchIssue {
     /**
      * 
-     * @type {Title}
+     * @type {ComponentsschemasTitleYaml}
      * @memberof PatchIssue
      */
-    title?: Title;
+    title?: ComponentsschemasTitleYaml;
     /**
      * 
-     * @type {Body}
+     * @type {ComponentsschemasBodyYaml}
      * @memberof PatchIssue
      */
-    body?: Body;
+    body?: ComponentsschemasBodyYaml;
     /**
      * 
-     * @type {Assignee}
+     * @type {ComponentsschemasAssigneeYaml}
      * @memberof PatchIssue
      */
-    assignee?: Assignee;
+    assignee?: ComponentsschemasAssigneeYaml;
     /**
      * 
-     * @type {Milestone}
+     * @type {ComponentsschemasMilestoneYaml}
      * @memberof PatchIssue
      */
-    milestone?: Milestone;
+    milestone?: ComponentsschemasMilestoneYaml;
     /**
      * 
-     * @type {State}
+     * @type {ComponentsschemasStateYaml}
      * @memberof PatchIssue
      */
-    state?: State;
+    state?: ComponentsschemasStateYaml;
 }

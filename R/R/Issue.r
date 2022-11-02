@@ -157,34 +157,34 @@ Issue <- R6::R6Class(
         self$`number` <- IssueObject$`number`
       }
       if (!is.null(IssueObject$`user`)) {
-        userObject <- User$new()
+        userObject <- ComponentsschemasUserYaml$new()
         userObject$fromJSON(jsonlite::toJSON(IssueObject$user, auto_unbox = TRUE))
         self$`user` <- userObject
       }
       if (!is.null(IssueObject$`title`)) {
-        titleObject <- Title$new()
+        titleObject <- ComponentsschemasTitleYaml$new()
         titleObject$fromJSON(jsonlite::toJSON(IssueObject$title, auto_unbox = TRUE))
         self$`title` <- titleObject
       }
       if (!is.null(IssueObject$`body`)) {
-        bodyObject <- Body$new()
+        bodyObject <- ComponentsschemasBodyYaml$new()
         bodyObject$fromJSON(jsonlite::toJSON(IssueObject$body, auto_unbox = TRUE))
         self$`body` <- bodyObject
       }
       if (!is.null(IssueObject$`labels`)) {
         self$`labels` <- lapply(IssueObject$`labels`, function(x) {
-          labelsObject <- IssueLabels$new()
+          labelsObject <- TODO_OBJECT_MAPPING$new()
           labelsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           labelsObject
         })
       }
       if (!is.null(IssueObject$`milestone`)) {
-        milestoneObject <- IssueMilestone$new()
+        milestoneObject <- TODO_OBJECT_MAPPING$new()
         milestoneObject$fromJSON(jsonlite::toJSON(IssueObject$milestone, auto_unbox = TRUE))
         self$`milestone` <- milestoneObject
       }
       if (!is.null(IssueObject$`assignee`)) {
-        assigneeObject <- IssueAssignee$new()
+        assigneeObject <- TODO_OBJECT_MAPPING$new()
         assigneeObject$fromJSON(jsonlite::toJSON(IssueObject$assignee, auto_unbox = TRUE))
         self$`assignee` <- assigneeObject
       }
@@ -247,17 +247,17 @@ Issue <- R6::R6Class(
       IssueObject <- jsonlite::fromJSON(IssueJson)
       self$`id` <- IssueObject$`id`
       self$`number` <- IssueObject$`number`
-      UserObject <- User$new()
-      self$`user` <- UserObject$fromJSON(jsonlite::toJSON(IssueObject$user, auto_unbox = TRUE))
-      TitleObject <- Title$new()
-      self$`title` <- TitleObject$fromJSON(jsonlite::toJSON(IssueObject$title, auto_unbox = TRUE))
-      BodyObject <- Body$new()
-      self$`body` <- BodyObject$fromJSON(jsonlite::toJSON(IssueObject$body, auto_unbox = TRUE))
-      self$`labels` <- lapply(IssueObject$`labels`, function(x) IssueLabels$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      IssueMilestoneObject <- IssueMilestone$new()
-      self$`milestone` <- IssueMilestoneObject$fromJSON(jsonlite::toJSON(IssueObject$milestone, auto_unbox = TRUE))
-      IssueAssigneeObject <- IssueAssignee$new()
-      self$`assignee` <- IssueAssigneeObject$fromJSON(jsonlite::toJSON(IssueObject$assignee, auto_unbox = TRUE))
+      ComponentsschemasUserYamlObject <- ComponentsschemasUserYaml$new()
+      self$`user` <- ComponentsschemasUserYamlObject$fromJSON(jsonlite::toJSON(IssueObject$user, auto_unbox = TRUE))
+      ComponentsschemasTitleYamlObject <- ComponentsschemasTitleYaml$new()
+      self$`title` <- ComponentsschemasTitleYamlObject$fromJSON(jsonlite::toJSON(IssueObject$title, auto_unbox = TRUE))
+      ComponentsschemasBodyYamlObject <- ComponentsschemasBodyYaml$new()
+      self$`body` <- ComponentsschemasBodyYamlObject$fromJSON(jsonlite::toJSON(IssueObject$body, auto_unbox = TRUE))
+      self$`labels` <- lapply(IssueObject$`labels`, function(x) TODO_OBJECT_MAPPING$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      TODO_OBJECT_MAPPINGObject <- TODO_OBJECT_MAPPING$new()
+      self$`milestone` <- TODO_OBJECT_MAPPINGObject$fromJSON(jsonlite::toJSON(IssueObject$milestone, auto_unbox = TRUE))
+      TODO_OBJECT_MAPPINGObject <- TODO_OBJECT_MAPPING$new()
+      self$`assignee` <- TODO_OBJECT_MAPPINGObject$fromJSON(jsonlite::toJSON(IssueObject$assignee, auto_unbox = TRUE))
       self$`state` <- IssueObject$`state`
       self$`comments` <- IssueObject$`comments`
       self$`created_at` <- IssueObject$`created_at`

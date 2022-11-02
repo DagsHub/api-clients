@@ -46,7 +46,7 @@ namespace dagshub_api.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="pullRequest">pullRequest.</param>
         /// <param name="closed">closed (required).</param>
-        public Issue(int? id = default(int?), int? number = default(int?), User user = default(User), string title = default(string), string body = default(string), List<IssueLabels> labels = default(List<IssueLabels>), IssueMilestone milestone = default(IssueMilestone), IssueAssignee assignee = default(IssueAssignee), string state = default(string), int? comments = default(int?), string createdAt = default(string), string updatedAt = default(string), Object pullRequest = default(Object), bool? closed = default(bool?))
+        public Issue(int? id = default(int?), int? number = default(int?), ComponentsschemasUserYaml user = default(ComponentsschemasUserYaml), ComponentsschemasTitleYaml title = default(ComponentsschemasTitleYaml), ComponentsschemasBodyYaml body = default(ComponentsschemasBodyYaml), List<Object> labels = default(List<Object>), Object milestone = default(Object), Object assignee = default(Object), string state = default(string), int? comments = default(int?), string createdAt = default(string), string updatedAt = default(string), Object pullRequest = default(Object), bool? closed = default(bool?))
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -128,37 +128,37 @@ namespace dagshub_api.Model
         /// Gets or Sets User
         /// </summary>
         [DataMember(Name="user", EmitDefaultValue=false)]
-        public User User { get; set; }
+        public ComponentsschemasUserYaml User { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
-        public string Title { get; set; }
+        public ComponentsschemasTitleYaml Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
         [DataMember(Name="body", EmitDefaultValue=false)]
-        public string Body { get; set; }
+        public ComponentsschemasBodyYaml Body { get; set; }
 
         /// <summary>
         /// Gets or Sets Labels
         /// </summary>
         [DataMember(Name="labels", EmitDefaultValue=false)]
-        public List<IssueLabels> Labels { get; set; }
+        public List<Object> Labels { get; set; }
 
         /// <summary>
         /// Gets or Sets Milestone
         /// </summary>
         [DataMember(Name="milestone", EmitDefaultValue=false)]
-        public IssueMilestone Milestone { get; set; }
+        public Object Milestone { get; set; }
 
         /// <summary>
         /// Gets or Sets Assignee
         /// </summary>
         [DataMember(Name="assignee", EmitDefaultValue=false)]
-        public IssueAssignee Assignee { get; set; }
+        public Object Assignee { get; set; }
 
         /// <summary>
         /// Gets or Sets State

@@ -13,6 +13,7 @@
  *
  */
 import {ApiClient} from '../ApiClient';
+import {ComponentsschemasFileYaml} from './ComponentsschemasFileYaml';
 
 /**
  * The Files model module.
@@ -40,7 +41,7 @@ export class Files extends Array {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new Files();
-      ApiClient.constructFromObject(data, obj, 'File');
+      ApiClient.constructFromObject(data, obj, 'ComponentsschemasFileYaml');
     }
     return obj;
   }

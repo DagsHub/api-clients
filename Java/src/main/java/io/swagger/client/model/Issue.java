@@ -19,10 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.IssueAssignee;
-import io.swagger.client.model.IssueLabels;
-import io.swagger.client.model.IssueMilestone;
-import io.swagger.client.model.User;
+import io.swagger.client.model.ComponentsschemasBodyYaml;
+import io.swagger.client.model.ComponentsschemasTitleYaml;
+import io.swagger.client.model.ComponentsschemasUserYaml;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ import java.util.List;
  * Issue
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T12:04:04.486503Z[Etc/UTC]")
 public class Issue {
   @SerializedName("id")
   private Integer id = null;
@@ -40,22 +39,22 @@ public class Issue {
   private Integer number = null;
 
   @SerializedName("user")
-  private User user = null;
+  private ComponentsschemasUserYaml user = null;
 
   @SerializedName("title")
-  private String title = null;
+  private ComponentsschemasTitleYaml title = null;
 
   @SerializedName("body")
-  private String body = null;
+  private ComponentsschemasBodyYaml body = null;
 
   @SerializedName("labels")
-  private List<IssueLabels> labels = new ArrayList<IssueLabels>();
+  private List<Object> labels = new ArrayList<Object>();
 
   @SerializedName("milestone")
-  private IssueMilestone milestone = null;
+  private Object milestone = null;
 
   @SerializedName("assignee")
-  private IssueAssignee assignee = null;
+  private Object assignee = null;
 
   @SerializedName("state")
   private String state = null;
@@ -111,7 +110,7 @@ public class Issue {
     this.number = number;
   }
 
-  public Issue user(User user) {
+  public Issue user(ComponentsschemasUserYaml user) {
     this.user = user;
     return this;
   }
@@ -121,15 +120,15 @@ public class Issue {
    * @return user
   **/
   @Schema(description = "")
-  public User getUser() {
+  public ComponentsschemasUserYaml getUser() {
     return user;
   }
 
-  public void setUser(User user) {
+  public void setUser(ComponentsschemasUserYaml user) {
     this.user = user;
   }
 
-  public Issue title(String title) {
+  public Issue title(ComponentsschemasTitleYaml title) {
     this.title = title;
     return this;
   }
@@ -139,15 +138,15 @@ public class Issue {
    * @return title
   **/
   @Schema(required = true, description = "")
-  public String getTitle() {
+  public ComponentsschemasTitleYaml getTitle() {
     return title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(ComponentsschemasTitleYaml title) {
     this.title = title;
   }
 
-  public Issue body(String body) {
+  public Issue body(ComponentsschemasBodyYaml body) {
     this.body = body;
     return this;
   }
@@ -157,20 +156,20 @@ public class Issue {
    * @return body
   **/
   @Schema(required = true, description = "")
-  public String getBody() {
+  public ComponentsschemasBodyYaml getBody() {
     return body;
   }
 
-  public void setBody(String body) {
+  public void setBody(ComponentsschemasBodyYaml body) {
     this.body = body;
   }
 
-  public Issue labels(List<IssueLabels> labels) {
+  public Issue labels(List<Object> labels) {
     this.labels = labels;
     return this;
   }
 
-  public Issue addLabelsItem(IssueLabels labelsItem) {
+  public Issue addLabelsItem(Object labelsItem) {
     this.labels.add(labelsItem);
     return this;
   }
@@ -180,15 +179,15 @@ public class Issue {
    * @return labels
   **/
   @Schema(required = true, description = "")
-  public List<IssueLabels> getLabels() {
+  public List<Object> getLabels() {
     return labels;
   }
 
-  public void setLabels(List<IssueLabels> labels) {
+  public void setLabels(List<Object> labels) {
     this.labels = labels;
   }
 
-  public Issue milestone(IssueMilestone milestone) {
+  public Issue milestone(Object milestone) {
     this.milestone = milestone;
     return this;
   }
@@ -198,15 +197,15 @@ public class Issue {
    * @return milestone
   **/
   @Schema(required = true, description = "")
-  public IssueMilestone getMilestone() {
+  public Object getMilestone() {
     return milestone;
   }
 
-  public void setMilestone(IssueMilestone milestone) {
+  public void setMilestone(Object milestone) {
     this.milestone = milestone;
   }
 
-  public Issue assignee(IssueAssignee assignee) {
+  public Issue assignee(Object assignee) {
     this.assignee = assignee;
     return this;
   }
@@ -216,11 +215,11 @@ public class Issue {
    * @return assignee
   **/
   @Schema(required = true, description = "")
-  public IssueAssignee getAssignee() {
+  public Object getAssignee() {
     return assignee;
   }
 
-  public void setAssignee(IssueAssignee assignee) {
+  public void setAssignee(Object assignee) {
     this.assignee = assignee;
   }
 

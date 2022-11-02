@@ -19,31 +19,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.State;
+import io.swagger.client.model.ComponentsschemasAssigneeYaml;
+import io.swagger.client.model.ComponentsschemasBodyYaml;
+import io.swagger.client.model.ComponentsschemasMilestoneYaml;
+import io.swagger.client.model.ComponentsschemasStateYaml;
+import io.swagger.client.model.ComponentsschemasTitleYaml;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
  * PatchIssue
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-31T14:27:12.036112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T12:04:04.486503Z[Etc/UTC]")
 public class PatchIssue {
   @SerializedName("title")
-  private String title = null;
+  private ComponentsschemasTitleYaml title = null;
 
   @SerializedName("body")
-  private String body = null;
+  private ComponentsschemasBodyYaml body = null;
 
   @SerializedName("assignee")
-  private String assignee = null;
+  private ComponentsschemasAssigneeYaml assignee = null;
 
   @SerializedName("milestone")
-  private Integer milestone = null;
+  private ComponentsschemasMilestoneYaml milestone = null;
 
   @SerializedName("state")
-  private State state = null;
+  private ComponentsschemasStateYaml state = null;
 
-  public PatchIssue title(String title) {
+  public PatchIssue title(ComponentsschemasTitleYaml title) {
     this.title = title;
     return this;
   }
@@ -53,15 +57,15 @@ public class PatchIssue {
    * @return title
   **/
   @Schema(description = "")
-  public String getTitle() {
+  public ComponentsschemasTitleYaml getTitle() {
     return title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(ComponentsschemasTitleYaml title) {
     this.title = title;
   }
 
-  public PatchIssue body(String body) {
+  public PatchIssue body(ComponentsschemasBodyYaml body) {
     this.body = body;
     return this;
   }
@@ -71,15 +75,15 @@ public class PatchIssue {
    * @return body
   **/
   @Schema(description = "")
-  public String getBody() {
+  public ComponentsschemasBodyYaml getBody() {
     return body;
   }
 
-  public void setBody(String body) {
+  public void setBody(ComponentsschemasBodyYaml body) {
     this.body = body;
   }
 
-  public PatchIssue assignee(String assignee) {
+  public PatchIssue assignee(ComponentsschemasAssigneeYaml assignee) {
     this.assignee = assignee;
     return this;
   }
@@ -89,15 +93,15 @@ public class PatchIssue {
    * @return assignee
   **/
   @Schema(description = "")
-  public String getAssignee() {
+  public ComponentsschemasAssigneeYaml getAssignee() {
     return assignee;
   }
 
-  public void setAssignee(String assignee) {
+  public void setAssignee(ComponentsschemasAssigneeYaml assignee) {
     this.assignee = assignee;
   }
 
-  public PatchIssue milestone(Integer milestone) {
+  public PatchIssue milestone(ComponentsschemasMilestoneYaml milestone) {
     this.milestone = milestone;
     return this;
   }
@@ -107,15 +111,15 @@ public class PatchIssue {
    * @return milestone
   **/
   @Schema(description = "")
-  public Integer getMilestone() {
+  public ComponentsschemasMilestoneYaml getMilestone() {
     return milestone;
   }
 
-  public void setMilestone(Integer milestone) {
+  public void setMilestone(ComponentsschemasMilestoneYaml milestone) {
     this.milestone = milestone;
   }
 
-  public PatchIssue state(State state) {
+  public PatchIssue state(ComponentsschemasStateYaml state) {
     this.state = state;
     return this;
   }
@@ -125,11 +129,11 @@ public class PatchIssue {
    * @return state
   **/
   @Schema(description = "")
-  public State getState() {
+  public ComponentsschemasStateYaml getState() {
     return state;
   }
 
-  public void setState(State state) {
+  public void setState(ComponentsschemasStateYaml state) {
     this.state = state;
   }
 

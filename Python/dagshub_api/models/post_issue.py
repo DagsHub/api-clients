@@ -28,12 +28,12 @@ class PostIssue(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'title': 'Title',
-        'body': 'Body',
-        'assignee': 'Assignee',
-        'milestone': 'Milestone',
-        'labels': 'Labels',
-        'closed': 'Closed'
+        'title': 'ComponentsschemasTitleYaml',
+        'body': 'ComponentsschemasBodyYaml',
+        'assignee': 'ComponentsschemasAssigneeYaml',
+        'milestone': 'ComponentsschemasMilestoneYaml',
+        'labels': 'ComponentsschemasLabelsYaml',
+        'closed': 'ComponentsschemasClosedYaml'
     }
 
     attribute_map = {
@@ -73,7 +73,7 @@ class PostIssue(object):
 
 
         :return: The title of this PostIssue.  # noqa: E501
-        :rtype: Title
+        :rtype: ComponentsschemasTitleYaml
         """
         return self._title
 
@@ -83,7 +83,7 @@ class PostIssue(object):
 
 
         :param title: The title of this PostIssue.  # noqa: E501
-        :type: Title
+        :type: ComponentsschemasTitleYaml
         """
 
         self._title = title
@@ -94,7 +94,7 @@ class PostIssue(object):
 
 
         :return: The body of this PostIssue.  # noqa: E501
-        :rtype: Body
+        :rtype: ComponentsschemasBodyYaml
         """
         return self._body
 
@@ -104,7 +104,7 @@ class PostIssue(object):
 
 
         :param body: The body of this PostIssue.  # noqa: E501
-        :type: Body
+        :type: ComponentsschemasBodyYaml
         """
 
         self._body = body
@@ -115,7 +115,7 @@ class PostIssue(object):
 
 
         :return: The assignee of this PostIssue.  # noqa: E501
-        :rtype: Assignee
+        :rtype: ComponentsschemasAssigneeYaml
         """
         return self._assignee
 
@@ -125,7 +125,7 @@ class PostIssue(object):
 
 
         :param assignee: The assignee of this PostIssue.  # noqa: E501
-        :type: Assignee
+        :type: ComponentsschemasAssigneeYaml
         """
 
         self._assignee = assignee
@@ -136,7 +136,7 @@ class PostIssue(object):
 
 
         :return: The milestone of this PostIssue.  # noqa: E501
-        :rtype: Milestone
+        :rtype: ComponentsschemasMilestoneYaml
         """
         return self._milestone
 
@@ -146,7 +146,7 @@ class PostIssue(object):
 
 
         :param milestone: The milestone of this PostIssue.  # noqa: E501
-        :type: Milestone
+        :type: ComponentsschemasMilestoneYaml
         """
 
         self._milestone = milestone
@@ -157,7 +157,7 @@ class PostIssue(object):
 
 
         :return: The labels of this PostIssue.  # noqa: E501
-        :rtype: Labels
+        :rtype: ComponentsschemasLabelsYaml
         """
         return self._labels
 
@@ -167,7 +167,7 @@ class PostIssue(object):
 
 
         :param labels: The labels of this PostIssue.  # noqa: E501
-        :type: Labels
+        :type: ComponentsschemasLabelsYaml
         """
 
         self._labels = labels
@@ -178,7 +178,7 @@ class PostIssue(object):
 
 
         :return: The closed of this PostIssue.  # noqa: E501
-        :rtype: Closed
+        :rtype: ComponentsschemasClosedYaml
         """
         return self._closed
 
@@ -188,7 +188,7 @@ class PostIssue(object):
 
 
         :param closed: The closed of this PostIssue.  # noqa: E501
-        :type: Closed
+        :type: ComponentsschemasClosedYaml
         """
 
         self._closed = closed

@@ -5,12 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int?** |  | [optional] 
 **Number** | **int?** |  | [optional] 
-**User** | [**User**](User.md) |  | [optional] 
-**Title** | **string** |  | 
-**Body** | **string** |  | 
-**Labels** | [**List&lt;IssueLabels&gt;**](IssueLabels.md) |  | 
-**Milestone** | [**IssueMilestone**](IssueMilestone.md) |  | 
-**Assignee** | [**IssueAssignee**](IssueAssignee.md) |  | 
+**User** | [**ComponentsschemasUserYaml**](ComponentsschemasUserYaml.md) |  | [optional] 
+**Title** | [**ComponentsschemasTitleYaml**](ComponentsschemasTitleYaml.md) |  | 
+**Body** | [**ComponentsschemasBodyYaml**](ComponentsschemasBodyYaml.md) |  | 
+**Labels** | **List&lt;Object&gt;** |  | 
+**Milestone** | **Object** |  | 
+**Assignee** | **Object** |  | 
 **State** | **string** |  | [optional] 
 **Comments** | **int?** |  | [optional] 
 **CreatedAt** | **string** |  | [optional] 

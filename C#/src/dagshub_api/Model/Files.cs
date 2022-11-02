@@ -27,7 +27,7 @@ namespace dagshub_api.Model
     /// Files
     /// </summary>
     [DataContract]
-        public partial class Files : List<System.IO.Stream>,  IEquatable<Files>, IValidatableObject
+        public partial class Files : List<ComponentsschemasFileYaml>,  IEquatable<Files>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Files" /> class.
