@@ -41,11 +41,11 @@ public class CollaboratorsApiTest {
      */
     @Test
     public void addCollaboratorTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
         String collaborator = null;
         CollaboratorsCollaboratorBody body = null;
-        api.addCollaborator(username, repo, collaborator, body);
+        api.addCollaborator(owner, repo, collaborator, body);
 
         // TODO: test validations
     }
@@ -59,9 +59,9 @@ public class CollaboratorsApiTest {
      */
     @Test
     public void getCollaboratorsTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
-        api.getCollaborators(username, repo);
+        api.getCollaborators(owner, repo);
 
         // TODO: test validations
     }
@@ -75,10 +75,10 @@ public class CollaboratorsApiTest {
      */
     @Test
     public void removeCollaboratorTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
         String collaborator = null;
-        api.removeCollaborator(username, repo, collaborator);
+        api.removeCollaborator(owner, repo, collaborator);
 
         // TODO: test validations
     }

@@ -166,7 +166,7 @@ public class UserApi {
     }
     /**
      * Build call for getUser
-     * @param username A DagsHub username (required)
+     * @param username A DagsHub username or organization name (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -233,7 +233,7 @@ public class UserApi {
     /**
      * Get information about a user
      * 
-     * @param username A DagsHub username (required)
+     * @param username A DagsHub username or organization name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void getUser(String username) throws ApiException {
@@ -243,7 +243,7 @@ public class UserApi {
     /**
      * Get information about a user
      * 
-     * @param username A DagsHub username (required)
+     * @param username A DagsHub username or organization name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -255,7 +255,7 @@ public class UserApi {
     /**
      * Get information about a user (asynchronously)
      * 
-     * @param username A DagsHub username (required)
+     * @param username A DagsHub username or organization name (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

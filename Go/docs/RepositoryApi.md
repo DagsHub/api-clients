@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateOrgRepo**](RepositoryApi.md#CreateOrgRepo) | **Post** /org/{orgname}/repos | Create in organization
 [**CreateRepo**](RepositoryApi.md#CreateRepo) | **Post** /user/repos | Create
-[**GetRepo**](RepositoryApi.md#GetRepo) | **Get** /repos/{username}/{repo} | Get repository information
+[**GetRepo**](RepositoryApi.md#GetRepo) | **Get** /repos/{owner}/{repo} | Get repository information
 [**ListMyRepos**](RepositoryApi.md#ListMyRepos) | **Get** /user/repos | List your repositories
 [**ListOrgRepos**](RepositoryApi.md#ListOrgRepos) | **Get** /orgs/{orgname}/repos | List organization repositories
 [**ListUserRepos**](RepositoryApi.md#ListUserRepos) | **Get** /users/{username}/repos | List user repositories
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRepo**
-> GetRepo(ctx, username, repo)
+> GetRepo(ctx, owner, repo)
 Get repository information
 
 ### Required Parameters
@@ -92,7 +92,7 @@ Get repository information
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **username** | **string**| A DagsHub username | 
+  **owner** | **string**| owner of the repository | 
   **repo** | **string**| name of the repository | 
 
 ### Return type
@@ -173,7 +173,7 @@ List public repositories for the specified user.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **username** | **string**| A DagsHub username | 
+  **username** | **string**| A DagsHub username or organization name | 
 
 ### Return type
 

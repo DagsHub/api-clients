@@ -45,18 +45,18 @@ export class ContentApi {
     /**
      * Download archive
      * This method returns archive by given format.
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {String} ref The name of the commit/branch/tag
      * @param {module:model/String} format The format of archive, either .zip or .tar.gz
      * @param {module:api/ContentApi~getArchiveCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getArchive(username, repo, ref, format, callback) {
+    getArchive(owner, repo, ref, format, callback) {
       
       let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling getArchive");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getArchive");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -72,7 +72,7 @@ export class ContentApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo,'ref': ref,'format': format
+        'owner': owner,'repo': repo,'ref': ref,'format': format
       };
       let queryParams = {
         
@@ -90,7 +90,7 @@ export class ContentApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/archive/{ref}/{format}', 'GET',
+        '/repos/{owner}/{repo}/archive/{ref}{format}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -170,18 +170,18 @@ export class ContentApi {
     /**
      * Download raw content
      * This method returns the raw content of a file.
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {String} ref The name of the commit/branch/tag
      * @param {String} path The content path
      * @param {module:api/ContentApi~getRawCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getRaw(username, repo, ref, path, callback) {
+    getRaw(owner, repo, ref, path, callback) {
       
       let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling getRaw");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getRaw");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -197,7 +197,7 @@ export class ContentApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo,'ref': ref,'path': path
+        'owner': owner,'repo': repo,'ref': ref,'path': path
       };
       let queryParams = {
         
@@ -215,7 +215,7 @@ export class ContentApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/raw/{ref}/{path}', 'GET',
+        '/repos/{owner}/{repo}/raw/{ref}/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

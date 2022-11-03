@@ -13,14 +13,14 @@ open class CollaboratorsAPI {
     /**
      Add user as a collaborator
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter collaborator: (path) collaborator username 
      - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func addCollaborator(username: String, repo: String, collaborator: String, body: CollaboratorsCollaboratorBody? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        addCollaboratorWithRequestBuilder(username: username, repo: repo, collaborator: collaborator, body: body).execute { (response, error) -> Void in
+    open class func addCollaborator(owner: String, repo: String, collaborator: String, body: CollaboratorsCollaboratorBody? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        addCollaboratorWithRequestBuilder(owner: owner, repo: repo, collaborator: collaborator, body: body).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -32,7 +32,7 @@ open class CollaboratorsAPI {
 
     /**
      Add user as a collaborator
-     - PUT /repos/{username}/{repo}/collaborators/{collaborator}
+     - PUT /repos/{owner}/{repo}/collaborators/{collaborator}
      - 
 
      - BASIC:
@@ -41,18 +41,18 @@ open class CollaboratorsAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter collaborator: (path) collaborator username 
      - parameter body: (body)  (optional)
 
      - returns: RequestBuilder<Void> 
      */
-    open class func addCollaboratorWithRequestBuilder(username: String, repo: String, collaborator: String, body: CollaboratorsCollaboratorBody? = nil) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/collaborators/{collaborator}"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func addCollaboratorWithRequestBuilder(owner: String, repo: String, collaborator: String, body: CollaboratorsCollaboratorBody? = nil) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/collaborators/{collaborator}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
@@ -71,12 +71,12 @@ open class CollaboratorsAPI {
     /**
      Get collaborators
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCollaborators(username: String, repo: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        getCollaboratorsWithRequestBuilder(username: username, repo: repo).execute { (response, error) -> Void in
+    open class func getCollaborators(owner: String, repo: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getCollaboratorsWithRequestBuilder(owner: owner, repo: repo).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -88,7 +88,7 @@ open class CollaboratorsAPI {
 
     /**
      Get collaborators
-     - GET /repos/{username}/{repo}/collaborators
+     - GET /repos/{owner}/{repo}/collaborators
      - 
 
      - BASIC:
@@ -97,16 +97,16 @@ open class CollaboratorsAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func getCollaboratorsWithRequestBuilder(username: String, repo: String) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/collaborators"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func getCollaboratorsWithRequestBuilder(owner: String, repo: String) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/collaborators"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
@@ -122,13 +122,13 @@ open class CollaboratorsAPI {
     /**
      Delete collaborator
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter collaborator: (path) collaborator username 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func removeCollaborator(username: String, repo: String, collaborator: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        removeCollaboratorWithRequestBuilder(username: username, repo: repo, collaborator: collaborator).execute { (response, error) -> Void in
+    open class func removeCollaborator(owner: String, repo: String, collaborator: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        removeCollaboratorWithRequestBuilder(owner: owner, repo: repo, collaborator: collaborator).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -140,7 +140,7 @@ open class CollaboratorsAPI {
 
     /**
      Delete collaborator
-     - DELETE /repos/{username}/{repo}/collaborators/{collaborator}
+     - DELETE /repos/{owner}/{repo}/collaborators/{collaborator}
      - 
 
      - BASIC:
@@ -149,17 +149,17 @@ open class CollaboratorsAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter collaborator: (path) collaborator username 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func removeCollaboratorWithRequestBuilder(username: String, repo: String, collaborator: String) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/collaborators/{collaborator}"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func removeCollaboratorWithRequestBuilder(owner: String, repo: String, collaborator: String) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/collaborators/{collaborator}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)

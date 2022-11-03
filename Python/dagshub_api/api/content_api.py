@@ -32,17 +32,17 @@ class ContentApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_archive(self, username, repo, ref, format, **kwargs):  # noqa: E501
+    def get_archive(self, owner, repo, ref, format, **kwargs):  # noqa: E501
         """Download archive  # noqa: E501
 
         This method returns archive by given format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_archive(username, repo, ref, format, async_req=True)
+        >>> thread = api.get_archive(owner, repo, ref, format, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :param str ref: The name of the commit/branch/tag (required)
         :param str format: The format of archive, either .zip or .tar.gz (required)
@@ -52,22 +52,22 @@ class ContentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_archive_with_http_info(username, repo, ref, format, **kwargs)  # noqa: E501
+            return self.get_archive_with_http_info(owner, repo, ref, format, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_archive_with_http_info(username, repo, ref, format, **kwargs)  # noqa: E501
+            (data) = self.get_archive_with_http_info(owner, repo, ref, format, **kwargs)  # noqa: E501
             return data
 
-    def get_archive_with_http_info(self, username, repo, ref, format, **kwargs):  # noqa: E501
+    def get_archive_with_http_info(self, owner, repo, ref, format, **kwargs):  # noqa: E501
         """Download archive  # noqa: E501
 
         This method returns archive by given format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_archive_with_http_info(username, repo, ref, format, async_req=True)
+        >>> thread = api.get_archive_with_http_info(owner, repo, ref, format, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :param str ref: The name of the commit/branch/tag (required)
         :param str format: The format of archive, either .zip or .tar.gz (required)
@@ -76,7 +76,7 @@ class ContentApi(object):
                  returns the request thread.
         """
 
-        all_params = ['username', 'repo', 'ref', 'format']  # noqa: E501
+        all_params = ['owner', 'repo', 'ref', 'format']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -91,10 +91,10 @@ class ContentApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'username' is set
-        if ('username' not in params or
-                params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `get_archive`")  # noqa: E501
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params or
+                params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `get_archive`")  # noqa: E501
         # verify the required parameter 'repo' is set
         if ('repo' not in params or
                 params['repo'] is None):
@@ -111,8 +111,8 @@ class ContentApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'username' in params:
-            path_params['username'] = params['username']  # noqa: E501
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
         if 'repo' in params:
             path_params['repo'] = params['repo']  # noqa: E501
         if 'ref' in params:
@@ -132,7 +132,7 @@ class ContentApi(object):
         auth_settings = ['basicAuth', 'tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/repos/{username}/{repo}/archive/{ref}/{format}', 'GET',
+            '/repos/{owner}/{repo}/archive/{ref}{format}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -270,17 +270,17 @@ class ContentApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_raw(self, username, repo, ref, path, **kwargs):  # noqa: E501
+    def get_raw(self, owner, repo, ref, path, **kwargs):  # noqa: E501
         """Download raw content  # noqa: E501
 
         This method returns the raw content of a file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_raw(username, repo, ref, path, async_req=True)
+        >>> thread = api.get_raw(owner, repo, ref, path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :param str ref: The name of the commit/branch/tag (required)
         :param str path: The content path (required)
@@ -290,22 +290,22 @@ class ContentApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_raw_with_http_info(username, repo, ref, path, **kwargs)  # noqa: E501
+            return self.get_raw_with_http_info(owner, repo, ref, path, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_raw_with_http_info(username, repo, ref, path, **kwargs)  # noqa: E501
+            (data) = self.get_raw_with_http_info(owner, repo, ref, path, **kwargs)  # noqa: E501
             return data
 
-    def get_raw_with_http_info(self, username, repo, ref, path, **kwargs):  # noqa: E501
+    def get_raw_with_http_info(self, owner, repo, ref, path, **kwargs):  # noqa: E501
         """Download raw content  # noqa: E501
 
         This method returns the raw content of a file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_raw_with_http_info(username, repo, ref, path, async_req=True)
+        >>> thread = api.get_raw_with_http_info(owner, repo, ref, path, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :param str ref: The name of the commit/branch/tag (required)
         :param str path: The content path (required)
@@ -314,7 +314,7 @@ class ContentApi(object):
                  returns the request thread.
         """
 
-        all_params = ['username', 'repo', 'ref', 'path']  # noqa: E501
+        all_params = ['owner', 'repo', 'ref', 'path']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -329,10 +329,10 @@ class ContentApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'username' is set
-        if ('username' not in params or
-                params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `get_raw`")  # noqa: E501
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params or
+                params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `get_raw`")  # noqa: E501
         # verify the required parameter 'repo' is set
         if ('repo' not in params or
                 params['repo'] is None):
@@ -349,8 +349,8 @@ class ContentApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'username' in params:
-            path_params['username'] = params['username']  # noqa: E501
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
         if 'repo' in params:
             path_params['repo'] = params['repo']  # noqa: E501
         if 'ref' in params:
@@ -370,7 +370,7 @@ class ContentApi(object):
         auth_settings = ['basicAuth', 'tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/repos/{username}/{repo}/raw/{ref}/{path}', 'GET',
+            '/repos/{owner}/{repo}/raw/{ref}/{path}', 'GET',
             path_params,
             query_params,
             header_params,

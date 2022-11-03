@@ -2,7 +2,7 @@
 
 DagsHub API
 - API version: 1.0.2
-  - Build date: 2022-11-02T13:43:48.600724Z[Etc/UTC]
+  - Build date: 2022-11-03T14:39:16.361212Z[Etc/UTC]
 
 This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
@@ -150,13 +150,13 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BranchesApi* | [**getBranch**](docs/BranchesApi.md#getBranch) | **GET** /repos/{owner}/{repo}/branches/{branch} | Get Branch
 *BranchesApi* | [**listBranches**](docs/BranchesApi.md#listBranches) | **GET** /repos/{owner}/{repo}/branches | List Branches
-*CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-*CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-*CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+*CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+*CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+*CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 *CommitsApi* | [**getCommit**](docs/CommitsApi.md#getCommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 *ContentApi* | [**getContent**](docs/ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-*ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+*ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *ExperimentsApi* | [**addExperimentLabel**](docs/ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
 *ExperimentsApi* | [**deleteExperimentLabel**](docs/ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
@@ -170,7 +170,7 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listReleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createRepo) | **POST** /user/repos | Create
-*RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
+*RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getRepo) | **GET** /repos/{owner}/{repo} | Get repository information
 *RepositoryApi* | [**listMyRepos**](docs/RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 *RepositoryApi* | [**listOrgRepos**](docs/RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories

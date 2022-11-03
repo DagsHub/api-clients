@@ -97,7 +97,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new UserApi();
-            var username = username_example;  // string | A DagsHub username
+            var username = username_example;  // string | A DagsHub username or organization name
 
             try
             {
@@ -117,7 +117,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **username** | **string**| A DagsHub username or organization name | 
 
 ### Return type
 

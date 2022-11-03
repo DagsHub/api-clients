@@ -77,7 +77,7 @@
           // TODO: uncomment, update parameter values for getRepo call
           /*
 
-          instance.getRepo(username, repo, function(error, data, response) {
+          instance.getRepo(owner, repo, function(error, data, response) {
             if (error) {
               done(error);
               return;

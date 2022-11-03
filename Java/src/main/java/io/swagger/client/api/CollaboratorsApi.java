@@ -55,7 +55,7 @@ public class CollaboratorsApi {
 
     /**
      * Build call for addCollaborator
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param body  (optional)
@@ -64,12 +64,12 @@ public class CollaboratorsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addCollaboratorCall(String username, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addCollaboratorCall(String owner, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}"
-            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+        String localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "collaborator" + "\\}", apiClient.escapeString(collaborator.toString()));
 
@@ -109,10 +109,10 @@ public class CollaboratorsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addCollaboratorValidateBeforeCall(String username, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'username' is set
-        if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling addCollaborator(Async)");
+    private com.squareup.okhttp.Call addCollaboratorValidateBeforeCall(String owner, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling addCollaborator(Async)");
         }
         // verify the required parameter 'repo' is set
         if (repo == null) {
@@ -123,7 +123,7 @@ public class CollaboratorsApi {
             throw new ApiException("Missing the required parameter 'collaborator' when calling addCollaborator(Async)");
         }
         
-        com.squareup.okhttp.Call call = addCollaboratorCall(username, repo, collaborator, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addCollaboratorCall(owner, repo, collaborator, body, progressListener, progressRequestListener);
         return call;
 
         
@@ -135,35 +135,35 @@ public class CollaboratorsApi {
     /**
      * Add user as a collaborator
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void addCollaborator(String username, String repo, String collaborator, CollaboratorsCollaboratorBody body) throws ApiException {
-        addCollaboratorWithHttpInfo(username, repo, collaborator, body);
+    public void addCollaborator(String owner, String repo, String collaborator, CollaboratorsCollaboratorBody body) throws ApiException {
+        addCollaboratorWithHttpInfo(owner, repo, collaborator, body);
     }
 
     /**
      * Add user as a collaborator
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> addCollaboratorWithHttpInfo(String username, String repo, String collaborator, CollaboratorsCollaboratorBody body) throws ApiException {
-        com.squareup.okhttp.Call call = addCollaboratorValidateBeforeCall(username, repo, collaborator, body, null, null);
+    public ApiResponse<Void> addCollaboratorWithHttpInfo(String owner, String repo, String collaborator, CollaboratorsCollaboratorBody body) throws ApiException {
+        com.squareup.okhttp.Call call = addCollaboratorValidateBeforeCall(owner, repo, collaborator, body, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Add user as a collaborator (asynchronously)
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param body  (optional)
@@ -171,7 +171,7 @@ public class CollaboratorsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addCollaboratorAsync(String username, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call addCollaboratorAsync(String owner, String repo, String collaborator, CollaboratorsCollaboratorBody body, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,25 +192,25 @@ public class CollaboratorsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addCollaboratorValidateBeforeCall(username, repo, collaborator, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addCollaboratorValidateBeforeCall(owner, repo, collaborator, body, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for getCollaborators
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCollaboratorsCall(String username, String repo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCollaboratorsCall(String owner, String repo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/collaborators"
-            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+        String localVarPath = "/repos/{owner}/{repo}/collaborators"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -249,17 +249,17 @@ public class CollaboratorsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCollaboratorsValidateBeforeCall(String username, String repo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'username' is set
-        if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling getCollaborators(Async)");
+    private com.squareup.okhttp.Call getCollaboratorsValidateBeforeCall(String owner, String repo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getCollaborators(Async)");
         }
         // verify the required parameter 'repo' is set
         if (repo == null) {
             throw new ApiException("Missing the required parameter 'repo' when calling getCollaborators(Async)");
         }
         
-        com.squareup.okhttp.Call call = getCollaboratorsCall(username, repo, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCollaboratorsCall(owner, repo, progressListener, progressRequestListener);
         return call;
 
         
@@ -271,37 +271,37 @@ public class CollaboratorsApi {
     /**
      * Get collaborators
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getCollaborators(String username, String repo) throws ApiException {
-        getCollaboratorsWithHttpInfo(username, repo);
+    public void getCollaborators(String owner, String repo) throws ApiException {
+        getCollaboratorsWithHttpInfo(owner, repo);
     }
 
     /**
      * Get collaborators
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getCollaboratorsWithHttpInfo(String username, String repo) throws ApiException {
-        com.squareup.okhttp.Call call = getCollaboratorsValidateBeforeCall(username, repo, null, null);
+    public ApiResponse<Void> getCollaboratorsWithHttpInfo(String owner, String repo) throws ApiException {
+        com.squareup.okhttp.Call call = getCollaboratorsValidateBeforeCall(owner, repo, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Get collaborators (asynchronously)
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCollaboratorsAsync(String username, String repo, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCollaboratorsAsync(String owner, String repo, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -322,13 +322,13 @@ public class CollaboratorsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCollaboratorsValidateBeforeCall(username, repo, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getCollaboratorsValidateBeforeCall(owner, repo, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
      * Build call for removeCollaborator
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param progressListener Progress listener
@@ -336,12 +336,12 @@ public class CollaboratorsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeCollaboratorCall(String username, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call removeCollaboratorCall(String owner, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}"
-            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+        String localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "collaborator" + "\\}", apiClient.escapeString(collaborator.toString()));
 
@@ -381,10 +381,10 @@ public class CollaboratorsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeCollaboratorValidateBeforeCall(String username, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'username' is set
-        if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling removeCollaborator(Async)");
+    private com.squareup.okhttp.Call removeCollaboratorValidateBeforeCall(String owner, String repo, String collaborator, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling removeCollaborator(Async)");
         }
         // verify the required parameter 'repo' is set
         if (repo == null) {
@@ -395,7 +395,7 @@ public class CollaboratorsApi {
             throw new ApiException("Missing the required parameter 'collaborator' when calling removeCollaborator(Async)");
         }
         
-        com.squareup.okhttp.Call call = removeCollaboratorCall(username, repo, collaborator, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeCollaboratorCall(owner, repo, collaborator, progressListener, progressRequestListener);
         return call;
 
         
@@ -407,40 +407,40 @@ public class CollaboratorsApi {
     /**
      * Delete collaborator
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void removeCollaborator(String username, String repo, String collaborator) throws ApiException {
-        removeCollaboratorWithHttpInfo(username, repo, collaborator);
+    public void removeCollaborator(String owner, String repo, String collaborator) throws ApiException {
+        removeCollaboratorWithHttpInfo(owner, repo, collaborator);
     }
 
     /**
      * Delete collaborator
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> removeCollaboratorWithHttpInfo(String username, String repo, String collaborator) throws ApiException {
-        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(username, repo, collaborator, null, null);
+    public ApiResponse<Void> removeCollaboratorWithHttpInfo(String owner, String repo, String collaborator) throws ApiException {
+        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(owner, repo, collaborator, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete collaborator (asynchronously)
      * 
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param collaborator collaborator username (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeCollaboratorAsync(String username, String repo, String collaborator, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeCollaboratorAsync(String owner, String repo, String collaborator, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -461,7 +461,7 @@ public class CollaboratorsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(username, repo, collaborator, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeCollaboratorValidateBeforeCall(owner, repo, collaborator, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

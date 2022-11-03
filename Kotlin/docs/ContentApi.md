@@ -4,14 +4,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 [**getContent**](ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 [**uploadContent**](ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 
 <a name="getArchive"></a>
 # **getArchive**
-> getArchive(username, repo, ref, format)
+> getArchive(owner, repo, ref, format)
 
 Download archive
 
@@ -24,12 +24,12 @@ This method returns archive by given format.
 //import io.swagger.client.models.*;
 
 val apiInstance = ContentApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 val ref : kotlin.String = ref_example // kotlin.String | The name of the commit/branch/tag
 val format : kotlin.String = format_example // kotlin.String | The format of archive, either .zip or .tar.gz
 try {
-    apiInstance.getArchive(username, repo, ref, format)
+    apiInstance.getArchive(owner, repo, ref, format)
 } catch (e: ClientException) {
     println("4xx response calling ContentApi#getArchive")
     e.printStackTrace()
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
  **ref** | **kotlin.String**| The name of the commit/branch/tag |
  **format** | **kotlin.String**| The format of archive, either .zip or .tar.gz | [enum: .zip, .tar.gz]
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 <a name="getRaw"></a>
 # **getRaw**
-> getRaw(username, repo, ref, path)
+> getRaw(owner, repo, ref, path)
 
 Download raw content
 
@@ -131,12 +131,12 @@ This method returns the raw content of a file.
 //import io.swagger.client.models.*;
 
 val apiInstance = ContentApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 val ref : kotlin.String = ref_example // kotlin.String | The name of the commit/branch/tag
 val path : kotlin.String = path_example // kotlin.String | The content path
 try {
-    apiInstance.getRaw(username, repo, ref, path)
+    apiInstance.getRaw(owner, repo, ref, path)
 } catch (e: ClientException) {
     println("4xx response calling ContentApi#getRaw")
     e.printStackTrace()
@@ -150,7 +150,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
  **ref** | **kotlin.String**| The name of the commit/branch/tag |
  **path** | **kotlin.String**| The content path |

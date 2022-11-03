@@ -4,13 +4,13 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddCollaborator**](CollaboratorsApi.md#addcollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-[**GetCollaborators**](CollaboratorsApi.md#getcollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-[**RemoveCollaborator**](CollaboratorsApi.md#removecollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+[**AddCollaborator**](CollaboratorsApi.md#addcollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+[**GetCollaborators**](CollaboratorsApi.md#getcollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+[**RemoveCollaborator**](CollaboratorsApi.md#removecollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 
 <a name="addcollaborator"></a>
 # **AddCollaborator**
-> void AddCollaborator (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
+> void AddCollaborator (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
 
 Add user as a collaborator
 
@@ -37,7 +37,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new CollaboratorsApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
             var collaborator = collaborator_example;  // string | collaborator username
             var body = new CollaboratorsCollaboratorBody(); // CollaboratorsCollaboratorBody |  (optional) 
@@ -45,7 +45,7 @@ namespace Example
             try
             {
                 // Add user as a collaborator
-                apiInstance.AddCollaborator(username, repo, collaborator, body);
+                apiInstance.AddCollaborator(owner, repo, collaborator, body);
             }
             catch (Exception e)
             {
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
  **collaborator** | **string**| collaborator username | 
  **body** | [**CollaboratorsCollaboratorBody**](CollaboratorsCollaboratorBody.md)|  | [optional] 
@@ -81,7 +81,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="getcollaborators"></a>
 # **GetCollaborators**
-> void GetCollaborators (string username, string repo)
+> void GetCollaborators (string owner, string repo)
 
 Get collaborators
 
@@ -108,13 +108,13 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new CollaboratorsApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
 
             try
             {
                 // Get collaborators
-                apiInstance.GetCollaborators(username, repo);
+                apiInstance.GetCollaborators(owner, repo);
             }
             catch (Exception e)
             {
@@ -129,7 +129,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
 
 ### Return type
@@ -148,7 +148,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="removecollaborator"></a>
 # **RemoveCollaborator**
-> void RemoveCollaborator (string username, string repo, string collaborator)
+> void RemoveCollaborator (string owner, string repo, string collaborator)
 
 Delete collaborator
 
@@ -175,14 +175,14 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new CollaboratorsApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
             var collaborator = collaborator_example;  // string | collaborator username
 
             try
             {
                 // Delete collaborator
-                apiInstance.RemoveCollaborator(username, repo, collaborator);
+                apiInstance.RemoveCollaborator(owner, repo, collaborator);
             }
             catch (Exception e)
             {
@@ -197,7 +197,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
  **collaborator** | **string**| collaborator username | 
 

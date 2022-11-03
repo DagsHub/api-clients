@@ -137,12 +137,12 @@ class RepositoryApi(
    * Get repository information
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @return void
    */
-  def getRepo(username: String, repo: String) = {
-    val await = Try(Await.result(getRepoAsync(username, repo), Duration.Inf))
+  def getRepo(owner: String, repo: String) = {
+    val await = Try(Await.result(getRepoAsync(owner, repo), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -153,12 +153,12 @@ class RepositoryApi(
    * Get repository information asynchronously
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @return Future(void)
    */
-  def getRepoAsync(username: String, repo: String) = {
-      helper.getRepo(username, repo)
+  def getRepoAsync(owner: String, repo: String) = {
+      helper.getRepo(owner, repo)
   }
 
   /**
@@ -215,7 +215,7 @@ class RepositoryApi(
    * List user repositories
    * List public repositories for the specified user.
    *
-   * @param username A DagsHub username 
+   * @param username A DagsHub username or organization name 
    * @return void
    */
   def listUserRepos(username: String) = {
@@ -230,7 +230,7 @@ class RepositoryApi(
    * List user repositories asynchronously
    * List public repositories for the specified user.
    *
-   * @param username A DagsHub username 
+   * @param username A DagsHub username or organization name 
    * @return Future(void)
    */
   def listUserReposAsync(username: String) = {
@@ -335,18 +335,18 @@ class RepositoryApiAsyncHelper(client: TransportClient, config: SwaggerConfig) e
     }
   }
 
-  def getRepo(username: String,
+  def getRepo(owner: String,
     repo: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling RepositoryApi->getRepo")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling RepositoryApi->getRepo")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling RepositoryApi->getRepo")
 

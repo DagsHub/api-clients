@@ -21,14 +21,14 @@ open class ContentAPI {
     /**
      Download archive
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter ref: (path) The name of the commit/branch/tag 
      - parameter format: (path) The format of archive, either .zip or .tar.gz 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getArchive(username: String, repo: String, ref: String, format: Format_getArchive, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        getArchiveWithRequestBuilder(username: username, repo: repo, ref: ref, format: format).execute { (response, error) -> Void in
+    open class func getArchive(owner: String, repo: String, ref: String, format: Format_getArchive, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getArchiveWithRequestBuilder(owner: owner, repo: repo, ref: ref, format: format).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -40,7 +40,7 @@ open class ContentAPI {
 
     /**
      Download archive
-     - GET /repos/{username}/{repo}/archive/{ref}/{format}
+     - GET /repos/{owner}/{repo}/archive/{ref}{format}
 
      - BASIC:
        - type: http
@@ -48,18 +48,18 @@ open class ContentAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter ref: (path) The name of the commit/branch/tag 
      - parameter format: (path) The format of archive, either .zip or .tar.gz 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func getArchiveWithRequestBuilder(username: String, repo: String, ref: String, format: Format_getArchive) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/archive/{ref}/{format}"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func getArchiveWithRequestBuilder(owner: String, repo: String, ref: String, format: Format_getArchive) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/archive/{ref}{format}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
@@ -157,14 +157,14 @@ open class ContentAPI {
     /**
      Download raw content
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter ref: (path) The name of the commit/branch/tag 
      - parameter path: (path) The content path 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRaw(username: String, repo: String, ref: String, path: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        getRawWithRequestBuilder(username: username, repo: repo, ref: ref, path: path).execute { (response, error) -> Void in
+    open class func getRaw(owner: String, repo: String, ref: String, path: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getRawWithRequestBuilder(owner: owner, repo: repo, ref: ref, path: path).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -176,7 +176,7 @@ open class ContentAPI {
 
     /**
      Download raw content
-     - GET /repos/{username}/{repo}/raw/{ref}/{path}
+     - GET /repos/{owner}/{repo}/raw/{ref}/{path}
 
      - BASIC:
        - type: http
@@ -184,18 +184,18 @@ open class ContentAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter ref: (path) The name of the commit/branch/tag 
      - parameter path: (path) The content path 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func getRawWithRequestBuilder(username: String, repo: String, ref: String, path: String) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/raw/{ref}/{path}"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func getRawWithRequestBuilder(owner: String, repo: String, ref: String, path: String) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/raw/{ref}/{path}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)

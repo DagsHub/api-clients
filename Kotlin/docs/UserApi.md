@@ -60,7 +60,7 @@ Get information about a user
 //import io.swagger.client.models.*;
 
 val apiInstance = UserApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val username : kotlin.String = username_example // kotlin.String | A DagsHub username or organization name
 try {
     apiInstance.getUser(username)
 } catch (e: ClientException) {
@@ -76,7 +76,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **username** | **kotlin.String**| A DagsHub username or organization name |
 
 ### Return type
 

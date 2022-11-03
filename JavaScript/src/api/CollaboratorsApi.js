@@ -44,19 +44,19 @@ export class CollaboratorsApi {
 
     /**
      * Add user as a collaborator
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {String} collaborator collaborator username
      * @param {Object} opts Optional parameters
      * @param {module:model/CollaboratorsCollaboratorBody} opts.body 
      * @param {module:api/CollaboratorsApi~addCollaboratorCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    addCollaborator(username, repo, collaborator, opts, callback) {
+    addCollaborator(owner, repo, collaborator, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling addCollaborator");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling addCollaborator");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -68,7 +68,7 @@ export class CollaboratorsApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo,'collaborator': collaborator
+        'owner': owner,'repo': repo,'collaborator': collaborator
       };
       let queryParams = {
         
@@ -86,7 +86,7 @@ export class CollaboratorsApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/collaborators/{collaborator}', 'PUT',
+        '/repos/{owner}/{repo}/collaborators/{collaborator}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -101,16 +101,16 @@ export class CollaboratorsApi {
 
     /**
      * Get collaborators
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {module:api/CollaboratorsApi~getCollaboratorsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getCollaborators(username, repo, callback) {
+    getCollaborators(owner, repo, callback) {
       
       let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling getCollaborators");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getCollaborators");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -118,7 +118,7 @@ export class CollaboratorsApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo
+        'owner': owner,'repo': repo
       };
       let queryParams = {
         
@@ -136,7 +136,7 @@ export class CollaboratorsApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/collaborators', 'GET',
+        '/repos/{owner}/{repo}/collaborators', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -151,17 +151,17 @@ export class CollaboratorsApi {
 
     /**
      * Delete collaborator
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {String} collaborator collaborator username
      * @param {module:api/CollaboratorsApi~removeCollaboratorCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    removeCollaborator(username, repo, collaborator, callback) {
+    removeCollaborator(owner, repo, collaborator, callback) {
       
       let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling removeCollaborator");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling removeCollaborator");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -173,7 +173,7 @@ export class CollaboratorsApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo,'collaborator': collaborator
+        'owner': owner,'repo': repo,'collaborator': collaborator
       };
       let queryParams = {
         
@@ -191,7 +191,7 @@ export class CollaboratorsApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/collaborators/{collaborator}', 'DELETE',
+        '/repos/{owner}/{repo}/collaborators/{collaborator}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

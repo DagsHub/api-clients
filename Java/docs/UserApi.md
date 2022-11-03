@@ -87,7 +87,7 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 UserApi apiInstance = new UserApi();
-String username = "username_example"; // String | A DagsHub username
+String username = "username_example"; // String | A DagsHub username or organization name
 try {
     apiInstance.getUser(username);
 } catch (ApiException e) {
@@ -100,7 +100,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **username** | **String**| A DagsHub username or organization name |
 
 ### Return type
 

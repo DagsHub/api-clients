@@ -69,7 +69,7 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * 
          * @summary Get information about a user
-         * @param {string} username A DagsHub username
+         * @param {string} username A DagsHub username or organization name
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -141,7 +141,7 @@ export const UserApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get information about a user
-         * @param {string} username A DagsHub username
+         * @param {string} username A DagsHub username or organization name
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -173,7 +173,7 @@ export const UserApiFactory = function (configuration?: Configuration, basePath?
         /**
          * 
          * @summary Get information about a user
-         * @param {string} username A DagsHub username
+         * @param {string} username A DagsHub username or organization name
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -203,7 +203,7 @@ export class UserApi extends BaseAPI {
     /**
      * 
      * @summary Get information about a user
-     * @param {string} username A DagsHub username
+     * @param {string} username A DagsHub username or organization name
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserApi

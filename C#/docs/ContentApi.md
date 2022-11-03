@@ -4,14 +4,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetArchive**](ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**GetArchive**](ContentApi.md#getarchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 [**GetContent**](ContentApi.md#getcontent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-[**GetRaw**](ContentApi.md#getraw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+[**GetRaw**](ContentApi.md#getraw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 [**UploadContent**](ContentApi.md#uploadcontent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 
 <a name="getarchive"></a>
 # **GetArchive**
-> void GetArchive (string username, string repo, string _ref, string format)
+> void GetArchive (string owner, string repo, string _ref, string format)
 
 Download archive
 
@@ -40,7 +40,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new ContentApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
             var _ref = _ref_example;  // string | The name of the commit/branch/tag
             var format = format_example;  // string | The format of archive, either .zip or .tar.gz
@@ -48,7 +48,7 @@ namespace Example
             try
             {
                 // Download archive
-                apiInstance.GetArchive(username, repo, _ref, format);
+                apiInstance.GetArchive(owner, repo, _ref, format);
             }
             catch (Exception e)
             {
@@ -63,7 +63,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
  **_ref** | **string**| The name of the commit/branch/tag | 
  **format** | **string**| The format of archive, either .zip or .tar.gz | 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="getraw"></a>
 # **GetRaw**
-> void GetRaw (string username, string repo, string _ref, string path)
+> void GetRaw (string owner, string repo, string _ref, string path)
 
 Download raw content
 
@@ -189,7 +189,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new ContentApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
             var _ref = _ref_example;  // string | The name of the commit/branch/tag
             var path = path_example;  // string | The content path
@@ -197,7 +197,7 @@ namespace Example
             try
             {
                 // Download raw content
-                apiInstance.GetRaw(username, repo, _ref, path);
+                apiInstance.GetRaw(owner, repo, _ref, path);
             }
             catch (Exception e)
             {
@@ -212,7 +212,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
  **_ref** | **string**| The name of the commit/branch/tag | 
  **path** | **string**| The content path | 

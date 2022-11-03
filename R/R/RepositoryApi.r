@@ -116,14 +116,14 @@ RepositoryApi <- R6::R6Class(
       }
 
     }
-    get_repo = function(username, repo, ...){
+    get_repo = function(owner, repo, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {

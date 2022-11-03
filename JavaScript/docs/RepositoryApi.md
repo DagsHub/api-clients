@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
-[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
+[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{owner}/{repo} | Get repository information
 [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
@@ -127,7 +127,7 @@ null (empty response body)
 
 <a name="getRepo"></a>
 # **getRepo**
-> getRepo(username, repo)
+> getRepo(owner, repo)
 
 Get repository information
 
@@ -147,10 +147,10 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.RepositoryApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 
-apiInstance.getRepo(username, repo, (error, data, response) => {
+apiInstance.getRepo(owner, repo, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -163,7 +163,7 @@ apiInstance.getRepo(username, repo, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
 
 ### Return type
@@ -306,7 +306,7 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.RepositoryApi();
-let username = "username_example"; // String | A DagsHub username
+let username = "username_example"; // String | A DagsHub username or organization name
 
 apiInstance.listUserRepos(username, (error, data, response) => {
   if (error) {
@@ -321,7 +321,7 @@ apiInstance.listUserRepos(username, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **username** | **String**| A DagsHub username or organization name | 
 
 ### Return type
 

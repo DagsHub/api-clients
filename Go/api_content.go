@@ -29,13 +29,13 @@ type ContentApiService service
 ContentApiService Download archive
 This method returns archive by given format.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
  * @param ref The name of the commit/branch/tag
  * @param format The format of archive, either .zip or .tar.gz
 
 */
-func (a *ContentApiService) GetArchive(ctx context.Context, username string, repo string, ref string, format string) (*http.Response, error) {
+func (a *ContentApiService) GetArchive(ctx context.Context, owner string, repo string, ref string, format string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -45,8 +45,8 @@ func (a *ContentApiService) GetArchive(ctx context.Context, username string, rep
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/archive/{ref}/{format}"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}/archive/{ref}{format}"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"ref"+"}", fmt.Sprintf("%v", ref), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"format"+"}", fmt.Sprintf("%v", format), -1)
@@ -230,13 +230,13 @@ func (a *ContentApiService) GetContent(ctx context.Context, owner string, repo s
 ContentApiService Download raw content
 This method returns the raw content of a file.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
  * @param ref The name of the commit/branch/tag
  * @param path The content path
 
 */
-func (a *ContentApiService) GetRaw(ctx context.Context, username string, repo string, ref string, path string) (*http.Response, error) {
+func (a *ContentApiService) GetRaw(ctx context.Context, owner string, repo string, ref string, path string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -246,8 +246,8 @@ func (a *ContentApiService) GetRaw(ctx context.Context, username string, repo st
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/raw/{ref}/{path}"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}/raw/{ref}/{path}"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"ref"+"}", fmt.Sprintf("%v", ref), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"path"+"}", fmt.Sprintf("%v", path), -1)

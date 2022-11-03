@@ -76,7 +76,7 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.UserApi();
-let username = "username_example"; // String | A DagsHub username
+let username = "username_example"; // String | A DagsHub username or organization name
 
 apiInstance.getUser(username, (error, data, response) => {
   if (error) {
@@ -91,7 +91,7 @@ apiInstance.getUser(username, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **username** | **String**| A DagsHub username or organization name | 
 
 ### Return type
 

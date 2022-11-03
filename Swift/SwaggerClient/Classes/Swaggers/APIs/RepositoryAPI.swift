@@ -102,12 +102,12 @@ open class RepositoryAPI {
     /**
      Get repository information
 
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getRepo(username: String, repo: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        getRepoWithRequestBuilder(username: username, repo: repo).execute { (response, error) -> Void in
+    open class func getRepo(owner: String, repo: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getRepoWithRequestBuilder(owner: owner, repo: repo).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -119,7 +119,7 @@ open class RepositoryAPI {
 
     /**
      Get repository information
-     - GET /repos/{username}/{repo}
+     - GET /repos/{owner}/{repo}
      - 
 
      - BASIC:
@@ -128,16 +128,16 @@ open class RepositoryAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter owner: (path) owner of the repository 
      - parameter repo: (path) name of the repository 
 
      - returns: RequestBuilder<Void> 
      */
-    open class func getRepoWithRequestBuilder(username: String, repo: String) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}"
-        let usernamePreEscape = "\(username)"
-        let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)
+    open class func getRepoWithRequestBuilder(owner: String, repo: String) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
         let repoPreEscape = "\(repo)"
         let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
@@ -273,7 +273,7 @@ open class RepositoryAPI {
     /**
      List user repositories
 
-     - parameter username: (path) A DagsHub username 
+     - parameter username: (path) A DagsHub username or organization name 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func listUserRepos(username: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -297,7 +297,7 @@ open class RepositoryAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter username: (path) A DagsHub username or organization name 
 
      - returns: RequestBuilder<Void> 
      */

@@ -4,14 +4,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 [**getContent**](ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 [**uploadContent**](ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 
 <a name="getArchive"></a>
 # **getArchive**
-> getArchive(username, repo, ref, format)
+> getArchive(owner, repo, ref, format)
 
 Download archive
 
@@ -33,12 +33,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.ContentApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 let ref = "ref_example"; // String | The name of the commit/branch/tag
 let format = "format_example"; // String | The format of archive, either .zip or .tar.gz
 
-apiInstance.getArchive(username, repo, ref, format, (error, data, response) => {
+apiInstance.getArchive(owner, repo, ref, format, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,7 +51,7 @@ apiInstance.getArchive(username, repo, ref, format, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
  **ref** | **String**| The name of the commit/branch/tag | 
  **format** | **String**| The format of archive, either .zip or .tar.gz | 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 <a name="getRaw"></a>
 # **getRaw**
-> getRaw(username, repo, ref, path)
+> getRaw(owner, repo, ref, path)
 
 Download raw content
 
@@ -156,12 +156,12 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.ContentApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 let ref = "ref_example"; // String | The name of the commit/branch/tag
 let path = "path_example"; // String | The content path
 
-apiInstance.getRaw(username, repo, ref, path, (error, data, response) => {
+apiInstance.getRaw(owner, repo, ref, path, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -174,7 +174,7 @@ apiInstance.getRaw(username, repo, ref, path, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
  **ref** | **String**| The name of the commit/branch/tag | 
  **path** | **String**| The content path | 

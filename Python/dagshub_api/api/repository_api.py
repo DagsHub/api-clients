@@ -222,16 +222,16 @@ class RepositoryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_repo(self, username, repo, **kwargs):  # noqa: E501
+    def get_repo(self, owner, repo, **kwargs):  # noqa: E501
         """Get repository information  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_repo(username, repo, async_req=True)
+        >>> thread = api.get_repo(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :return: None
                  If the method is called asynchronously,
@@ -239,28 +239,28 @@ class RepositoryApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_repo_with_http_info(username, repo, **kwargs)  # noqa: E501
+            return self.get_repo_with_http_info(owner, repo, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_repo_with_http_info(username, repo, **kwargs)  # noqa: E501
+            (data) = self.get_repo_with_http_info(owner, repo, **kwargs)  # noqa: E501
             return data
 
-    def get_repo_with_http_info(self, username, repo, **kwargs):  # noqa: E501
+    def get_repo_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
         """Get repository information  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_repo_with_http_info(username, repo, async_req=True)
+        >>> thread = api.get_repo_with_http_info(owner, repo, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str owner: owner of the repository (required)
         :param str repo: name of the repository (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['username', 'repo']  # noqa: E501
+        all_params = ['owner', 'repo']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -275,10 +275,10 @@ class RepositoryApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'username' is set
-        if ('username' not in params or
-                params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `get_repo`")  # noqa: E501
+        # verify the required parameter 'owner' is set
+        if ('owner' not in params or
+                params['owner'] is None):
+            raise ValueError("Missing the required parameter `owner` when calling `get_repo`")  # noqa: E501
         # verify the required parameter 'repo' is set
         if ('repo' not in params or
                 params['repo'] is None):
@@ -287,8 +287,8 @@ class RepositoryApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'username' in params:
-            path_params['username'] = params['username']  # noqa: E501
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
         if 'repo' in params:
             path_params['repo'] = params['repo']  # noqa: E501
 
@@ -304,7 +304,7 @@ class RepositoryApi(object):
         auth_settings = ['basicAuth', 'tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/repos/{username}/{repo}', 'GET',
+            '/repos/{owner}/{repo}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -507,7 +507,7 @@ class RepositoryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str username: A DagsHub username or organization name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -529,7 +529,7 @@ class RepositoryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str username: A DagsHub username or organization name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

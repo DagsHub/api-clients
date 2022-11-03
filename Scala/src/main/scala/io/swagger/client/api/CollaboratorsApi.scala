@@ -82,14 +82,14 @@ class CollaboratorsApi(
    * Add user as a collaborator
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param collaborator collaborator username 
    * @param body  (optional)
    * @return void
    */
-  def addCollaborator(username: String, repo: String, collaborator: String, body: Option[CollaboratorsCollaboratorBody] = None) = {
-    val await = Try(Await.result(addCollaboratorAsync(username, repo, collaborator, body), Duration.Inf))
+  def addCollaborator(owner: String, repo: String, collaborator: String, body: Option[CollaboratorsCollaboratorBody] = None) = {
+    val await = Try(Await.result(addCollaboratorAsync(owner, repo, collaborator, body), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -100,26 +100,26 @@ class CollaboratorsApi(
    * Add user as a collaborator asynchronously
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param collaborator collaborator username 
    * @param body  (optional)
    * @return Future(void)
    */
-  def addCollaboratorAsync(username: String, repo: String, collaborator: String, body: Option[CollaboratorsCollaboratorBody] = None) = {
-      helper.addCollaborator(username, repo, collaborator, body)
+  def addCollaboratorAsync(owner: String, repo: String, collaborator: String, body: Option[CollaboratorsCollaboratorBody] = None) = {
+      helper.addCollaborator(owner, repo, collaborator, body)
   }
 
   /**
    * Get collaborators
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @return void
    */
-  def getCollaborators(username: String, repo: String) = {
-    val await = Try(Await.result(getCollaboratorsAsync(username, repo), Duration.Inf))
+  def getCollaborators(owner: String, repo: String) = {
+    val await = Try(Await.result(getCollaboratorsAsync(owner, repo), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -130,25 +130,25 @@ class CollaboratorsApi(
    * Get collaborators asynchronously
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @return Future(void)
    */
-  def getCollaboratorsAsync(username: String, repo: String) = {
-      helper.getCollaborators(username, repo)
+  def getCollaboratorsAsync(owner: String, repo: String) = {
+      helper.getCollaborators(owner, repo)
   }
 
   /**
    * Delete collaborator
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param collaborator collaborator username 
    * @return void
    */
-  def removeCollaborator(username: String, repo: String, collaborator: String) = {
-    val await = Try(Await.result(removeCollaboratorAsync(username, repo, collaborator), Duration.Inf))
+  def removeCollaborator(owner: String, repo: String, collaborator: String) = {
+    val await = Try(Await.result(removeCollaboratorAsync(owner, repo, collaborator), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -159,27 +159,27 @@ class CollaboratorsApi(
    * Delete collaborator asynchronously
    * 
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param collaborator collaborator username 
    * @return Future(void)
    */
-  def removeCollaboratorAsync(username: String, repo: String, collaborator: String) = {
-      helper.removeCollaborator(username, repo, collaborator)
+  def removeCollaboratorAsync(owner: String, repo: String, collaborator: String) = {
+      helper.removeCollaborator(owner, repo, collaborator)
   }
 
 }
 
 class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
 
-  def addCollaborator(username: String,
+  def addCollaborator(owner: String,
     repo: String,
     collaborator: String,
     body: Option[CollaboratorsCollaboratorBody] = None
     )(implicit reader: ClientResponseReader[Unit], writer: RequestWriter[Option[CollaboratorsCollaboratorBody]]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/collaborators/{collaborator}")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}/collaborators/{collaborator}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString)
       replaceAll("\\{" + "collaborator" + "\\}", collaborator.toString))
 
@@ -187,7 +187,7 @@ class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling CollaboratorsApi->addCollaborator")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling CollaboratorsApi->addCollaborator")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CollaboratorsApi->addCollaborator")
 
@@ -200,18 +200,18 @@ class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig
     }
   }
 
-  def getCollaborators(username: String,
+  def getCollaborators(owner: String,
     repo: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/collaborators")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}/collaborators")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling CollaboratorsApi->getCollaborators")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling CollaboratorsApi->getCollaborators")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CollaboratorsApi->getCollaborators")
 
@@ -222,12 +222,12 @@ class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig
     }
   }
 
-  def removeCollaborator(username: String,
+  def removeCollaborator(owner: String,
     repo: String,
     collaborator: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/collaborators/{collaborator}")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}/collaborators/{collaborator}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString)
       replaceAll("\\{" + "collaborator" + "\\}", collaborator.toString))
 
@@ -235,7 +235,7 @@ class CollaboratorsApiAsyncHelper(client: TransportClient, config: SwaggerConfig
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling CollaboratorsApi->removeCollaborator")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling CollaboratorsApi->removeCollaborator")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling CollaboratorsApi->removeCollaborator")
 

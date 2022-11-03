@@ -28,14 +28,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: branch
         in: path
         description: branch of the repository
@@ -48,6 +48,7 @@ paths:
         required: true
         schema:
           type: string
+          default: "."
       - name: include_size
         in: query
         required: false
@@ -96,14 +97,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: branch
         in: path
         description: branch of the repository
@@ -116,6 +117,7 @@ paths:
         required: true
         schema:
           type: string
+          default: "."
       requestBody:
         content:
           multipart/form-data:
@@ -150,11 +152,11 @@ paths:
       parameters:
       - name: username
         in: path
-        description: A DagsHub username
+        description: A DagsHub username or organization name
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: Dean
       responses:
         "200":
           description: successfully retrieved user information
@@ -181,14 +183,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: Successfully retrived the data
@@ -209,14 +211,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       requestBody:
         content:
           application/json:
@@ -241,14 +243,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       requestBody:
         content:
           application/json:
@@ -276,14 +278,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: index
         in: path
         description: the index of an issue or a pull request
@@ -311,14 +313,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: retrieved experiments successfully
@@ -374,14 +376,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       requestBody:
         content:
           application/json:
@@ -420,14 +422,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: experimentKey
         in: path
         description: a valid experiment key
@@ -458,14 +460,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: experimentKey
         in: path
         description: a valid experiment key
@@ -500,14 +502,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: experimentKey
         in: path
         description: a valid experiment key
@@ -610,27 +612,27 @@ paths:
                     updated_at: 2022-09-14T09:55:35Z
                   ok: true
                 x-content-type: application/json
-  /repos/{username}/{repo}:
+  /repos/{owner}/{repo}:
     get:
       tags:
       - Repository
       summary: Get repository information
       operationId: getRepo
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: repository information successfully retrieved
@@ -707,11 +709,11 @@ paths:
       parameters:
       - name: username
         in: path
-        description: A DagsHub username
+        description: A DagsHub username or organization name
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: Dean
       responses:
         "200":
           description: Success
@@ -775,7 +777,7 @@ paths:
       responses:
         "201":
           description: Created
-  /repos/{username}/{repo}/raw/{ref}/{path}:
+  /repos/{owner}/{repo}/raw/{ref}/{path}:
     get:
       tags:
       - Content
@@ -783,27 +785,27 @@ paths:
       description: This method returns the raw content of a file.
       operationId: getRaw
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: ref
         in: path
         description: The name of the commit/branch/tag
         required: true
         schema:
           type: string
-          example: master
+          example: main
       - name: path
         in: path
         description: The content path
@@ -815,7 +817,7 @@ paths:
       responses:
         "200":
           description: OK
-  /repos/{username}/{repo}/archive/{ref}/{format}:
+  /repos/{owner}/{repo}/archive/{ref}{format}:
     get:
       tags:
       - Content
@@ -823,27 +825,27 @@ paths:
       description: This method returns archive by given format.
       operationId: getArchive
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: ref
         in: path
         description: The name of the commit/branch/tag
         required: true
         schema:
           type: string
-          example: master
+          example: main
       - name: format
         in: path
         description: "The format of archive, either .zip or .tar.gz"
@@ -871,14 +873,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: OK
@@ -917,14 +919,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: branch
         in: path
         description: branch of the repository
@@ -947,27 +949,27 @@ paths:
                     name: Author Name
                     email: author@email.com
                     username: ""
-  /repos/{username}/{repo}/collaborators/{collaborator}:
+  /repos/{owner}/{repo}/collaborators/{collaborator}:
     put:
       tags:
       - Collaborators
       summary: Add user as a collaborator
       operationId: addCollaborator
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: collaborator
         in: path
         description: collaborator username
@@ -988,20 +990,20 @@ paths:
       summary: Delete collaborator
       operationId: removeCollaborator
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: collaborator
         in: path
         description: collaborator username
@@ -1015,27 +1017,27 @@ paths:
           description: User does not exist
         "500":
           description: Internal error
-  /repos/{username}/{repo}/collaborators:
+  /repos/{owner}/{repo}/collaborators:
     get:
       tags:
       - Collaborators
       summary: Get collaborators
       operationId: getCollaborators
       parameters:
-      - name: username
+      - name: owner
         in: path
-        description: A DagsHub username
+        description: owner of the repository
         required: true
         schema:
           type: string
-        example: nirbarazida
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: OK
@@ -1065,14 +1067,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: sha
         in: path
         description: a SHA1 of a commit
@@ -1131,14 +1133,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: OK
@@ -1173,14 +1175,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       responses:
         "200":
           description: OK
@@ -1226,14 +1228,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       requestBody:
         content:
           application/json:
@@ -1269,14 +1271,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: id
         in: path
         required: true
@@ -1299,14 +1301,14 @@ paths:
         required: true
         schema:
           type: string
-        example: DAGsHub-Official
+        example: OperationSavta
       - name: repo
         in: path
         description: name of the repository
         required: true
         schema:
           type: string
-        example: dagshub-docs
+        example: SavtaDepth
       - name: id
         in: path
         required: true
@@ -1823,7 +1825,7 @@ components:
       required: true
       schema:
         type: string
-      example: DAGsHub-Official
+      example: OperationSavta
     Repository:
       name: repo
       in: path
@@ -1831,7 +1833,7 @@ components:
       required: true
       schema:
         type: string
-      example: dagshub-docs
+      example: SavtaDepth
     Branch:
       name: branch
       in: path
@@ -1846,14 +1848,15 @@ components:
       required: true
       schema:
         type: string
+        default: "."
     Username:
       name: username
       in: path
-      description: A DagsHub username
+      description: A DagsHub username or organization name
       required: true
       schema:
         type: string
-      example: nirbarazida
+      example: Dean
     Index:
       name: index
       in: path
@@ -1890,7 +1893,7 @@ components:
       required: true
       schema:
         type: string
-        example: master
+        example: main
     Collaborator:
       name: collaborator
       in: path

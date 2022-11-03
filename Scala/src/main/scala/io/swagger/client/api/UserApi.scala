@@ -105,7 +105,7 @@ class UserApi(
    * Get information about a user
    * 
    *
-   * @param username A DagsHub username 
+   * @param username A DagsHub username or organization name 
    * @return void
    */
   def getUser(username: String) = {
@@ -120,7 +120,7 @@ class UserApi(
    * Get information about a user asynchronously
    * 
    *
-   * @param username A DagsHub username 
+   * @param username A DagsHub username or organization name 
    * @return Future(void)
    */
   def getUserAsync(username: String) = {

@@ -214,11 +214,11 @@ func (a *RepositoryApiService) CreateRepo(ctx context.Context, localVarOptionals
 /*
 RepositoryApiService Get repository information
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
 
 */
-func (a *RepositoryApiService) GetRepo(ctx context.Context, username string, repo string) (*http.Response, error) {
+func (a *RepositoryApiService) GetRepo(ctx context.Context, owner string, repo string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -228,8 +228,8 @@ func (a *RepositoryApiService) GetRepo(ctx context.Context, username string, rep
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -474,7 +474,7 @@ func (a *RepositoryApiService) ListOrgRepos(ctx context.Context, orgname string)
 RepositoryApiService List user repositories
 List public repositories for the specified user.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param username A DagsHub username or organization name
 
 */
 func (a *RepositoryApiService) ListUserRepos(ctx context.Context, username string) (*http.Response, error) {

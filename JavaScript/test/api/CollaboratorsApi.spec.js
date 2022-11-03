@@ -40,7 +40,7 @@
           /*
           var opts = {};
 
-          instance.addCollaborator(username, repo, collaborator, opts, function(error, data, response) {
+          instance.addCollaborator(owner, repo, collaborator, opts, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -58,7 +58,7 @@
           // TODO: uncomment, update parameter values for getCollaborators call
           /*
 
-          instance.getCollaborators(username, repo, function(error, data, response) {
+          instance.getCollaborators(owner, repo, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -76,7 +76,7 @@
           // TODO: uncomment, update parameter values for removeCollaborator call
           /*
 
-          instance.removeCollaborator(username, repo, collaborator, function(error, data, response) {
+          instance.removeCollaborator(owner, repo, collaborator, function(error, data, response) {
             if (error) {
               done(error);
               return;

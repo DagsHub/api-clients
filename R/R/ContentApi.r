@@ -44,14 +44,14 @@ ContentApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    get_archive = function(username, repo, ref, format, ...){
+    get_archive = function(owner, repo, ref, format, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}/archive/{ref}/{format}"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}/archive/{ref}{format}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {
@@ -126,14 +126,14 @@ ContentApi <- R6::R6Class(
       }
 
     }
-    get_raw = function(username, repo, ref, path, ...){
+    get_raw = function(owner, repo, ref, path, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}/raw/{ref}/{path}"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}/raw/{ref}/{path}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {

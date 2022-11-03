@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
-[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
+[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{owner}/{repo} | Get repository information
 [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
@@ -109,7 +109,7 @@ null (empty response body)
 
 <a name="getRepo"></a>
 # **getRepo**
-> getRepo(username, repo)
+> getRepo(owner, repo)
 
 Get repository information
 
@@ -120,10 +120,10 @@ Get repository information
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 try {
-    apiInstance.getRepo(username, repo)
+    apiInstance.getRepo(owner, repo)
 } catch (e: ClientException) {
     println("4xx response calling RepositoryApi#getRepo")
     e.printStackTrace()
@@ -137,7 +137,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
 
 ### Return type
@@ -257,7 +257,7 @@ List public repositories for the specified user.
 //import io.swagger.client.models.*;
 
 val apiInstance = RepositoryApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val username : kotlin.String = username_example // kotlin.String | A DagsHub username or organization name
 try {
     apiInstance.listUserRepos(username)
 } catch (e: ClientException) {
@@ -273,7 +273,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **username** | **kotlin.String**| A DagsHub username or organization name |
 
 ### Return type
 

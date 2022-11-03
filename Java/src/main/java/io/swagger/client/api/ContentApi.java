@@ -55,7 +55,7 @@ public class ContentApi {
 
     /**
      * Build call for getArchive
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param format The format of archive, either .zip or .tar.gz (required)
@@ -64,12 +64,12 @@ public class ContentApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getArchiveCall(String username, String repo, String ref, String format, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getArchiveCall(String owner, String repo, String ref, String format, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}"
-            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+        String localVarPath = "/repos/{owner}/{repo}/archive/{ref}{format}"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "ref" + "\\}", apiClient.escapeString(ref.toString()))
             .replaceAll("\\{" + "format" + "\\}", apiClient.escapeString(format.toString()));
@@ -110,10 +110,10 @@ public class ContentApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getArchiveValidateBeforeCall(String username, String repo, String ref, String format, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'username' is set
-        if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling getArchive(Async)");
+    private com.squareup.okhttp.Call getArchiveValidateBeforeCall(String owner, String repo, String ref, String format, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getArchive(Async)");
         }
         // verify the required parameter 'repo' is set
         if (repo == null) {
@@ -128,7 +128,7 @@ public class ContentApi {
             throw new ApiException("Missing the required parameter 'format' when calling getArchive(Async)");
         }
         
-        com.squareup.okhttp.Call call = getArchiveCall(username, repo, ref, format, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getArchiveCall(owner, repo, ref, format, progressListener, progressRequestListener);
         return call;
 
         
@@ -140,35 +140,35 @@ public class ContentApi {
     /**
      * Download archive
      * This method returns archive by given format.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param format The format of archive, either .zip or .tar.gz (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getArchive(String username, String repo, String ref, String format) throws ApiException {
-        getArchiveWithHttpInfo(username, repo, ref, format);
+    public void getArchive(String owner, String repo, String ref, String format) throws ApiException {
+        getArchiveWithHttpInfo(owner, repo, ref, format);
     }
 
     /**
      * Download archive
      * This method returns archive by given format.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param format The format of archive, either .zip or .tar.gz (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getArchiveWithHttpInfo(String username, String repo, String ref, String format) throws ApiException {
-        com.squareup.okhttp.Call call = getArchiveValidateBeforeCall(username, repo, ref, format, null, null);
+    public ApiResponse<Void> getArchiveWithHttpInfo(String owner, String repo, String ref, String format) throws ApiException {
+        com.squareup.okhttp.Call call = getArchiveValidateBeforeCall(owner, repo, ref, format, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Download archive (asynchronously)
      * This method returns archive by given format.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param format The format of archive, either .zip or .tar.gz (required)
@@ -176,7 +176,7 @@ public class ContentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getArchiveAsync(String username, String repo, String ref, String format, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getArchiveAsync(String owner, String repo, String ref, String format, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -197,7 +197,7 @@ public class ContentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getArchiveValidateBeforeCall(username, repo, ref, format, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getArchiveValidateBeforeCall(owner, repo, ref, format, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -361,7 +361,7 @@ public class ContentApi {
     }
     /**
      * Build call for getRaw
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param path The content path (required)
@@ -370,12 +370,12 @@ public class ContentApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRawCall(String username, String repo, String ref, String path, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getRawCall(String owner, String repo, String ref, String path, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/raw/{ref}/{path}"
-            .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
+        String localVarPath = "/repos/{owner}/{repo}/raw/{ref}/{path}"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "ref" + "\\}", apiClient.escapeString(ref.toString()))
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(path.toString()));
@@ -416,10 +416,10 @@ public class ContentApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRawValidateBeforeCall(String username, String repo, String ref, String path, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'username' is set
-        if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling getRaw(Async)");
+    private com.squareup.okhttp.Call getRawValidateBeforeCall(String owner, String repo, String ref, String path, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getRaw(Async)");
         }
         // verify the required parameter 'repo' is set
         if (repo == null) {
@@ -434,7 +434,7 @@ public class ContentApi {
             throw new ApiException("Missing the required parameter 'path' when calling getRaw(Async)");
         }
         
-        com.squareup.okhttp.Call call = getRawCall(username, repo, ref, path, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getRawCall(owner, repo, ref, path, progressListener, progressRequestListener);
         return call;
 
         
@@ -446,35 +446,35 @@ public class ContentApi {
     /**
      * Download raw content
      * This method returns the raw content of a file.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param path The content path (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void getRaw(String username, String repo, String ref, String path) throws ApiException {
-        getRawWithHttpInfo(username, repo, ref, path);
+    public void getRaw(String owner, String repo, String ref, String path) throws ApiException {
+        getRawWithHttpInfo(owner, repo, ref, path);
     }
 
     /**
      * Download raw content
      * This method returns the raw content of a file.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param path The content path (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> getRawWithHttpInfo(String username, String repo, String ref, String path) throws ApiException {
-        com.squareup.okhttp.Call call = getRawValidateBeforeCall(username, repo, ref, path, null, null);
+    public ApiResponse<Void> getRawWithHttpInfo(String owner, String repo, String ref, String path) throws ApiException {
+        com.squareup.okhttp.Call call = getRawValidateBeforeCall(owner, repo, ref, path, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Download raw content (asynchronously)
      * This method returns the raw content of a file.
-     * @param username A DagsHub username (required)
+     * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param ref The name of the commit/branch/tag (required)
      * @param path The content path (required)
@@ -482,7 +482,7 @@ public class ContentApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRawAsync(String username, String repo, String ref, String path, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRawAsync(String owner, String repo, String ref, String path, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -503,7 +503,7 @@ public class ContentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getRawValidateBeforeCall(username, repo, ref, path, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getRawValidateBeforeCall(owner, repo, ref, path, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

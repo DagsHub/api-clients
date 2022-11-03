@@ -38,7 +38,7 @@ Get information about a user
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **username** | **string**| A DagsHub username | 
+  **username** | **string**| A DagsHub username or organization name | 
 
 ### Return type
 

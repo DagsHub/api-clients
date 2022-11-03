@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_org_repo**](RepositoryApi.md#create_org_repo) | **POST** /org/{orgname}/repos | Create in organization
 [**create_repo**](RepositoryApi.md#create_repo) | **POST** /user/repos | Create
-[**get_repo**](RepositoryApi.md#get_repo) | **GET** /repos/{username}/{repo} | Get repository information
+[**get_repo**](RepositoryApi.md#get_repo) | **GET** /repos/{owner}/{repo} | Get repository information
 [**list_my_repos**](RepositoryApi.md#list_my_repos) | **GET** /user/repos | List your repositories
 [**list_org_repos**](RepositoryApi.md#list_org_repos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**list_user_repos**](RepositoryApi.md#list_user_repos) | **GET** /users/{username}/repos | List user repositories
@@ -128,7 +128,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_repo**
-> get_repo(username, repo)
+> get_repo(owner, repo)
 
 Get repository information
 
@@ -151,12 +151,12 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 
 try:
     # Get repository information
-    api_instance.get_repo(username, repo)
+    api_instance.get_repo(owner, repo)
 except ApiException as e:
     print("Exception when calling RepositoryApi->get_repo: %s\n" % e)
 ```
@@ -165,7 +165,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
 
 ### Return type
@@ -318,7 +318,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.RepositoryApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+username = 'username_example' # str | A DagsHub username or organization name
 
 try:
     # List user repositories
@@ -331,7 +331,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **username** | **str**| A DagsHub username or organization name | 
 
 ### Return type
 

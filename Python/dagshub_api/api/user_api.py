@@ -126,7 +126,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str username: A DagsHub username or organization name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -147,7 +147,7 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str username: A DagsHub username (required)
+        :param str username: A DagsHub username or organization name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
