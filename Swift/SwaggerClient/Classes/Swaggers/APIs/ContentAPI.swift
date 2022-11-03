@@ -40,7 +40,7 @@ open class ContentAPI {
 
     /**
      Download archive
-     - GET /repos/{username}/{repo}/archive/{ref}/{format}
+     - GET /repos/{username}/{repo}/archive/{ref}{format}
 
      - BASIC:
        - type: http
@@ -56,7 +56,7 @@ open class ContentAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func getArchiveWithRequestBuilder(username: String, repo: String, ref: String, format: Format_getArchive) -> RequestBuilder<Void> {
-        var path = "/repos/{username}/{repo}/archive/{ref}/{format}"
+        var path = "/repos/{username}/{repo}/archive/{ref}{format}"
         let usernamePreEscape = "\(username)"
         let usernamePostEscape = usernamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{username}", with: usernamePostEscape, options: .literal, range: nil)

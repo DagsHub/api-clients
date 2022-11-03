@@ -109,7 +109,7 @@ Class | Method | HTTP request | Description
 *CollaboratorsApi* | [**GetCollaborators**](docs/CollaboratorsApi.md#getcollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
 *CollaboratorsApi* | [**RemoveCollaborator**](docs/CollaboratorsApi.md#removecollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
 *CommitsApi* | [**GetCommit**](docs/CommitsApi.md#getcommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*ContentApi* | [**GetArchive**](docs/ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*ContentApi* | [**GetArchive**](docs/ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}{format} | Download archive
 *ContentApi* | [**GetContent**](docs/ContentApi.md#getcontent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *ContentApi* | [**GetRaw**](docs/ContentApi.md#getraw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**UploadContent**](docs/ContentApi.md#uploadcontent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository

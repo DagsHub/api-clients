@@ -2,7 +2,7 @@
 
 DagsHub API
 - API version: 1.0.2
-  - Build date: 2022-11-02T13:43:48.600724Z[Etc/UTC]
+  - Build date: 2022-11-03T13:28:30.292982Z[Etc/UTC]
 
 This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
@@ -154,7 +154,7 @@ Class | Method | HTTP request | Description
 *CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
 *CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
 *CommitsApi* | [**getCommit**](docs/CommitsApi.md#getCommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}{format} | Download archive
 *ContentApi* | [**getContent**](docs/ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository

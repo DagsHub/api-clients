@@ -108,7 +108,7 @@ Class | Method | HTTP request | Description
 *DagsHubApi.CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
 *DagsHubApi.CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
 *DagsHubApi.CommitsApi* | [**getCommit**](docs/CommitsApi.md#getCommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*DagsHubApi.ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*DagsHubApi.ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}{format} | Download archive
 *DagsHubApi.ContentApi* | [**getContent**](docs/ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 *DagsHubApi.ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 *DagsHubApi.ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository

@@ -231,7 +231,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     ref: String,
     format: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/archive/{ref}/{format}")
+    val path = (addFmt("/repos/{username}/{repo}/archive/{ref}{format}")
       replaceAll("\\{" + "username" + "\\}", username.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString)
       replaceAll("\\{" + "ref" + "\\}", ref.toString)

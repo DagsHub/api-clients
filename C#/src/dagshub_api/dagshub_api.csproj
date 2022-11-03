@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.2
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63D7421C-A930-4788-83EF-710C5BC4715D}</ProjectGuid>
+    <ProjectGuid>{529E08E1-EB19-4E28-A0A7-40AF46973928}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>dagshub_api</RootNamespace>

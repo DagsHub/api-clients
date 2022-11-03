@@ -422,7 +422,7 @@ namespace dagshub_api.Api
             if (format == null)
                 throw new ApiException(400, "Missing required parameter 'format' when calling ContentApi->GetArchive");
 
-            var localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}";
+            var localVarPath = "/repos/{username}/{repo}/archive/{ref}{format}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -515,7 +515,7 @@ namespace dagshub_api.Api
             if (format == null)
                 throw new ApiException(400, "Missing required parameter 'format' when calling ContentApi->GetArchive");
 
-            var localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}";
+            var localVarPath = "/repos/{username}/{repo}/archive/{ref}{format}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);

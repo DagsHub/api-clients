@@ -132,7 +132,7 @@ class ContentApi(object):
         auth_settings = ['basicAuth', 'tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/repos/{username}/{repo}/archive/{ref}/{format}', 'GET',
+            '/repos/{username}/{repo}/archive/{ref}{format}', 'GET',
             path_params,
             query_params,
             header_params,

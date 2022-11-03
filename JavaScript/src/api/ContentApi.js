@@ -90,7 +90,7 @@ export class ContentApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}/archive/{ref}/{format}', 'GET',
+        '/repos/{username}/{repo}/archive/{ref}{format}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

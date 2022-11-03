@@ -4,7 +4,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetArchive**](ContentApi.md#GetArchive) | **Get** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**GetArchive**](ContentApi.md#GetArchive) | **Get** /repos/{username}/{repo}/archive/{ref}{format} | Download archive
 [**GetContent**](ContentApi.md#GetContent) | **Get** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
 [**GetRaw**](ContentApi.md#GetRaw) | **Get** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
 [**UploadContent**](ContentApi.md#UploadContent) | **Put** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository

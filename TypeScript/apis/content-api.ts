@@ -50,7 +50,7 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
             if (format === null || format === undefined) {
                 throw new RequiredError('format','Required parameter format was null or undefined when calling getArchive.');
             }
-            const localVarPath = `/repos/{username}/{repo}/archive/{ref}/{format}`
+            const localVarPath = `/repos/{username}/{repo}/archive/{ref}{format}`
                 .replace(`{${"username"}}`, encodeURIComponent(String(username)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
                 .replace(`{${"ref"}}`, encodeURIComponent(String(ref)))

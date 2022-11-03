@@ -21,7 +21,7 @@ import java.util.List;
  * Determines what events the hook is triggered format.
  */
 @Schema(description = "Determines what events the hook is triggered format.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T13:43:48.600724Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T13:28:30.292982Z[Etc/UTC]")
 public class WebhookEvents extends ArrayList<String> {
 
   @Override

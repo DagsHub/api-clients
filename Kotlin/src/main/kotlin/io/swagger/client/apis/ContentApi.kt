@@ -30,7 +30,7 @@ class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiCl
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.GET,
-                "/repos/{username}/{repo}/archive/{ref}/{format}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "format" + "}", "$format"), query = localVariableQuery
+                "/repos/{username}/{repo}/archive/{ref}{format}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "format" + "}", "$format"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig

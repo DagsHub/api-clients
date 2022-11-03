@@ -49,7 +49,7 @@ ContentApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}/archive/{ref}/{format}"
+      urlPath <- "/repos/{username}/{repo}/archive/{ref}{format}"
       if (!missing(`username`)) {
         urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
       }

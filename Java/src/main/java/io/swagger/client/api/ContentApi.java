@@ -68,7 +68,7 @@ public class ContentApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}"
+        String localVarPath = "/repos/{username}/{repo}/archive/{ref}{format}"
             .replaceAll("\\{" + "username" + "\\}", apiClient.escapeString(username.toString()))
             .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()))
             .replaceAll("\\{" + "ref" + "\\}", apiClient.escapeString(ref.toString()))

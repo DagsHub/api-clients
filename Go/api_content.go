@@ -45,7 +45,7 @@ func (a *ContentApiService) GetArchive(ctx context.Context, username string, rep
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/archive/{ref}/{format}"
+	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/archive/{ref}{format}"
 	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"ref"+"}", fmt.Sprintf("%v", ref), -1)
