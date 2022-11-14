@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateOrgRepo**](RepositoryApi.md#createorgrepo) | **POST** /org/{orgname}/repos | Create in organization
 [**CreateRepo**](RepositoryApi.md#createrepo) | **POST** /user/repos | Create
-[**GetRepo**](RepositoryApi.md#getrepo) | **GET** /repos/{username}/{repo} | Get repository information
+[**GetRepo**](RepositoryApi.md#getrepo) | **GET** /repos/{owner}/{repo} | Get repository information
 [**ListMyRepos**](RepositoryApi.md#listmyrepos) | **GET** /user/repos | List your repositories
 [**ListOrgRepos**](RepositoryApi.md#listorgrepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**ListUserRepos**](RepositoryApi.md#listuserrepos) | **GET** /users/{username}/repos | List user repositories
@@ -151,7 +151,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="getrepo"></a>
 # **GetRepo**
-> void GetRepo (string username, string repo)
+> void GetRepo (string owner, string repo)
 
 Get repository information
 
@@ -178,13 +178,13 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new RepositoryApi();
-            var username = username_example;  // string | A DagsHub username
+            var owner = owner_example;  // string | owner of the repository
             var repo = repo_example;  // string | name of the repository
 
             try
             {
                 // Get repository information
-                apiInstance.GetRepo(username, repo);
+                apiInstance.GetRepo(owner, repo);
             }
             catch (Exception e)
             {
@@ -199,7 +199,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **owner** | **string**| owner of the repository | 
  **repo** | **string**| name of the repository | 
 
 ### Return type
@@ -378,7 +378,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
 
             var apiInstance = new RepositoryApi();
-            var username = username_example;  // string | A DagsHub username
+            var username = username_example;  // string | A DagsHub username or organization name
 
             try
             {
@@ -398,7 +398,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| A DagsHub username | 
+ **username** | **string**| A DagsHub username or organization name | 
 
 ### Return type
 

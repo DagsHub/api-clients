@@ -48,7 +48,7 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns></returns>
         void GetUser (string username);
 
@@ -59,7 +59,7 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> GetUserWithHttpInfo (string username);
         #endregion Synchronous Operations
@@ -90,7 +90,7 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task GetUserAsync (string username);
 
@@ -101,7 +101,7 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GetUserAsyncWithHttpInfo (string username);
         #endregion Asynchronous Operations
@@ -358,7 +358,7 @@ namespace dagshub_api.Api
         /// Get information about a user 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns></returns>
         public void GetUser (string username)
         {
@@ -369,7 +369,7 @@ namespace dagshub_api.Api
         /// Get information about a user 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> GetUserWithHttpInfo (string username)
         {
@@ -433,7 +433,7 @@ namespace dagshub_api.Api
         /// Get information about a user 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task GetUserAsync (string username)
         {
@@ -445,7 +445,7 @@ namespace dagshub_api.Api
         /// Get information about a user 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> GetUserAsyncWithHttpInfo (string username)
         {

@@ -54,7 +54,7 @@ open class UserAPI {
     /**
      Get information about a user
 
-     - parameter username: (path) A DagsHub username 
+     - parameter username: (path) A DagsHub username or organization name 
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getUser(username: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
@@ -79,7 +79,7 @@ open class UserAPI {
      - API Key:
        - type: apiKey token (QUERY)
        - name: tokenAuth
-     - parameter username: (path) A DagsHub username 
+     - parameter username: (path) A DagsHub username or organization name 
 
      - returns: RequestBuilder<Void> 
      */

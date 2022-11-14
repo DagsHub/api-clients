@@ -25,7 +25,7 @@ import java.io.IOException;
  * IssueLabels
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-02T13:43:48.600724Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T14:39:16.361212Z[Etc/UTC]")
 public class IssueLabels {
   @SerializedName("id")
   private Integer id = null;

@@ -105,13 +105,13 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BranchesApi* | [**GetBranch**](docs/BranchesApi.md#getbranch) | **GET** /repos/{owner}/{repo}/branches/{branch} | Get Branch
 *BranchesApi* | [**ListBranches**](docs/BranchesApi.md#listbranches) | **GET** /repos/{owner}/{repo}/branches | List Branches
-*CollaboratorsApi* | [**AddCollaborator**](docs/CollaboratorsApi.md#addcollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-*CollaboratorsApi* | [**GetCollaborators**](docs/CollaboratorsApi.md#getcollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-*CollaboratorsApi* | [**RemoveCollaborator**](docs/CollaboratorsApi.md#removecollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+*CollaboratorsApi* | [**AddCollaborator**](docs/CollaboratorsApi.md#addcollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+*CollaboratorsApi* | [**GetCollaborators**](docs/CollaboratorsApi.md#getcollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+*CollaboratorsApi* | [**RemoveCollaborator**](docs/CollaboratorsApi.md#removecollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 *CommitsApi* | [**GetCommit**](docs/CommitsApi.md#getcommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*ContentApi* | [**GetArchive**](docs/ContentApi.md#getarchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*ContentApi* | [**GetArchive**](docs/ContentApi.md#getarchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 *ContentApi* | [**GetContent**](docs/ContentApi.md#getcontent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-*ContentApi* | [**GetRaw**](docs/ContentApi.md#getraw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+*ContentApi* | [**GetRaw**](docs/ContentApi.md#getraw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**UploadContent**](docs/ContentApi.md#uploadcontent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *ExperimentsApi* | [**AddExperimentLabel**](docs/ExperimentsApi.md#addexperimentlabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
 *ExperimentsApi* | [**DeleteExperimentLabel**](docs/ExperimentsApi.md#deleteexperimentlabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
@@ -125,7 +125,7 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**ListReleases**](docs/ReleasesApi.md#listreleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**CreateOrgRepo**](docs/RepositoryApi.md#createorgrepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**CreateRepo**](docs/RepositoryApi.md#createrepo) | **POST** /user/repos | Create
-*RepositoryApi* | [**GetRepo**](docs/RepositoryApi.md#getrepo) | **GET** /repos/{username}/{repo} | Get repository information
+*RepositoryApi* | [**GetRepo**](docs/RepositoryApi.md#getrepo) | **GET** /repos/{owner}/{repo} | Get repository information
 *RepositoryApi* | [**ListMyRepos**](docs/RepositoryApi.md#listmyrepos) | **GET** /user/repos | List your repositories
 *RepositoryApi* | [**ListOrgRepos**](docs/RepositoryApi.md#listorgrepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *RepositoryApi* | [**ListUserRepos**](docs/RepositoryApi.md#listuserrepos) | **GET** /users/{username}/repos | List user repositories

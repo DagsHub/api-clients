@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrgRepo**](RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 [**createRepo**](RepositoryApi.md#createRepo) | **POST** /user/repos | Create
-[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
+[**getRepo**](RepositoryApi.md#getRepo) | **GET** /repos/{owner}/{repo} | Get repository information
 [**listMyRepos**](RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 [**listOrgRepos**](RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
@@ -133,7 +133,7 @@ null (empty response body)
 
 <a name="getRepo"></a>
 # **getRepo**
-> getRepo(username, repo)
+> getRepo(owner, repo)
 
 Get repository information
 
@@ -159,10 +159,10 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 RepositoryApi apiInstance = new RepositoryApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 try {
-    apiInstance.getRepo(username, repo);
+    apiInstance.getRepo(owner, repo);
 } catch (ApiException e) {
     System.err.println("Exception when calling RepositoryApi#getRepo");
     e.printStackTrace();
@@ -173,7 +173,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
 
 ### Return type
@@ -332,7 +332,7 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 RepositoryApi apiInstance = new RepositoryApi();
-String username = "username_example"; // String | A DagsHub username
+String username = "username_example"; // String | A DagsHub username or organization name
 try {
     apiInstance.listUserRepos(username);
 } catch (ApiException e) {
@@ -345,7 +345,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **username** | **String**| A DagsHub username or organization name |
 
 ### Return type
 

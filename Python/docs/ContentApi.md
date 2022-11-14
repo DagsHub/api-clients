@@ -4,13 +4,13 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_archive**](ContentApi.md#get_archive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**get_archive**](ContentApi.md#get_archive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 [**get_content**](ContentApi.md#get_content) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-[**get_raw**](ContentApi.md#get_raw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+[**get_raw**](ContentApi.md#get_raw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 [**upload_content**](ContentApi.md#upload_content) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 
 # **get_archive**
-> get_archive(username, repo, ref, format)
+> get_archive(owner, repo, ref, format)
 
 Download archive
 
@@ -35,14 +35,14 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.ContentApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 ref = 'ref_example' # str | The name of the commit/branch/tag
 format = 'format_example' # str | The format of archive, either .zip or .tar.gz
 
 try:
     # Download archive
-    api_instance.get_archive(username, repo, ref, format)
+    api_instance.get_archive(owner, repo, ref, format)
 except ApiException as e:
     print("Exception when calling ContentApi->get_archive: %s\n" % e)
 ```
@@ -51,7 +51,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
  **ref** | **str**| The name of the commit/branch/tag | 
  **format** | **str**| The format of archive, either .zip or .tar.gz | 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_raw**
-> get_raw(username, repo, ref, path)
+> get_raw(owner, repo, ref, path)
 
 Download raw content
 
@@ -162,14 +162,14 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.ContentApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 ref = 'ref_example' # str | The name of the commit/branch/tag
 path = 'path_example' # str | The content path
 
 try:
     # Download raw content
-    api_instance.get_raw(username, repo, ref, path)
+    api_instance.get_raw(owner, repo, ref, path)
 except ApiException as e:
     print("Exception when calling ContentApi->get_raw: %s\n" % e)
 ```
@@ -178,7 +178,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
  **ref** | **str**| The name of the commit/branch/tag | 
  **path** | **str**| The content path | 

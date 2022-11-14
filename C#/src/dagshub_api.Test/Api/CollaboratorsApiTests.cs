@@ -69,11 +69,11 @@ namespace dagshub_api.Test
         public void AddCollaboratorTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
             //string collaborator = null;
             //CollaboratorsCollaboratorBody body = null;
-            //instance.AddCollaborator(username, repo, collaborator, body);
+            //instance.AddCollaborator(owner, repo, collaborator, body);
             
         }
         /// <summary>
@@ -83,9 +83,9 @@ namespace dagshub_api.Test
         public void GetCollaboratorsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
-            //instance.GetCollaborators(username, repo);
+            //instance.GetCollaborators(owner, repo);
             
         }
         /// <summary>
@@ -95,10 +95,10 @@ namespace dagshub_api.Test
         public void RemoveCollaboratorTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
             //string collaborator = null;
-            //instance.RemoveCollaborator(username, repo, collaborator);
+            //instance.RemoveCollaborator(owner, repo, collaborator);
             
         }
     }

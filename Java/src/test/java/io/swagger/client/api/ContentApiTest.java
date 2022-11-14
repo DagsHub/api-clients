@@ -41,11 +41,11 @@ public class ContentApiTest {
      */
     @Test
     public void getArchiveTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
         String ref = null;
         String format = null;
-        api.getArchive(username, repo, ref, format);
+        api.getArchive(owner, repo, ref, format);
 
         // TODO: test validations
     }
@@ -78,11 +78,11 @@ public class ContentApiTest {
      */
     @Test
     public void getRawTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
         String ref = null;
         String path = null;
-        api.getRaw(username, repo, ref, path);
+        api.getRaw(owner, repo, ref, path);
 
         // TODO: test validations
     }

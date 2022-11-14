@@ -105,7 +105,7 @@ func (a *UserApiService) GetAuthenticatedUser(ctx context.Context) (*http.Respon
 /*
 UserApiService Get information about a user
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param username A DagsHub username or organization name
 
 */
 func (a *UserApiService) GetUser(ctx context.Context, username string) (*http.Response, error) {

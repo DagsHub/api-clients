@@ -30,12 +30,12 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        void AddCollaborator (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
+        void AddCollaborator (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
 
         /// <summary>
         /// Add user as a collaborator
@@ -44,12 +44,12 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddCollaboratorWithHttpInfo (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
+        ApiResponse<Object> AddCollaboratorWithHttpInfo (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
         /// <summary>
         /// Get collaborators
         /// </summary>
@@ -57,10 +57,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns></returns>
-        void GetCollaborators (string username, string repo);
+        void GetCollaborators (string owner, string repo);
 
         /// <summary>
         /// Get collaborators
@@ -69,10 +69,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetCollaboratorsWithHttpInfo (string username, string repo);
+        ApiResponse<Object> GetCollaboratorsWithHttpInfo (string owner, string repo);
         /// <summary>
         /// Delete collaborator
         /// </summary>
@@ -80,11 +80,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns></returns>
-        void RemoveCollaborator (string username, string repo, string collaborator);
+        void RemoveCollaborator (string owner, string repo, string collaborator);
 
         /// <summary>
         /// Delete collaborator
@@ -93,11 +93,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string username, string repo, string collaborator);
+        ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string owner, string repo, string collaborator);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -107,12 +107,12 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddCollaboratorAsync (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
+        System.Threading.Tasks.Task AddCollaboratorAsync (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
 
         /// <summary>
         /// Add user as a collaborator
@@ -121,12 +121,12 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> AddCollaboratorAsyncWithHttpInfo (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null);
         /// <summary>
         /// Get collaborators
         /// </summary>
@@ -134,10 +134,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetCollaboratorsAsync (string username, string repo);
+        System.Threading.Tasks.Task GetCollaboratorsAsync (string owner, string repo);
 
         /// <summary>
         /// Get collaborators
@@ -146,10 +146,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetCollaboratorsAsyncWithHttpInfo (string username, string repo);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetCollaboratorsAsyncWithHttpInfo (string owner, string repo);
         /// <summary>
         /// Delete collaborator
         /// </summary>
@@ -157,11 +157,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RemoveCollaboratorAsync (string username, string repo, string collaborator);
+        System.Threading.Tasks.Task RemoveCollaboratorAsync (string owner, string repo, string collaborator);
 
         /// <summary>
         /// Delete collaborator
@@ -170,11 +170,11 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator);
+        System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string owner, string repo, string collaborator);
         #endregion Asynchronous Operations
     }
 
@@ -290,30 +290,30 @@ namespace dagshub_api.Api
         /// Add user as a collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns></returns>
-        public void AddCollaborator (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
+        public void AddCollaborator (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
         {
-             AddCollaboratorWithHttpInfo(username, repo, collaborator, body);
+             AddCollaboratorWithHttpInfo(owner, repo, collaborator, body);
         }
 
         /// <summary>
         /// Add user as a collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddCollaboratorWithHttpInfo (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
+        public ApiResponse<Object> AddCollaboratorWithHttpInfo (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->AddCollaborator");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->AddCollaborator");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->AddCollaborator");
@@ -321,7 +321,7 @@ namespace dagshub_api.Api
             if (collaborator == null)
                 throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->AddCollaborator");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -342,7 +342,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             if (body != null && body.GetType() != typeof(byte[]))
@@ -387,14 +387,14 @@ namespace dagshub_api.Api
         /// Add user as a collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddCollaboratorAsync (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
+        public async System.Threading.Tasks.Task AddCollaboratorAsync (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
         {
-             await AddCollaboratorAsyncWithHttpInfo(username, repo, collaborator, body);
+             await AddCollaboratorAsyncWithHttpInfo(owner, repo, collaborator, body);
 
         }
 
@@ -402,16 +402,16 @@ namespace dagshub_api.Api
         /// Add user as a collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <param name="body"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddCollaboratorAsyncWithHttpInfo (string owner, string repo, string collaborator, CollaboratorsCollaboratorBody body = null)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->AddCollaborator");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->AddCollaborator");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->AddCollaborator");
@@ -419,7 +419,7 @@ namespace dagshub_api.Api
             if (collaborator == null)
                 throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->AddCollaborator");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -440,7 +440,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             if (body != null && body.GetType() != typeof(byte[]))
@@ -485,31 +485,31 @@ namespace dagshub_api.Api
         /// Get collaborators 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns></returns>
-        public void GetCollaborators (string username, string repo)
+        public void GetCollaborators (string owner, string repo)
         {
-             GetCollaboratorsWithHttpInfo(username, repo);
+             GetCollaboratorsWithHttpInfo(owner, repo);
         }
 
         /// <summary>
         /// Get collaborators 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetCollaboratorsWithHttpInfo (string username, string repo)
+        public ApiResponse<Object> GetCollaboratorsWithHttpInfo (string owner, string repo)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->GetCollaborators");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->GetCollaborators");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->GetCollaborators");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -530,7 +530,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
@@ -566,12 +566,12 @@ namespace dagshub_api.Api
         /// Get collaborators 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetCollaboratorsAsync (string username, string repo)
+        public async System.Threading.Tasks.Task GetCollaboratorsAsync (string owner, string repo)
         {
-             await GetCollaboratorsAsyncWithHttpInfo(username, repo);
+             await GetCollaboratorsAsyncWithHttpInfo(owner, repo);
 
         }
 
@@ -579,19 +579,19 @@ namespace dagshub_api.Api
         /// Get collaborators 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetCollaboratorsAsyncWithHttpInfo (string username, string repo)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetCollaboratorsAsyncWithHttpInfo (string owner, string repo)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->GetCollaborators");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->GetCollaborators");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->GetCollaborators");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -612,7 +612,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
@@ -648,28 +648,28 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns></returns>
-        public void RemoveCollaborator (string username, string repo, string collaborator)
+        public void RemoveCollaborator (string owner, string repo, string collaborator)
         {
-             RemoveCollaboratorWithHttpInfo(username, repo, collaborator);
+             RemoveCollaboratorWithHttpInfo(owner, repo, collaborator);
         }
 
         /// <summary>
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string username, string repo, string collaborator)
+        public ApiResponse<Object> RemoveCollaboratorWithHttpInfo (string owner, string repo, string collaborator)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->RemoveCollaborator");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->RemoveCollaborator");
@@ -677,7 +677,7 @@ namespace dagshub_api.Api
             if (collaborator == null)
                 throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->RemoveCollaborator");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -697,7 +697,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             // authentication (basicAuth) required
@@ -734,13 +734,13 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RemoveCollaboratorAsync (string username, string repo, string collaborator)
+        public async System.Threading.Tasks.Task RemoveCollaboratorAsync (string owner, string repo, string collaborator)
         {
-             await RemoveCollaboratorAsyncWithHttpInfo(username, repo, collaborator);
+             await RemoveCollaboratorAsyncWithHttpInfo(owner, repo, collaborator);
 
         }
 
@@ -748,15 +748,15 @@ namespace dagshub_api.Api
         /// Delete collaborator 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="collaborator">collaborator username</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string username, string repo, string collaborator)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RemoveCollaboratorAsyncWithHttpInfo (string owner, string repo, string collaborator)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling CollaboratorsApi->RemoveCollaborator");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling CollaboratorsApi->RemoveCollaborator");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling CollaboratorsApi->RemoveCollaborator");
@@ -764,7 +764,7 @@ namespace dagshub_api.Api
             if (collaborator == null)
                 throw new ApiException(400, "Missing required parameter 'collaborator' when calling CollaboratorsApi->RemoveCollaborator");
 
-            var localVarPath = "/repos/{username}/{repo}/collaborators/{collaborator}";
+            var localVarPath = "/repos/{owner}/{repo}/collaborators/{collaborator}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -784,7 +784,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (collaborator != null) localVarPathParams.Add("collaborator", this.Configuration.ApiClient.ParameterToString(collaborator)); // path parameter
             // authentication (basicAuth) required

@@ -81,7 +81,7 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.UserApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+username = 'username_example' # str | A DagsHub username or organization name
 
 try:
     # Get information about a user
@@ -94,7 +94,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **username** | **str**| A DagsHub username or organization name | 
 
 ### Return type
 

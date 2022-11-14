@@ -39,7 +39,7 @@
           // TODO: uncomment, update parameter values for getArchive call
           /*
 
-          instance.getArchive(username, repo, ref, format, function(error, data, response) {
+          instance.getArchive(owner, repo, ref, format, function(error, data, response) {
             if (error) {
               done(error);
               return;
@@ -78,7 +78,7 @@
           // TODO: uncomment, update parameter values for getRaw call
           /*
 
-          instance.getRaw(username, repo, ref, path, function(error, data, response) {
+          instance.getRaw(owner, repo, ref, path, function(error, data, response) {
             if (error) {
               done(error);
               return;

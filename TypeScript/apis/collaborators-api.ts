@@ -26,17 +26,17 @@ export const CollaboratorsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Add user as a collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {CollaboratorsCollaboratorBody} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCollaborator: async (username: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'username' is not null or undefined
-            if (username === null || username === undefined) {
-                throw new RequiredError('username','Required parameter username was null or undefined when calling addCollaborator.');
+        addCollaborator: async (owner: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling addCollaborator.');
             }
             // verify required parameter 'repo' is not null or undefined
             if (repo === null || repo === undefined) {
@@ -46,8 +46,8 @@ export const CollaboratorsApiAxiosParamCreator = function (configuration?: Confi
             if (collaborator === null || collaborator === undefined) {
                 throw new RequiredError('collaborator','Required parameter collaborator was null or undefined when calling addCollaborator.');
             }
-            const localVarPath = `/repos/{username}/{repo}/collaborators/{collaborator}`
-                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+            const localVarPath = `/repos/{owner}/{repo}/collaborators/{collaborator}`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
                 .replace(`{${"collaborator"}}`, encodeURIComponent(String(collaborator)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -93,22 +93,22 @@ export const CollaboratorsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Get collaborators
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCollaborators: async (username: string, repo: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'username' is not null or undefined
-            if (username === null || username === undefined) {
-                throw new RequiredError('username','Required parameter username was null or undefined when calling getCollaborators.');
+        getCollaborators: async (owner: string, repo: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling getCollaborators.');
             }
             // verify required parameter 'repo' is not null or undefined
             if (repo === null || repo === undefined) {
                 throw new RequiredError('repo','Required parameter repo was null or undefined when calling getCollaborators.');
             }
-            const localVarPath = `/repos/{username}/{repo}/collaborators`
-                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+            const localVarPath = `/repos/{owner}/{repo}/collaborators`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -149,16 +149,16 @@ export const CollaboratorsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Delete collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCollaborator: async (username: string, repo: string, collaborator: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'username' is not null or undefined
-            if (username === null || username === undefined) {
-                throw new RequiredError('username','Required parameter username was null or undefined when calling removeCollaborator.');
+        removeCollaborator: async (owner: string, repo: string, collaborator: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling removeCollaborator.');
             }
             // verify required parameter 'repo' is not null or undefined
             if (repo === null || repo === undefined) {
@@ -168,8 +168,8 @@ export const CollaboratorsApiAxiosParamCreator = function (configuration?: Confi
             if (collaborator === null || collaborator === undefined) {
                 throw new RequiredError('collaborator','Required parameter collaborator was null or undefined when calling removeCollaborator.');
             }
-            const localVarPath = `/repos/{username}/{repo}/collaborators/{collaborator}`
-                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+            const localVarPath = `/repos/{owner}/{repo}/collaborators/{collaborator}`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
                 .replace(`{${"collaborator"}}`, encodeURIComponent(String(collaborator)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -220,15 +220,15 @@ export const CollaboratorsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Add user as a collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {CollaboratorsCollaboratorBody} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCollaborator(username: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).addCollaborator(username, repo, collaborator, body, options);
+        async addCollaborator(owner: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).addCollaborator(owner, repo, collaborator, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -237,13 +237,13 @@ export const CollaboratorsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get collaborators
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCollaborators(username: string, repo: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).getCollaborators(username, repo, options);
+        async getCollaborators(owner: string, repo: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).getCollaborators(owner, repo, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -252,14 +252,14 @@ export const CollaboratorsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Delete collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeCollaborator(username: string, repo: string, collaborator: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).removeCollaborator(username, repo, collaborator, options);
+        async removeCollaborator(owner: string, repo: string, collaborator: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await CollaboratorsApiAxiosParamCreator(configuration).removeCollaborator(owner, repo, collaborator, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -277,38 +277,38 @@ export const CollaboratorsApiFactory = function (configuration?: Configuration, 
         /**
          * 
          * @summary Add user as a collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {CollaboratorsCollaboratorBody} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCollaborator(username: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return CollaboratorsApiFp(configuration).addCollaborator(username, repo, collaborator, body, options).then((request) => request(axios, basePath));
+        async addCollaborator(owner: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return CollaboratorsApiFp(configuration).addCollaborator(owner, repo, collaborator, body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get collaborators
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCollaborators(username: string, repo: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return CollaboratorsApiFp(configuration).getCollaborators(username, repo, options).then((request) => request(axios, basePath));
+        async getCollaborators(owner: string, repo: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return CollaboratorsApiFp(configuration).getCollaborators(owner, repo, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Delete collaborator
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} collaborator collaborator username
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeCollaborator(username: string, repo: string, collaborator: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return CollaboratorsApiFp(configuration).removeCollaborator(username, repo, collaborator, options).then((request) => request(axios, basePath));
+        async removeCollaborator(owner: string, repo: string, collaborator: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return CollaboratorsApiFp(configuration).removeCollaborator(owner, repo, collaborator, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -323,7 +323,7 @@ export class CollaboratorsApi extends BaseAPI {
     /**
      * 
      * @summary Add user as a collaborator
-     * @param {string} username A DagsHub username
+     * @param {string} owner owner of the repository
      * @param {string} repo name of the repository
      * @param {string} collaborator collaborator username
      * @param {CollaboratorsCollaboratorBody} [body] 
@@ -331,32 +331,32 @@ export class CollaboratorsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CollaboratorsApi
      */
-    public async addCollaborator(username: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return CollaboratorsApiFp(this.configuration).addCollaborator(username, repo, collaborator, body, options).then((request) => request(this.axios, this.basePath));
+    public async addCollaborator(owner: string, repo: string, collaborator: string, body?: CollaboratorsCollaboratorBody, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return CollaboratorsApiFp(this.configuration).addCollaborator(owner, repo, collaborator, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @summary Get collaborators
-     * @param {string} username A DagsHub username
+     * @param {string} owner owner of the repository
      * @param {string} repo name of the repository
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CollaboratorsApi
      */
-    public async getCollaborators(username: string, repo: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return CollaboratorsApiFp(this.configuration).getCollaborators(username, repo, options).then((request) => request(this.axios, this.basePath));
+    public async getCollaborators(owner: string, repo: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return CollaboratorsApiFp(this.configuration).getCollaborators(owner, repo, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @summary Delete collaborator
-     * @param {string} username A DagsHub username
+     * @param {string} owner owner of the repository
      * @param {string} repo name of the repository
      * @param {string} collaborator collaborator username
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CollaboratorsApi
      */
-    public async removeCollaborator(username: string, repo: string, collaborator: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return CollaboratorsApiFp(this.configuration).removeCollaborator(username, repo, collaborator, options).then((request) => request(this.axios, this.basePath));
+    public async removeCollaborator(owner: string, repo: string, collaborator: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return CollaboratorsApiFp(this.configuration).removeCollaborator(owner, repo, collaborator, options).then((request) => request(this.axios, this.basePath));
     }
 }

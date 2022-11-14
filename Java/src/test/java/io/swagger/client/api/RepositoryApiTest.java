@@ -73,9 +73,9 @@ public class RepositoryApiTest {
      */
     @Test
     public void getRepoTest() throws Exception {
-        String username = null;
+        String owner = null;
         String repo = null;
-        api.getRepo(username, repo);
+        api.getRepo(owner, repo);
 
         // TODO: test validations
     }

@@ -4,14 +4,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+[**getArchive**](ContentApi.md#getArchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 [**getContent**](ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+[**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 [**uploadContent**](ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 
 <a name="getArchive"></a>
 # **getArchive**
-> getArchive(username, repo, ref, format)
+> getArchive(owner, repo, ref, format)
 
 Download archive
 
@@ -39,12 +39,12 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 ContentApi apiInstance = new ContentApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 String ref = "ref_example"; // String | The name of the commit/branch/tag
 String format = "format_example"; // String | The format of archive, either .zip or .tar.gz
 try {
-    apiInstance.getArchive(username, repo, ref, format);
+    apiInstance.getArchive(owner, repo, ref, format);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContentApi#getArchive");
     e.printStackTrace();
@@ -55,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
  **ref** | **String**| The name of the commit/branch/tag |
  **format** | **String**| The format of archive, either .zip or .tar.gz | [enum: .zip, .tar.gz]
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 <a name="getRaw"></a>
 # **getRaw**
-> getRaw(username, repo, ref, path)
+> getRaw(owner, repo, ref, path)
 
 Download raw content
 
@@ -170,12 +170,12 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 ContentApi apiInstance = new ContentApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 String ref = "ref_example"; // String | The name of the commit/branch/tag
 String path = "path_example"; // String | The content path
 try {
-    apiInstance.getRaw(username, repo, ref, path);
+    apiInstance.getRaw(owner, repo, ref, path);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContentApi#getRaw");
     e.printStackTrace();
@@ -186,7 +186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
  **ref** | **String**| The name of the commit/branch/tag |
  **path** | **String**| The content path |

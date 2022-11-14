@@ -30,12 +30,12 @@ namespace dagshub_api.Api
         /// This method returns archive by given format.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns></returns>
-        void GetArchive (string username, string repo, string _ref, string format);
+        void GetArchive (string owner, string repo, string _ref, string format);
 
         /// <summary>
         /// Download archive
@@ -44,12 +44,12 @@ namespace dagshub_api.Api
         /// This method returns archive by given format.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetArchiveWithHttpInfo (string username, string repo, string _ref, string format);
+        ApiResponse<Object> GetArchiveWithHttpInfo (string owner, string repo, string _ref, string format);
         /// <summary>
         /// List data in a repository folder
         /// </summary>
@@ -86,12 +86,12 @@ namespace dagshub_api.Api
         /// This method returns the raw content of a file.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns></returns>
-        void GetRaw (string username, string repo, string _ref, string path);
+        void GetRaw (string owner, string repo, string _ref, string path);
 
         /// <summary>
         /// Download raw content
@@ -100,12 +100,12 @@ namespace dagshub_api.Api
         /// This method returns the raw content of a file.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetRawWithHttpInfo (string username, string repo, string _ref, string path);
+        ApiResponse<Object> GetRawWithHttpInfo (string owner, string repo, string _ref, string path);
         /// <summary>
         /// Upload data to a repository
         /// </summary>
@@ -156,12 +156,12 @@ namespace dagshub_api.Api
         /// This method returns archive by given format.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetArchiveAsync (string username, string repo, string _ref, string format);
+        System.Threading.Tasks.Task GetArchiveAsync (string owner, string repo, string _ref, string format);
 
         /// <summary>
         /// Download archive
@@ -170,12 +170,12 @@ namespace dagshub_api.Api
         /// This method returns archive by given format.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetArchiveAsyncWithHttpInfo (string username, string repo, string _ref, string format);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetArchiveAsyncWithHttpInfo (string owner, string repo, string _ref, string format);
         /// <summary>
         /// List data in a repository folder
         /// </summary>
@@ -212,12 +212,12 @@ namespace dagshub_api.Api
         /// This method returns the raw content of a file.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetRawAsync (string username, string repo, string _ref, string path);
+        System.Threading.Tasks.Task GetRawAsync (string owner, string repo, string _ref, string path);
 
         /// <summary>
         /// Download raw content
@@ -226,12 +226,12 @@ namespace dagshub_api.Api
         /// This method returns the raw content of a file.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetRawAsyncWithHttpInfo (string username, string repo, string _ref, string path);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetRawAsyncWithHttpInfo (string owner, string repo, string _ref, string path);
         /// <summary>
         /// Upload data to a repository
         /// </summary>
@@ -388,30 +388,30 @@ namespace dagshub_api.Api
         /// Download archive This method returns archive by given format.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns></returns>
-        public void GetArchive (string username, string repo, string _ref, string format)
+        public void GetArchive (string owner, string repo, string _ref, string format)
         {
-             GetArchiveWithHttpInfo(username, repo, _ref, format);
+             GetArchiveWithHttpInfo(owner, repo, _ref, format);
         }
 
         /// <summary>
         /// Download archive This method returns archive by given format.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetArchiveWithHttpInfo (string username, string repo, string _ref, string format)
+        public ApiResponse<Object> GetArchiveWithHttpInfo (string owner, string repo, string _ref, string format)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling ContentApi->GetArchive");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ContentApi->GetArchive");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling ContentApi->GetArchive");
@@ -422,7 +422,7 @@ namespace dagshub_api.Api
             if (format == null)
                 throw new ApiException(400, "Missing required parameter 'format' when calling ContentApi->GetArchive");
 
-            var localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}";
+            var localVarPath = "/repos/{owner}/{repo}/archive/{ref}{format}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -442,7 +442,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (_ref != null) localVarPathParams.Add("ref", this.Configuration.ApiClient.ParameterToString(_ref)); // path parameter
             if (format != null) localVarPathParams.Add("format", this.Configuration.ApiClient.ParameterToString(format)); // path parameter
@@ -480,14 +480,14 @@ namespace dagshub_api.Api
         /// Download archive This method returns archive by given format.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetArchiveAsync (string username, string repo, string _ref, string format)
+        public async System.Threading.Tasks.Task GetArchiveAsync (string owner, string repo, string _ref, string format)
         {
-             await GetArchiveAsyncWithHttpInfo(username, repo, _ref, format);
+             await GetArchiveAsyncWithHttpInfo(owner, repo, _ref, format);
 
         }
 
@@ -495,16 +495,16 @@ namespace dagshub_api.Api
         /// Download archive This method returns archive by given format.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="format">The format of archive, either .zip or .tar.gz</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetArchiveAsyncWithHttpInfo (string username, string repo, string _ref, string format)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetArchiveAsyncWithHttpInfo (string owner, string repo, string _ref, string format)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling ContentApi->GetArchive");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ContentApi->GetArchive");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling ContentApi->GetArchive");
@@ -515,7 +515,7 @@ namespace dagshub_api.Api
             if (format == null)
                 throw new ApiException(400, "Missing required parameter 'format' when calling ContentApi->GetArchive");
 
-            var localVarPath = "/repos/{username}/{repo}/archive/{ref}/{format}";
+            var localVarPath = "/repos/{owner}/{repo}/archive/{ref}{format}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -535,7 +535,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (_ref != null) localVarPathParams.Add("ref", this.Configuration.ApiClient.ParameterToString(_ref)); // path parameter
             if (format != null) localVarPathParams.Add("format", this.Configuration.ApiClient.ParameterToString(format)); // path parameter
@@ -768,30 +768,30 @@ namespace dagshub_api.Api
         /// Download raw content This method returns the raw content of a file.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns></returns>
-        public void GetRaw (string username, string repo, string _ref, string path)
+        public void GetRaw (string owner, string repo, string _ref, string path)
         {
-             GetRawWithHttpInfo(username, repo, _ref, path);
+             GetRawWithHttpInfo(owner, repo, _ref, path);
         }
 
         /// <summary>
         /// Download raw content This method returns the raw content of a file.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetRawWithHttpInfo (string username, string repo, string _ref, string path)
+        public ApiResponse<Object> GetRawWithHttpInfo (string owner, string repo, string _ref, string path)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling ContentApi->GetRaw");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ContentApi->GetRaw");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling ContentApi->GetRaw");
@@ -802,7 +802,7 @@ namespace dagshub_api.Api
             if (path == null)
                 throw new ApiException(400, "Missing required parameter 'path' when calling ContentApi->GetRaw");
 
-            var localVarPath = "/repos/{username}/{repo}/raw/{ref}/{path}";
+            var localVarPath = "/repos/{owner}/{repo}/raw/{ref}/{path}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -822,7 +822,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (_ref != null) localVarPathParams.Add("ref", this.Configuration.ApiClient.ParameterToString(_ref)); // path parameter
             if (path != null) localVarPathParams.Add("path", this.Configuration.ApiClient.ParameterToString(path)); // path parameter
@@ -860,14 +860,14 @@ namespace dagshub_api.Api
         /// Download raw content This method returns the raw content of a file.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetRawAsync (string username, string repo, string _ref, string path)
+        public async System.Threading.Tasks.Task GetRawAsync (string owner, string repo, string _ref, string path)
         {
-             await GetRawAsyncWithHttpInfo(username, repo, _ref, path);
+             await GetRawAsyncWithHttpInfo(owner, repo, _ref, path);
 
         }
 
@@ -875,16 +875,16 @@ namespace dagshub_api.Api
         /// Download raw content This method returns the raw content of a file.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <param name="_ref">The name of the commit/branch/tag</param>
         /// <param name="path">The content path</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRawAsyncWithHttpInfo (string username, string repo, string _ref, string path)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRawAsyncWithHttpInfo (string owner, string repo, string _ref, string path)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling ContentApi->GetRaw");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ContentApi->GetRaw");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling ContentApi->GetRaw");
@@ -895,7 +895,7 @@ namespace dagshub_api.Api
             if (path == null)
                 throw new ApiException(400, "Missing required parameter 'path' when calling ContentApi->GetRaw");
 
-            var localVarPath = "/repos/{username}/{repo}/raw/{ref}/{path}";
+            var localVarPath = "/repos/{owner}/{repo}/raw/{ref}/{path}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -915,7 +915,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             if (_ref != null) localVarPathParams.Add("ref", this.Configuration.ApiClient.ParameterToString(_ref)); // path parameter
             if (path != null) localVarPathParams.Add("path", this.Configuration.ApiClient.ParameterToString(path)); // path parameter

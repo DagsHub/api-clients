@@ -74,10 +74,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns></returns>
-        void GetRepo (string username, string repo);
+        void GetRepo (string owner, string repo);
 
         /// <summary>
         /// Get repository information
@@ -86,10 +86,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetRepoWithHttpInfo (string username, string repo);
+        ApiResponse<Object> GetRepoWithHttpInfo (string owner, string repo);
         /// <summary>
         /// List your repositories
         /// </summary>
@@ -137,7 +137,7 @@ namespace dagshub_api.Api
         /// List public repositories for the specified user.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns></returns>
         void ListUserRepos (string username);
 
@@ -148,7 +148,7 @@ namespace dagshub_api.Api
         /// List public repositories for the specified user.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ListUserReposWithHttpInfo (string username);
         /// <summary>
@@ -252,10 +252,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetRepoAsync (string username, string repo);
+        System.Threading.Tasks.Task GetRepoAsync (string owner, string repo);
 
         /// <summary>
         /// Get repository information
@@ -264,10 +264,10 @@ namespace dagshub_api.Api
         /// 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string username, string repo);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string owner, string repo);
         /// <summary>
         /// List your repositories
         /// </summary>
@@ -315,7 +315,7 @@ namespace dagshub_api.Api
         /// List public repositories for the specified user.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task ListUserReposAsync (string username);
 
@@ -326,7 +326,7 @@ namespace dagshub_api.Api
         /// List public repositories for the specified user.
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ListUserReposAsyncWithHttpInfo (string username);
         /// <summary>
@@ -822,31 +822,31 @@ namespace dagshub_api.Api
         /// Get repository information 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns></returns>
-        public void GetRepo (string username, string repo)
+        public void GetRepo (string owner, string repo)
         {
-             GetRepoWithHttpInfo(username, repo);
+             GetRepoWithHttpInfo(owner, repo);
         }
 
         /// <summary>
         /// Get repository information 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GetRepoWithHttpInfo (string username, string repo)
+        public ApiResponse<Object> GetRepoWithHttpInfo (string owner, string repo)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling RepositoryApi->GetRepo");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling RepositoryApi->GetRepo");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling RepositoryApi->GetRepo");
 
-            var localVarPath = "/repos/{username}/{repo}";
+            var localVarPath = "/repos/{owner}/{repo}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -866,7 +866,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
@@ -902,12 +902,12 @@ namespace dagshub_api.Api
         /// Get repository information 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetRepoAsync (string username, string repo)
+        public async System.Threading.Tasks.Task GetRepoAsync (string owner, string repo)
         {
-             await GetRepoAsyncWithHttpInfo(username, repo);
+             await GetRepoAsyncWithHttpInfo(owner, repo);
 
         }
 
@@ -915,19 +915,19 @@ namespace dagshub_api.Api
         /// Get repository information 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="owner">owner of the repository</param>
         /// <param name="repo">name of the repository</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string username, string repo)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetRepoAsyncWithHttpInfo (string owner, string repo)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling RepositoryApi->GetRepo");
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling RepositoryApi->GetRepo");
             // verify the required parameter 'repo' is set
             if (repo == null)
                 throw new ApiException(400, "Missing required parameter 'repo' when calling RepositoryApi->GetRepo");
 
-            var localVarPath = "/repos/{username}/{repo}";
+            var localVarPath = "/repos/{owner}/{repo}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -947,7 +947,7 @@ namespace dagshub_api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
             if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
             // authentication (basicAuth) required
             // http basic authentication required
@@ -1273,7 +1273,7 @@ namespace dagshub_api.Api
         /// List user repositories List public repositories for the specified user.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns></returns>
         public void ListUserRepos (string username)
         {
@@ -1284,7 +1284,7 @@ namespace dagshub_api.Api
         /// List user repositories List public repositories for the specified user.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ListUserReposWithHttpInfo (string username)
         {
@@ -1347,7 +1347,7 @@ namespace dagshub_api.Api
         /// List user repositories List public repositories for the specified user.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task ListUserReposAsync (string username)
         {
@@ -1359,7 +1359,7 @@ namespace dagshub_api.Api
         /// List user repositories List public repositories for the specified user.
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username">A DagsHub username</param>
+        /// <param name="username">A DagsHub username or organization name</param>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ListUserReposAsyncWithHttpInfo (string username)
         {

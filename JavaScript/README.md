@@ -104,13 +104,13 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DagsHubApi.BranchesApi* | [**getBranch**](docs/BranchesApi.md#getBranch) | **GET** /repos/{owner}/{repo}/branches/{branch} | Get Branch
 *DagsHubApi.BranchesApi* | [**listBranches**](docs/BranchesApi.md#listBranches) | **GET** /repos/{owner}/{repo}/branches | List Branches
-*DagsHubApi.CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-*DagsHubApi.CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-*DagsHubApi.CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+*DagsHubApi.CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+*DagsHubApi.CollaboratorsApi* | [**getCollaborators**](docs/CollaboratorsApi.md#getCollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+*DagsHubApi.CollaboratorsApi* | [**removeCollaborator**](docs/CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 *DagsHubApi.CommitsApi* | [**getCommit**](docs/CommitsApi.md#getCommit) | **GET** /repos/{owner}/{repo}/commits/{sha} | Get a single commit
-*DagsHubApi.ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{username}/{repo}/archive/{ref}/{format} | Download archive
+*DagsHubApi.ContentApi* | [**getArchive**](docs/ContentApi.md#getArchive) | **GET** /repos/{owner}/{repo}/archive/{ref}{format} | Download archive
 *DagsHubApi.ContentApi* | [**getContent**](docs/ContentApi.md#getContent) | **GET** /repos/{owner}/{repo}/content/{branch}/{path} | List data in a repository folder
-*DagsHubApi.ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{username}/{repo}/raw/{ref}/{path} | Download raw content
+*DagsHubApi.ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *DagsHubApi.ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *DagsHubApi.ExperimentsApi* | [**addExperimentLabel**](docs/ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
 *DagsHubApi.ExperimentsApi* | [**deleteExperimentLabel**](docs/ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
@@ -124,7 +124,7 @@ Class | Method | HTTP request | Description
 *DagsHubApi.ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listReleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *DagsHubApi.RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 *DagsHubApi.RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createRepo) | **POST** /user/repos | Create
-*DagsHubApi.RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getRepo) | **GET** /repos/{username}/{repo} | Get repository information
+*DagsHubApi.RepositoryApi* | [**getRepo**](docs/RepositoryApi.md#getRepo) | **GET** /repos/{owner}/{repo} | Get repository information
 *DagsHubApi.RepositoryApi* | [**listMyRepos**](docs/RepositoryApi.md#listMyRepos) | **GET** /user/repos | List your repositories
 *DagsHubApi.RepositoryApi* | [**listOrgRepos**](docs/RepositoryApi.md#listOrgRepos) | **GET** /orgs/{orgname}/repos | List organization repositories
 *DagsHubApi.RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories

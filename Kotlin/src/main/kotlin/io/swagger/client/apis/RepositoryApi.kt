@@ -72,15 +72,15 @@ class RepositoryApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : Ap
     /**
      * Get repository information
      * 
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @return void
      */
-    fun getRepo(username: kotlin.String, repo: kotlin.String): Unit {
+    fun getRepo(owner: kotlin.String, repo: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.GET,
-                "/repos/{username}/{repo}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo"), query = localVariableQuery
+                "/repos/{owner}/{repo}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig
@@ -145,7 +145,7 @@ class RepositoryApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : Ap
     /**
      * List user repositories
      * List public repositories for the specified user.
-     * @param username A DagsHub username 
+     * @param username A DagsHub username or organization name 
      * @return void
      */
     fun listUserRepos(username: kotlin.String): Unit {

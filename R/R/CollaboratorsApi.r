@@ -41,7 +41,7 @@ CollaboratorsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_collaborator = function(username, repo, collaborator, body, ...){
+    add_collaborator = function(owner, repo, collaborator, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
@@ -52,9 +52,9 @@ CollaboratorsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/repos/{username}/{repo}/collaborators/{collaborator}"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}/collaborators/{collaborator}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {
@@ -81,14 +81,14 @@ CollaboratorsApi <- R6::R6Class(
       }
 
     }
-    get_collaborators = function(username, repo, ...){
+    get_collaborators = function(owner, repo, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}/collaborators"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}/collaborators"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {
@@ -111,14 +111,14 @@ CollaboratorsApi <- R6::R6Class(
       }
 
     }
-    remove_collaborator = function(username, repo, collaborator, ...){
+    remove_collaborator = function(owner, repo, collaborator, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/repos/{username}/{repo}/collaborators/{collaborator}"
-      if (!missing(`username`)) {
-        urlPath <- gsub(paste0("\\{", "username", "\\}"), `username`, urlPath)
+      urlPath <- "/repos/{owner}/{repo}/collaborators/{collaborator}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
       }
 
       if (!missing(`repo`)) {

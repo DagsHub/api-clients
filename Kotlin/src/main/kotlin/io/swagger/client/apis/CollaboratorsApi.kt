@@ -20,18 +20,18 @@ class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") :
     /**
      * Add user as a collaborator
      * 
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @param collaborator collaborator username 
      * @param body  (optional)
      * @return void
      */
-    fun addCollaborator(username: kotlin.String, repo: kotlin.String, collaborator: kotlin.String, body: CollaboratorsCollaboratorBody? = null): Unit {
+    fun addCollaborator(owner: kotlin.String, repo: kotlin.String, collaborator: kotlin.String, body: CollaboratorsCollaboratorBody? = null): Unit {
         val localVariableBody: kotlin.Any? = body
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.PUT,
-                "/repos/{username}/{repo}/collaborators/{collaborator}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "collaborator" + "}", "$collaborator"), query = localVariableQuery
+                "/repos/{owner}/{repo}/collaborators/{collaborator}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "collaborator" + "}", "$collaborator"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig, localVariableBody
@@ -48,15 +48,15 @@ class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") :
     /**
      * Get collaborators
      * 
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @return void
      */
-    fun getCollaborators(username: kotlin.String, repo: kotlin.String): Unit {
+    fun getCollaborators(owner: kotlin.String, repo: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.GET,
-                "/repos/{username}/{repo}/collaborators".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo"), query = localVariableQuery
+                "/repos/{owner}/{repo}/collaborators".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig
@@ -73,16 +73,16 @@ class CollaboratorsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") :
     /**
      * Delete collaborator
      * 
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @param collaborator collaborator username 
      * @return void
      */
-    fun removeCollaborator(username: kotlin.String, repo: kotlin.String, collaborator: kotlin.String): Unit {
+    fun removeCollaborator(owner: kotlin.String, repo: kotlin.String, collaborator: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.DELETE,
-                "/repos/{username}/{repo}/collaborators/{collaborator}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "collaborator" + "}", "$collaborator"), query = localVariableQuery
+                "/repos/{owner}/{repo}/collaborators/{collaborator}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "collaborator" + "}", "$collaborator"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig

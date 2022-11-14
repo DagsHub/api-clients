@@ -4,13 +4,13 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 
 <a name="addCollaborator"></a>
 # **addCollaborator**
-> addCollaborator(username, repo, collaborator, opts)
+> addCollaborator(owner, repo, collaborator, opts)
 
 Add user as a collaborator
 
@@ -30,13 +30,13 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.CollaboratorsApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 let collaborator = "collaborator_example"; // String | collaborator username
 let opts = { 
   'body': new DagsHubApi.CollaboratorsCollaboratorBody() // CollaboratorsCollaboratorBody | 
 };
-apiInstance.addCollaborator(username, repo, collaborator, opts, (error, data, response) => {
+apiInstance.addCollaborator(owner, repo, collaborator, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -49,7 +49,7 @@ apiInstance.addCollaborator(username, repo, collaborator, opts, (error, data, re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
  **collaborator** | **String**| collaborator username | 
  **body** | [**CollaboratorsCollaboratorBody**](CollaboratorsCollaboratorBody.md)|  | [optional] 
@@ -69,7 +69,7 @@ null (empty response body)
 
 <a name="getCollaborators"></a>
 # **getCollaborators**
-> getCollaborators(username, repo)
+> getCollaborators(owner, repo)
 
 Get collaborators
 
@@ -89,10 +89,10 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.CollaboratorsApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 
-apiInstance.getCollaborators(username, repo, (error, data, response) => {
+apiInstance.getCollaborators(owner, repo, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -105,7 +105,7 @@ apiInstance.getCollaborators(username, repo, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
 
 ### Return type
@@ -123,7 +123,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator(username, repo, collaborator)
+> removeCollaborator(owner, repo, collaborator)
 
 Delete collaborator
 
@@ -143,11 +143,11 @@ tokenAuth.apiKey = 'YOUR API KEY';
 //tokenAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new DagsHubApi.CollaboratorsApi();
-let username = "username_example"; // String | A DagsHub username
+let owner = "owner_example"; // String | owner of the repository
 let repo = "repo_example"; // String | name of the repository
 let collaborator = "collaborator_example"; // String | collaborator username
 
-apiInstance.removeCollaborator(username, repo, collaborator, (error, data, response) => {
+apiInstance.removeCollaborator(owner, repo, collaborator, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -160,7 +160,7 @@ apiInstance.removeCollaborator(username, repo, collaborator, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username | 
+ **owner** | **String**| owner of the repository | 
  **repo** | **String**| name of the repository | 
  **collaborator** | **String**| collaborator username | 
 

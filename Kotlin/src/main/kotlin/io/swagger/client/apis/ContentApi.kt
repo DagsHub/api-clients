@@ -20,17 +20,17 @@ class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiCl
     /**
      * Download archive
      * This method returns archive by given format.
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @param ref The name of the commit/branch/tag 
      * @param format The format of archive, either .zip or .tar.gz 
      * @return void
      */
-    fun getArchive(username: kotlin.String, repo: kotlin.String, ref: kotlin.String, format: kotlin.String): Unit {
+    fun getArchive(owner: kotlin.String, repo: kotlin.String, ref: kotlin.String, format: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.GET,
-                "/repos/{username}/{repo}/archive/{ref}/{format}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "format" + "}", "$format"), query = localVariableQuery
+                "/repos/{owner}/{repo}/archive/{ref}{format}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "format" + "}", "$format"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig
@@ -76,17 +76,17 @@ class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiCl
     /**
      * Download raw content
      * This method returns the raw content of a file.
-     * @param username A DagsHub username 
+     * @param owner owner of the repository 
      * @param repo name of the repository 
      * @param ref The name of the commit/branch/tag 
      * @param path The content path 
      * @return void
      */
-    fun getRaw(username: kotlin.String, repo: kotlin.String, ref: kotlin.String, path: kotlin.String): Unit {
+    fun getRaw(owner: kotlin.String, repo: kotlin.String, ref: kotlin.String, path: kotlin.String): Unit {
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableConfig = RequestConfig(
                 RequestMethod.GET,
-                "/repos/{username}/{repo}/raw/{ref}/{path}".replace("{" + "username" + "}", "$username").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "path" + "}", "$path"), query = localVariableQuery
+                "/repos/{owner}/{repo}/raw/{ref}/{path}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "ref" + "}", "$ref").replace("{" + "path" + "}", "$path"), query = localVariableQuery
         )
         val response = request<Any?>(
                 localVariableConfig

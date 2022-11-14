@@ -83,7 +83,7 @@ export class UserApi {
 
     /**
      * Get information about a user
-     * @param {String} username A DagsHub username
+     * @param {String} username A DagsHub username or organization name
      * @param {module:api/UserApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     getUser(username, callback) {

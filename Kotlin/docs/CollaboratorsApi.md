@@ -4,13 +4,13 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 
 <a name="addCollaborator"></a>
 # **addCollaborator**
-> addCollaborator(username, repo, collaborator, body)
+> addCollaborator(owner, repo, collaborator, body)
 
 Add user as a collaborator
 
@@ -21,12 +21,12 @@ Add user as a collaborator
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 val collaborator : kotlin.String = collaborator_example // kotlin.String | collaborator username
 val body : CollaboratorsCollaboratorBody =  // CollaboratorsCollaboratorBody | 
 try {
-    apiInstance.addCollaborator(username, repo, collaborator, body)
+    apiInstance.addCollaborator(owner, repo, collaborator, body)
 } catch (e: ClientException) {
     println("4xx response calling CollaboratorsApi#addCollaborator")
     e.printStackTrace()
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
  **collaborator** | **kotlin.String**| collaborator username |
  **body** | [**CollaboratorsCollaboratorBody**](CollaboratorsCollaboratorBody.md)|  | [optional]
@@ -60,7 +60,7 @@ null (empty response body)
 
 <a name="getCollaborators"></a>
 # **getCollaborators**
-> getCollaborators(username, repo)
+> getCollaborators(owner, repo)
 
 Get collaborators
 
@@ -71,10 +71,10 @@ Get collaborators
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 try {
-    apiInstance.getCollaborators(username, repo)
+    apiInstance.getCollaborators(owner, repo)
 } catch (e: ClientException) {
     println("4xx response calling CollaboratorsApi#getCollaborators")
     e.printStackTrace()
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
 
 ### Return type
@@ -106,7 +106,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator(username, repo, collaborator)
+> removeCollaborator(owner, repo, collaborator)
 
 Delete collaborator
 
@@ -117,11 +117,11 @@ Delete collaborator
 //import io.swagger.client.models.*;
 
 val apiInstance = CollaboratorsApi()
-val username : kotlin.String = username_example // kotlin.String | A DagsHub username
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
 val repo : kotlin.String = repo_example // kotlin.String | name of the repository
 val collaborator : kotlin.String = collaborator_example // kotlin.String | collaborator username
 try {
-    apiInstance.removeCollaborator(username, repo, collaborator)
+    apiInstance.removeCollaborator(owner, repo, collaborator)
 } catch (e: ClientException) {
     println("4xx response calling CollaboratorsApi#removeCollaborator")
     e.printStackTrace()
@@ -135,7 +135,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **kotlin.String**| A DagsHub username |
+ **owner** | **kotlin.String**| owner of the repository |
  **repo** | **kotlin.String**| name of the repository |
  **collaborator** | **kotlin.String**| collaborator username |
 

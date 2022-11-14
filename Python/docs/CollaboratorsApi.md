@@ -4,12 +4,12 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_collaborator**](CollaboratorsApi.md#add_collaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-[**get_collaborators**](CollaboratorsApi.md#get_collaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-[**remove_collaborator**](CollaboratorsApi.md#remove_collaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+[**add_collaborator**](CollaboratorsApi.md#add_collaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+[**get_collaborators**](CollaboratorsApi.md#get_collaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+[**remove_collaborator**](CollaboratorsApi.md#remove_collaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 
 # **add_collaborator**
-> add_collaborator(username, repo, collaborator, body=body)
+> add_collaborator(owner, repo, collaborator, body=body)
 
 Add user as a collaborator
 
@@ -32,14 +32,14 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.CollaboratorsApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 collaborator = 'collaborator_example' # str | collaborator username
 body = dagshub_api.CollaboratorsCollaboratorBody() # CollaboratorsCollaboratorBody |  (optional)
 
 try:
     # Add user as a collaborator
-    api_instance.add_collaborator(username, repo, collaborator, body=body)
+    api_instance.add_collaborator(owner, repo, collaborator, body=body)
 except ApiException as e:
     print("Exception when calling CollaboratorsApi->add_collaborator: %s\n" % e)
 ```
@@ -48,7 +48,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
  **collaborator** | **str**| collaborator username | 
  **body** | [**CollaboratorsCollaboratorBody**](CollaboratorsCollaboratorBody.md)|  | [optional] 
@@ -69,7 +69,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collaborators**
-> get_collaborators(username, repo)
+> get_collaborators(owner, repo)
 
 Get collaborators
 
@@ -92,12 +92,12 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.CollaboratorsApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 
 try:
     # Get collaborators
-    api_instance.get_collaborators(username, repo)
+    api_instance.get_collaborators(owner, repo)
 except ApiException as e:
     print("Exception when calling CollaboratorsApi->get_collaborators: %s\n" % e)
 ```
@@ -106,7 +106,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
 
 ### Return type
@@ -125,7 +125,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_collaborator**
-> remove_collaborator(username, repo, collaborator)
+> remove_collaborator(owner, repo, collaborator)
 
 Delete collaborator
 
@@ -148,13 +148,13 @@ configuration.api_key['token'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = dagshub_api.CollaboratorsApi(dagshub_api.ApiClient(configuration))
-username = 'username_example' # str | A DagsHub username
+owner = 'owner_example' # str | owner of the repository
 repo = 'repo_example' # str | name of the repository
 collaborator = 'collaborator_example' # str | collaborator username
 
 try:
     # Delete collaborator
-    api_instance.remove_collaborator(username, repo, collaborator)
+    api_instance.remove_collaborator(owner, repo, collaborator)
 except ApiException as e:
     print("Exception when calling CollaboratorsApi->remove_collaborator: %s\n" % e)
 ```
@@ -163,7 +163,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**| A DagsHub username | 
+ **owner** | **str**| owner of the repository | 
  **repo** | **str**| name of the repository | 
  **collaborator** | **str**| collaborator username | 
 

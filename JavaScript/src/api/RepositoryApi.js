@@ -136,16 +136,16 @@ export class RepositoryApi {
 
     /**
      * Get repository information
-     * @param {String} username A DagsHub username
+     * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {module:api/RepositoryApi~getRepoCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getRepo(username, repo, callback) {
+    getRepo(owner, repo, callback) {
       
       let postBody = null;
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling getRepo");
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getRepo");
       }
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
@@ -153,7 +153,7 @@ export class RepositoryApi {
       }
 
       let pathParams = {
-        'username': username,'repo': repo
+        'owner': owner,'repo': repo
       };
       let queryParams = {
         
@@ -171,7 +171,7 @@ export class RepositoryApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/repos/{username}/{repo}', 'GET',
+        '/repos/{owner}/{repo}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -275,7 +275,7 @@ export class RepositoryApi {
     /**
      * List user repositories
      * List public repositories for the specified user.
-     * @param {String} username A DagsHub username
+     * @param {String} username A DagsHub username or organization name
      * @param {module:api/RepositoryApi~listUserReposCallback} callback The callback function, accepting three arguments: error, data, response
      */
     listUserRepos(username, callback) {

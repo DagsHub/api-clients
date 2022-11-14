@@ -42,7 +42,7 @@ class UserApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiClien
     /**
      * Get information about a user
      * 
-     * @param username A DagsHub username 
+     * @param username A DagsHub username or organization name 
      * @return void
      */
     fun getUser(username: kotlin.String): Unit {

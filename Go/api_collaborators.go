@@ -28,7 +28,7 @@ type CollaboratorsApiService service
 /*
 CollaboratorsApiService Add user as a collaborator
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
  * @param collaborator collaborator username
  * @param optional nil or *CollaboratorsApiAddCollaboratorOpts - Optional Parameters:
@@ -40,7 +40,7 @@ type CollaboratorsApiAddCollaboratorOpts struct {
     Body optional.Interface
 }
 
-func (a *CollaboratorsApiService) AddCollaborator(ctx context.Context, username string, repo string, collaborator string, localVarOptionals *CollaboratorsApiAddCollaboratorOpts) (*http.Response, error) {
+func (a *CollaboratorsApiService) AddCollaborator(ctx context.Context, owner string, repo string, collaborator string, localVarOptionals *CollaboratorsApiAddCollaboratorOpts) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -50,8 +50,8 @@ func (a *CollaboratorsApiService) AddCollaborator(ctx context.Context, username 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/collaborators/{collaborator}"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}/collaborators/{collaborator}"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"collaborator"+"}", fmt.Sprintf("%v", collaborator), -1)
 
@@ -125,11 +125,11 @@ func (a *CollaboratorsApiService) AddCollaborator(ctx context.Context, username 
 /*
 CollaboratorsApiService Get collaborators
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
 
 */
-func (a *CollaboratorsApiService) GetCollaborators(ctx context.Context, username string, repo string) (*http.Response, error) {
+func (a *CollaboratorsApiService) GetCollaborators(ctx context.Context, owner string, repo string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -139,8 +139,8 @@ func (a *CollaboratorsApiService) GetCollaborators(ctx context.Context, username
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/collaborators"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}/collaborators"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -207,12 +207,12 @@ func (a *CollaboratorsApiService) GetCollaborators(ctx context.Context, username
 /*
 CollaboratorsApiService Delete collaborator
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param username A DagsHub username
+ * @param owner owner of the repository
  * @param repo name of the repository
  * @param collaborator collaborator username
 
 */
-func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context, username string, repo string, collaborator string) (*http.Response, error) {
+func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context, owner string, repo string, collaborator string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -222,8 +222,8 @@ func (a *CollaboratorsApiService) RemoveCollaborator(ctx context.Context, userna
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/repos/{username}/{repo}/collaborators/{collaborator}"
-	localVarPath = strings.Replace(localVarPath, "{"+"username"+"}", fmt.Sprintf("%v", username), -1)
+	localVarPath := a.client.cfg.BasePath + "/repos/{owner}/{repo}/collaborators/{collaborator}"
+	localVarPath = strings.Replace(localVarPath, "{"+"owner"+"}", fmt.Sprintf("%v", owner), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"repo"+"}", fmt.Sprintf("%v", repo), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"collaborator"+"}", fmt.Sprintf("%v", collaborator), -1)
 

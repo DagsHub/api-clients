@@ -4,13 +4,13 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{username}/{repo}/collaborators/{collaborator} | Add user as a collaborator
-[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{username}/{repo}/collaborators | Get collaborators
-[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{username}/{repo}/collaborators/{collaborator} | Delete collaborator
+[**addCollaborator**](CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
+[**getCollaborators**](CollaboratorsApi.md#getCollaborators) | **GET** /repos/{owner}/{repo}/collaborators | Get collaborators
+[**removeCollaborator**](CollaboratorsApi.md#removeCollaborator) | **DELETE** /repos/{owner}/{repo}/collaborators/{collaborator} | Delete collaborator
 
 <a name="addCollaborator"></a>
 # **addCollaborator**
-> addCollaborator(username, repo, collaborator, body)
+> addCollaborator(owner, repo, collaborator, body)
 
 Add user as a collaborator
 
@@ -36,12 +36,12 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 CollaboratorsApi apiInstance = new CollaboratorsApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 String collaborator = "collaborator_example"; // String | collaborator username
 CollaboratorsCollaboratorBody body = new CollaboratorsCollaboratorBody(); // CollaboratorsCollaboratorBody | 
 try {
-    apiInstance.addCollaborator(username, repo, collaborator, body);
+    apiInstance.addCollaborator(owner, repo, collaborator, body);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollaboratorsApi#addCollaborator");
     e.printStackTrace();
@@ -52,7 +52,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
  **collaborator** | **String**| collaborator username |
  **body** | [**CollaboratorsCollaboratorBody**](CollaboratorsCollaboratorBody.md)|  | [optional]
@@ -72,7 +72,7 @@ null (empty response body)
 
 <a name="getCollaborators"></a>
 # **getCollaborators**
-> getCollaborators(username, repo)
+> getCollaborators(owner, repo)
 
 Get collaborators
 
@@ -98,10 +98,10 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 CollaboratorsApi apiInstance = new CollaboratorsApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 try {
-    apiInstance.getCollaborators(username, repo);
+    apiInstance.getCollaborators(owner, repo);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollaboratorsApi#getCollaborators");
     e.printStackTrace();
@@ -112,7 +112,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
 
 ### Return type
@@ -130,7 +130,7 @@ null (empty response body)
 
 <a name="removeCollaborator"></a>
 # **removeCollaborator**
-> removeCollaborator(username, repo, collaborator)
+> removeCollaborator(owner, repo, collaborator)
 
 Delete collaborator
 
@@ -156,11 +156,11 @@ tokenAuth.setApiKey("YOUR API KEY");
 //tokenAuth.setApiKeyPrefix("Token");
 
 CollaboratorsApi apiInstance = new CollaboratorsApi();
-String username = "username_example"; // String | A DagsHub username
+String owner = "owner_example"; // String | owner of the repository
 String repo = "repo_example"; // String | name of the repository
 String collaborator = "collaborator_example"; // String | collaborator username
 try {
-    apiInstance.removeCollaborator(username, repo, collaborator);
+    apiInstance.removeCollaborator(owner, repo, collaborator);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollaboratorsApi#removeCollaborator");
     e.printStackTrace();
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| A DagsHub username |
+ **owner** | **String**| owner of the repository |
  **repo** | **String**| name of the repository |
  **collaborator** | **String**| collaborator username |
 

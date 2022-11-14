@@ -92,9 +92,9 @@ namespace dagshub_api.Test
         public void GetRepoTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
-            //instance.GetRepo(username, repo);
+            //instance.GetRepo(owner, repo);
             
         }
         /// <summary>

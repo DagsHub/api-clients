@@ -69,11 +69,11 @@ namespace dagshub_api.Test
         public void GetArchiveTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
             //string _ref = null;
             //string format = null;
-            //instance.GetArchive(username, repo, _ref, format);
+            //instance.GetArchive(owner, repo, _ref, format);
             
         }
         /// <summary>
@@ -98,11 +98,11 @@ namespace dagshub_api.Test
         public void GetRawTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string username = null;
+            //string owner = null;
             //string repo = null;
             //string _ref = null;
             //string path = null;
-            //instance.GetRaw(username, repo, _ref, path);
+            //instance.GetRaw(owner, repo, _ref, path);
             
         }
         /// <summary>

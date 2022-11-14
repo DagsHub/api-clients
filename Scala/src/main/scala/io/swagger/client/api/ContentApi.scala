@@ -82,14 +82,14 @@ class ContentApi(
    * Download archive
    * This method returns archive by given format.
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param ref The name of the commit/branch/tag 
    * @param format The format of archive, either .zip or .tar.gz 
    * @return void
    */
-  def getArchive(username: String, repo: String, ref: String, format: String) = {
-    val await = Try(Await.result(getArchiveAsync(username, repo, ref, format), Duration.Inf))
+  def getArchive(owner: String, repo: String, ref: String, format: String) = {
+    val await = Try(Await.result(getArchiveAsync(owner, repo, ref, format), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -100,14 +100,14 @@ class ContentApi(
    * Download archive asynchronously
    * This method returns archive by given format.
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param ref The name of the commit/branch/tag 
    * @param format The format of archive, either .zip or .tar.gz 
    * @return Future(void)
    */
-  def getArchiveAsync(username: String, repo: String, ref: String, format: String) = {
-      helper.getArchive(username, repo, ref, format)
+  def getArchiveAsync(owner: String, repo: String, ref: String, format: String) = {
+      helper.getArchive(owner, repo, ref, format)
   }
 
   /**
@@ -148,14 +148,14 @@ class ContentApi(
    * Download raw content
    * This method returns the raw content of a file.
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param ref The name of the commit/branch/tag 
    * @param &#x60;path&#x60; The content path 
    * @return void
    */
-  def getRaw(username: String, repo: String, ref: String, &#x60;path&#x60;: String) = {
-    val await = Try(Await.result(getRawAsync(username, repo, ref, &#x60;path&#x60;), Duration.Inf))
+  def getRaw(owner: String, repo: String, ref: String, &#x60;path&#x60;: String) = {
+    val await = Try(Await.result(getRawAsync(owner, repo, ref, &#x60;path&#x60;), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -166,14 +166,14 @@ class ContentApi(
    * Download raw content asynchronously
    * This method returns the raw content of a file.
    *
-   * @param username A DagsHub username 
+   * @param owner owner of the repository 
    * @param repo name of the repository 
    * @param ref The name of the commit/branch/tag 
    * @param &#x60;path&#x60; The content path 
    * @return Future(void)
    */
-  def getRawAsync(username: String, repo: String, ref: String, &#x60;path&#x60;: String) = {
-      helper.getRaw(username, repo, ref, &#x60;path&#x60;)
+  def getRawAsync(owner: String, repo: String, ref: String, &#x60;path&#x60;: String) = {
+      helper.getRaw(owner, repo, ref, &#x60;path&#x60;)
   }
 
   /**
@@ -226,13 +226,13 @@ class ContentApi(
 
 class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) extends ApiClient(client, config) {
 
-  def getArchive(username: String,
+  def getArchive(owner: String,
     repo: String,
     ref: String,
     format: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/archive/{ref}/{format}")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}/archive/{ref}{format}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString)
       replaceAll("\\{" + "ref" + "\\}", ref.toString)
       replaceAll("\\{" + "format" + "\\}", format.toString))
@@ -241,7 +241,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling ContentApi->getArchive")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling ContentApi->getArchive")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling ContentApi->getArchive")
 
@@ -292,13 +292,13 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     }
   }
 
-  def getRaw(username: String,
+  def getRaw(owner: String,
     repo: String,
     ref: String,
     &#x60;path&#x60;: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
     // create path and map variables
-    val path = (addFmt("/repos/{username}/{repo}/raw/{ref}/{path}")
-      replaceAll("\\{" + "username" + "\\}", username.toString)
+    val path = (addFmt("/repos/{owner}/{repo}/raw/{ref}/{path}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
       replaceAll("\\{" + "repo" + "\\}", repo.toString)
       replaceAll("\\{" + "ref" + "\\}", ref.toString)
       replaceAll("\\{" + "path" + "\\}", &#x60;path&#x60;.toString))
@@ -307,7 +307,7 @@ class ContentApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
 
-    if (username == null) throw new Exception("Missing required parameter 'username' when calling ContentApi->getRaw")
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling ContentApi->getRaw")
 
     if (repo == null) throw new Exception("Missing required parameter 'repo' when calling ContentApi->getRaw")
 

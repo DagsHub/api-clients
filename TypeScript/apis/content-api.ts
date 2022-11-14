@@ -26,17 +26,17 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * This method returns archive by given format.
          * @summary Download archive
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} format The format of archive, either .zip or .tar.gz
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getArchive: async (username: string, repo: string, ref: string, format: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'username' is not null or undefined
-            if (username === null || username === undefined) {
-                throw new RequiredError('username','Required parameter username was null or undefined when calling getArchive.');
+        getArchive: async (owner: string, repo: string, ref: string, format: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling getArchive.');
             }
             // verify required parameter 'repo' is not null or undefined
             if (repo === null || repo === undefined) {
@@ -50,8 +50,8 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
             if (format === null || format === undefined) {
                 throw new RequiredError('format','Required parameter format was null or undefined when calling getArchive.');
             }
-            const localVarPath = `/repos/{username}/{repo}/archive/{ref}/{format}`
-                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+            const localVarPath = `/repos/{owner}/{repo}/archive/{ref}{format}`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
                 .replace(`{${"ref"}}`, encodeURIComponent(String(ref)))
                 .replace(`{${"format"}}`, encodeURIComponent(String(format)));
@@ -167,17 +167,17 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * This method returns the raw content of a file.
          * @summary Download raw content
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} path The content path
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRaw: async (username: string, repo: string, ref: string, path: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'username' is not null or undefined
-            if (username === null || username === undefined) {
-                throw new RequiredError('username','Required parameter username was null or undefined when calling getRaw.');
+        getRaw: async (owner: string, repo: string, ref: string, path: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling getRaw.');
             }
             // verify required parameter 'repo' is not null or undefined
             if (repo === null || repo === undefined) {
@@ -191,8 +191,8 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
             if (path === null || path === undefined) {
                 throw new RequiredError('path','Required parameter path was null or undefined when calling getRaw.');
             }
-            const localVarPath = `/repos/{username}/{repo}/raw/{ref}/{path}`
-                .replace(`{${"username"}}`, encodeURIComponent(String(username)))
+            const localVarPath = `/repos/{owner}/{repo}/raw/{ref}/{path}`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
                 .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
                 .replace(`{${"ref"}}`, encodeURIComponent(String(ref)))
                 .replace(`{${"path"}}`, encodeURIComponent(String(path)));
@@ -351,15 +351,15 @@ export const ContentApiFp = function(configuration?: Configuration) {
         /**
          * This method returns archive by given format.
          * @summary Download archive
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} format The format of archive, either .zip or .tar.gz
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getArchive(username: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await ContentApiAxiosParamCreator(configuration).getArchive(username, repo, ref, format, options);
+        async getArchive(owner: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await ContentApiAxiosParamCreator(configuration).getArchive(owner, repo, ref, format, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -386,15 +386,15 @@ export const ContentApiFp = function(configuration?: Configuration) {
         /**
          * This method returns the raw content of a file.
          * @summary Download raw content
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} path The content path
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRaw(username: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await ContentApiAxiosParamCreator(configuration).getRaw(username, repo, ref, path, options);
+        async getRaw(owner: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await ContentApiAxiosParamCreator(configuration).getRaw(owner, repo, ref, path, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -436,15 +436,15 @@ export const ContentApiFactory = function (configuration?: Configuration, basePa
         /**
          * This method returns archive by given format.
          * @summary Download archive
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} format The format of archive, either .zip or .tar.gz
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getArchive(username: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return ContentApiFp(configuration).getArchive(username, repo, ref, format, options).then((request) => request(axios, basePath));
+        async getArchive(owner: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return ContentApiFp(configuration).getArchive(owner, repo, ref, format, options).then((request) => request(axios, basePath));
         },
         /**
          * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
@@ -463,15 +463,15 @@ export const ContentApiFactory = function (configuration?: Configuration, basePa
         /**
          * This method returns the raw content of a file.
          * @summary Download raw content
-         * @param {string} username A DagsHub username
+         * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
          * @param {string} ref The name of the commit/branch/tag
          * @param {string} path The content path
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRaw(username: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return ContentApiFp(configuration).getRaw(username, repo, ref, path, options).then((request) => request(axios, basePath));
+        async getRaw(owner: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return ContentApiFp(configuration).getRaw(owner, repo, ref, path, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -506,7 +506,7 @@ export class ContentApi extends BaseAPI {
     /**
      * This method returns archive by given format.
      * @summary Download archive
-     * @param {string} username A DagsHub username
+     * @param {string} owner owner of the repository
      * @param {string} repo name of the repository
      * @param {string} ref The name of the commit/branch/tag
      * @param {string} format The format of archive, either .zip or .tar.gz
@@ -514,8 +514,8 @@ export class ContentApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContentApi
      */
-    public async getArchive(username: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return ContentApiFp(this.configuration).getArchive(username, repo, ref, format, options).then((request) => request(this.axios, this.basePath));
+    public async getArchive(owner: string, repo: string, ref: string, format: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return ContentApiFp(this.configuration).getArchive(owner, repo, ref, format, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
@@ -535,7 +535,7 @@ export class ContentApi extends BaseAPI {
     /**
      * This method returns the raw content of a file.
      * @summary Download raw content
-     * @param {string} username A DagsHub username
+     * @param {string} owner owner of the repository
      * @param {string} repo name of the repository
      * @param {string} ref The name of the commit/branch/tag
      * @param {string} path The content path
@@ -543,8 +543,8 @@ export class ContentApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContentApi
      */
-    public async getRaw(username: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return ContentApiFp(this.configuration).getRaw(username, repo, ref, path, options).then((request) => request(this.axios, this.basePath));
+    public async getRaw(owner: string, repo: string, ref: string, path: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return ContentApiFp(this.configuration).getRaw(owner, repo, ref, path, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
