@@ -22,7 +22,10 @@ import {EditExperimentPost} from './model/EditExperimentPost';
 import {ExperimentKeys} from './model/ExperimentKeys';
 import {File} from './model/File';
 import {Files} from './model/Files';
+import {Files1} from './model/Files1';
 import {HooksIdBody} from './model/HooksIdBody';
+import {Integration} from './model/Integration';
+import {IntegrationInner} from './model/IntegrationInner';
 import {Issue} from './model/Issue';
 import {IssueAssignee} from './model/IssueAssignee';
 import {IssueLabels} from './model/IssueLabels';
@@ -48,6 +51,7 @@ import {ExperimentsApi} from './api/ExperimentsApi';
 import {IssuesApi} from './api/IssuesApi';
 import {ReleasesApi} from './api/ReleasesApi';
 import {RepositoryApi} from './api/RepositoryApi';
+import {StorageIntegrationsApi} from './api/StorageIntegrationsApi';
 import {UserApi} from './api/UserApi';
 import {WebhooksApi} from './api/WebhooksApi';
 
@@ -144,10 +148,28 @@ export {
     Files,
 
     /**
+     * The Files1 model constructor.
+     * @property {module:model/Files1}
+     */
+    Files1,
+
+    /**
      * The HooksIdBody model constructor.
      * @property {module:model/HooksIdBody}
      */
     HooksIdBody,
+
+    /**
+     * The Integration model constructor.
+     * @property {module:model/Integration}
+     */
+    Integration,
+
+    /**
+     * The IntegrationInner model constructor.
+     * @property {module:model/IntegrationInner}
+     */
+    IntegrationInner,
 
     /**
      * The Issue model constructor.
@@ -298,6 +320,12 @@ export {
     * @property {module:api/RepositoryApi}
     */
     RepositoryApi,
+
+    /**
+    * The StorageIntegrationsApi service constructor.
+    * @property {module:api/StorageIntegrationsApi}
+    */
+    StorageIntegrationsApi,
 
     /**
     * The UserApi service constructor.

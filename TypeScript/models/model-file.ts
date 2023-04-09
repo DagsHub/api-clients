@@ -53,6 +53,12 @@ export interface ModelFile {
      * @memberof ModelFile
      */
     downloadUrl?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelFile
+     */
+    contentUrl?: string;
 }
 
 /**
@@ -69,6 +75,7 @@ export enum ModelFileTypeEnum {
     */
 export enum ModelFileVersioningEnum {
     Git = 'git',
-    Dvc = 'dvc'
+    Dvc = 'dvc',
+    Bucket = 'bucket'
 }
 

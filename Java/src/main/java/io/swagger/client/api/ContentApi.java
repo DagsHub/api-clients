@@ -290,7 +290,7 @@ public class ContentApi {
 
     /**
      * List data in a repository folder
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param branch branch of the repository (required)
@@ -306,7 +306,7 @@ public class ContentApi {
 
     /**
      * List data in a repository folder
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param branch branch of the repository (required)
@@ -323,7 +323,7 @@ public class ContentApi {
 
     /**
      * List data in a repository folder (asynchronously)
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      * @param owner owner of the repository (required)
      * @param repo name of the repository (required)
      * @param branch branch of the repository (required)

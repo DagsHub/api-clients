@@ -18,6 +18,7 @@ export * from './apis/experiments-api';
 export * from './apis/issues-api';
 export * from './apis/releases-api';
 export * from './apis/repository-api';
+export * from './apis/storage-integrations-api';
 export * from './apis/user-api';
 export * from './apis/webhooks-api';
 

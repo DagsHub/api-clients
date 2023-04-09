@@ -21,7 +21,7 @@ import java.util.List;
  * Labels **ID** to associate with this issue.   **Note:** Only users with write access can set labels for new issues.  Labels are silently dropped otherwise.
  */
 @Schema(description = "Labels **ID** to associate with this issue.   **Note:** Only users with write access can set labels for new issues.  Labels are silently dropped otherwise.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T14:39:16.361212Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-04-09T12:18:35.169871Z[Etc/UTC]")
 public class Labels extends ArrayList<Integer> {
 
   @Override

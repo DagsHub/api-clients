@@ -25,7 +25,7 @@ import java.io.IOException;
  * PutFile
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T14:39:16.361212Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-04-09T12:18:35.169871Z[Etc/UTC]")
 public class PutFile {
   @SerializedName("commit_summary")
   private String commitSummary = null;
@@ -90,7 +90,8 @@ public class PutFile {
   public enum VersioningEnum {
     AUTO("auto"),
     DVC("dvc"),
-    GIT("git");
+    GIT("git"),
+    BUCKET("bucket");
 
     private String value;
 

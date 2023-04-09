@@ -93,6 +93,9 @@ Class | Method | HTTP request | Description
 *RepositoryApi* | [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrateRepo**](RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*StorageIntegrationsApi* | [**getBucketContent**](StorageIntegrationsApi.md#getBucketContent) | **GET** /repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path} | List contents in the path
+*StorageIntegrationsApi* | [**getBucketFile**](StorageIntegrationsApi.md#getBucketFile) | **GET** /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path} | Get file in the bucket
+*StorageIntegrationsApi* | [**getBuckets**](StorageIntegrationsApi.md#getBuckets) | **GET** /repos/{owner}/{repo}/storage | List integrated storages in the repository
 *UserApi* | [**getAuthenticatedUser**](UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
 *UserApi* | [**getUser**](UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**createHook**](WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
@@ -110,7 +113,10 @@ Class | Method | HTTP request | Description
  - [EditExperimentPost](EditExperimentPost.md)
  - [ExperimentKeys](ExperimentKeys.md)
  - [Files](Files.md)
+ - [Files1](Files1.md)
  - [HooksIdBody](HooksIdBody.md)
+ - [Integration](Integration.md)
+ - [IntegrationInner](IntegrationInner.md)
  - [Issue](Issue.md)
  - [IssueAssignee](IssueAssignee.md)
  - [IssueLabels](IssueLabels.md)

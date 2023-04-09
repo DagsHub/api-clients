@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **hash** | **String** |  |  [optional]
 **versioning** | [**VersioningEnum**](#VersioningEnum) |  |  [optional]
 **downloadUrl** | **String** |  |  [optional]
+**contentUrl** | **String** |  |  [optional]
 
 <a name="TypeEnum"></a>
 ## Enum: TypeEnum
@@ -23,3 +24,4 @@ Name | Value
 ---- | -----
 GIT | &quot;git&quot;
 DVC | &quot;dvc&quot;
+BUCKET | &quot;bucket&quot;

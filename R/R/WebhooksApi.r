@@ -34,7 +34,7 @@
 WebhooksApi <- R6::R6Class(
   'WebhooksApi',
   public = list(
-    userAgent = "Swagger-Codegen/1.0.2/r",
+    userAgent = "Swagger-Codegen/1.0.3/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {
