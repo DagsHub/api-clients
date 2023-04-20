@@ -110,6 +110,7 @@ open class ContentAPI {
   "versioning" : "dvc",
   "size" : 421,
   "download_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png",
+  "content_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png",
   "type" : "[file]",
   "hash" : "79fb7f8632d7e15b3b46a7411d08bcdd"
 }, {
@@ -117,6 +118,7 @@ open class ContentAPI {
   "versioning" : "dvc",
   "size" : 421,
   "download_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png",
+  "content_url" : "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png",
   "type" : "[file]",
   "hash" : "79fb7f8632d7e15b3b46a7411d08bcdd"
 } ]}]
@@ -229,6 +231,7 @@ open class ContentAPI {
         case auto = "auto"
         case dvc = "dvc"
         case git = "git"
+        case bucket = "bucket"
     }
 
     /**

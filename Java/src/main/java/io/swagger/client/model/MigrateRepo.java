@@ -25,7 +25,7 @@ import java.io.IOException;
  * MigrateRepo
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T14:39:16.361212Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-04-20T10:55:36.691980Z[Etc/UTC]")
 public class MigrateRepo {
   @SerializedName("clone_addr")
   private String cloneAddr = null;

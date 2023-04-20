@@ -23,7 +23,10 @@ from dagshub_api.models.edit_experiment_post import EditExperimentPost
 from dagshub_api.models.experiment_keys import ExperimentKeys
 from dagshub_api.models.file import File
 from dagshub_api.models.files import Files
+from dagshub_api.models.files1 import Files1
 from dagshub_api.models.hooks_id_body import HooksIdBody
+from dagshub_api.models.integration import Integration
+from dagshub_api.models.integration_inner import IntegrationInner
 from dagshub_api.models.issue import Issue
 from dagshub_api.models.issue_assignee import IssueAssignee
 from dagshub_api.models.issue_labels import IssueLabels

@@ -21,4 +21,4 @@ commitChoice | direct, commit-to-new-branch
 ## Enum: versioning
 Name | Value
 ---- | -----
-versioning | auto, dvc, git
+versioning | auto, dvc, git, bucket

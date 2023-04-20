@@ -114,7 +114,7 @@ func (a *ContentApiService) GetArchive(ctx context.Context, owner string, repo s
 }
 /*
 ContentApiService List data in a repository folder
-List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param owner owner of the repository
  * @param repo name of the repository

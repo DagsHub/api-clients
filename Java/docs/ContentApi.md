@@ -79,7 +79,7 @@ null (empty response body)
 
 List data in a repository folder
 
-List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
 
 ### Example
 ```java
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
  **commitChoice** | **String**|  | [optional] [enum: direct, commit-to-new-branch]
  **lastCommit** | **String**|  | [optional]
  **newBranchName** | **String**|  | [optional]
- **versioning** | **String**|  | [optional] [enum: auto, dvc, git]
+ **versioning** | **String**|  | [optional] [enum: auto, dvc, git, bucket]
  **files** | **String**|  | [optional]
 
 ### Return type

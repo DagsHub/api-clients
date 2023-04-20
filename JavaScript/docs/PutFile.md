@@ -24,4 +24,5 @@ Name | Type | Description | Notes
 * `auto` (value: `"auto"`)
 * `dvc` (value: `"dvc"`)
 * `git` (value: `"git"`)
+* `bucket` (value: `"bucket"`)
 

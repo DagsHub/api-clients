@@ -31,7 +31,7 @@
 CollaboratorsApi <- R6::R6Class(
   'CollaboratorsApi',
   public = list(
-    userAgent = "Swagger-Codegen/1.0.2/r",
+    userAgent = "Swagger-Codegen/1.0.3/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {

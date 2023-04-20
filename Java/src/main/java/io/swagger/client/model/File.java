@@ -25,7 +25,7 @@ import java.io.IOException;
  * File
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-11-03T14:39:16.361212Z[Etc/UTC]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2023-04-20T10:55:36.691980Z[Etc/UTC]")
 public class File {
   @SerializedName("path")
   private String path = null;
@@ -86,7 +86,8 @@ public class File {
   @JsonAdapter(VersioningEnum.Adapter.class)
   public enum VersioningEnum {
     GIT("git"),
-    DVC("dvc");
+    DVC("dvc"),
+    BUCKET("bucket");
 
     private String value;
 
@@ -126,6 +127,9 @@ public class File {
 
   @SerializedName("download_url")
   private String downloadUrl = null;
+
+  @SerializedName("content_url")
+  private String contentUrl = null;
 
   public File path(String path) {
     this.path = path;
@@ -235,6 +239,24 @@ public class File {
     this.downloadUrl = downloadUrl;
   }
 
+  public File contentUrl(String contentUrl) {
+    this.contentUrl = contentUrl;
+    return this;
+  }
+
+   /**
+   * Get contentUrl
+   * @return contentUrl
+  **/
+  @Schema(example = "https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png", description = "")
+  public String getContentUrl() {
+    return contentUrl;
+  }
+
+  public void setContentUrl(String contentUrl) {
+    this.contentUrl = contentUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,12 +272,13 @@ public class File {
         Objects.equals(this.size, file.size) &&
         Objects.equals(this.hash, file.hash) &&
         Objects.equals(this.versioning, file.versioning) &&
-        Objects.equals(this.downloadUrl, file.downloadUrl);
+        Objects.equals(this.downloadUrl, file.downloadUrl) &&
+        Objects.equals(this.contentUrl, file.contentUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, type, size, hash, versioning, downloadUrl);
+    return Objects.hash(path, type, size, hash, versioning, downloadUrl, contentUrl);
   }
 
 
@@ -270,6 +293,7 @@ public class File {
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    versioning: ").append(toIndentedString(versioning)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    contentUrl: ").append(toIndentedString(contentUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Hash** | **string** |  | [optional] 
 **Versioning** | **string** |  | [optional] 
 **DownloadUrl** | **string** |  | [optional] 
+**ContentUrl** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

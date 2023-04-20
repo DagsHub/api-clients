@@ -52,7 +52,7 @@ public class ContentApiTest {
     /**
      * List data in a repository folder
      *
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      *
      * @throws Exception
      *          if the Api call fails

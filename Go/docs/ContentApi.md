@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 > []*os.File GetContent(ctx, owner, repo, branch, path, optional)
 List data in a repository folder
 
-List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
+List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response. 
 
 ### Required Parameters
 
