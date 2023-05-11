@@ -93,6 +93,68 @@ export const ExperimentsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Support both git and MLflow experiments
+         * @summary Delete experiment
+         * @param {string} owner owner of the repository
+         * @param {string} repo name of the repository
+         * @param {string} experimentKey a valid experiment key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteExperiment: async (owner: string, repo: string, experimentKey: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'owner' is not null or undefined
+            if (owner === null || owner === undefined) {
+                throw new RequiredError('owner','Required parameter owner was null or undefined when calling deleteExperiment.');
+            }
+            // verify required parameter 'repo' is not null or undefined
+            if (repo === null || repo === undefined) {
+                throw new RequiredError('repo','Required parameter repo was null or undefined when calling deleteExperiment.');
+            }
+            // verify required parameter 'experimentKey' is not null or undefined
+            if (experimentKey === null || experimentKey === undefined) {
+                throw new RequiredError('experimentKey','Required parameter experimentKey was null or undefined when calling deleteExperiment.');
+            }
+            const localVarPath = `/repos/{owner}/{repo}/experiments/experiment/{experimentKey}`
+                .replace(`{${"owner"}}`, encodeURIComponent(String(owner)))
+                .replace(`{${"repo"}}`, encodeURIComponent(String(repo)))
+                .replace(`{${"experimentKey"}}`, encodeURIComponent(String(experimentKey)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication basicAuth required
+
+            // authentication tokenAuth required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("token")
+                    : await configuration.apiKey;
+                localVarQueryParameter["token"] = localVarApiKeyValue;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @summary Delete experiment label
          * @param {string} owner owner of the repository
@@ -371,6 +433,22 @@ export const ExperimentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Support both git and MLflow experiments
+         * @summary Delete experiment
+         * @param {string} owner owner of the repository
+         * @param {string} repo name of the repository
+         * @param {string} experimentKey a valid experiment key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteExperiment(owner: string, repo: string, experimentKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await ExperimentsApiAxiosParamCreator(configuration).deleteExperiment(owner, repo, experimentKey, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * 
          * @summary Delete experiment label
          * @param {string} owner owner of the repository
@@ -458,6 +536,18 @@ export const ExperimentsApiFactory = function (configuration?: Configuration, ba
             return ExperimentsApiFp(configuration).addExperimentLabel(owner, repo, experimentKey, experimentLabel, options).then((request) => request(axios, basePath));
         },
         /**
+         * Support both git and MLflow experiments
+         * @summary Delete experiment
+         * @param {string} owner owner of the repository
+         * @param {string} repo name of the repository
+         * @param {string} experimentKey a valid experiment key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteExperiment(owner: string, repo: string, experimentKey: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return ExperimentsApiFp(configuration).deleteExperiment(owner, repo, experimentKey, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 
          * @summary Delete experiment label
          * @param {string} owner owner of the repository
@@ -529,6 +619,19 @@ export class ExperimentsApi extends BaseAPI {
      */
     public async addExperimentLabel(owner: string, repo: string, experimentKey: string, experimentLabel: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
         return ExperimentsApiFp(this.configuration).addExperimentLabel(owner, repo, experimentKey, experimentLabel, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Support both git and MLflow experiments
+     * @summary Delete experiment
+     * @param {string} owner owner of the repository
+     * @param {string} repo name of the repository
+     * @param {string} experimentKey a valid experiment key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExperimentsApi
+     */
+    public async deleteExperiment(owner: string, repo: string, experimentKey: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return ExperimentsApiFp(this.configuration).deleteExperiment(owner, repo, experimentKey, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

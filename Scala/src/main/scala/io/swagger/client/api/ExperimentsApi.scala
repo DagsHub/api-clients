@@ -112,6 +112,36 @@ class ExperimentsApi(
   }
 
   /**
+   * Delete experiment
+   * Support both git and MLflow experiments
+   *
+   * @param owner owner of the repository 
+   * @param repo name of the repository 
+   * @param experimentKey a valid experiment key 
+   * @return void
+   */
+  def deleteExperiment(owner: String, repo: String, experimentKey: String) = {
+    val await = Try(Await.result(deleteExperimentAsync(owner, repo, experimentKey), Duration.Inf))
+    await match {
+      case Success(i) => Some(await.get)
+      case Failure(t) => None
+    }
+  }
+
+  /**
+   * Delete experiment asynchronously
+   * Support both git and MLflow experiments
+   *
+   * @param owner owner of the repository 
+   * @param repo name of the repository 
+   * @param experimentKey a valid experiment key 
+   * @return Future(void)
+   */
+  def deleteExperimentAsync(owner: String, repo: String, experimentKey: String) = {
+      helper.deleteExperiment(owner, repo, experimentKey)
+  }
+
+  /**
    * Delete experiment label
    * 
    *
@@ -262,6 +292,32 @@ class ExperimentsApiAsyncHelper(client: TransportClient, config: SwaggerConfig) 
 
 
     val resFuture = client.submit("POST", path, queryParams.toMap, headerParams.toMap, "")
+    resFuture flatMap { resp =>
+      process(reader.read(resp))
+    }
+  }
+
+  def deleteExperiment(owner: String,
+    repo: String,
+    experimentKey: String)(implicit reader: ClientResponseReader[Unit]): Future[Unit] = {
+    // create path and map variables
+    val path = (addFmt("/repos/{owner}/{repo}/experiments/experiment/{experimentKey}")
+      replaceAll("\\{" + "owner" + "\\}", owner.toString)
+      replaceAll("\\{" + "repo" + "\\}", repo.toString)
+      replaceAll("\\{" + "experimentKey" + "\\}", experimentKey.toString))
+
+    // query params
+    val queryParams = new mutable.HashMap[String, String]
+    val headerParams = new mutable.HashMap[String, String]
+
+    if (owner == null) throw new Exception("Missing required parameter 'owner' when calling ExperimentsApi->deleteExperiment")
+
+    if (repo == null) throw new Exception("Missing required parameter 'repo' when calling ExperimentsApi->deleteExperiment")
+
+    if (experimentKey == null) throw new Exception("Missing required parameter 'experimentKey' when calling ExperimentsApi->deleteExperiment")
+
+
+    val resFuture = client.submit("DELETE", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>
       process(reader.read(resp))
     }

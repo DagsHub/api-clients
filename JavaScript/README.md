@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *DagsHubApi.ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *DagsHubApi.ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *DagsHubApi.ExperimentsApi* | [**addExperimentLabel**](docs/ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+*DagsHubApi.ExperimentsApi* | [**deleteExperiment**](docs/ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 *DagsHubApi.ExperimentsApi* | [**deleteExperimentLabel**](docs/ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 *DagsHubApi.ExperimentsApi* | [**editExperiment**](docs/ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 *DagsHubApi.ExperimentsApi* | [**getExperimentMetrics**](docs/ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -130,6 +131,9 @@ Class | Method | HTTP request | Description
 *DagsHubApi.RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *DagsHubApi.RepositoryApi* | [**migrateRepo**](docs/RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *DagsHubApi.RepositoryApi* | [**search**](docs/RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*DagsHubApi.StorageIntegrationsApi* | [**getBucketContent**](docs/StorageIntegrationsApi.md#getBucketContent) | **GET** /repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path} | List contents in the path
+*DagsHubApi.StorageIntegrationsApi* | [**getBucketFile**](docs/StorageIntegrationsApi.md#getBucketFile) | **GET** /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path} | Get file in the bucket
+*DagsHubApi.StorageIntegrationsApi* | [**getBuckets**](docs/StorageIntegrationsApi.md#getBuckets) | **GET** /repos/{owner}/{repo}/storage | List integrated storages in the repository
 *DagsHubApi.UserApi* | [**getAuthenticatedUser**](docs/UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
 *DagsHubApi.UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *DagsHubApi.WebhooksApi* | [**createHook**](docs/WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
@@ -148,7 +152,10 @@ Class | Method | HTTP request | Description
  - [DagsHubApi.ExperimentKeys](docs/ExperimentKeys.md)
  - [DagsHubApi.File](docs/File.md)
  - [DagsHubApi.Files](docs/Files.md)
+ - [DagsHubApi.Files1](docs/Files1.md)
  - [DagsHubApi.HooksIdBody](docs/HooksIdBody.md)
+ - [DagsHubApi.Integration](docs/Integration.md)
+ - [DagsHubApi.IntegrationInner](docs/IntegrationInner.md)
  - [DagsHubApi.Issue](docs/Issue.md)
  - [DagsHubApi.IssueAssignee](docs/IssueAssignee.md)
  - [DagsHubApi.IssueLabels](docs/IssueLabels.md)

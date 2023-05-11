@@ -61,7 +61,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://dagshub.com/api/v1",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/1.0.2/go",
+		UserAgent:     "Swagger-Codegen/1.0.3/go",
 	}
 	return cfg
 }

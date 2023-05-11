@@ -92,7 +92,7 @@ export const ContentApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
+         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response. 
          * @summary List data in a repository folder
          * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
@@ -366,7 +366,7 @@ export const ContentApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
+         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response. 
          * @summary List data in a repository folder
          * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
@@ -447,7 +447,7 @@ export const ContentApiFactory = function (configuration?: Configuration, basePa
             return ContentApiFp(configuration).getArchive(owner, repo, ref, format, options).then((request) => request(axios, basePath));
         },
         /**
-         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
+         * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response. 
          * @summary List data in a repository folder
          * @param {string} owner owner of the repository
          * @param {string} repo name of the repository
@@ -518,7 +518,7 @@ export class ContentApi extends BaseAPI {
         return ContentApiFp(this.configuration).getArchive(owner, repo, ref, format, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response. 
      * @summary List data in a repository folder
      * @param {string} owner owner of the repository
      * @param {string} repo name of the repository

@@ -50,6 +50,8 @@ export class File {
         obj.versioning = ApiClient.convertToType(data['versioning'], 'String');
       if (data.hasOwnProperty('download_url'))
         obj.downloadUrl = ApiClient.convertToType(data['download_url'], 'String');
+      if (data.hasOwnProperty('content_url'))
+        obj.contentUrl = ApiClient.convertToType(data['content_url'], 'String');
     }
     return obj;
   }
@@ -109,7 +111,13 @@ File.VersioningEnum = {
    * value: "dvc"
    * @const
    */
-  dvc: "dvc"
+  dvc: "dvc",
+
+  /**
+   * value: "bucket"
+   * @const
+   */
+  bucket: "bucket"
 };
 /**
  * @member {module:model/File.VersioningEnum} versioning
@@ -120,4 +128,9 @@ File.prototype.versioning = undefined;
  * @member {String} downloadUrl
  */
 File.prototype.downloadUrl = undefined;
+
+/**
+ * @member {String} contentUrl
+ */
+File.prototype.contentUrl = undefined;
 

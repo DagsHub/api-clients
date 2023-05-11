@@ -35,6 +35,13 @@ class TestExperimentsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_experiment(self):
+        """Test case for delete_experiment
+
+        Delete experiment  # noqa: E501
+        """
+        pass
+
     def test_delete_experiment_label(self):
         """Test case for delete_experiment_label
 

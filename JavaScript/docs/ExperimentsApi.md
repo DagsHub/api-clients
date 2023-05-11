@@ -5,6 +5,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addExperimentLabel**](ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+[**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 [**deleteExperimentLabel**](ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 [**editExperiment**](ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 [**getExperimentMetrics**](ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -67,6 +68,64 @@ null (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="deleteExperiment"></a>
+# **deleteExperiment**
+> deleteExperiment(owner, repo, experimentKey)
+
+Delete experiment
+
+Support both git and MLflow experiments
+
+### Example
+```javascript
+import {DagsHubApi} from 'dags_hub_api';
+let defaultClient = DagsHubApi.ApiClient.instance;
+// Configure HTTP basic authorization: basicAuth
+let basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR USERNAME';
+basicAuth.password = 'YOUR PASSWORD';
+
+// Configure API key authorization: tokenAuth
+let tokenAuth = defaultClient.authentications['tokenAuth'];
+tokenAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//tokenAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new DagsHubApi.ExperimentsApi();
+let owner = "owner_example"; // String | owner of the repository
+let repo = "repo_example"; // String | name of the repository
+let experimentKey = "experimentKey_example"; // String | a valid experiment key
+
+apiInstance.deleteExperiment(owner, repo, experimentKey, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| owner of the repository | 
+ **repo** | **String**| name of the repository | 
+ **experimentKey** | **String**| a valid experiment key | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="deleteExperimentLabel"></a>
 # **deleteExperimentLabel**

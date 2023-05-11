@@ -72,6 +72,61 @@ open class ExperimentsAPI {
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
     /**
+     Delete experiment
+
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter experimentKey: (path) a valid experiment key 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteExperiment(owner: String, repo: String, experimentKey: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        deleteExperimentWithRequestBuilder(owner: owner, repo: repo, experimentKey: experimentKey).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     Delete experiment
+     - DELETE /repos/{owner}/{repo}/experiments/experiment/{experimentKey}
+
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey token (QUERY)
+       - name: tokenAuth
+     - parameter owner: (path) owner of the repository 
+     - parameter repo: (path) name of the repository 
+     - parameter experimentKey: (path) a valid experiment key 
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func deleteExperimentWithRequestBuilder(owner: String, repo: String, experimentKey: String) -> RequestBuilder<Void> {
+        var path = "/repos/{owner}/{repo}/experiments/experiment/{experimentKey}"
+        let ownerPreEscape = "\(owner)"
+        let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{owner}", with: ownerPostEscape, options: .literal, range: nil)
+        let repoPreEscape = "\(repo)"
+        let repoPostEscape = repoPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{repo}", with: repoPostEscape, options: .literal, range: nil)
+        let experimentKeyPreEscape = "\(experimentKey)"
+        let experimentKeyPostEscape = experimentKeyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{experimentKey}", with: experimentKeyPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
      Delete experiment label
 
      - parameter owner: (path) owner of the repository 

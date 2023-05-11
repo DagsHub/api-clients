@@ -65,7 +65,12 @@ namespace dagshub_api.Model
             /// Enum Dvc for value: dvc
             /// </summary>
             [EnumMember(Value = "dvc")]
-            Dvc = 2        }
+            Dvc = 2,
+            /// <summary>
+            /// Enum Bucket for value: bucket
+            /// </summary>
+            [EnumMember(Value = "bucket")]
+            Bucket = 3        }
         /// <summary>
         /// Gets or Sets Versioning
         /// </summary>
@@ -80,7 +85,8 @@ namespace dagshub_api.Model
         /// <param name="hash">hash.</param>
         /// <param name="versioning">versioning.</param>
         /// <param name="downloadUrl">downloadUrl.</param>
-        public File(string path = default(string), TypeEnum? type = default(TypeEnum?), long? size = default(long?), string hash = default(string), VersioningEnum? versioning = default(VersioningEnum?), string downloadUrl = default(string))
+        /// <param name="contentUrl">contentUrl.</param>
+        public File(string path = default(string), TypeEnum? type = default(TypeEnum?), long? size = default(long?), string hash = default(string), VersioningEnum? versioning = default(VersioningEnum?), string downloadUrl = default(string), string contentUrl = default(string))
         {
             this.Path = path;
             this.Type = type;
@@ -88,6 +94,7 @@ namespace dagshub_api.Model
             this.Hash = hash;
             this.Versioning = versioning;
             this.DownloadUrl = downloadUrl;
+            this.ContentUrl = contentUrl;
         }
         
         /// <summary>
@@ -117,6 +124,12 @@ namespace dagshub_api.Model
         public string DownloadUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets ContentUrl
+        /// </summary>
+        [DataMember(Name="content_url", EmitDefaultValue=false)]
+        public string ContentUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +143,7 @@ namespace dagshub_api.Model
             sb.Append("  Hash: ").Append(Hash).Append("\n");
             sb.Append("  Versioning: ").Append(Versioning).Append("\n");
             sb.Append("  DownloadUrl: ").Append(DownloadUrl).Append("\n");
+            sb.Append("  ContentUrl: ").Append(ContentUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -193,6 +207,11 @@ namespace dagshub_api.Model
                     this.DownloadUrl == input.DownloadUrl ||
                     (this.DownloadUrl != null &&
                     this.DownloadUrl.Equals(input.DownloadUrl))
+                ) && 
+                (
+                    this.ContentUrl == input.ContentUrl ||
+                    (this.ContentUrl != null &&
+                    this.ContentUrl.Equals(input.ContentUrl))
                 );
         }
 
@@ -217,6 +236,8 @@ namespace dagshub_api.Model
                     hashCode = hashCode * 59 + this.Versioning.GetHashCode();
                 if (this.DownloadUrl != null)
                     hashCode = hashCode * 59 + this.DownloadUrl.GetHashCode();
+                if (this.ContentUrl != null)
+                    hashCode = hashCode * 59 + this.ContentUrl.GetHashCode();
                 return hashCode;
             }
         }

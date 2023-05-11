@@ -77,6 +77,19 @@ namespace dagshub_api.Test
             
         }
         /// <summary>
+        /// Test DeleteExperiment
+        /// </summary>
+        [Test]
+        public void DeleteExperimentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string owner = null;
+            //string repo = null;
+            //string experimentKey = null;
+            //instance.DeleteExperiment(owner, repo, experimentKey);
+            
+        }
+        /// <summary>
         /// Test DeleteExperimentLabel
         /// </summary>
         [Test]
