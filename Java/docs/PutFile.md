@@ -25,3 +25,4 @@ Name | Value
 AUTO | &quot;auto&quot;
 DVC | &quot;dvc&quot;
 GIT | &quot;git&quot;
+BUCKET | &quot;bucket&quot;

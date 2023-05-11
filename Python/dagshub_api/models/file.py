@@ -33,7 +33,8 @@ class File(object):
         'size': 'int',
         'hash': 'str',
         'versioning': 'str',
-        'download_url': 'str'
+        'download_url': 'str',
+        'content_url': 'str'
     }
 
     attribute_map = {
@@ -42,10 +43,11 @@ class File(object):
         'size': 'size',
         'hash': 'hash',
         'versioning': 'versioning',
-        'download_url': 'download_url'
+        'download_url': 'download_url',
+        'content_url': 'content_url'
     }
 
-    def __init__(self, path=None, type=None, size=None, hash=None, versioning=None, download_url=None):  # noqa: E501
+    def __init__(self, path=None, type=None, size=None, hash=None, versioning=None, download_url=None, content_url=None):  # noqa: E501
         """File - a model defined in Swagger"""  # noqa: E501
         self._path = None
         self._type = None
@@ -53,6 +55,7 @@ class File(object):
         self._hash = None
         self._versioning = None
         self._download_url = None
+        self._content_url = None
         self.discriminator = None
         if path is not None:
             self.path = path
@@ -66,6 +69,8 @@ class File(object):
             self.versioning = versioning
         if download_url is not None:
             self.download_url = download_url
+        if content_url is not None:
+            self.content_url = content_url
 
     @property
     def path(self):
@@ -175,7 +180,7 @@ class File(object):
         :param versioning: The versioning of this File.  # noqa: E501
         :type: str
         """
-        allowed_values = ["git", "dvc"]  # noqa: E501
+        allowed_values = ["git", "dvc", "bucket"]  # noqa: E501
         if versioning not in allowed_values:
             raise ValueError(
                 "Invalid value for `versioning` ({0}), must be one of {1}"  # noqa: E501
@@ -204,6 +209,27 @@ class File(object):
         """
 
         self._download_url = download_url
+
+    @property
+    def content_url(self):
+        """Gets the content_url of this File.  # noqa: E501
+
+
+        :return: The content_url of this File.  # noqa: E501
+        :rtype: str
+        """
+        return self._content_url
+
+    @content_url.setter
+    def content_url(self, content_url):
+        """Sets the content_url of this File.
+
+
+        :param content_url: The content_url of this File.  # noqa: E501
+        :type: str
+        """
+
+        self._content_url = content_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

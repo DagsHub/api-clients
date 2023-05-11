@@ -5,6 +5,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddExperimentLabel**](ExperimentsApi.md#AddExperimentLabel) | **Post** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+[**DeleteExperiment**](ExperimentsApi.md#DeleteExperiment) | **Delete** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 [**DeleteExperimentLabel**](ExperimentsApi.md#DeleteExperimentLabel) | **Delete** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 [**EditExperiment**](ExperimentsApi.md#EditExperiment) | **Post** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 [**GetExperimentMetrics**](ExperimentsApi.md#GetExperimentMetrics) | **Post** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -36,6 +37,36 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteExperiment**
+> DeleteExperiment(ctx, owner, repo, experimentKey)
+Delete experiment
+
+Support both git and MLflow experiments
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **owner** | **string**| owner of the repository | 
+  **repo** | **string**| name of the repository | 
+  **experimentKey** | **string**| a valid experiment key | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

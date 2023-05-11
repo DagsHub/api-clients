@@ -5,6 +5,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addExperimentLabel**](ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+[**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 [**deleteExperimentLabel**](ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 [**editExperiment**](ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 [**getExperimentMetrics**](ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -59,6 +60,56 @@ null (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="deleteExperiment"></a>
+# **deleteExperiment**
+> deleteExperiment(owner, repo, experimentKey)
+
+Delete experiment
+
+Support both git and MLflow experiments
+
+### Example
+```kotlin
+// Import classes:
+//import dagshub_api.infrastructure.*
+//import io.swagger.client.models.*;
+
+val apiInstance = ExperimentsApi()
+val owner : kotlin.String = owner_example // kotlin.String | owner of the repository
+val repo : kotlin.String = repo_example // kotlin.String | name of the repository
+val experimentKey : kotlin.String = experimentKey_example // kotlin.String | a valid experiment key
+try {
+    apiInstance.deleteExperiment(owner, repo, experimentKey)
+} catch (e: ClientException) {
+    println("4xx response calling ExperimentsApi#deleteExperiment")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ExperimentsApi#deleteExperiment")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **kotlin.String**| owner of the repository |
+ **repo** | **kotlin.String**| name of the repository |
+ **experimentKey** | **kotlin.String**| a valid experiment key |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="deleteExperimentLabel"></a>
 # **deleteExperimentLabel**

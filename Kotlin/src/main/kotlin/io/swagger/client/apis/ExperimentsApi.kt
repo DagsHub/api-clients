@@ -46,6 +46,32 @@ class ExperimentsApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : A
         }
     }
     /**
+     * Delete experiment
+     * Support both git and MLflow experiments
+     * @param owner owner of the repository 
+     * @param repo name of the repository 
+     * @param experimentKey a valid experiment key 
+     * @return void
+     */
+    fun deleteExperiment(owner: kotlin.String, repo: kotlin.String, experimentKey: kotlin.String): Unit {
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableConfig = RequestConfig(
+                RequestMethod.DELETE,
+                "/repos/{owner}/{repo}/experiments/experiment/{experimentKey}".replace("{" + "owner" + "}", "$owner").replace("{" + "repo" + "}", "$repo").replace("{" + "experimentKey" + "}", "$experimentKey"), query = localVariableQuery
+        )
+        val response = request<Any?>(
+                localVariableConfig
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+    /**
      * Delete experiment label
      * 
      * @param owner owner of the repository 

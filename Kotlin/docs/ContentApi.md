@@ -67,7 +67,7 @@ null (empty response body)
 
 List data in a repository folder
 
-List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
 
 ### Example
 ```kotlin
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
  **commitChoice** | **kotlin.String**|  | [optional] [enum: direct, commit-to-new-branch]
  **lastCommit** | **kotlin.String**|  | [optional]
  **newBranchName** | **kotlin.String**|  | [optional]
- **versioning** | **kotlin.String**|  | [optional] [enum: auto, dvc, git]
+ **versioning** | **kotlin.String**|  | [optional] [enum: auto, dvc, git, bucket]
  **files** | **kotlin.String**|  | [optional]
 
 ### Return type

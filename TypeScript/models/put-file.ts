@@ -76,6 +76,7 @@ export enum PutFileCommitChoiceEnum {
 export enum PutFileVersioningEnum {
     Auto = 'auto',
     Dvc = 'dvc',
-    Git = 'git'
+    Git = 'git',
+    Bucket = 'bucket'
 }
 

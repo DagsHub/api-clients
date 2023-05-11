@@ -19,7 +19,7 @@ paths:
       description: |
         List files, commit sha1, and versioning type for a folder in repository.
 
-        To get sizes add to the query param `include_size=true`. May result slower response.
+        To get sizes add to the query param `include_size=true`. May result in a slower response.
       operationId: getContent
       parameters:
       - name: owner
@@ -52,14 +52,12 @@ paths:
       - name: include_size
         in: query
         required: false
-        style: form
-        explode: true
         schema:
           type: boolean
           default: false
       responses:
         "200":
-          description: Successfully retrived the data
+          description: Successfully retrieved the data
           content:
             application/json:
               schema:
@@ -70,19 +68,22 @@ paths:
                 size: 0
                 hash: 79fb7f8632d7e15b3b46a7411d08bcdd
                 versioning: dvc
-                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+                download_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+                content_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
               - path: images/001.png
                 type: file
                 size: 0
                 hash: 7dd5befce39375036da253b435e1db98
                 versioning: dvc
-                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/001.png
+                download_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/raw/master/images/001.png
+                content_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/content/master/images/001.png
               - path: images/002.png
                 type: file
                 size: 0
                 hash: a58f181cd982a1e21c77949588737c8b
                 versioning: dvc
-                download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/002.png
+                download_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/raw/master/images/002.png
+                content_url: https://dagshub.com/api/v1/repos/Simon/baby-yoda-segmentation-dataset/content/master/images/002.png
         "404":
           description: Non existing path
     put:
@@ -126,6 +127,220 @@ paths:
       responses:
         "200":
           description: Successfully uploaded content
+  /repos/{owner}/{repo}/storage:
+    get:
+      tags:
+      - Storage Integrations
+      summary: List integrated storages in the repository
+      operationId: getBuckets
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      responses:
+        "200":
+          description: Successfully listed integrated storages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+              - name: spacenet-dataset
+                protocol: s3
+                list_path: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset
+  /repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path}:
+    get:
+      tags:
+      - Storage Integrations
+      summary: List contents in the path
+      operationId: getBucketContent
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: protocol
+        in: path
+        description: protocol of the storage integration
+        required: true
+        schema:
+          type: string
+          enum:
+          - gs
+          - s3
+        example: s3
+      - name: bucket
+        in: path
+        description: name and prefix of the bucket integration
+        required: true
+        schema:
+          type: string
+        example: spacenet-dataset
+      - name: path
+        in: path
+        description: path of a folder in the repository
+        required: true
+        schema:
+          type: string
+          default: "."
+      - name: include_size
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: limit
+        in: query
+        description: Maximum amount of items to return
+        schema:
+          type: integer
+          default: 100
+      - name: from_token
+        in: query
+        description: "Token, from which to continue iteration"
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully listed a directory
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Files_1'
+              example:
+                entries:
+                - path: s3/spacenet-dataset
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset
+                - path: s3/spacenet-dataset/AOIs
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/AOIs
+                - path: s3/spacenet-dataset/Hosted-Datasets
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/Hosted-Datasets
+                - path: s3/spacenet-dataset/SpaceNet_Off-Nadir_Dataset
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/SpaceNet_Off-Nadir_Dataset
+                - path: s3/spacenet-dataset/spacenet-model-weights
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/spacenet-model-weights
+                - path: s3/spacenet-dataset/spacenet-stac
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/spacenet-stac
+                - path: s3/spacenet-dataset/spacenet
+                  type: dir
+                  size: 0
+                  hash: ""
+                  versioning: bucket
+                  download_url: ""
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/spacenet
+                - path: s3/spacenet-dataset/LICENSE.md
+                  type: file
+                  size: 299
+                  hash: ""
+                  versioning: bucket
+                  download_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/raw/s3/spacenet-dataset/LICENSE.md
+                  content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/LICENSE.md
+                limit: 8
+                next_token: ""
+        "404":
+          description: Folder or file not found
+  /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path}:
+    get:
+      tags:
+      - Storage Integrations
+      summary: Get file in the bucket
+      operationId: getBucketFile
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: protocol
+        in: path
+        description: protocol of the storage integration
+        required: true
+        schema:
+          type: string
+          enum:
+          - gs
+          - s3
+        example: s3
+      - name: bucket
+        in: path
+        description: name and prefix of the bucket integration
+        required: true
+        schema:
+          type: string
+        example: spacenet-dataset
+      - name: path
+        in: path
+        description: The content path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: File downloaded
+        "404":
+          description: File not found
   /user:
     get:
       tags:
@@ -447,6 +662,38 @@ paths:
           content:
             application/json:
               example: Awesome New Experiment Name
+    delete:
+      tags:
+      - Experiments
+      summary: Delete experiment
+      description: Support both git and MLflow experiments
+      operationId: deleteExperiment
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: experimentKey
+        in: path
+        description: a valid experiment key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Deleted experiment successfully
+        "404":
+          description: Experiment not found
   /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel}:
     post:
       tags:
@@ -1378,11 +1625,46 @@ components:
           - auto
           - dvc
           - git
+          - bucket
         files:
           type: string
           description: This property can be sent multiple times to upload multiple
             files.
           format: binary
+    Integration:
+      type: array
+      items:
+        $ref: '#/components/schemas/Integration_inner'
+      x-schema-name: Integration
+    Files_1:
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/File'
+        limit:
+          type: integer
+        next_token:
+          type: string
+      example:
+        entries:
+        - path: images/000.png
+          versioning: dvc
+          size: 421
+          download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+          content_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
+          type: "[file]"
+          hash: 79fb7f8632d7e15b3b46a7411d08bcdd
+        - path: images/000.png
+          versioning: dvc
+          size: 421
+          download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+          content_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
+          type: "[file]"
+          hash: 79fb7f8632d7e15b3b46a7411d08bcdd
+        limit: 0
+        next_token: next_token
     Issues:
       type: array
       items:
@@ -1674,14 +1956,19 @@ components:
           enum:
           - git
           - dvc
+          - bucket
         download_url:
           type: string
           example: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+        content_url:
+          type: string
+          example: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
       example:
         path: images/000.png
         versioning: dvc
         size: 421
         download_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/raw/master/images/000.png
+        content_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
         type: "[file]"
         hash: 79fb7f8632d7e15b3b46a7411d08bcdd
     Title:
@@ -1772,6 +2059,25 @@ components:
           type: boolean
           description: Weather the hook is actually triggered on pushes or not. Ignore
             this field to leave it unchanged.
+    Integration_inner:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name/path of the bucket
+        protocol:
+          type: string
+          description: Protocol used by the integration
+          enum:
+          - s3
+          - gs
+        list_path:
+          type: string
+          description: URL to list the root of this bucket
+      example:
+        protocol: s3
+        name: name
+        list_path: list_path
     Issue_labels:
       type: object
       properties:
@@ -1849,6 +2155,45 @@ components:
       schema:
         type: string
         default: "."
+    IncludeSize:
+      name: include_size
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: false
+    Protocol:
+      name: protocol
+      in: path
+      description: protocol of the storage integration
+      required: true
+      schema:
+        type: string
+        enum:
+        - gs
+        - s3
+      example: s3
+    Bucket:
+      name: bucket
+      in: path
+      description: name and prefix of the bucket integration
+      required: true
+      schema:
+        type: string
+      example: spacenet-dataset
+    Limit:
+      name: limit
+      in: query
+      description: Maximum amount of items to return
+      schema:
+        type: integer
+        default: 100
+    FromToken:
+      name: from_token
+      in: query
+      description: "Token, from which to continue iteration"
+      schema:
+        type: string
     Username:
       name: username
       in: path

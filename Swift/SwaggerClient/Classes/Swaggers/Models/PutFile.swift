@@ -19,6 +19,7 @@ public struct PutFile: Codable {
         case auto = "auto"
         case dvc = "dvc"
         case git = "git"
+        case bucket = "bucket"
     }
     public var commitSummary: String?
     public var commitMessage: String?

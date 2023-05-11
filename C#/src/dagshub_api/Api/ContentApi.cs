@@ -54,7 +54,7 @@ namespace dagshub_api.Api
         /// List data in a repository folder
         /// </summary>
         /// <remarks>
-        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -69,7 +69,7 @@ namespace dagshub_api.Api
         /// List data in a repository folder
         /// </summary>
         /// <remarks>
-        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -180,7 +180,7 @@ namespace dagshub_api.Api
         /// List data in a repository folder
         /// </summary>
         /// <remarks>
-        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -195,7 +195,7 @@ namespace dagshub_api.Api
         /// List data in a repository folder
         /// </summary>
         /// <remarks>
-        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </remarks>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -570,7 +570,7 @@ namespace dagshub_api.Api
         }
 
         /// <summary>
-        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -586,7 +586,7 @@ namespace dagshub_api.Api
         }
 
         /// <summary>
-        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -667,7 +667,7 @@ namespace dagshub_api.Api
         }
 
         /// <summary>
-        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>
@@ -684,7 +684,7 @@ namespace dagshub_api.Api
         }
 
         /// <summary>
-        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+        /// List data in a repository folder List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
         /// </summary>
         /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="owner">owner of the repository</param>

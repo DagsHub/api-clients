@@ -96,6 +96,62 @@ export class ExperimentsApi {
       );
     }
     /**
+     * Callback function to receive the result of the deleteExperiment operation.
+     * @callback moduleapi/ExperimentsApi~deleteExperimentCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete experiment
+     * Support both git and MLflow experiments
+     * @param {String} owner owner of the repository
+     * @param {String} repo name of the repository
+     * @param {String} experimentKey a valid experiment key
+     * @param {module:api/ExperimentsApi~deleteExperimentCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteExperiment(owner, repo, experimentKey, callback) {
+      
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling deleteExperiment");
+      }
+      // verify the required parameter 'repo' is set
+      if (repo === undefined || repo === null) {
+        throw new Error("Missing the required parameter 'repo' when calling deleteExperiment");
+      }
+      // verify the required parameter 'experimentKey' is set
+      if (experimentKey === undefined || experimentKey === null) {
+        throw new Error("Missing the required parameter 'experimentKey' when calling deleteExperiment");
+      }
+
+      let pathParams = {
+        'owner': owner,'repo': repo,'experimentKey': experimentKey
+      };
+      let queryParams = {
+        
+      };
+      let headerParams = {
+        
+      };
+      let formParams = {
+        
+      };
+
+      let authNames = ['basicAuth', 'tokenAuth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/repos/{owner}/{repo}/experiments/experiment/{experimentKey}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+    /**
      * Callback function to receive the result of the deleteExperimentLabel operation.
      * @callback moduleapi/ExperimentsApi~deleteExperimentLabelCallback
      * @param {String} error Error message, if any.

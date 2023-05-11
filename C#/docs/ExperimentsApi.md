@@ -5,6 +5,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddExperimentLabel**](ExperimentsApi.md#addexperimentlabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+[**DeleteExperiment**](ExperimentsApi.md#deleteexperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 [**DeleteExperimentLabel**](ExperimentsApi.md#deleteexperimentlabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 [**EditExperiment**](ExperimentsApi.md#editexperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 [**GetExperimentMetrics**](ExperimentsApi.md#getexperimentmetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -79,6 +80,77 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+<a name="deleteexperiment"></a>
+# **DeleteExperiment**
+> void DeleteExperiment (string owner, string repo, string experimentKey)
+
+Delete experiment
+
+Support both git and MLflow experiments
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using dagshub_api.Api;
+using dagshub_api.Client;
+using dagshub_api.Model;
+
+namespace Example
+{
+    public class DeleteExperimentExample
+    {
+        public void main()
+        {
+            // Configure HTTP basic authorization: basicAuth
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+            // Configure API key authorization: tokenAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
+            var apiInstance = new ExperimentsApi();
+            var owner = owner_example;  // string | owner of the repository
+            var repo = repo_example;  // string | name of the repository
+            var experimentKey = experimentKey_example;  // string | a valid experiment key
+
+            try
+            {
+                // Delete experiment
+                apiInstance.DeleteExperiment(owner, repo, experimentKey);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExperimentsApi.DeleteExperiment: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **string**| owner of the repository | 
+ **repo** | **string**| name of the repository | 
+ **experimentKey** | **string**| a valid experiment key | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="deleteexperimentlabel"></a>

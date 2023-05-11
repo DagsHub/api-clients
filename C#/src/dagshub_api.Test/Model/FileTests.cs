@@ -113,6 +113,14 @@ namespace dagshub_api.Test
         {
             // TODO unit test for the property 'DownloadUrl'
         }
+        /// <summary>
+        /// Test the property 'ContentUrl'
+        /// </summary>
+        [Test]
+        public void ContentUrlTest()
+        {
+            // TODO unit test for the property 'ContentUrl'
+        }
 
     }
 

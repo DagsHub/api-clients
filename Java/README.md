@@ -2,7 +2,7 @@
 
 DagsHub API
 - API version: 1.0.2
-  - Build date: 2022-11-03T14:39:16.361212Z[Etc/UTC]
+  - Build date: 2023-05-11T11:40:00.814132Z[Etc/UTC]
 
 This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *ContentApi* | [**getRaw**](docs/ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**uploadContent**](docs/ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *ExperimentsApi* | [**addExperimentLabel**](docs/ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+*ExperimentsApi* | [**deleteExperiment**](docs/ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 *ExperimentsApi* | [**deleteExperimentLabel**](docs/ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 *ExperimentsApi* | [**editExperiment**](docs/ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 *ExperimentsApi* | [**getExperimentMetrics**](docs/ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -176,6 +177,9 @@ Class | Method | HTTP request | Description
 *RepositoryApi* | [**listUserRepos**](docs/RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrateRepo**](docs/RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](docs/RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*StorageIntegrationsApi* | [**getBucketContent**](docs/StorageIntegrationsApi.md#getBucketContent) | **GET** /repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path} | List contents in the path
+*StorageIntegrationsApi* | [**getBucketFile**](docs/StorageIntegrationsApi.md#getBucketFile) | **GET** /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path} | Get file in the bucket
+*StorageIntegrationsApi* | [**getBuckets**](docs/StorageIntegrationsApi.md#getBuckets) | **GET** /repos/{owner}/{repo}/storage | List integrated storages in the repository
 *UserApi* | [**getAuthenticatedUser**](docs/UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
 *UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**createHook**](docs/WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
@@ -191,7 +195,10 @@ Class | Method | HTTP request | Description
  - [ExperimentKeys](docs/ExperimentKeys.md)
  - [File](docs/File.md)
  - [Files](docs/Files.md)
+ - [Files1](docs/Files1.md)
  - [HooksIdBody](docs/HooksIdBody.md)
+ - [Integration](docs/Integration.md)
+ - [IntegrationInner](docs/IntegrationInner.md)
  - [Issue](docs/Issue.md)
  - [IssueAssignee](docs/IssueAssignee.md)
  - [IssueLabels](docs/IssueLabels.md)

@@ -20,6 +20,9 @@
 #' add_experiment_label Add label to experiment
 #'
 #'
+#' delete_experiment Delete experiment
+#'
+#'
 #' delete_experiment_label Delete experiment label
 #'
 #'
@@ -37,7 +40,7 @@
 ExperimentsApi <- R6::R6Class(
   'ExperimentsApi',
   public = list(
-    userAgent = "Swagger-Codegen/1.0.2/r",
+    userAgent = "Swagger-Codegen/1.0.3/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {
@@ -71,6 +74,40 @@ ExperimentsApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+      
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    }
+    delete_experiment = function(owner, repo, experiment_key, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/repos/{owner}/{repo}/experiments/experiment/{experimentKey}"
+      if (!missing(`owner`)) {
+        urlPath <- gsub(paste0("\\{", "owner", "\\}"), `owner`, urlPath)
+      }
+
+      if (!missing(`repo`)) {
+        urlPath <- gsub(paste0("\\{", "repo", "\\}"), `repo`, urlPath)
+      }
+
+      if (!missing(`experiment_key`)) {
+        urlPath <- gsub(paste0("\\{", "experimentKey", "\\}"), `experiment_key`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

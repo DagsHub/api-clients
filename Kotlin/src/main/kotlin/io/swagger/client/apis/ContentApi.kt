@@ -46,7 +46,7 @@ class ContentApi(basePath: kotlin.String = "https://dagshub.com/api/v1") : ApiCl
     }
     /**
      * List data in a repository folder
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      * @param owner owner of the repository 
      * @param repo name of the repository 
      * @param branch branch of the repository 

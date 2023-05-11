@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 *ContentApi* | [**getRaw**](ContentApi.md#getRaw) | **GET** /repos/{owner}/{repo}/raw/{ref}/{path} | Download raw content
 *ContentApi* | [**uploadContent**](ContentApi.md#uploadContent) | **PUT** /repos/{owner}/{repo}/content/{branch}/{path} | Upload data to a repository
 *ExperimentsApi* | [**addExperimentLabel**](ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+*ExperimentsApi* | [**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 *ExperimentsApi* | [**deleteExperimentLabel**](ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 *ExperimentsApi* | [**editExperiment**](ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 *ExperimentsApi* | [**getExperimentMetrics**](ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -93,6 +94,9 @@ Class | Method | HTTP request | Description
 *RepositoryApi* | [**listUserRepos**](RepositoryApi.md#listUserRepos) | **GET** /users/{username}/repos | List user repositories
 *RepositoryApi* | [**migrateRepo**](RepositoryApi.md#migrateRepo) | **POST** /repos/migrate | Migrate repository
 *RepositoryApi* | [**search**](RepositoryApi.md#search) | **GET** /repos/search | Search repositories
+*StorageIntegrationsApi* | [**getBucketContent**](StorageIntegrationsApi.md#getBucketContent) | **GET** /repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path} | List contents in the path
+*StorageIntegrationsApi* | [**getBucketFile**](StorageIntegrationsApi.md#getBucketFile) | **GET** /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path} | Get file in the bucket
+*StorageIntegrationsApi* | [**getBuckets**](StorageIntegrationsApi.md#getBuckets) | **GET** /repos/{owner}/{repo}/storage | List integrated storages in the repository
 *UserApi* | [**getAuthenticatedUser**](UserApi.md#getAuthenticatedUser) | **GET** /user | Get authenticated user information
 *UserApi* | [**getUser**](UserApi.md#getUser) | **GET** /users/{username} | Get information about a user
 *WebhooksApi* | [**createHook**](WebhooksApi.md#createHook) | **POST** /repos/{owner}/{repo}/hooks | Create a hook
@@ -110,7 +114,10 @@ Class | Method | HTTP request | Description
  - [EditExperimentPost](EditExperimentPost.md)
  - [ExperimentKeys](ExperimentKeys.md)
  - [Files](Files.md)
+ - [Files1](Files1.md)
  - [HooksIdBody](HooksIdBody.md)
+ - [Integration](Integration.md)
+ - [IntegrationInner](IntegrationInner.md)
  - [Issue](Issue.md)
  - [IssueAssignee](IssueAssignee.md)
  - [IssueLabels](IssueLabels.md)

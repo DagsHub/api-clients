@@ -11,5 +11,6 @@ from dagshub_api.api.experiments_api import ExperimentsApi
 from dagshub_api.api.issues_api import IssuesApi
 from dagshub_api.api.releases_api import ReleasesApi
 from dagshub_api.api.repository_api import RepositoryApi
+from dagshub_api.api.storage_integrations_api import StorageIntegrationsApi
 from dagshub_api.api.user_api import UserApi
 from dagshub_api.api.webhooks_api import WebhooksApi

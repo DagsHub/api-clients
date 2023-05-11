@@ -15,4 +15,5 @@ type File struct {
 	Hash string `json:"hash,omitempty"`
 	Versioning string `json:"versioning,omitempty"`
 	DownloadUrl string `json:"download_url,omitempty"`
+	ContentUrl string `json:"content_url,omitempty"`
 }

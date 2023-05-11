@@ -51,6 +51,23 @@ public class ExperimentsApiTest {
         // TODO: test validations
     }
     /**
+     * Delete experiment
+     *
+     * Support both git and MLflow experiments
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteExperimentTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        String experimentKey = null;
+        api.deleteExperiment(owner, repo, experimentKey);
+
+        // TODO: test validations
+    }
+    /**
      * Delete experiment label
      *
      * 
