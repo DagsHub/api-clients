@@ -5,6 +5,7 @@ All URIs are relative to *https://dagshub.com/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addExperimentLabel**](ExperimentsApi.md#addExperimentLabel) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Add label to experiment
+[**deleteExperiment**](ExperimentsApi.md#deleteExperiment) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Delete experiment
 [**deleteExperimentLabel**](ExperimentsApi.md#deleteExperimentLabel) | **DELETE** /repos/{owner}/{repo}/experiments/experiment/{experimentKey}/labels/{experimentLabel} | Delete experiment label
 [**editExperiment**](ExperimentsApi.md#editExperiment) | **POST** /repos/{owner}/{repo}/experiments/experiment/{experimentKey} | Edit experiment info
 [**getExperimentMetrics**](ExperimentsApi.md#getExperimentMetrics) | **POST** /repos/{owner}/{repo}/experiments/metricsForExperiments | Get experiment metrics for experiment
@@ -71,6 +72,68 @@ null (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="deleteExperiment"></a>
+# **deleteExperiment**
+> deleteExperiment(owner, repo, experimentKey)
+
+Delete experiment
+
+Support both git and MLflow experiments
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ExperimentsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Configure HTTP basic authorization: basicAuth
+HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+basicAuth.setUsername("YOUR USERNAME");
+basicAuth.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: tokenAuth
+ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+tokenAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//tokenAuth.setApiKeyPrefix("Token");
+
+ExperimentsApi apiInstance = new ExperimentsApi();
+String owner = "owner_example"; // String | owner of the repository
+String repo = "repo_example"; // String | name of the repository
+String experimentKey = "experimentKey_example"; // String | a valid experiment key
+try {
+    apiInstance.deleteExperiment(owner, repo, experimentKey);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ExperimentsApi#deleteExperiment");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| owner of the repository |
+ **repo** | **String**| name of the repository |
+ **experimentKey** | **String**| a valid experiment key |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="deleteExperimentLabel"></a>
 # **deleteExperimentLabel**

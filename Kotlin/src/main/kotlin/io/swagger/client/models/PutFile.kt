@@ -44,11 +44,12 @@ data class PutFile (
     }
     /**
     * 
-    * Values: AUTO,DVC,GIT
+    * Values: AUTO,DVC,GIT,BUCKET
     */
     enum class Versioning(val value: kotlin.String){
         AUTO("auto"),
         DVC("dvc"),
-        GIT("git");
+        GIT("git"),
+        BUCKET("bucket");
     }
 }

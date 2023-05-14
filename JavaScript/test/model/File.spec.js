@@ -75,6 +75,12 @@
         // expect(instance.downloadUrl).to.be(expectedValueLiteral);
       });
 
+      it('should have the property contentUrl (base name: "content_url")', function() {
+        // TODO: update the code to test the property contentUrl
+        expect(instance).to.have.property('contentUrl');
+        // expect(instance.contentUrl).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

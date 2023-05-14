@@ -70,7 +70,12 @@ namespace dagshub_api.Model
             /// Enum Git for value: git
             /// </summary>
             [EnumMember(Value = "git")]
-            Git = 3        }
+            Git = 3,
+            /// <summary>
+            /// Enum Bucket for value: bucket
+            /// </summary>
+            [EnumMember(Value = "bucket")]
+            Bucket = 4        }
         /// <summary>
         /// Gets or Sets Versioning
         /// </summary>

@@ -150,7 +150,7 @@ class ContentApi(object):
     def get_content(self, owner, repo, branch, path, **kwargs):  # noqa: E501
         """List data in a repository folder  # noqa: E501
 
-        List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response.   # noqa: E501
+        List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_content(owner, repo, branch, path, async_req=True)
@@ -176,7 +176,7 @@ class ContentApi(object):
     def get_content_with_http_info(self, owner, repo, branch, path, **kwargs):  # noqa: E501
         """List data in a repository folder  # noqa: E501
 
-        List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result slower response.   # noqa: E501
+        List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param `include_size=true`. May result in a slower response.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_content_with_http_info(owner, repo, branch, path, async_req=True)

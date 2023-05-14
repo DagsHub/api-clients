@@ -203,7 +203,7 @@ class PutFile(object):
         :param versioning: The versioning of this PutFile.  # noqa: E501
         :type: str
         """
-        allowed_values = ["auto", "dvc", "git"]  # noqa: E501
+        allowed_values = ["auto", "dvc", "git", "bucket"]  # noqa: E501
         if versioning not in allowed_values:
             raise ValueError(
                 "Invalid value for `versioning` ({0}), must be one of {1}"  # noqa: E501

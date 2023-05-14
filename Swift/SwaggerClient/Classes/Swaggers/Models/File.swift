@@ -18,6 +18,7 @@ public struct File: Codable {
     public enum Versioning: String, Codable { 
         case git = "git"
         case dvc = "dvc"
+        case bucket = "bucket"
     }
     public var path: String?
     public var type: ModelType?
@@ -25,14 +26,16 @@ public struct File: Codable {
     public var hash: String?
     public var versioning: Versioning?
     public var downloadUrl: String?
+    public var contentUrl: String?
 
-    public init(path: String? = nil, type: ModelType? = nil, size: Int64? = nil, hash: String? = nil, versioning: Versioning? = nil, downloadUrl: String? = nil) {
+    public init(path: String? = nil, type: ModelType? = nil, size: Int64? = nil, hash: String? = nil, versioning: Versioning? = nil, downloadUrl: String? = nil, contentUrl: String? = nil) {
         self.path = path
         self.type = type
         self.size = size
         self.hash = hash
         self.versioning = versioning
         self.downloadUrl = downloadUrl
+        self.contentUrl = contentUrl
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -42,6 +45,7 @@ public struct File: Codable {
         case hash
         case versioning
         case downloadUrl = "download_url"
+        case contentUrl = "content_url"
     }
 
 }

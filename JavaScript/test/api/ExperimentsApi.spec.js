@@ -52,6 +52,24 @@
           done();
         });
       });
+      describe('deleteExperiment', function() {
+        it('should call deleteExperiment successfully', function(done) {
+          // TODO: uncomment, update parameter values for deleteExperiment call
+          /*
+
+          instance.deleteExperiment(owner, repo, experimentKey, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
       describe('deleteExperimentLabel', function() {
         it('should call deleteExperimentLabel successfully', function(done) {
           // TODO: uncomment, update parameter values for deleteExperimentLabel call

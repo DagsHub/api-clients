@@ -127,7 +127,13 @@ PutFile.VersioningEnum = {
    * value: "git"
    * @const
    */
-  git: "git"
+  git: "git",
+
+  /**
+   * value: "bucket"
+   * @const
+   */
+  bucket: "bucket"
 };
 /**
  * @member {module:model/PutFile.VersioningEnum} versioning

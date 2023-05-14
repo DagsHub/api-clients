@@ -51,6 +51,31 @@ namespace dagshub_api.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AddExperimentLabelWithHttpInfo (string owner, string repo, string experimentKey, string experimentLabel);
         /// <summary>
+        /// Delete experiment
+        /// </summary>
+        /// <remarks>
+        /// Support both git and MLflow experiments
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns></returns>
+        void DeleteExperiment (string owner, string repo, string experimentKey);
+
+        /// <summary>
+        /// Delete experiment
+        /// </summary>
+        /// <remarks>
+        /// Support both git and MLflow experiments
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteExperimentWithHttpInfo (string owner, string repo, string experimentKey);
+        /// <summary>
         /// Delete experiment label
         /// </summary>
         /// <remarks>
@@ -181,6 +206,31 @@ namespace dagshub_api.Api
         /// <param name="experimentLabel">A label for the experiment, max 128 characters.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AddExperimentLabelAsyncWithHttpInfo (string owner, string repo, string experimentKey, string experimentLabel);
+        /// <summary>
+        /// Delete experiment
+        /// </summary>
+        /// <remarks>
+        /// Support both git and MLflow experiments
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteExperimentAsync (string owner, string repo, string experimentKey);
+
+        /// <summary>
+        /// Delete experiment
+        /// </summary>
+        /// <remarks>
+        /// Support both git and MLflow experiments
+        /// </remarks>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExperimentAsyncWithHttpInfo (string owner, string repo, string experimentKey);
         /// <summary>
         /// Delete experiment label
         /// </summary>
@@ -573,6 +623,179 @@ namespace dagshub_api.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddExperimentLabel", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete experiment Support both git and MLflow experiments
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns></returns>
+        public void DeleteExperiment (string owner, string repo, string experimentKey)
+        {
+             DeleteExperimentWithHttpInfo(owner, repo, experimentKey);
+        }
+
+        /// <summary>
+        /// Delete experiment Support both git and MLflow experiments
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteExperimentWithHttpInfo (string owner, string repo, string experimentKey)
+        {
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ExperimentsApi->DeleteExperiment");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling ExperimentsApi->DeleteExperiment");
+            // verify the required parameter 'experimentKey' is set
+            if (experimentKey == null)
+                throw new ApiException(400, "Missing required parameter 'experimentKey' when calling ExperimentsApi->DeleteExperiment");
+
+            var localVarPath = "/repos/{owner}/{repo}/experiments/experiment/{experimentKey}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            if (experimentKey != null) localVarPathParams.Add("experimentKey", this.Configuration.ApiClient.ParameterToString(experimentKey)); // path parameter
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteExperiment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete experiment Support both git and MLflow experiments
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteExperimentAsync (string owner, string repo, string experimentKey)
+        {
+             await DeleteExperimentAsyncWithHttpInfo(owner, repo, experimentKey);
+
+        }
+
+        /// <summary>
+        /// Delete experiment Support both git and MLflow experiments
+        /// </summary>
+        /// <exception cref="dagshub_api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner">owner of the repository</param>
+        /// <param name="repo">name of the repository</param>
+        /// <param name="experimentKey">a valid experiment key</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExperimentAsyncWithHttpInfo (string owner, string repo, string experimentKey)
+        {
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ApiException(400, "Missing required parameter 'owner' when calling ExperimentsApi->DeleteExperiment");
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ApiException(400, "Missing required parameter 'repo' when calling ExperimentsApi->DeleteExperiment");
+            // verify the required parameter 'experimentKey' is set
+            if (experimentKey == null)
+                throw new ApiException(400, "Missing required parameter 'experimentKey' when calling ExperimentsApi->DeleteExperiment");
+
+            var localVarPath = "/repos/{owner}/{repo}/experiments/experiment/{experimentKey}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (owner != null) localVarPathParams.Add("owner", this.Configuration.ApiClient.ParameterToString(owner)); // path parameter
+            if (repo != null) localVarPathParams.Add("repo", this.Configuration.ApiClient.ParameterToString(repo)); // path parameter
+            if (experimentKey != null) localVarPathParams.Add("experimentKey", this.Configuration.ApiClient.ParameterToString(experimentKey)); // path parameter
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarHeaderParams["Authorization"] = "Basic " + ApiClient.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password);
+            }
+            // authentication (tokenAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteExperiment", localVarResponse);
                 if (exception != null) throw exception;
             }
 

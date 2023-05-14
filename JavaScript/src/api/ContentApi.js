@@ -105,7 +105,7 @@ export class ContentApi {
 
     /**
      * List data in a repository folder
-     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result slower response. 
+     * List files, commit sha1, and versioning type for a folder in repository.  To get sizes add to the query param &#x60;include_size&#x3D;true&#x60;. May result in a slower response. 
      * @param {String} owner owner of the repository
      * @param {String} repo name of the repository
      * @param {String} branch branch of the repository
