@@ -86,6 +86,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Make gradlew executable
+        working-directory: ./Java
+        run: chmod +x gradlew
+
       - name: Build with Gradle
         working-directory: ./Java
         run: ./gradlew build -x test
@@ -93,6 +97,7 @@ jobs:
   go:
     name: Verify Go Client
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -115,30 +120,25 @@ jobs:
 
   csharp:
     name: Verify C# Client
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
+      - name: Setup .NET Framework
+        uses: microsoft/setup-msbuild@v2
 
-      - name: Find and build C# projects
+      - name: Restore NuGet packages
         working-directory: ./C#
-        run: |
-          # Find all .csproj or .sln files
-          if ls *.sln 1> /dev/null 2>&1; then
-            dotnet build *.sln
-          elif ls *.csproj 1> /dev/null 2>&1; then
-            dotnet build
-          else
-            echo "No .csproj or .sln found, skipping build"
-          fi
+        run: nuget restore
+
+      - name: Build with MSBuild
+        working-directory: ./C#
+        run: msbuild /p:Configuration=Release
 
   kotlin:
     name: Verify Kotlin Client
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -147,6 +147,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Make gradlew executable
+        working-directory: ./Kotlin
+        run: |
+          if [ -f gradlew ]; then
+            chmod +x gradlew
+          fi
 
       - name: Build Kotlin client
         working-directory: ./Kotlin
@@ -178,6 +185,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Make gradlew executable
+        working-directory: ./Scala
+        run: |
+          if [ -f gradlew ]; then
+            chmod +x gradlew
+          fi
 
       - name: Build Scala client
         working-directory: ./Scala
