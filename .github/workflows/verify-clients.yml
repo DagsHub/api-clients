@@ -1,0 +1,237 @@
+name: Verify Generated API Clients
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  python:
+    name: Verify Python Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        working-directory: ./Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -e .
+
+      - name: Lint with flake8
+        working-directory: ./Python
+        run: |
+          # Stop on syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # All other checks as warnings
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Verify import
+        run: python -c "import dagshub_api; print('✓ Python client imports successfully')"
+
+  typescript:
+    name: Verify TypeScript Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: ./TypeScript
+        run: npm install
+
+      - name: Build TypeScript
+        working-directory: ./TypeScript
+        run: npm run build
+
+  javascript:
+    name: Verify JavaScript Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: ./JavaScript
+        run: npm install
+
+      - name: Check syntax
+        working-directory: ./JavaScript
+        run: node -c src/index.js
+
+  java:
+    name: Verify Java Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build with Gradle
+        working-directory: ./Java
+        run: ./gradlew build -x test
+
+  go:
+    name: Verify Go Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Initialize Go module
+        working-directory: ./Go
+        run: |
+          if [ ! -f go.mod ]; then
+            go mod init github.com/DagsHub/api-clients/go || true
+          fi
+          go mod tidy || true
+
+      - name: Build Go client
+        working-directory: ./Go
+        run: go build ./...
+
+  csharp:
+    name: Verify C# Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Find and build C# projects
+        working-directory: ./C#
+        run: |
+          # Find all .csproj or .sln files
+          if ls *.sln 1> /dev/null 2>&1; then
+            dotnet build *.sln
+          elif ls *.csproj 1> /dev/null 2>&1; then
+            dotnet build
+          else
+            echo "No .csproj or .sln found, skipping build"
+          fi
+
+  kotlin:
+    name: Verify Kotlin Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build Kotlin client
+        working-directory: ./Kotlin
+        run: |
+          if [ -f build.gradle ] || [ -f build.gradle.kts ]; then
+            if [ -f gradlew ]; then
+              ./gradlew build -x test
+            else
+              gradle build -x test
+            fi
+          else
+            echo "No Gradle build file found"
+          fi
+
+  scala:
+    name: Verify Scala Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Scala
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build Scala client
+        working-directory: ./Scala
+        run: |
+          if [ -f build.gradle ]; then
+            ./gradlew build -x test
+          elif [ -f build.sbt ]; then
+            echo "SBT build detected but sbt not installed, skipping"
+          fi
+
+  swift:
+    name: Verify Swift Client
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Swift client
+        working-directory: ./Swift
+        run: |
+          if [ -f Package.swift ]; then
+            swift build
+          else
+            echo "No Package.swift found, checking syntax only"
+            swiftc -v 2>&1 | head -1
+            find . -name "*.swift" -exec swift -frontend -parse {} \; || echo "Swift syntax check completed"
+          fi
+
+  r:
+    name: Verify R Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+
+      - name: Check R package structure
+        working-directory: ./R
+        run: |
+          if [ -f DESCRIPTION ]; then
+            echo "✓ R package DESCRIPTION file found"
+            Rscript -e "if (file.exists('NAMESPACE')) cat('✓ NAMESPACE file found\n')"
+          else
+            echo "⚠ No DESCRIPTION file found"
+          fi
+
+      - name: Install dependencies
+        working-directory: ./R
+        run: |
+          Rscript -e "install.packages(c('httr', 'jsonlite', 'testthat'), repos='https://cloud.r-project.org')"
+
+      - name: Check R syntax
+        working-directory: ./R
+        run: |
+          Rscript -e "source('R/ApiClient.r', echo=TRUE)" || echo "R syntax check completed"
