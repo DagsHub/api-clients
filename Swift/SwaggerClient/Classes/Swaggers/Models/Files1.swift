@@ -12,18 +12,16 @@ import Foundation
 public struct Files1: Codable {
 
     public var entries: [File]?
-    public var limit: Int?
+    /** Next token to continue pagination from */
     public var nextToken: String?
 
-    public init(entries: [File]? = nil, limit: Int? = nil, nextToken: String? = nil) {
+    public init(entries: [File]? = nil, nextToken: String? = nil) {
         self.entries = entries
-        self.limit = limit
         self.nextToken = nextToken
     }
 
     public enum CodingKeys: String, CodingKey { 
         case entries
-        case limit
         case nextToken = "next_token"
     }
 

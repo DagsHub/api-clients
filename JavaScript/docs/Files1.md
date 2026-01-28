@@ -4,5 +4,4 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entries** | **[File]** |  | [optional] 
-**limit** | **Number** |  | [optional] 
-**nextToken** | **String** |  | [optional] 
+**nextToken** | **String** | Next token to continue pagination from | [optional] 

@@ -1,8 +1,8 @@
 # swagger-java-client
 
 DagsHub API
-- API version: 1.0.2
-  - Build date: 2023-05-11T11:41:48.085831Z[Etc/UTC]
+- API version: 1.0.3
+  - Build date: 2026-01-28T08:00:41.951499729Z[Etc/UTC]
 
 This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
@@ -74,12 +74,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.BranchesApi;
+import io.swagger.client.api.AnnotationsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class BranchesApiExample {
+public class AnnotationsApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -94,14 +94,16 @@ public class BranchesApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //tokenAuth.setApiKeyPrefix("Token");
 
-        BranchesApi apiInstance = new BranchesApi();
+        AnnotationsApi apiInstance = new AnnotationsApi();
         String owner = "owner_example"; // String | owner of the repository
         String repo = "repo_example"; // String | name of the repository
-        String branch = "branch_example"; // String | branch of the repository
+        Long teamid = 789L; // Long | Team ID
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
         try {
-            apiInstance.getBranch(owner, repo, branch);
+            LabelStudioProjectAccess result = apiInstance.getLabelStudioTeamAccess(owner, repo, teamid, projectId);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BranchesApi#getBranch");
+            System.err.println("Exception when calling AnnotationsApi#getLabelStudioTeamAccess");
             e.printStackTrace();
         }
     }
@@ -109,12 +111,12 @@ public class BranchesApiExample {
 import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.BranchesApi;
+import io.swagger.client.api.AnnotationsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class BranchesApiExample {
+public class AnnotationsApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -129,13 +131,232 @@ public class BranchesApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //tokenAuth.setApiKeyPrefix("Token");
 
-        BranchesApi apiInstance = new BranchesApi();
+        AnnotationsApi apiInstance = new AnnotationsApi();
         String owner = "owner_example"; // String | owner of the repository
         String repo = "repo_example"; // String | name of the repository
+        Long userid = 789L; // Long | User ID
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
         try {
-            apiInstance.listBranches(owner, repo);
+            InlineResponse200 result = apiInstance.getLabelStudioUserAccess(owner, repo, userid, projectId);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BranchesApi#listBranches");
+            System.err.println("Exception when calling AnnotationsApi#getLabelStudioUserAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        GrantLabelStudioAccess body = new GrantLabelStudioAccess(); // GrantLabelStudioAccess | 
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long teamid = 789L; // Long | Team ID
+        try {
+            apiInstance.grantLabelStudioTeamAccess(body, owner, repo, teamid);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#grantLabelStudioTeamAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        GrantLabelStudioAccess body = new GrantLabelStudioAccess(); // GrantLabelStudioAccess | 
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long userid = 789L; // Long | User ID
+        try {
+            apiInstance.grantLabelStudioUserAccess(body, owner, repo, userid);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#grantLabelStudioUserAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
+        try {
+            List<LabelStudioProjectAccess> result = apiInstance.listLabelStudioTeamAccess(owner, repo, projectId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#listLabelStudioTeamAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
+        try {
+            List<LabelStudioProjectAccess> result = apiInstance.listLabelStudioUserAccess(owner, repo, projectId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#listLabelStudioUserAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long teamid = 789L; // Long | Team ID
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
+        try {
+            apiInstance.revokeLabelStudioTeamAccess(owner, repo, teamid, projectId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#revokeLabelStudioTeamAccess");
+            e.printStackTrace();
+        }
+    }
+}
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AnnotationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AnnotationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure API key authorization: tokenAuth
+        ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+        tokenAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //tokenAuth.setApiKeyPrefix("Token");
+
+        AnnotationsApi apiInstance = new AnnotationsApi();
+        String owner = "owner_example"; // String | owner of the repository
+        String repo = "repo_example"; // String | name of the repository
+        Long userid = 789L; // Long | User ID
+        Long projectId = 789L; // Long | Label Studio project ID to filter by. If not specified, returns access for all projects. Use -1 for wildcard access.
+        try {
+            apiInstance.revokeLabelStudioUserAccess(owner, repo, userid, projectId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AnnotationsApi#revokeLabelStudioUserAccess");
             e.printStackTrace();
         }
     }
@@ -148,6 +369,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnnotationsApi* | [**getLabelStudioTeamAccess**](docs/AnnotationsApi.md#getLabelStudioTeamAccess) | **GET** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Get team access level for annotation projects
+*AnnotationsApi* | [**getLabelStudioUserAccess**](docs/AnnotationsApi.md#getLabelStudioUserAccess) | **GET** /repos/{owner}/{repo}/annotations/access/users/{userid} | Get user access level for annotation projects
+*AnnotationsApi* | [**grantLabelStudioTeamAccess**](docs/AnnotationsApi.md#grantLabelStudioTeamAccess) | **PUT** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Grant team access to annotation projects
+*AnnotationsApi* | [**grantLabelStudioUserAccess**](docs/AnnotationsApi.md#grantLabelStudioUserAccess) | **PUT** /repos/{owner}/{repo}/annotations/access/users/{userid} | Grant user access to annotation projects
+*AnnotationsApi* | [**listLabelStudioTeamAccess**](docs/AnnotationsApi.md#listLabelStudioTeamAccess) | **GET** /repos/{owner}/{repo}/annotations/access/teams | List team access entries for annotation projects
+*AnnotationsApi* | [**listLabelStudioUserAccess**](docs/AnnotationsApi.md#listLabelStudioUserAccess) | **GET** /repos/{owner}/{repo}/annotations/access/users | List user access entries for annotation projects
+*AnnotationsApi* | [**revokeLabelStudioTeamAccess**](docs/AnnotationsApi.md#revokeLabelStudioTeamAccess) | **DELETE** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Revoke team access to annotation projects
+*AnnotationsApi* | [**revokeLabelStudioUserAccess**](docs/AnnotationsApi.md#revokeLabelStudioUserAccess) | **DELETE** /repos/{owner}/{repo}/annotations/access/users/{userid} | Revoke user access to annotation projects
 *BranchesApi* | [**getBranch**](docs/BranchesApi.md#getBranch) | **GET** /repos/{owner}/{repo}/branches/{branch} | Get Branch
 *BranchesApi* | [**listBranches**](docs/BranchesApi.md#listBranches) | **GET** /repos/{owner}/{repo}/branches | List Branches
 *CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addCollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
@@ -168,6 +397,7 @@ Class | Method | HTTP request | Description
 *IssuesApi* | [**editIssue**](docs/IssuesApi.md#editIssue) | **PATCH** /repos/{owner}/{repo}/issues | Edit an issue
 *IssuesApi* | [**getIssue**](docs/IssuesApi.md#getIssue) | **GET** /repos/{owner}/{repo}/issues/{index} | Get a single issue
 *IssuesApi* | [**listRepoIssues**](docs/IssuesApi.md#listRepoIssues) | **GET** /repos/{owner}/{repo}/issues | List issues for a repository
+*OrganizationsApi* | [**createOrgTeam**](docs/OrganizationsApi.md#createOrgTeam) | **POST** /admin/orgs/{orgname}/teams | Create an organization team
 *ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listReleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createOrgRepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createRepo) | **POST** /user/repos | Create
@@ -190,13 +420,16 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [CollaboratorsCollaboratorBody](docs/CollaboratorsCollaboratorBody.md)
+ - [CreateAnnotatorTeam](docs/CreateAnnotatorTeam.md)
  - [CreateRepo](docs/CreateRepo.md)
  - [EditExperimentPost](docs/EditExperimentPost.md)
  - [ExperimentKeys](docs/ExperimentKeys.md)
  - [File](docs/File.md)
  - [Files](docs/Files.md)
  - [Files1](docs/Files1.md)
+ - [GrantLabelStudioAccess](docs/GrantLabelStudioAccess.md)
  - [HooksIdBody](docs/HooksIdBody.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [Integration](docs/Integration.md)
  - [IntegrationInner](docs/IntegrationInner.md)
  - [Issue](docs/Issue.md)
@@ -204,6 +437,7 @@ Class | Method | HTTP request | Description
  - [IssueLabels](docs/IssueLabels.md)
  - [IssueMilestone](docs/IssueMilestone.md)
  - [Issues](docs/Issues.md)
+ - [LabelStudioProjectAccess](docs/LabelStudioProjectAccess.md)
  - [Labels](docs/Labels.md)
  - [MigrateRepo](docs/MigrateRepo.md)
  - [PatchIssue](docs/PatchIssue.md)

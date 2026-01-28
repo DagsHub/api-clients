@@ -3,12 +3,14 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from dagshub_api.api.annotations_api import AnnotationsApi
 from dagshub_api.api.branches_api import BranchesApi
 from dagshub_api.api.collaborators_api import CollaboratorsApi
 from dagshub_api.api.commits_api import CommitsApi
 from dagshub_api.api.content_api import ContentApi
 from dagshub_api.api.experiments_api import ExperimentsApi
 from dagshub_api.api.issues_api import IssuesApi
+from dagshub_api.api.organizations_api import OrganizationsApi
 from dagshub_api.api.releases_api import ReleasesApi
 from dagshub_api.api.repository_api import RepositoryApi
 from dagshub_api.api.storage_integrations_api import StorageIntegrationsApi

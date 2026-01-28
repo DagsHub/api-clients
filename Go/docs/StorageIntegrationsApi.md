@@ -35,7 +35,8 @@ Name | Type | Description  | Notes
 
  **includeSize** | **optional.Bool**|  | [default to false]
  **limit** | **optional.Int32**| Maximum amount of items to return | [default to 100]
- **fromToken** | **optional.String**| Token, from which to continue iteration | 
+ **paging** | **optional.Bool**| Whether or not paging is enabled | [default to false]
+ **fromToken** | **optional.String**| [Only if paging is enabled] token, from which to continue iteration | 
 
 ### Return type
 

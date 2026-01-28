@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getBucketContent"></a>
 # **getBucketContent**
-> Files1 getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, fromToken)
+> Files1 getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, paging, fromToken)
 
 List contents in the path
 
@@ -28,9 +28,10 @@ val bucket : kotlin.String = bucket_example // kotlin.String | name and prefix o
 val path : kotlin.String = path_example // kotlin.String | path of a folder in the repository
 val includeSize : kotlin.Boolean = true // kotlin.Boolean | 
 val limit : kotlin.Int = 56 // kotlin.Int | Maximum amount of items to return
-val fromToken : kotlin.String = fromToken_example // kotlin.String | Token, from which to continue iteration
+val paging : kotlin.Boolean = true // kotlin.Boolean | Whether or not paging is enabled
+val fromToken : kotlin.String = fromToken_example // kotlin.String | [Only if paging is enabled] token, from which to continue iteration
 try {
-    val result : Files1 = apiInstance.getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, fromToken)
+    val result : Files1 = apiInstance.getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, paging, fromToken)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StorageIntegrationsApi#getBucketContent")
@@ -52,7 +53,8 @@ Name | Type | Description  | Notes
  **path** | **kotlin.String**| path of a folder in the repository |
  **includeSize** | **kotlin.Boolean**|  | [optional] [default to false]
  **limit** | **kotlin.Int**| Maximum amount of items to return | [optional] [default to 100]
- **fromToken** | **kotlin.String**| Token, from which to continue iteration | [optional]
+ **paging** | **kotlin.Boolean**| Whether or not paging is enabled | [optional] [default to false]
+ **fromToken** | **kotlin.String**| [Only if paging is enabled] token, from which to continue iteration | [optional]
 
 ### Return type
 

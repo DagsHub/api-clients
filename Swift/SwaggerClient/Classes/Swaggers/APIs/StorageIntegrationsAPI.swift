@@ -28,11 +28,12 @@ open class StorageIntegrationsAPI {
      - parameter path: (path) path of a folder in the repository 
      - parameter includeSize: (query)  (optional, default to false)
      - parameter limit: (query) Maximum amount of items to return (optional, default to 100)
-     - parameter fromToken: (query) Token, from which to continue iteration (optional)
+     - parameter paging: (query) Whether or not paging is enabled (optional, default to false)
+     - parameter fromToken: (query) [Only if paging is enabled] token, from which to continue iteration (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getBucketContent(owner: String, repo: String, _protocol: ModelProtocol_getBucketContent, bucket: String, path: String, includeSize: Bool? = nil, limit: Int? = nil, fromToken: String? = nil, completion: @escaping ((_ data: Files1?,_ error: Error?) -> Void)) {
-        getBucketContentWithRequestBuilder(owner: owner, repo: repo, _protocol: _protocol, bucket: bucket, path: path, includeSize: includeSize, limit: limit, fromToken: fromToken).execute { (response, error) -> Void in
+    open class func getBucketContent(owner: String, repo: String, _protocol: ModelProtocol_getBucketContent, bucket: String, path: String, includeSize: Bool? = nil, limit: Int? = nil, paging: Bool? = nil, fromToken: String? = nil, completion: @escaping ((_ data: Files1?,_ error: Error?) -> Void)) {
+        getBucketContentWithRequestBuilder(owner: owner, repo: repo, _protocol: _protocol, bucket: bucket, path: path, includeSize: includeSize, limit: limit, paging: paging, fromToken: fromToken).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -67,7 +68,6 @@ open class StorageIntegrationsAPI {
     "type" : "[file]",
     "hash" : "79fb7f8632d7e15b3b46a7411d08bcdd"
   } ],
-  "limit" : 0,
   "next_token" : "next_token"
 }}]
      - parameter owner: (path) owner of the repository 
@@ -77,11 +77,12 @@ open class StorageIntegrationsAPI {
      - parameter path: (path) path of a folder in the repository 
      - parameter includeSize: (query)  (optional, default to false)
      - parameter limit: (query) Maximum amount of items to return (optional, default to 100)
-     - parameter fromToken: (query) Token, from which to continue iteration (optional)
+     - parameter paging: (query) Whether or not paging is enabled (optional, default to false)
+     - parameter fromToken: (query) [Only if paging is enabled] token, from which to continue iteration (optional)
 
      - returns: RequestBuilder<Files1> 
      */
-    open class func getBucketContentWithRequestBuilder(owner: String, repo: String, _protocol: ModelProtocol_getBucketContent, bucket: String, path: String, includeSize: Bool? = nil, limit: Int? = nil, fromToken: String? = nil) -> RequestBuilder<Files1> {
+    open class func getBucketContentWithRequestBuilder(owner: String, repo: String, _protocol: ModelProtocol_getBucketContent, bucket: String, path: String, includeSize: Bool? = nil, limit: Int? = nil, paging: Bool? = nil, fromToken: String? = nil) -> RequestBuilder<Files1> {
         var path = "/repos/{owner}/{repo}/storage/content/{protocol}/{bucket}/{path}"
         let ownerPreEscape = "\(owner)"
         let ownerPostEscape = ownerPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,6 +105,7 @@ open class StorageIntegrationsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
                         "include_size": includeSize, 
                         "limit": limit?.encodeToJSON(), 
+                        "paging": paging, 
                         "from_token": fromToken
         ])
 

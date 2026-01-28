@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getbucketcontent"></a>
 # **GetBucketContent**
-> Files1 GetBucketContent (string owner, string repo, string protocol, string bucket, string path, bool? includeSize = null, int? limit = null, string fromToken = null)
+> Files1 GetBucketContent (string owner, string repo, string protocol, string bucket, string path, bool? includeSize = null, int? limit = null, bool? paging = null, string fromToken = null)
 
 List contents in the path
 
@@ -44,12 +44,13 @@ namespace Example
             var path = path_example;  // string | path of a folder in the repository
             var includeSize = true;  // bool? |  (optional)  (default to false)
             var limit = 56;  // int? | Maximum amount of items to return (optional)  (default to 100)
-            var fromToken = fromToken_example;  // string | Token, from which to continue iteration (optional) 
+            var paging = true;  // bool? | Whether or not paging is enabled (optional)  (default to false)
+            var fromToken = fromToken_example;  // string | [Only if paging is enabled] token, from which to continue iteration (optional) 
 
             try
             {
                 // List contents in the path
-                Files1 result = apiInstance.GetBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, fromToken);
+                Files1 result = apiInstance.GetBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, paging, fromToken);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -72,7 +73,8 @@ Name | Type | Description  | Notes
  **path** | **string**| path of a folder in the repository | 
  **includeSize** | **bool?**|  | [optional] [default to false]
  **limit** | **int?**| Maximum amount of items to return | [optional] [default to 100]
- **fromToken** | **string**| Token, from which to continue iteration | [optional] 
+ **paging** | **bool?**| Whether or not paging is enabled | [optional] [default to false]
+ **fromToken** | **string**| [Only if paging is enabled] token, from which to continue iteration | [optional] 
 
 ### Return type
 
