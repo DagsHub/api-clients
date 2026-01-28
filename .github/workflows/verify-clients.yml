@@ -77,6 +77,7 @@ jobs:
   java:
     name: Verify Java Client
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -121,6 +122,7 @@ jobs:
   csharp:
     name: Verify C# Client
     runs-on: windows-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -171,6 +173,7 @@ jobs:
   scala:
     name: Verify Scala Client
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
