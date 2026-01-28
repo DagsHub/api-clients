@@ -4,7 +4,7 @@ info:
   description: |
     This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more.
     The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training.
-  version: 1.0.2
+  version: 1.0.3
 servers:
 - url: https://dagshub.com/api/v1
 security:
@@ -216,9 +216,16 @@ paths:
         schema:
           type: integer
           default: 100
+      - name: paging
+        in: query
+        description: Whether or not paging is enabled
+        schema:
+          type: boolean
+          default: false
+        example: false
       - name: from_token
         in: query
-        description: "Token, from which to continue iteration"
+        description: "[Only if paging is enabled] token, from which to continue iteration"
         schema:
           type: string
       responses:
@@ -286,8 +293,7 @@ paths:
                   versioning: bucket
                   download_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/raw/s3/spacenet-dataset/LICENSE.md
                   content_url: https://dagshub.com/api/v1/repos/DagsHub-Datasets/spacenet-dataset/storage/content/s3/spacenet-dataset/LICENSE.md
-                limit: 8
-                next_token: ""
+                next_token: next-token
         "404":
           description: Folder or file not found
   /repos/{owner}/{repo}/storage/raw/{protocol}/{bucket}/{path}:
@@ -1301,6 +1307,367 @@ paths:
                   admin: false
                   push: true
                   pull: true
+  /repos/{owner}/{repo}/annotations/access/users:
+    get:
+      tags:
+      - Annotations
+      summary: List user access entries for annotation projects
+      description: Get a list of users with access to Label Studio annotation projects
+        in the repository
+      operationId: listLabelStudioUserAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successfully retrieved user access entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LabelStudioProjectAccess'
+                x-content-type: application/json
+  /repos/{owner}/{repo}/annotations/access/users/{userid}:
+    get:
+      tags:
+      - Annotations
+      summary: Get user access level for annotation projects
+      description: Get the access level for a specific user and project (or all projects)
+      operationId: getLabelStudioUserAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: userid
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successfully retrieved user access level
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+    put:
+      tags:
+      - Annotations
+      summary: Grant user access to annotation projects
+      description: Grant a user access to specific Label Studio annotation projects.
+        User must be an organization member if the repo is owned by an organization.
+      operationId: grantLabelStudioUserAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: userid
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantLabelStudioAccess'
+        required: true
+      responses:
+        "204":
+          description: Access granted successfully
+        "400":
+          description: User must be a member of the organization which owns the repo
+        "404":
+          description: User not found
+    delete:
+      tags:
+      - Annotations
+      summary: Revoke user access to annotation projects
+      description: Revoke a user's access to Label Studio annotation projects
+      operationId: revokeLabelStudioUserAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: userid
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: Access revoked successfully
+        "404":
+          description: User not found
+  /repos/{owner}/{repo}/annotations/access/teams:
+    get:
+      tags:
+      - Annotations
+      summary: List team access entries for annotation projects
+      description: Get a list of teams with access to Label Studio annotation projects
+        in the repository (organization repositories only)
+      operationId: listLabelStudioTeamAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successfully retrieved team access entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LabelStudioProjectAccess'
+                x-content-type: application/json
+  /repos/{owner}/{repo}/annotations/access/teams/{teamid}:
+    get:
+      tags:
+      - Annotations
+      summary: Get team access level for annotation projects
+      description: Get the access level for a specific team and project (or all projects)
+      operationId: getLabelStudioTeamAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: teamid
+        in: path
+        description: Team ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successfully retrieved team access level
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelStudioProjectAccess'
+    put:
+      tags:
+      - Annotations
+      summary: Grant team access to annotation projects
+      description: Grant a team access to specific Label Studio annotation projects
+        (organization repositories only)
+      operationId: grantLabelStudioTeamAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: teamid
+        in: path
+        description: Team ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantLabelStudioAccess'
+        required: true
+      responses:
+        "204":
+          description: Access granted successfully
+        "404":
+          description: Team not found
+    delete:
+      tags:
+      - Annotations
+      summary: Revoke team access to annotation projects
+      description: Revoke a team's access to Label Studio annotation projects
+      operationId: revokeLabelStudioTeamAccess
+      parameters:
+      - name: owner
+        in: path
+        description: owner of the repository
+        required: true
+        schema:
+          type: string
+        example: OperationSavta
+      - name: repo
+        in: path
+        description: name of the repository
+        required: true
+        schema:
+          type: string
+        example: SavtaDepth
+      - name: teamid
+        in: path
+        description: Team ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: project_id
+        in: query
+        description: "Label Studio project ID to filter by. If not specified, returns\
+          \ access for all projects. Use -1 for wildcard access."
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: Access revoked successfully
+        "404":
+          description: Team not found
+  /admin/orgs/{orgname}/teams:
+    post:
+      tags:
+      - Organizations
+      summary: Create an organization team
+      description: Create a new team in an organization. Use team_type "annotator"
+        to create an annotator team with access only to annotation projects.
+      operationId: createOrgTeam
+      parameters:
+      - name: orgname
+        in: path
+        description: A DagsHub organization name
+        required: true
+        schema:
+          type: string
+        example: DAGsHub-Official
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAnnotatorTeam'
+        required: true
+      responses:
+        "201":
+          description: Team created successfully
+        "400":
+          description: Invalid team type or other validation error
   /repos/{owner}/{repo}/commits/{sha}:
     get:
       tags:
@@ -1643,10 +2010,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/File'
-        limit:
-          type: integer
         next_token:
           type: string
+          description: Next token to continue pagination from
       example:
         entries:
         - path: images/000.png
@@ -1663,7 +2029,6 @@ components:
           content_url: https://dagshub.com/Simon/baby-yoda-segmentation-dataset/content/master/images/000.png
           type: "[file]"
           hash: 79fb7f8632d7e15b3b46a7411d08bcdd
-        limit: 0
         next_token: next_token
     Issues:
       type: array
@@ -1892,6 +2257,97 @@ components:
           type: string
           description: Description of the repository
           example: This is a repository
+    LabelStudioProjectAccess:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        repo_id:
+          type: integer
+          format: int64
+        project_id:
+          type: integer
+          description: "Project ID, -1 means wildcard access to all projects"
+          format: int64
+        user_id:
+          type: integer
+          description: User ID (present for user access entries)
+          format: int64
+        team_id:
+          type: integer
+          description: Team ID (present for team access entries)
+          format: int64
+        access_level:
+          type: string
+          enum:
+          - none
+          - annotator
+        created_unix:
+          type: integer
+          format: int64
+        user:
+          $ref: '#/components/schemas/User'
+      example:
+        access_level: none
+        project_id: 1
+        user_id: 5
+        repo_id: 6
+        created_unix: 2
+        id: 0
+        team_id: 5
+        user:
+          full_name: full_name
+          avatar_url: avatar_url
+          id: 7
+          login: login
+          username: username
+    GrantLabelStudioAccess:
+      required:
+      - project_id
+      type: object
+      properties:
+        project_id:
+          type: integer
+          description: "Project ID, -1 for wildcard access to all projects"
+          format: int64
+          example: -1
+        access_level:
+          type: string
+          description: Access level to grant
+          default: annotator
+          enum:
+          - annotator
+          - none
+    CreateAnnotatorTeam:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Team name
+          example: Data Annotators
+        description:
+          type: string
+          description: Team description
+          example: Team for annotation work
+        team_type:
+          type: string
+          description: "Type of team - normal teams have repository access, annotator\
+            \ teams only have annotation project access"
+          default: normal
+          enum:
+          - normal
+          - annotator
+        permission:
+          type: string
+          description: "Repository permission level (required for normal teams, ignored\
+            \ for annotator teams)"
+          enum:
+          - read
+          - write
+          - admin
     WebhookConfig:
       required:
       - content_type
@@ -2016,6 +2472,12 @@ components:
         username:
           type: string
       additionalProperties: false
+      example:
+        full_name: full_name
+        avatar_url: avatar_url
+        id: 7
+        login: login
+        username: username
     State:
       type: string
       enum:
@@ -2029,6 +2491,24 @@ components:
           description: "The permission to grant the collaborator. Can be one of **read**,\
             \ **write** and **admin**."
           default: write
+    inline_response_200:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+        project_id:
+          type: integer
+          format: int64
+        access_level:
+          type: string
+          enum:
+          - none
+          - annotator
+      example:
+        access_level: none
+        user_id: 0
+        project_id: 6
     repo_hooks_body:
       required:
       - config
@@ -2188,10 +2668,18 @@ components:
       schema:
         type: integer
         default: 100
+    Paging:
+      name: paging
+      in: query
+      description: Whether or not paging is enabled
+      schema:
+        type: boolean
+        default: false
+      example: false
     FromToken:
       name: from_token
       in: query
-      description: "Token, from which to continue iteration"
+      description: "[Only if paging is enabled] token, from which to continue iteration"
       schema:
         type: string
     Username:
@@ -2246,6 +2734,31 @@ components:
       required: true
       schema:
         type: string
+    ProjectId:
+      name: project_id
+      in: query
+      description: "Label Studio project ID to filter by. If not specified, returns\
+        \ access for all projects. Use -1 for wildcard access."
+      required: false
+      schema:
+        type: integer
+        format: int64
+    UserId:
+      name: userid
+      in: path
+      description: User ID
+      required: true
+      schema:
+        type: integer
+        format: int64
+    TeamId:
+      name: teamid
+      in: path
+      description: Team ID
+      required: true
+      schema:
+        type: integer
+        format: int64
     Sha:
       name: sha
       in: path

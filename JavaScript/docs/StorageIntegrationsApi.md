@@ -38,7 +38,8 @@ let path = "path_example"; // String | path of a folder in the repository
 let opts = { 
   'includeSize': false, // Boolean | 
   'limit': 100, // Number | Maximum amount of items to return
-  'fromToken': "fromToken_example" // String | Token, from which to continue iteration
+  'paging': false, // Boolean | Whether or not paging is enabled
+  'fromToken': "fromToken_example" // String | [Only if paging is enabled] token, from which to continue iteration
 };
 apiInstance.getBucketContent(owner, repo, protocol, bucket, path, opts, (error, data, response) => {
   if (error) {
@@ -60,7 +61,8 @@ Name | Type | Description  | Notes
  **path** | **String**| path of a folder in the repository | 
  **includeSize** | **Boolean**|  | [optional] [default to false]
  **limit** | **Number**| Maximum amount of items to return | [optional] [default to 100]
- **fromToken** | **String**| Token, from which to continue iteration | [optional] 
+ **paging** | **Boolean**| Whether or not paging is enabled | [optional] [default to false]
+ **fromToken** | **String**| [Only if paging is enabled] token, from which to continue iteration | [optional] 
 
 ### Return type
 

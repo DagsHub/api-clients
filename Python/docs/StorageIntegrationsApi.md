@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**get_buckets**](StorageIntegrationsApi.md#get_buckets) | **GET** /repos/{owner}/{repo}/storage | List integrated storages in the repository
 
 # **get_bucket_content**
-> Files1 get_bucket_content(owner, repo, protocol, bucket, path, include_size=include_size, limit=limit, from_token=from_token)
+> Files1 get_bucket_content(owner, repo, protocol, bucket, path, include_size=include_size, limit=limit, paging=paging, from_token=from_token)
 
 List contents in the path
 
@@ -39,11 +39,12 @@ bucket = 'bucket_example' # str | name and prefix of the bucket integration
 path = 'path_example' # str | path of a folder in the repository
 include_size = false # bool |  (optional) (default to false)
 limit = 100 # int | Maximum amount of items to return (optional) (default to 100)
-from_token = 'from_token_example' # str | Token, from which to continue iteration (optional)
+paging = false # bool | Whether or not paging is enabled (optional) (default to false)
+from_token = 'from_token_example' # str | [Only if paging is enabled] token, from which to continue iteration (optional)
 
 try:
     # List contents in the path
-    api_response = api_instance.get_bucket_content(owner, repo, protocol, bucket, path, include_size=include_size, limit=limit, from_token=from_token)
+    api_response = api_instance.get_bucket_content(owner, repo, protocol, bucket, path, include_size=include_size, limit=limit, paging=paging, from_token=from_token)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StorageIntegrationsApi->get_bucket_content: %s\n" % e)
@@ -60,7 +61,8 @@ Name | Type | Description  | Notes
  **path** | **str**| path of a folder in the repository | 
  **include_size** | **bool**|  | [optional] [default to false]
  **limit** | **int**| Maximum amount of items to return | [optional] [default to 100]
- **from_token** | **str**| Token, from which to continue iteration | [optional] 
+ **paging** | **bool**| Whether or not paging is enabled | [optional] [default to false]
+ **from_token** | **str**| [Only if paging is enabled] token, from which to continue iteration | [optional] 
 
 ### Return type
 

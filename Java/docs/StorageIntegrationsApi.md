@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getBucketContent"></a>
 # **getBucketContent**
-> Files1 getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, fromToken)
+> Files1 getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, paging, fromToken)
 
 List contents in the path
 
@@ -43,9 +43,10 @@ String bucket = "bucket_example"; // String | name and prefix of the bucket inte
 String path = "path_example"; // String | path of a folder in the repository
 Boolean includeSize = false; // Boolean | 
 Integer limit = 100; // Integer | Maximum amount of items to return
-String fromToken = "fromToken_example"; // String | Token, from which to continue iteration
+Boolean paging = false; // Boolean | Whether or not paging is enabled
+String fromToken = "fromToken_example"; // String | [Only if paging is enabled] token, from which to continue iteration
 try {
-    Files1 result = apiInstance.getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, fromToken);
+    Files1 result = apiInstance.getBucketContent(owner, repo, protocol, bucket, path, includeSize, limit, paging, fromToken);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageIntegrationsApi#getBucketContent");
@@ -64,7 +65,8 @@ Name | Type | Description  | Notes
  **path** | **String**| path of a folder in the repository |
  **includeSize** | **Boolean**|  | [optional] [default to false]
  **limit** | **Integer**| Maximum amount of items to return | [optional] [default to 100]
- **fromToken** | **String**| Token, from which to continue iteration | [optional]
+ **paging** | **Boolean**| Whether or not paging is enabled | [optional] [default to false]
+ **fromToken** | **String**| [Only if paging is enabled] token, from which to continue iteration | [optional]
 
 ### Return type
 

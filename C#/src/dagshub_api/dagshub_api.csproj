@@ -4,7 +4,7 @@ DagsHub API
 
 This API provides a way to retrive & interact with data about DagsHub repositories, users, issues, webhooks and more. The API is also used by the [DagsHub Direct Data Access streaming client](https://github.com/DagsHub/client) to stream content from a repository for easier and faster training. 
 
-OpenAPI spec version: 1.0.2
+OpenAPI spec version: 1.0.3
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.2
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BB7FDD9F-1657-4C83-B5E3-E416BEC4C698}</ProjectGuid>
+    <ProjectGuid>{DC4E8379-1DB2-416F-B33C-82A82758E481}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>dagshub_api</RootNamespace>

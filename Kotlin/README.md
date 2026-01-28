@@ -35,6 +35,14 @@ All URIs are relative to *https://dagshub.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnnotationsApi* | [**getLabelStudioTeamAccess**](docs/AnnotationsApi.md#getlabelstudioteamaccess) | **GET** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Get team access level for annotation projects
+*AnnotationsApi* | [**getLabelStudioUserAccess**](docs/AnnotationsApi.md#getlabelstudiouseraccess) | **GET** /repos/{owner}/{repo}/annotations/access/users/{userid} | Get user access level for annotation projects
+*AnnotationsApi* | [**grantLabelStudioTeamAccess**](docs/AnnotationsApi.md#grantlabelstudioteamaccess) | **PUT** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Grant team access to annotation projects
+*AnnotationsApi* | [**grantLabelStudioUserAccess**](docs/AnnotationsApi.md#grantlabelstudiouseraccess) | **PUT** /repos/{owner}/{repo}/annotations/access/users/{userid} | Grant user access to annotation projects
+*AnnotationsApi* | [**listLabelStudioTeamAccess**](docs/AnnotationsApi.md#listlabelstudioteamaccess) | **GET** /repos/{owner}/{repo}/annotations/access/teams | List team access entries for annotation projects
+*AnnotationsApi* | [**listLabelStudioUserAccess**](docs/AnnotationsApi.md#listlabelstudiouseraccess) | **GET** /repos/{owner}/{repo}/annotations/access/users | List user access entries for annotation projects
+*AnnotationsApi* | [**revokeLabelStudioTeamAccess**](docs/AnnotationsApi.md#revokelabelstudioteamaccess) | **DELETE** /repos/{owner}/{repo}/annotations/access/teams/{teamid} | Revoke team access to annotation projects
+*AnnotationsApi* | [**revokeLabelStudioUserAccess**](docs/AnnotationsApi.md#revokelabelstudiouseraccess) | **DELETE** /repos/{owner}/{repo}/annotations/access/users/{userid} | Revoke user access to annotation projects
 *BranchesApi* | [**getBranch**](docs/BranchesApi.md#getbranch) | **GET** /repos/{owner}/{repo}/branches/{branch} | Get Branch
 *BranchesApi* | [**listBranches**](docs/BranchesApi.md#listbranches) | **GET** /repos/{owner}/{repo}/branches | List Branches
 *CollaboratorsApi* | [**addCollaborator**](docs/CollaboratorsApi.md#addcollaborator) | **PUT** /repos/{owner}/{repo}/collaborators/{collaborator} | Add user as a collaborator
@@ -55,6 +63,7 @@ Class | Method | HTTP request | Description
 *IssuesApi* | [**editIssue**](docs/IssuesApi.md#editissue) | **PATCH** /repos/{owner}/{repo}/issues | Edit an issue
 *IssuesApi* | [**getIssue**](docs/IssuesApi.md#getissue) | **GET** /repos/{owner}/{repo}/issues/{index} | Get a single issue
 *IssuesApi* | [**listRepoIssues**](docs/IssuesApi.md#listrepoissues) | **GET** /repos/{owner}/{repo}/issues | List issues for a repository
+*OrganizationsApi* | [**createOrgTeam**](docs/OrganizationsApi.md#createorgteam) | **POST** /admin/orgs/{orgname}/teams | Create an organization team
 *ReleasesApi* | [**listReleases**](docs/ReleasesApi.md#listreleases) | **GET** /repos/{owner}/{repo}/releases | List Releases
 *RepositoryApi* | [**createOrgRepo**](docs/RepositoryApi.md#createorgrepo) | **POST** /org/{orgname}/repos | Create in organization
 *RepositoryApi* | [**createRepo**](docs/RepositoryApi.md#createrepo) | **POST** /user/repos | Create
@@ -81,12 +90,15 @@ Class | Method | HTTP request | Description
  - [io.swagger.client.models.Body](docs/Body.md)
  - [io.swagger.client.models.Closed](docs/Closed.md)
  - [io.swagger.client.models.CollaboratorsCollaboratorBody](docs/CollaboratorsCollaboratorBody.md)
+ - [io.swagger.client.models.CreateAnnotatorTeam](docs/CreateAnnotatorTeam.md)
  - [io.swagger.client.models.CreateRepo](docs/CreateRepo.md)
  - [io.swagger.client.models.EditExperimentPost](docs/EditExperimentPost.md)
  - [io.swagger.client.models.ExperimentKeys](docs/ExperimentKeys.md)
  - [io.swagger.client.models.Files](docs/Files.md)
  - [io.swagger.client.models.Files1](docs/Files1.md)
+ - [io.swagger.client.models.GrantLabelStudioAccess](docs/GrantLabelStudioAccess.md)
  - [io.swagger.client.models.HooksIdBody](docs/HooksIdBody.md)
+ - [io.swagger.client.models.InlineResponse200](docs/InlineResponse200.md)
  - [io.swagger.client.models.Integration](docs/Integration.md)
  - [io.swagger.client.models.IntegrationInner](docs/IntegrationInner.md)
  - [io.swagger.client.models.Issue](docs/Issue.md)
@@ -94,6 +106,7 @@ Class | Method | HTTP request | Description
  - [io.swagger.client.models.IssueLabels](docs/IssueLabels.md)
  - [io.swagger.client.models.IssueMilestone](docs/IssueMilestone.md)
  - [io.swagger.client.models.Issues](docs/Issues.md)
+ - [io.swagger.client.models.LabelStudioProjectAccess](docs/LabelStudioProjectAccess.md)
  - [io.swagger.client.models.Labels](docs/Labels.md)
  - [io.swagger.client.models.MigrateRepo](docs/MigrateRepo.md)
  - [io.swagger.client.models.Milestone](docs/Milestone.md)
