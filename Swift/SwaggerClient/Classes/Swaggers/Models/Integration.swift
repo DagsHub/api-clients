@@ -8,4 +8,4 @@
 import Foundation
 
 
-public typealias Integration = [IntegrationInner]
+public typealias Integration = [Any]

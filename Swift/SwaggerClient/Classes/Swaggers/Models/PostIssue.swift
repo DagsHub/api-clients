@@ -11,14 +11,14 @@ import Foundation
 
 public struct PostIssue: Codable {
 
-    public var title: Title?
-    public var body: Body?
-    public var assignee: Assignee?
-    public var milestone: Milestone?
-    public var labels: Labels?
-    public var closed: Closed?
+    public var title: ComponentsschemasTitleYaml?
+    public var body: ComponentsschemasBodyYaml?
+    public var assignee: ComponentsschemasAssigneeYaml?
+    public var milestone: ComponentsschemasMilestoneYaml?
+    public var labels: ComponentsschemasLabelsYaml?
+    public var closed: ComponentsschemasClosedYaml?
 
-    public init(title: Title? = nil, body: Body? = nil, assignee: Assignee? = nil, milestone: Milestone? = nil, labels: Labels? = nil, closed: Closed? = nil) {
+    public init(title: ComponentsschemasTitleYaml? = nil, body: ComponentsschemasBodyYaml? = nil, assignee: ComponentsschemasAssigneeYaml? = nil, milestone: ComponentsschemasMilestoneYaml? = nil, labels: ComponentsschemasLabelsYaml? = nil, closed: ComponentsschemasClosedYaml? = nil) {
         self.title = title
         self.body = body
         self.assignee = assignee

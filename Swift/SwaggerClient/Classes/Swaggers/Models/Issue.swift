@@ -11,22 +11,27 @@ import Foundation
 
 public struct Issue: Codable {
 
-    public var _id: Int?
-    public var number: Int?
-    public var user: User?
-    public var title: Title
-    public var body: Body
-    public var labels: [IssueLabels]
-    public var milestone: IssueMilestone
-    public var assignee: IssueAssignee
-    public var state: String?
+    public enum State: String, Codable { 
+        case _open = "open"
+        case closed = "closed"
+    }
+    public var _id: Int64?
+    /** Issue index within the repository */
+    public var number: Int64?
+    public var user: ComponentsschemasUserYaml?
+    public var title: String?
+    public var body: String?
+    public var labels: [Any]?
+    public var milestone: Any?
+    public var assignee: ComponentsschemasUserYaml?
+    public var state: State?
     public var comments: Int?
-    public var createdAt: String?
-    public var updatedAt: String?
+    public var createdAt: Date?
+    public var updatedAt: Date?
+    /** Present when the issue is associated with a pull request */
     public var pullRequest: Any?
-    public var closed: Bool
 
-    public init(_id: Int? = nil, number: Int? = nil, user: User? = nil, title: Title, body: Body, labels: [IssueLabels], milestone: IssueMilestone, assignee: IssueAssignee, state: String? = nil, comments: Int? = nil, createdAt: String? = nil, updatedAt: String? = nil, pullRequest: Any? = nil, closed: Bool) {
+    public init(_id: Int64? = nil, number: Int64? = nil, user: ComponentsschemasUserYaml? = nil, title: String? = nil, body: String? = nil, labels: [Any]? = nil, milestone: Any? = nil, assignee: ComponentsschemasUserYaml? = nil, state: State? = nil, comments: Int? = nil, createdAt: Date? = nil, updatedAt: Date? = nil, pullRequest: Any? = nil) {
         self._id = _id
         self.number = number
         self.user = user
@@ -40,7 +45,6 @@ public struct Issue: Codable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.pullRequest = pullRequest
-        self.closed = closed
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -57,7 +61,6 @@ public struct Issue: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case pullRequest = "pull_request"
-        case closed
     }
 
 }
