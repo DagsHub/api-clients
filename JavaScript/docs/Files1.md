@@ -3,6 +3,5 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entries** | **[File]** |  | [optional] 
-**limit** | **Number** |  | [optional] 
-**nextToken** | **String** |  | [optional] 
+**entries** | [**[ComponentsschemasFileYaml]**](ComponentsschemasFileYaml.md) |  | [optional] 
+**nextToken** | **String** | Next token to continue pagination from | [optional] 

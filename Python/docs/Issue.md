@@ -4,19 +4,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**number** | **int** |  | [optional] 
-**user** | [**User**](User.md) |  | [optional] 
-**title** | [**Title**](Title.md) |  | 
-**body** | [**Body**](Body.md) |  | 
-**labels** | [**list[IssueLabels]**](IssueLabels.md) |  | 
-**milestone** | [**IssueMilestone**](IssueMilestone.md) |  | 
-**assignee** | [**IssueAssignee**](IssueAssignee.md) |  | 
+**number** | **int** | Issue index within the repository | [optional] 
+**user** | [**ComponentsschemasUserYaml**](ComponentsschemasUserYaml.md) |  | [optional] 
+**title** | **str** |  | [optional] 
+**body** | **str** |  | [optional] 
+**labels** | **list[object]** |  | [optional] 
+**milestone** | **object** |  | [optional] 
+**assignee** | [**ComponentsschemasUserYaml**](ComponentsschemasUserYaml.md) |  | [optional] 
 **state** | **str** |  | [optional] 
 **comments** | **int** |  | [optional] 
-**created_at** | **str** |  | [optional] 
-**updated_at** | **str** |  | [optional] 
-**pull_request** | **object** |  | [optional] 
-**closed** | **bool** |  | 
+**created_at** | **datetime** |  | [optional] 
+**updated_at** | **datetime** |  | [optional] 
+**pull_request** | **object** | Present when the issue is associated with a pull request | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
