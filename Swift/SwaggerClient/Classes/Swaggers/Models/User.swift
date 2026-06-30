@@ -11,26 +11,39 @@ import Foundation
 
 public struct User: Codable {
 
-    public var _id: Int?
+    public var _id: Int64?
     public var login: String?
+    /** Alias for login (legacy compatibility) */
+    public var username: String?
     public var fullName: String?
     public var avatarUrl: String?
-    public var username: String?
+    public var publicEmail: String?
+    public var website: String?
+    public var company: String?
+    public var _description: String?
 
-    public init(_id: Int? = nil, login: String? = nil, fullName: String? = nil, avatarUrl: String? = nil, username: String? = nil) {
+    public init(_id: Int64? = nil, login: String? = nil, username: String? = nil, fullName: String? = nil, avatarUrl: String? = nil, publicEmail: String? = nil, website: String? = nil, company: String? = nil, _description: String? = nil) {
         self._id = _id
         self.login = login
+        self.username = username
         self.fullName = fullName
         self.avatarUrl = avatarUrl
-        self.username = username
+        self.publicEmail = publicEmail
+        self.website = website
+        self.company = company
+        self._description = _description
     }
 
     public enum CodingKeys: String, CodingKey { 
         case _id = "id"
         case login
+        case username
         case fullName = "full_name"
         case avatarUrl = "avatar_url"
-        case username
+        case publicEmail = "public_email"
+        case website
+        case company
+        case _description = "description"
     }
 
 }

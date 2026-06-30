@@ -3,8 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  |  [optional]
+**id** | **Long** |  |  [optional]
 **login** | **String** |  |  [optional]
+**username** | **String** | Alias for login (legacy compatibility) |  [optional]
 **fullName** | **String** |  |  [optional]
 **avatarUrl** | **String** |  |  [optional]
-**username** | **String** |  |  [optional]
+**publicEmail** | **String** |  |  [optional]
+**website** | **String** |  |  [optional]
+**company** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
